@@ -1,0 +1,19 @@
+{
+  "name": "@silkstudio/styled-framework",
+  "version": "1.0.0",
+  "description": "Build reusable, adaptable and extendable styled-components.",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silkstudio/styled-framework.git"
+  },
+  "author": "Silk Studio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/silkstudio/styled-framework/issues"
+  },
+  "homepage": "https://github.com/silkstudio/styled-framework#readme"
+}
