@@ -4,9 +4,20 @@
   "description": "Build reusable, adaptable and extendable styled-components.",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "private": "false",
   "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "yarn format && yarn lint && tsc",
+    "format": "prettier --write \"src/**/*.+(ts|tsx|js|jsx|md)\"",
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:fix": "yarn lint -- --fix",
+    "precommit": "lint-staged && tsc",
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   },
   "repository": {
     "type": "git",
@@ -29,6 +40,9 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.27.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.0.2",
+    "pinst": "^2.1.6",
     "prettier": "^2.4.1",
     "typescript": "^4.4.4"
   }
