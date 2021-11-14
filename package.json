@@ -11,9 +11,8 @@
   "scripts": {
     "build": "yarn format && yarn lint && tsc",
     "format": "prettier --write \"src/**/*.+(ts|tsx|js|jsx|md)\"",
-    "lint": "eslint --ext .ts,.tsx,.js,.jsx .",
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx . --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint:fix": "yarn lint -- --fix",
     "precommit": "lint-staged && tsc",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
