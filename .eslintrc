@@ -1,0 +1,40 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "import", "jsx-a11y", "prettier", "react-hooks"],
+  "extends": [
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": ["./tsconfig.json"]
+  },
+  "rules": {
+    "no-param-reassign": [2, { "props": false }],
+    "no-console": "off",
+    "consistent-return": "off",
+    "no-nested-ternary": "off",
+    "no-constant-condition": ["error", { "checkLoops": false }],
+    // Import
+    "import/newline-after-import": ["error"],
+    "import/no-duplicates": ["error"],
+    "import/no-useless-path-segments": ["error"],
+    "import/order": "off",
+    "import/prefer-default-export": "off",
+    "import/extensions": "off",
+    // React
+    "react/prop-types": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-filename-extension": "off",
+    // Typescript
+    "@typescript-eslint/explicit-function-return-type":["error", { "allowExpressions": true }],
+    "@typescript-eslint/semi": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/ban-ts-comment": "off"
+  }
+}
