@@ -1,5 +1,5 @@
 /**
- * Utility funtion that sorts object-based responsive styles
+ * Utility function that sorts object-based responsive styles
  *
  * @param {Record<string, any>} obj Object to sort
  * @returns {Record<string, any>} The sorted object

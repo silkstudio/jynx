@@ -1,5 +1,5 @@
 /**
- * Function that returns a 'min-width' media query as a string
+ * Utility function that returns a 'min-width' media query as a string
  *
  * @param {string} n Value to be used as the min-width
  * @returns {string} Media query as a string
