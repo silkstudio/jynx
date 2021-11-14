@@ -9,9 +9,9 @@
   ],
   "private": "false",
   "scripts": {
-    "build": "yarn format && yarn lint && tsc",
+    "build": "yarn format && eslint src --fix && tsc",
     "format": "prettier --write \"src/**/*.+(ts|tsx|js|jsx|md)\"",
-    "lint": "eslint --ext .ts,.tsx,.js,.jsx . --fix",
+    "lint": "eslint src --fix",
     "precommit": "lint-staged && tsc",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
