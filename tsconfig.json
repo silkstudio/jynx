@@ -5,8 +5,13 @@
       "declaration": true,
       "outDir": "./dist",
       "strict": true,
-      "skipLibCheck": true
+      "skipLibCheck": true,
+      "jsx": "react",
+      "noEmit": true,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true
     },
     "include": ["src"],
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx"]
   }
