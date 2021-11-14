@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "Build reusable, adaptable and extendable styled-components.",
   "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "typings": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "private": "false",
   "scripts": {
-    "build": "yarn format && eslint src --fix && tsc",
+    "build": "rollup -c",
     "format": "prettier --write \"src/**/*.+(ts|tsx|js|jsx|md)\"",
     "lint": "eslint src --fix",
     "precommit": "lint-staged && tsc",
@@ -33,6 +34,7 @@
     "@types/styled-components": "^5.1.15",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
+    "esbuild": "^0.13.13",
     "eslint": "^8.2.0",
     "eslint-config-airbnb-typescript": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
@@ -45,6 +47,9 @@
     "lint-staged": "^12.0.2",
     "pinst": "^2.1.6",
     "prettier": "^2.4.1",
+    "rollup": "^2.60.0",
+    "rollup-plugin-dts": "^4.0.1",
+    "rollup-plugin-esbuild": "^4.6.0",
     "typescript": "^4.4.4"
   },
   "dependencies": {

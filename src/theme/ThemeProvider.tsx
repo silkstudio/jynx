@@ -7,7 +7,7 @@ import { ThemeProvider as SCThemeProvider } from 'styled-components'
 import { BaseExtensibleObject } from '../types'
 
 // Utils
-import { baseTheme } from '.'
+import { baseTheme } from './theme'
 import { merge } from '../utils'
 
 // Props
