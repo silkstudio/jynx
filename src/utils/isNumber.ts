@@ -19,6 +19,6 @@
 
 */
 
-const isNumber = (value: any): value is number => typeof value === 'number' || parseFloat(value) !== NaN
+const isNumber = (value: any): value is number => typeof value === 'number' || !isNaN(value)
 
 export { isNumber }
