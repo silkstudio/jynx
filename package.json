@@ -10,7 +10,7 @@
   ],
   "private": "false",
   "scripts": {
-    "build": "rm -r dist && rollup -c",
+    "build": "rm -rf dist? && rollup -c",
     "format": "prettier --write \"src/**/*.+(ts|tsx|js|jsx|md)\"",
     "lint": "eslint src --fix",
     "precommit": "lint-staged && tsc",
