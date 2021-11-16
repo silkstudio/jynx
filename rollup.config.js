@@ -1,35 +1,63 @@
 import dts from 'rollup-plugin-dts'
 import esbuild from 'rollup-plugin-esbuild'
 
-const name = require('./package.json').main.replace(/\.js$/, '')
+/*
 
-const bundle = config => ({
-  ...config,
+
+
+
+
+
+
+
+*/
+
+const configBase = {
   input: 'src/index.ts',
   external: id => !/^[./]/.test(id)
-})
+}
 
-export default [
-  bundle({
-    plugins: [esbuild()],
-    output: [
-      {
-        file: `${name}.js`,
-        format: 'cjs',
-        sourcemap: true
-      },
-      {
-        file: `${name}.esm.js`,
-        format: 'es',
-        sourcemap: true
-      }
-    ]
-  }),
-  bundle({
-    plugins: [dts()],
-    output: {
-      file: `${name}.d.ts`,
-      format: 'es'
+const configDev = {
+  ...configBase,
+  output: [
+    {
+      file: `dist/styled-framework.cjs.js`,
+      format: 'cjs',
+      sourcemap: true
+    },
+    {
+      file: `dist/styled-framework.js`,
+      format: 'esm',
+      sourcemap: true
     }
-  })
-]
+  ],
+  plugins: [esbuild()]
+}
+
+const configProd = {
+  ...configDev,
+  output: [
+    {
+      file: 'dist/styled-framework.cjs.min.js',
+      format: 'cjs',
+      sourcemap: true
+    },
+    {
+      file: 'dist/styled-framework.min.js',
+      format: 'esm',
+      sourcemap: true
+    }
+  ],
+  plugins: [esbuild({ minify: true })]
+}
+
+const configTS = {
+  ...configBase,
+  output: {
+    file: 'dist/index.d.ts',
+    format: 'es'
+  },
+  plugins: [dts()]
+}
+
+export default [configDev, configTS]
