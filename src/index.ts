@@ -2,26 +2,18 @@ import { styleParser } from './parsers/styleParser'
 import { ThemeProvider } from './theme'
 
 // Function Imports
-import {
-  background,
+import { background, border, color, flexbox, grid, layout, position, shadow, space, typography } from './functions'
+
+import type {
   BackgroundProps,
-  border,
   BorderProps,
-  color,
   ColorProps,
-  flexbox,
   FlexboxProps,
-  grid,
   GridProps,
-  layout,
   LayoutProps,
-  position,
   PositionProps,
-  shadow,
   ShadowProps,
-  space,
   SpaceProps,
-  typography,
   TypographyProps
 } from './functions'
 
@@ -39,25 +31,17 @@ import {
 export { ThemeProvider, styleParser }
 
 // Function Exports
-export {
-  background,
+export { background, border, color, flexbox, grid, layout, position, shadow, space, typography }
+
+export type {
   BackgroundProps,
-  border,
   BorderProps,
-  color,
   ColorProps,
-  flexbox,
   FlexboxProps,
-  grid,
   GridProps,
-  layout,
   LayoutProps,
-  position,
   PositionProps,
-  shadow,
   ShadowProps,
-  space,
   SpaceProps,
-  typography,
   TypographyProps
-}
+} from './functions'
