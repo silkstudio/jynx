@@ -10,7 +10,8 @@
   ],
   "private": "false",
   "scripts": {
-    "build": "if [ -e \"dist\" ];then rm -rf \"dist\"; fi && rollup -c",
+    "build": "rollup -c",
+    "build:dev": "if [ -e \"dist\" ];then rm -rf \"dist\"; fi && rollup -c",
     "format": "prettier --write \"src/**/*.+(ts|tsx|js|jsx|md)\"",
     "lint": "eslint src --fix",
     "precommit": "lint-staged && tsc",
