@@ -2,7 +2,7 @@ export const baseTheme = {
   breakpoints: {
     sm: 640,
     md: 960,
-    lg: 1280,
+    lg: 1280
   },
   spaces: {},
   fontSizes: {},
@@ -10,12 +10,12 @@ export const baseTheme = {
   fonts: {
     primary: {
       helvetica: '',
-      times: '',
+      times: ''
     },
     secondary: {
       inter: '',
-      hk_grotesk: '',
-    },
+      hk_grotesk: ''
+    }
   },
   fontWeights: {},
   lineHeights: {},
@@ -26,5 +26,5 @@ export const baseTheme = {
   borderStyles: {},
   radii: {},
   shadows: {},
-  zIndices: {},
+  zIndices: {}
 }

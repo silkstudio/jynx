@@ -1,7 +1,7 @@
 import { CSSProperties, css } from 'styled-components'
 
 // Types
-import { Border, ResponsiveStyle } from '../types'
+import { ResponsiveStyle } from '../types'
 
 // Utils
 import { styleParser } from '../parsers/styleParser'
