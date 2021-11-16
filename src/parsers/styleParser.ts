@@ -2,7 +2,7 @@ import { CSSProperties, css, FlattenSimpleInterpolation } from 'styled-component
 
 // Types
 import { Breakpoint, DefaultTheme, ResponsiveStyle } from '../types'
-import { ResponsiveArrayGuard, ResponsiveObjectGuard, ResponsiveStyleGuard } from '../types/guards'
+import { isResponsiveArray, isResponsiveObject, isResponsiveStyle } from '../types/guards'
 
 // Utils
 import kebabCase from 'lodash.kebabcase'
@@ -54,12 +54,12 @@ const styleParser = <P extends keyof CSSProperties, C extends CSSProperties[P]>(
   const tValues = transform ? transform(values) : values
 
   // [1]
-  if (!ResponsiveStyleGuard<C>(tValues)) {
+  if (!isResponsiveStyle<C>(tValues)) {
     result.push(`${style}: ${tValues};`)
   }
 
   // [2]
-  if (ResponsiveObjectGuard<C>(tValues)) {
+  if (isResponsiveObject<C>(tValues)) {
     const { breakpoints } = theme
     const { _: base, ...responsive } = tValues
     const styles: Record<string, any> = {}
@@ -77,7 +77,7 @@ const styleParser = <P extends keyof CSSProperties, C extends CSSProperties[P]>(
   }
 
   // [3]
-  if (ResponsiveArrayGuard<C>(tValues)) {
+  if (isResponsiveArray<C>(tValues)) {
     const breakpoints = Object.values(theme.breakpoints)
 
     // Push the first entry to the result array as this `must` come first
