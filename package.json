@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "description": "Build reusable, adaptable and extendable styled-components.",
   "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "typings": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "private": "false",
   "scripts": {
-    "build": "yarn format && yarn lint && tsc",
+    "build": "rollup -c",
+    "build:dev": "if [ -e \"dist\" ];then rm -rf \"dist\"; fi && rollup -c",
     "format": "prettier --write \"src/**/*.+(ts|tsx|js|jsx|md)\"",
-    "lint": "eslint --ext .ts,.tsx,.js,.jsx . --fix",
+    "lint": "eslint src --fix",
     "precommit": "lint-staged && tsc",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
@@ -28,8 +30,13 @@
   },
   "homepage": "https://github.com/silkstudio/styled-framework#readme",
   "devDependencies": {
+    "@types/lodash.get": "^4.4.6",
+    "@types/lodash.kebabcase": "^4.1.6",
+    "@types/react": "^17.0.34",
+    "@types/styled-components": "^5.1.15",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
+    "esbuild": "^0.13.13",
     "eslint": "^8.2.0",
     "eslint-config-airbnb-typescript": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
@@ -42,6 +49,15 @@
     "lint-staged": "^12.0.2",
     "pinst": "^2.1.6",
     "prettier": "^2.4.1",
+    "rollup": "^2.60.0",
+    "rollup-plugin-dts": "^4.0.1",
+    "rollup-plugin-esbuild": "^4.6.0",
     "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "lodash.get": "^4.4.2",
+    "lodash.kebabcase": "^4.1.1",
+    "react": "^17.0.2",
+    "styled-components": "^5.3.3"
   }
 }
