@@ -1,2 +1,2 @@
-export { baseTheme } from './theme'
+export { systemTheme } from './theme'
 export { ThemeProvider } from './ThemeProvider'

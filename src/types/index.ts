@@ -1,4 +1,4 @@
-import { baseTheme } from '../theme'
+import { systemTheme } from '../theme'
 import { DeepKeys } from './utils'
 
 /**
@@ -11,12 +11,50 @@ export type BaseExtensibleObject = {
 }
 
 /**
- * Basic theme object shape
+ * ThemePropertyArray
  *
  * @since 1.0.0
  */
+type ThemePropertyArray = (string | number)[]
 
-export type BaseTheme = typeof baseTheme
+/**
+ * ThemePropertyObject
+ *
+ * @since 1.0.0
+ */
+type ThemePropertyObject = {
+  [key: string]: string | number
+}
+
+// API V2
+//
+// /**
+//  * ThemePropertyRecursiveObject
+//  *
+//  * @since 1.0.0
+//  */
+// type ThemePropertyRecursiveObject = {
+//   [key: string]: string | number | ThemePropertyRecursiveObject
+// }
+
+/**
+ * SystemTheme
+ *
+ * @since 1.0.0
+ * @public
+ */
+export type SystemTheme = typeof systemTheme
+
+/**
+ * MappedTheme
+ *
+ * @template T extends {@link BaseExtensibleObject}
+ *
+ * @since 1.0.0
+ */
+type MappedTheme<T extends BaseExtensibleObject = BaseExtensibleObject> = {
+  [K in keyof T]: T[K] | ThemePropertyArray | ThemePropertyObject
+}
 
 /**
  * DefaultTheme
@@ -24,7 +62,7 @@ export type BaseTheme = typeof baseTheme
  * @since 1.0.0
  * @public
  */
-export interface DefaultTheme extends BaseTheme {
+export interface DefaultTheme extends MappedTheme<SystemTheme> {
   [key: string]: any
 }
 
@@ -75,7 +113,7 @@ export type Fonts = DefaultTheme['fonts']
  *
  * @since 1.0.0
  */
-export type Font = DeepKeys<Fonts>
+export type Font = Fonts extends undefined ? never : DeepKeys<Fonts>
 
 /**
  * Colors

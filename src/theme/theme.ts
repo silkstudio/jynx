@@ -1,4 +1,4 @@
-export const baseTheme = {
+export const systemTheme = {
   breakpoints: {
     sm: 640,
     md: 960,
