@@ -11,13 +11,6 @@ export type BaseExtensibleObject = {
 }
 
 /**
- * ThemePropertyArray
- *
- * @since 1.0.0
- */
-type ThemePropertyArray = (string | number)[]
-
-/**
  * ThemePropertyObject
  *
  * @since 1.0.0
@@ -27,6 +20,13 @@ type ThemePropertyObject = {
 }
 
 // API V2
+//
+// /**
+//  * ThemePropertyArray
+//  *
+//  * @since 1.0.0
+//  */
+// type ThemePropertyArray = (string | number)[]
 //
 // /**
 //  * ThemePropertyRecursiveObject
@@ -53,7 +53,7 @@ export type SystemTheme = typeof systemTheme
  * @since 1.0.0
  */
 type MappedTheme<T extends BaseExtensibleObject = BaseExtensibleObject> = {
-  [K in keyof T]: T[K] | ThemePropertyArray | ThemePropertyObject
+  [K in keyof T]: T[K] | ThemePropertyObject
 }
 
 /**
@@ -62,9 +62,7 @@ type MappedTheme<T extends BaseExtensibleObject = BaseExtensibleObject> = {
  * @since 1.0.0
  * @public
  */
-export interface DefaultTheme extends MappedTheme<SystemTheme> {
-  [key: string]: any
-}
+export type DefaultTheme = MappedTheme<SystemTheme>
 
 // =========================================== //
 // INTERNAL THEME PROPERTIES
@@ -271,7 +269,7 @@ export type Shadow = keyof Shadows
  * @since 1.0.0
  * @nestable false
  */
-export type ZIndicies = DefaultTheme['zIndicies']
+export type ZIndicies = DefaultTheme['zIndices']
 
 /**
  * ZIndicie

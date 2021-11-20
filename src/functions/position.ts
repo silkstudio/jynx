@@ -4,7 +4,7 @@ import { CSSProperties, css } from 'styled-components'
 import { ResponsiveStyle } from '../types'
 
 // Utils
-import { styleParser } from '../parsers/styleParser'
+import { parser } from '../parsers/parser'
 
 /*
 
@@ -26,9 +26,9 @@ export interface PositionProps {
 }
 
 export const position = css<PositionProps>`
-  ${({ top: T, theme }) => T && styleParser('top', T, theme)}
-  ${({ right: T, theme }) => T && styleParser('right', T, theme)}
-  ${({ bottom: T, theme }) => T && styleParser('bottom', T, theme)}
-  ${({ left: T, theme }) => T && styleParser('left', T, theme)}
-  ${({ zIndex: T, theme }) => T && styleParser('zIndex', T, theme)}
+  ${({ top: T, theme }) => T && parser('top', T, theme)}
+  ${({ right: T, theme }) => T && parser('right', T, theme)}
+  ${({ bottom: T, theme }) => T && parser('bottom', T, theme)}
+  ${({ left: T, theme }) => T && parser('left', T, theme)}
+  ${({ zIndex: T, theme }) => T && parser('zIndex', T, theme)}
 `

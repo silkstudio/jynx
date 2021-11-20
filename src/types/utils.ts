@@ -1,3 +1,6 @@
+import { CSSProperties as CSS } from 'styled-components'
+import { ResponsiveStyle, DefaultTheme, SystemTheme } from './index'
+
 // ================================================
 // GLOBALS
 // ================================================
@@ -50,6 +53,34 @@ type DottedKeys<
   K extends string = keyof O
 > = K extends ExtractKeys<O> ? DottedKeys<O[K], DotJoin<P, K>> : DotJoin<P, K>
 
+// ================================================
+// Style
+// ================================================
+
+// type LiteralUnion<T extends U, U = string | number> = T | (U & {})
+// let x: LiteralUnion<keyof DefaultTheme['breakpoints']>
+// x = ''
+
+/**
+ *
+ * @template K extends keyof {@link CSSProperties}
+ *
+ * @since 1.0.0
+ */
+type Style<K extends keyof CSS> = CSS[K] | ResponsiveStyle<CSS[K]>
+
+/**
+ *
+ * @template K extends keyof {@link CSSProperties}
+ * @template S extends keyof `T` &nbsp;&nbsp;|&nbsp;&nbsp; Scale selected from theme to use as the primary source of the style
+ * @template T extends {@link DefaultTheme} &nbsp;&nbsp;|&nbsp;&nbsp; Selected theme
+ *
+ * @since 1.0.0
+ */
+type StyleWithTheme<K extends keyof CSS, S extends keyof T, T extends DefaultTheme = DefaultTheme> =
+  | (CSS[K] | keyof T[S])
+  | ResponsiveStyle<CSS[K] | keyof T[S]>
+
 /*
 
 
@@ -61,4 +92,4 @@ type DottedKeys<
 
 */
 
-export type { DeepKeys, DottedKeys }
+export type { DeepKeys, DottedKeys, Style, StyleWithTheme }

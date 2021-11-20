@@ -4,7 +4,7 @@ import { CSSProperties, css } from 'styled-components'
 import { ResponsiveStyle } from '../types'
 
 // Utils
-import { styleParser } from '../parsers/styleParser'
+import { parser } from '../parsers/parser'
 
 /*
 
@@ -29,12 +29,12 @@ export interface TypographyProps {
 }
 
 export const typography = css<TypographyProps>`
-  ${({ fontFamily: T, theme }) => T && styleParser('fontFamily', T, theme)}
-  ${({ fontSize: T, theme }) => T && styleParser('fontSize', T, theme)} 
-  ${({ fontWeight: T, theme }) => T && styleParser('fontWeight', T, theme)}
-  ${({ lineHeight: T, theme }) => T && styleParser('lineHeight', T, theme)}
-  ${({ letterSpacing: T, theme }) => T && styleParser('letterSpacing', T, theme)}
-  ${({ textAlign: T, theme }) => T && styleParser('textAlign', T, theme)}
-  ${({ fontStyle: T, theme }) => T && styleParser('fontStyle', T, theme)}
-  ${({ textTransform: T, theme }) => T && styleParser('textTransform', T, theme)}
+  ${({ fontFamily: T, theme }) => T && parser('fontFamily', T, theme)}
+  ${({ fontSize: T, theme }) => T && parser('fontSize', T, theme)} 
+  ${({ fontWeight: T, theme }) => T && parser('fontWeight', T, theme)}
+  ${({ lineHeight: T, theme }) => T && parser('lineHeight', T, theme)}
+  ${({ letterSpacing: T, theme }) => T && parser('letterSpacing', T, theme)}
+  ${({ textAlign: T, theme }) => T && parser('textAlign', T, theme)}
+  ${({ fontStyle: T, theme }) => T && parser('fontStyle', T, theme)}
+  ${({ textTransform: T, theme }) => T && parser('textTransform', T, theme)}
 `

@@ -4,7 +4,7 @@ import { CSSProperties, css } from 'styled-components'
 import { ResponsiveStyle } from '../types'
 
 // Utils
-import { styleParser } from '../parsers/styleParser'
+import { parser } from '../parsers/parser'
 
 /*
 
@@ -32,15 +32,15 @@ export interface BackgroundProps {
 }
 
 export const background = css<BackgroundProps>`
-  ${({ backgroundAttachment: T, theme: t }) => T && styleParser('backgroundAttachment', T, t)}
-  ${({ backgroundBlendMode: T, theme: t }) => T && styleParser('backgroundBlendMode', T, t)}
-  ${({ backgroundClip: T, theme: t }) => T && styleParser('backgroundClip', T, t)}
-  ${({ backgroundColor: T, theme: t }) => T && styleParser('backgroundColor', T, t)}
-  ${({ backgroundImage: T, theme: t }) => T && styleParser('backgroundImage', T, t)}
-  ${({ backgroundOrigin: T, theme: t }) => T && styleParser('backgroundOrigin', T, t)}
-  ${({ backgroundPosition: T, theme: t }) => T && styleParser('backgroundPosition', T, t)}
-  ${({ backgroundPositionX: T, theme: t }) => T && styleParser('backgroundPositionX', T, t)}
-  ${({ backgroundPositionY: T, theme: t }) => T && styleParser('backgroundPositionY', T, t)}
-  ${({ backgroundRepeat: T, theme: t }) => T && styleParser('backgroundRepeat', T, t)}
-  ${({ backgroundSize: T, theme: t }) => T && styleParser('backgroundSize', T, t)}
+  ${({ backgroundAttachment: T, theme: t }) => T && parser('backgroundAttachment', T, t)}
+  ${({ backgroundBlendMode: T, theme: t }) => T && parser('backgroundBlendMode', T, t)}
+  ${({ backgroundClip: T, theme: t }) => T && parser('backgroundClip', T, t)}
+  ${({ backgroundColor: T, theme: t }) => T && parser('backgroundColor', T, t)}
+  ${({ backgroundImage: T, theme: t }) => T && parser('backgroundImage', T, t)}
+  ${({ backgroundOrigin: T, theme: t }) => T && parser('backgroundOrigin', T, t)}
+  ${({ backgroundPosition: T, theme: t }) => T && parser('backgroundPosition', T, t)}
+  ${({ backgroundPositionX: T, theme: t }) => T && parser('backgroundPositionX', T, t)}
+  ${({ backgroundPositionY: T, theme: t }) => T && parser('backgroundPositionY', T, t)}
+  ${({ backgroundRepeat: T, theme: t }) => T && parser('backgroundRepeat', T, t)}
+  ${({ backgroundSize: T, theme: t }) => T && parser('backgroundSize', T, t)}
 `

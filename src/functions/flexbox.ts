@@ -4,7 +4,7 @@ import { CSSProperties, css } from 'styled-components'
 import { ResponsiveStyle } from '../types'
 
 // Utils
-import { styleParser } from '../parsers/styleParser'
+import { parser } from '../parsers/parser'
 
 /*
 
@@ -63,16 +63,16 @@ export const flexbox = css<FlexboxProps>`
       display: flex;
     `}
 
-  ${({ flexDirection: T, theme }) => T && styleParser('flexDirection', T, theme)}
-  ${({ flexFlow: T, theme }) => T && styleParser('flexFlow', T, theme)}
-  ${({ flexWrap: T, theme }) => T && styleParser('flexWrap', T, theme)}
-  ${({ alignItems: T, theme }) => T && styleParser('alignItems', T, theme)}
-  ${({ alignContent: T, theme }) => T && styleParser('alignContent', T, theme)}
-  ${({ alignSelf: T, theme }) => T && styleParser('alignSelf', T, theme)}
-  ${({ justifyContent: T, theme }) => T && styleParser('justifyContent', T, theme)}
-  ${({ gap: T, theme }) => T && styleParser('gap', T, theme)}
-  ${({ flexGrow: T, theme }) => T && styleParser('flexGrow', T, theme)}
-  ${({ flexShrink: T, theme }) => T && styleParser('flexShrink', T, theme)}
-  ${({ flexBasis: T, theme }) => T && styleParser('flexBasis', T, theme)}
-  ${({ order: T, theme }) => T && styleParser('order', T, theme)}
+  ${({ flexDirection: T, theme }) => T && parser('flexDirection', T, theme)}
+  ${({ flexFlow: T, theme }) => T && parser('flexFlow', T, theme)}
+  ${({ flexWrap: T, theme }) => T && parser('flexWrap', T, theme)}
+  ${({ alignItems: T, theme }) => T && parser('alignItems', T, theme)}
+  ${({ alignContent: T, theme }) => T && parser('alignContent', T, theme)}
+  ${({ alignSelf: T, theme }) => T && parser('alignSelf', T, theme)}
+  ${({ justifyContent: T, theme }) => T && parser('justifyContent', T, theme)}
+  ${({ gap: T, theme }) => T && parser('gap', T, theme)}
+  ${({ flexGrow: T, theme }) => T && parser('flexGrow', T, theme)}
+  ${({ flexShrink: T, theme }) => T && parser('flexShrink', T, theme)}
+  ${({ flexBasis: T, theme }) => T && parser('flexBasis', T, theme)}
+  ${({ order: T, theme }) => T && parser('order', T, theme)}
 `

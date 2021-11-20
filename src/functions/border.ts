@@ -4,7 +4,7 @@ import { CSSProperties, css } from 'styled-components'
 import { ResponsiveStyle } from '../types'
 
 // Utils
-import { styleParser } from '../parsers/styleParser'
+import { parser } from '../parsers/parser'
 
 /*
 
@@ -46,29 +46,29 @@ export interface BorderProps {
 }
 
 export const border = css<BorderProps>`
-  ${({ border: T, theme }) => T && styleParser('border', T, theme)}
-  ${({ borderWidth: T, theme }) => T && styleParser('borderWidth', T, theme)}
-  ${({ borderStyle: T, theme }) => T && styleParser('borderStyle', T, theme)}
-  ${({ borderColor: T, theme }) => T && styleParser('borderColor', T, theme)}
-  ${({ borderRadius: T, theme }) => T && styleParser('borderRadius', T, theme)}
-  ${({ borderTop: T, theme }) => T && styleParser('borderTop', T, theme)}
-  ${({ borderTopWidth: T, theme }) => T && styleParser('borderTopWidth', T, theme)}
-  ${({ borderTopStyle: T, theme }) => T && styleParser('borderTopStyle', T, theme)}
-  ${({ borderTopColor: T, theme }) => T && styleParser('borderTopColor', T, theme)}
-  ${({ borderTopLeftRadius: T, theme }) => T && styleParser('borderTopLeftRadius', T, theme)}
-  ${({ borderTopRightRadius: T, theme }) => T && styleParser('borderTopRightRadius', T, theme)}
-  ${({ borderRight: T, theme }) => T && styleParser('borderRight', T, theme)}
-  ${({ borderRightWidth: T, theme }) => T && styleParser('borderRightWidth', T, theme)}
-  ${({ borderRightStyle: T, theme }) => T && styleParser('borderRightStyle', T, theme)}
-  ${({ borderRightColor: T, theme }) => T && styleParser('borderRightColor', T, theme)}
-  ${({ borderBottom: T, theme }) => T && styleParser('borderBottom', T, theme)}
-  ${({ borderBottomWidth: T, theme }) => T && styleParser('borderBottomWidth', T, theme)}
-  ${({ borderBottomStyle: T, theme }) => T && styleParser('borderBottomStyle', T, theme)}
-  ${({ borderBottomColor: T, theme }) => T && styleParser('borderBottomColor', T, theme)}
-  ${({ borderBottomLeftRadius: T, theme }) => T && styleParser('borderBottomLeftRadius', T, theme)}
-  ${({ borderBottomRightRadius: T, theme }) => T && styleParser('borderBottomRightRadius', T, theme)}
-  ${({ borderLeft: T, theme }) => T && styleParser('borderLeft', T, theme)}
-  ${({ borderLeftWidth: T, theme }) => T && styleParser('borderLeftWidth', T, theme)}
-  ${({ borderLeftStyle: T, theme }) => T && styleParser('borderLeftStyle', T, theme)}
-  ${({ borderLeftColor: T, theme }) => T && styleParser('borderLeftColor', T, theme)}
+  ${({ border: T, theme }) => T && parser('border', T, theme)}
+  ${({ borderWidth: T, theme }) => T && parser('borderWidth', T, theme)}
+  ${({ borderStyle: T, theme }) => T && parser('borderStyle', T, theme)}
+  ${({ borderColor: T, theme }) => T && parser('borderColor', T, theme)}
+  ${({ borderRadius: T, theme }) => T && parser('borderRadius', T, theme)}
+  ${({ borderTop: T, theme }) => T && parser('borderTop', T, theme)}
+  ${({ borderTopWidth: T, theme }) => T && parser('borderTopWidth', T, theme)}
+  ${({ borderTopStyle: T, theme }) => T && parser('borderTopStyle', T, theme)}
+  ${({ borderTopColor: T, theme }) => T && parser('borderTopColor', T, theme)}
+  ${({ borderTopLeftRadius: T, theme }) => T && parser('borderTopLeftRadius', T, theme)}
+  ${({ borderTopRightRadius: T, theme }) => T && parser('borderTopRightRadius', T, theme)}
+  ${({ borderRight: T, theme }) => T && parser('borderRight', T, theme)}
+  ${({ borderRightWidth: T, theme }) => T && parser('borderRightWidth', T, theme)}
+  ${({ borderRightStyle: T, theme }) => T && parser('borderRightStyle', T, theme)}
+  ${({ borderRightColor: T, theme }) => T && parser('borderRightColor', T, theme)}
+  ${({ borderBottom: T, theme }) => T && parser('borderBottom', T, theme)}
+  ${({ borderBottomWidth: T, theme }) => T && parser('borderBottomWidth', T, theme)}
+  ${({ borderBottomStyle: T, theme }) => T && parser('borderBottomStyle', T, theme)}
+  ${({ borderBottomColor: T, theme }) => T && parser('borderBottomColor', T, theme)}
+  ${({ borderBottomLeftRadius: T, theme }) => T && parser('borderBottomLeftRadius', T, theme)}
+  ${({ borderBottomRightRadius: T, theme }) => T && parser('borderBottomRightRadius', T, theme)}
+  ${({ borderLeft: T, theme }) => T && parser('borderLeft', T, theme)}
+  ${({ borderLeftWidth: T, theme }) => T && parser('borderLeftWidth', T, theme)}
+  ${({ borderLeftStyle: T, theme }) => T && parser('borderLeftStyle', T, theme)}
+  ${({ borderLeftColor: T, theme }) => T && parser('borderLeftColor', T, theme)}
 `

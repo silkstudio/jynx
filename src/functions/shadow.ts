@@ -4,7 +4,7 @@ import { CSSProperties, css } from 'styled-components'
 import { ResponsiveStyle } from '../types'
 
 // Utils
-import { styleParser } from '../parsers/styleParser'
+import { parser } from '../parsers/parser'
 
 /*
 
@@ -23,6 +23,6 @@ export interface ShadowProps {
 }
 
 export const shadow = css<ShadowProps>`
-  ${({ boxShadow: T, theme }) => T && styleParser('boxShadow', T, theme)}
-  ${({ textShadow: T, theme }) => T && styleParser('textShadow', T, theme)}
+  ${({ boxShadow: T, theme }) => T && parser('boxShadow', T, theme)}
+  ${({ textShadow: T, theme }) => T && parser('textShadow', T, theme)}
 `
