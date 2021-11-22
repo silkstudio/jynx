@@ -1,7 +1,7 @@
 // Internal Utils
 export { createMediaQuery } from './createMediaQuery'
 export { merge } from './merge'
-export { sortStyles } from './sortStyles'
+export { sort } from './sort'
 export { isNumber } from './isNumber'
 
 // External Utils

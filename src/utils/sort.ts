@@ -18,7 +18,7 @@
 
 */
 
-const sortStyles = (obj: Record<string, any>): Record<string, any> => {
+const sort = (obj: Record<string, any>): Record<string, any> => {
   const result: Record<string, any> = {}
   Object.keys(obj)
     .sort((a, b) =>
@@ -33,4 +33,4 @@ const sortStyles = (obj: Record<string, any>): Record<string, any> => {
   return result
 }
 
-export { sortStyles }
+export { sort }
