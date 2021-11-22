@@ -6,6 +6,14 @@ import { DeepKeys } from './utils'
  *
  * @since 1.0.0
  */
+// eslint-disable-next-line
+export type CssProperty = string | number | (string & {}) | (number & {})
+
+/**
+ * Basic theme object shape
+ *
+ * @since 1.0.0
+ */
 export type BaseExtensibleObject = {
   [key: string]: any
 }
