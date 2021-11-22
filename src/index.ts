@@ -1,4 +1,5 @@
 import { parser } from './parsers/parser'
+import { themeGet } from './utils/themeGet'
 import { ThemeProvider } from './theme'
 
 // Function Imports
@@ -28,7 +29,7 @@ import type {
 
 */
 
-export { ThemeProvider, parser }
+export { ThemeProvider, parser, themeGet }
 
 // Function Exports
 export { background, border, color, flexbox, grid, layout, position, shadow, space, typography }
