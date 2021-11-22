@@ -1,12 +1,11 @@
-import { CSSProperties as CSS, css, FlattenSimpleInterpolation } from 'styled-components'
+import { CSSProperties as CSS } from 'styled-components'
 
 // Types
 import { Breakpoint, DefaultTheme, ResponsiveStyle } from '../types'
 import { isResponsiveArray, isResponsiveObject, isResponsiveStyle } from '../types/guards'
 
 // Utils
-import kebabCase from 'lodash.kebabcase'
-import { createMediaQuery, sortStyles } from '../utils'
+import { createMediaQuery, sort, get } from '../utils'
 
 /**
  * Parser function that takes in either a single style or ResponsiveStyle and
@@ -14,6 +13,7 @@ import { createMediaQuery, sortStyles } from '../utils'
  *
  * @template P extends keyof CSSProperties
  * @template C extends CSSProperties[P]
+ * @template T extends {@link DefaultTheme}
  *
  * @param {P} property
  * @param {C | ResponsiveStyle<C>} values
@@ -37,10 +37,11 @@ import { createMediaQuery, sortStyles } from '../utils'
 
 */
 
-const parser = <P extends keyof CSS, C extends CSS[P]>(
+const parser = <P extends keyof CSS, C extends CSS[P], T extends DefaultTheme>(
   property: P,
   values: C | ResponsiveStyle<C>,
-  theme: DefaultTheme,
+  theme: T,
+  scale?: keyof T,
   transform?: (K: typeof values) => typeof K
 ): Record<string, any> => {
   /*
@@ -50,45 +51,49 @@ const parser = <P extends keyof CSS, C extends CSS[P]>(
    */
 
   const result: Record<string, any> = {}
-  const transformedValues = transform ? transform(values) : values
+  const styles = transform ? transform(values) : values
+  const defaultScale = scale && theme[scale]
+  const scaleGet = (path?: string | number): string | number | undefined => (path ? get(defaultScale, path, path) || path : path)
+
+  if (!styles) return result
 
   // [1]
-  if (!isResponsiveStyle<C>(transformedValues)) {
-    result[property] = transformedValues
+  if (!isResponsiveStyle<C>(styles)) {
+    result[property] = scaleGet(styles)
   }
 
   // [2]
-  if (isResponsiveObject<C>(transformedValues)) {
+  if (isResponsiveObject<C>(styles)) {
     const { breakpoints } = theme
-    const { _: base, ...responsive } = transformedValues
+    const { _: base, ...responsive } = styles
     const parsed: Record<string, any> = {}
 
-    result[property] = base
+    result[property] = scaleGet(base)
 
     Object.entries(responsive).forEach(([bp, value]) => {
       const media = createMediaQuery(`${breakpoints[bp as Breakpoint]}`)
-      parsed[media] = { [property]: value }
+      parsed[media] = { [property]: scaleGet(value) }
     })
 
-    Object.entries(sortStyles(parsed)).forEach(([media, value]) => (result[media] = value))
+    Object.entries(sort(parsed)).forEach(([media, value]) => (result[media] = value))
   }
 
   // [3]
-  if (isResponsiveArray<C>(transformedValues)) {
+  if (isResponsiveArray<C>(styles)) {
     const breakpoints = Object.values(theme.breakpoints)
-    const [base, ...responsive] = transformedValues
+    const [base, ...responsive] = styles
     const parsed: Record<string, any> = {}
 
-    result[property] = base
+    result[property] = scaleGet(base)
 
     responsive.forEach((value, index) => {
       if (value === null) return
 
       const media = createMediaQuery(`${breakpoints[index]}`)
-      parsed[media] = { [property]: value }
+      parsed[media] = { [property]: scaleGet(value) }
     })
 
-    Object.entries(sortStyles(parsed)).forEach(([media, value]) => (result[media] = value))
+    Object.entries(sort(parsed)).forEach(([media, value]) => (result[media] = value))
   }
 
   return result

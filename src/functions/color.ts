@@ -24,7 +24,7 @@ export interface ColorProps {
 }
 
 export const color = css<ColorProps>`
-  ${({ color: T, theme }) => T && parser('color', T, theme)}
-  ${({ backgroundColor: T, theme }) => T && parser('backgroundColor', T, theme)}
+  ${({ color: T, theme }) => T && parser('color', T, theme, 'colors')}
+  ${({ backgroundColor: T, theme }) => T && parser('backgroundColor', T, theme, 'colors')}
   ${({ opacity: T, theme }) => T && parser('opacity', T, theme)}
 `
