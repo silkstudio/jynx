@@ -1,6 +1,7 @@
-import { CSSProperties, css } from 'styled-components'
+import { css } from 'styled-components'
 
 // Types
+import { Properties as CSS } from 'csstype'
 import { ResponsiveStyle } from '../types'
 
 // Utils
@@ -18,23 +19,23 @@ import { parser } from '../parsers/parser'
 */
 
 export interface GridProps {
-  gridTemplateColumns?: CSSProperties['gridTemplateColumns'] | ResponsiveStyle<CSSProperties['gridTemplateColumns']>
-  gridTemplateRows?: CSSProperties['gridTemplateRows'] | ResponsiveStyle<CSSProperties['gridTemplateRows']>
-  gridTemplateAreas?: CSSProperties['gridTemplateAreas'] | ResponsiveStyle<CSSProperties['gridTemplateAreas']>
-  gridColumnGap?: CSSProperties['columnGap'] | ResponsiveStyle<CSSProperties['columnGap']>
-  gridRowGap?: CSSProperties['rowGap'] | ResponsiveStyle<CSSProperties['rowGap']>
-  gridGap?: CSSProperties['gap'] | ResponsiveStyle<CSSProperties['gap']>
-  gridJustifyItems?: CSSProperties['justifyItems'] | ResponsiveStyle<CSSProperties['justifyItems']>
-  gridAlignItems?: CSSProperties['alignItems'] | ResponsiveStyle<CSSProperties['alignItems']>
-  gridJustifyContent?: CSSProperties['justifyContent'] | ResponsiveStyle<CSSProperties['justifyContent']>
-  gridAlignContent?: CSSProperties['alignContent'] | ResponsiveStyle<CSSProperties['alignContent']>
-  gridAutoColumns?: CSSProperties['gridAutoColumns'] | ResponsiveStyle<CSSProperties['gridAutoColumns']>
-  gridAutoRows?: CSSProperties['gridAutoRows'] | ResponsiveStyle<CSSProperties['gridAutoRows']>
-  gridAutoFlow?: CSSProperties['gridAutoFlow'] | ResponsiveStyle<CSSProperties['gridAutoFlow']>
+  gridTemplateColumns?: CSS['gridTemplateColumns'] | ResponsiveStyle<CSS['gridTemplateColumns']>
+  gridTemplateRows?: CSS['gridTemplateRows'] | ResponsiveStyle<CSS['gridTemplateRows']>
+  gridTemplateAreas?: CSS['gridTemplateAreas'] | ResponsiveStyle<CSS['gridTemplateAreas']>
+  gridColumnGap?: CSS['columnGap'] | ResponsiveStyle<CSS['columnGap']>
+  gridRowGap?: CSS['rowGap'] | ResponsiveStyle<CSS['rowGap']>
+  gridGap?: CSS['gap'] | ResponsiveStyle<CSS['gap']>
+  gridJustifyItems?: CSS['justifyItems'] | ResponsiveStyle<CSS['justifyItems']>
+  gridAlignItems?: CSS['alignItems'] | ResponsiveStyle<CSS['alignItems']>
+  gridJustifyContent?: CSS['justifyContent'] | ResponsiveStyle<CSS['justifyContent']>
+  gridAlignContent?: CSS['alignContent'] | ResponsiveStyle<CSS['alignContent']>
+  gridAutoColumns?: CSS['gridAutoColumns'] | ResponsiveStyle<CSS['gridAutoColumns']>
+  gridAutoRows?: CSS['gridAutoRows'] | ResponsiveStyle<CSS['gridAutoRows']>
+  gridAutoFlow?: CSS['gridAutoFlow'] | ResponsiveStyle<CSS['gridAutoFlow']>
   // Child Props
-  gridColumn?: CSSProperties['gridColumn'] | ResponsiveStyle<CSSProperties['gridColumn']>
-  gridRow?: CSSProperties['gridRow'] | ResponsiveStyle<CSSProperties['gridRow']>
-  gridArea?: CSSProperties['gridArea'] | ResponsiveStyle<CSSProperties['gridArea']>
+  gridColumn?: CSS['gridColumn'] | ResponsiveStyle<CSS['gridColumn']>
+  gridRow?: CSS['gridRow'] | ResponsiveStyle<CSS['gridRow']>
+  gridArea?: CSS['gridArea'] | ResponsiveStyle<CSS['gridArea']>
 }
 
 export const grid = css<GridProps>`

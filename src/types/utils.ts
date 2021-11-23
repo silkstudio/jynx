@@ -1,4 +1,4 @@
-import { CSSProperties as CSS } from 'styled-components'
+import { Properties as CSS } from 'csstype'
 import { ResponsiveStyle, DefaultTheme, SystemTheme } from './index'
 
 // ================================================

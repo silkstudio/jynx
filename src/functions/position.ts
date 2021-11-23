@@ -1,6 +1,7 @@
-import { CSSProperties, css } from 'styled-components'
+import { css } from 'styled-components'
 
 // Types
+import { Properties as CSS } from 'csstype'
 import { ResponsiveStyle } from '../types'
 
 // Utils
@@ -18,11 +19,11 @@ import { parser } from '../parsers/parser'
 */
 
 export interface PositionProps {
-  top?: CSSProperties['top'] | ResponsiveStyle<CSSProperties['top']>
-  right?: CSSProperties['right'] | ResponsiveStyle<CSSProperties['right']>
-  bottom?: CSSProperties['bottom'] | ResponsiveStyle<CSSProperties['bottom']>
-  left?: CSSProperties['left'] | ResponsiveStyle<CSSProperties['left']>
-  zIndex?: CSSProperties['zIndex'] | ResponsiveStyle<CSSProperties['zIndex']>
+  top?: CSS['top'] | ResponsiveStyle<CSS['top']>
+  right?: CSS['right'] | ResponsiveStyle<CSS['right']>
+  bottom?: CSS['bottom'] | ResponsiveStyle<CSS['bottom']>
+  left?: CSS['left'] | ResponsiveStyle<CSS['left']>
+  zIndex?: CSS['zIndex'] | ResponsiveStyle<CSS['zIndex']>
 }
 
 export const position = css<PositionProps>`

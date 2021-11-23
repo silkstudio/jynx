@@ -1,6 +1,7 @@
-import { CSSProperties, css } from 'styled-components'
+import { css } from 'styled-components'
 
 // Types
+import { Properties as CSS } from 'csstype'
 import { ResponsiveStyle } from '../types'
 
 // Utils
@@ -18,31 +19,31 @@ import { parser } from '../parsers/parser'
 */
 
 export interface BorderProps {
-  border?: CSSProperties['border'] | ResponsiveStyle<CSSProperties['border']>
-  borderWidth?: CSSProperties['borderWidth'] | ResponsiveStyle<CSSProperties['borderWidth']>
-  borderStyle?: CSSProperties['borderStyle'] | ResponsiveStyle<CSSProperties['borderStyle']>
-  borderColor?: CSSProperties['borderColor'] | ResponsiveStyle<CSSProperties['borderColor']>
-  borderRadius?: CSSProperties['borderRadius'] | ResponsiveStyle<CSSProperties['borderRadius']>
-  borderTop?: CSSProperties['borderTop'] | ResponsiveStyle<CSSProperties['borderTop']>
-  borderTopWidth?: CSSProperties['borderTopWidth'] | ResponsiveStyle<CSSProperties['borderTopWidth']>
-  borderTopStyle?: CSSProperties['borderTopStyle'] | ResponsiveStyle<CSSProperties['borderTopStyle']>
-  borderTopColor?: CSSProperties['borderTopColor'] | ResponsiveStyle<CSSProperties['borderTopColor']>
-  borderTopLeftRadius?: CSSProperties['borderTopLeftRadius'] | ResponsiveStyle<CSSProperties['borderTopLeftRadius']>
-  borderTopRightRadius?: CSSProperties['borderTopRightRadius'] | ResponsiveStyle<CSSProperties['borderTopRightRadius']>
-  borderRight?: CSSProperties['borderRight'] | ResponsiveStyle<CSSProperties['borderRight']>
-  borderRightWidth?: CSSProperties['borderRightWidth'] | ResponsiveStyle<CSSProperties['borderRightWidth']>
-  borderRightStyle?: CSSProperties['borderRightStyle'] | ResponsiveStyle<CSSProperties['borderRightStyle']>
-  borderRightColor?: CSSProperties['borderRightColor'] | ResponsiveStyle<CSSProperties['borderRightColor']>
-  borderBottom?: CSSProperties['borderBottom'] | ResponsiveStyle<CSSProperties['borderBottom']>
-  borderBottomWidth?: CSSProperties['borderBottomWidth'] | ResponsiveStyle<CSSProperties['borderBottomWidth']>
-  borderBottomStyle?: CSSProperties['borderBottomStyle'] | ResponsiveStyle<CSSProperties['borderBottomStyle']>
-  borderBottomColor?: CSSProperties['borderBottomColor'] | ResponsiveStyle<CSSProperties['borderBottomColor']>
-  borderBottomLeftRadius?: CSSProperties['borderBottomLeftRadius'] | ResponsiveStyle<CSSProperties['borderBottomLeftRadius']>
-  borderBottomRightRadius?: CSSProperties['borderBottomRightRadius'] | ResponsiveStyle<CSSProperties['borderBottomRightRadius']>
-  borderLeft?: CSSProperties['borderLeft'] | ResponsiveStyle<CSSProperties['borderLeft']>
-  borderLeftWidth?: CSSProperties['borderLeftWidth'] | ResponsiveStyle<CSSProperties['borderLeftWidth']>
-  borderLeftStyle?: CSSProperties['borderLeftStyle'] | ResponsiveStyle<CSSProperties['borderLeftStyle']>
-  borderLeftColor?: CSSProperties['borderLeftColor'] | ResponsiveStyle<CSSProperties['borderLeftColor']>
+  border?: CSS['border'] | ResponsiveStyle<CSS['border']>
+  borderWidth?: CSS['borderWidth'] | ResponsiveStyle<CSS['borderWidth']>
+  borderStyle?: CSS['borderStyle'] | ResponsiveStyle<CSS['borderStyle']>
+  borderColor?: CSS['borderColor'] | ResponsiveStyle<CSS['borderColor']>
+  borderRadius?: CSS['borderRadius'] | ResponsiveStyle<CSS['borderRadius']>
+  borderTop?: CSS['borderTop'] | ResponsiveStyle<CSS['borderTop']>
+  borderTopWidth?: CSS['borderTopWidth'] | ResponsiveStyle<CSS['borderTopWidth']>
+  borderTopStyle?: CSS['borderTopStyle'] | ResponsiveStyle<CSS['borderTopStyle']>
+  borderTopColor?: CSS['borderTopColor'] | ResponsiveStyle<CSS['borderTopColor']>
+  borderTopLeftRadius?: CSS['borderTopLeftRadius'] | ResponsiveStyle<CSS['borderTopLeftRadius']>
+  borderTopRightRadius?: CSS['borderTopRightRadius'] | ResponsiveStyle<CSS['borderTopRightRadius']>
+  borderRight?: CSS['borderRight'] | ResponsiveStyle<CSS['borderRight']>
+  borderRightWidth?: CSS['borderRightWidth'] | ResponsiveStyle<CSS['borderRightWidth']>
+  borderRightStyle?: CSS['borderRightStyle'] | ResponsiveStyle<CSS['borderRightStyle']>
+  borderRightColor?: CSS['borderRightColor'] | ResponsiveStyle<CSS['borderRightColor']>
+  borderBottom?: CSS['borderBottom'] | ResponsiveStyle<CSS['borderBottom']>
+  borderBottomWidth?: CSS['borderBottomWidth'] | ResponsiveStyle<CSS['borderBottomWidth']>
+  borderBottomStyle?: CSS['borderBottomStyle'] | ResponsiveStyle<CSS['borderBottomStyle']>
+  borderBottomColor?: CSS['borderBottomColor'] | ResponsiveStyle<CSS['borderBottomColor']>
+  borderBottomLeftRadius?: CSS['borderBottomLeftRadius'] | ResponsiveStyle<CSS['borderBottomLeftRadius']>
+  borderBottomRightRadius?: CSS['borderBottomRightRadius'] | ResponsiveStyle<CSS['borderBottomRightRadius']>
+  borderLeft?: CSS['borderLeft'] | ResponsiveStyle<CSS['borderLeft']>
+  borderLeftWidth?: CSS['borderLeftWidth'] | ResponsiveStyle<CSS['borderLeftWidth']>
+  borderLeftStyle?: CSS['borderLeftStyle'] | ResponsiveStyle<CSS['borderLeftStyle']>
+  borderLeftColor?: CSS['borderLeftColor'] | ResponsiveStyle<CSS['borderLeftColor']>
 }
 
 export const border = css<BorderProps>`

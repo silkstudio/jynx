@@ -1,6 +1,7 @@
-import { CSSProperties, css } from 'styled-components'
+import { css } from 'styled-components'
 
 // Types
+import { Properties as CSS } from 'csstype'
 import { ResponsiveStyle } from '../types'
 
 // Utils
@@ -18,9 +19,9 @@ import { parser } from '../parsers/parser'
 */
 
 export interface ColorProps {
-  color?: CSSProperties['color'] | ResponsiveStyle<CSSProperties['color']>
-  backgroundColor?: CSSProperties['backgroundColor'] | ResponsiveStyle<CSSProperties['backgroundColor']>
-  opacity?: CSSProperties['opacity'] | ResponsiveStyle<CSSProperties['opacity']>
+  color?: CSS['color'] | ResponsiveStyle<CSS['color']>
+  backgroundColor?: CSS['backgroundColor'] | ResponsiveStyle<CSS['backgroundColor']>
+  opacity?: CSS['opacity'] | ResponsiveStyle<CSS['opacity']>
 }
 
 export const color = css<ColorProps>`

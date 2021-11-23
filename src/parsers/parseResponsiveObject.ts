@@ -1,6 +1,5 @@
-import { CSSProperties as CSS } from 'styled-components'
-
 // Types
+import { Properties as CSS } from 'csstype'
 import { BaseExtensibleObject, Breakpoint, DefaultTheme, ResponsiveObject } from '../types'
 
 // Utils

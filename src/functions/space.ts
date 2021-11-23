@@ -1,6 +1,7 @@
-import { CSSProperties, css } from 'styled-components'
+import { css } from 'styled-components'
 
 // Types
+import { Properties as CSS } from 'csstype'
 import { ResponsiveStyle } from '../types'
 
 // Utils
@@ -18,28 +19,28 @@ import { parser } from '../parsers/parser'
 */
 
 export interface SpaceProps {
-  margin?: CSSProperties['margin'] | ResponsiveStyle<CSSProperties['margin']>
-  marginTop?: CSSProperties['marginTop'] | ResponsiveStyle<CSSProperties['marginTop']>
-  marginRight?: CSSProperties['marginRight'] | ResponsiveStyle<CSSProperties['marginRight']>
-  marginBottom?: CSSProperties['marginBottom'] | ResponsiveStyle<CSSProperties['marginBottom']>
-  marginLeft?: CSSProperties['marginLeft'] | ResponsiveStyle<CSSProperties['marginLeft']>
-  marginBlock?: CSSProperties['marginBlock'] | ResponsiveStyle<CSSProperties['marginBlock']>
-  marginBlockStart?: CSSProperties['marginBlockStart'] | ResponsiveStyle<CSSProperties['marginBlockStart']>
-  marginBlockEnd?: CSSProperties['marginBlockEnd'] | ResponsiveStyle<CSSProperties['marginBlockEnd']>
-  marginInline?: CSSProperties['marginInline'] | ResponsiveStyle<CSSProperties['marginInline']>
-  marginInlineStart?: CSSProperties['marginInlineStart'] | ResponsiveStyle<CSSProperties['marginInlineStart']>
-  marginInlineEnd?: CSSProperties['marginInlineEnd'] | ResponsiveStyle<CSSProperties['marginInlineEnd']>
-  padding?: CSSProperties['padding'] | ResponsiveStyle<CSSProperties['padding']>
-  paddingTop?: CSSProperties['paddingTop'] | ResponsiveStyle<CSSProperties['paddingTop']>
-  paddingRight?: CSSProperties['paddingRight'] | ResponsiveStyle<CSSProperties['paddingRight']>
-  paddingBottom?: CSSProperties['paddingBottom'] | ResponsiveStyle<CSSProperties['paddingBottom']>
-  paddingLeft?: CSSProperties['paddingLeft'] | ResponsiveStyle<CSSProperties['paddingLeft']>
-  paddingBlock?: CSSProperties['paddingBlock'] | ResponsiveStyle<CSSProperties['paddingBlock']>
-  paddingBlockStart?: CSSProperties['paddingBlockStart'] | ResponsiveStyle<CSSProperties['paddingBlockStart']>
-  paddingBlockEnd?: CSSProperties['paddingBlockEnd'] | ResponsiveStyle<CSSProperties['paddingBlockEnd']>
-  paddingInline?: CSSProperties['paddingInline'] | ResponsiveStyle<CSSProperties['paddingInline']>
-  paddingInlineStart?: CSSProperties['paddingInlineStart'] | ResponsiveStyle<CSSProperties['paddingInlineStart']>
-  paddingInlineEnd?: CSSProperties['paddingInlineEnd'] | ResponsiveStyle<CSSProperties['paddingInlineEnd']>
+  margin?: CSS['margin'] | ResponsiveStyle<CSS['margin']>
+  marginTop?: CSS['marginTop'] | ResponsiveStyle<CSS['marginTop']>
+  marginRight?: CSS['marginRight'] | ResponsiveStyle<CSS['marginRight']>
+  marginBottom?: CSS['marginBottom'] | ResponsiveStyle<CSS['marginBottom']>
+  marginLeft?: CSS['marginLeft'] | ResponsiveStyle<CSS['marginLeft']>
+  marginBlock?: CSS['marginBlock'] | ResponsiveStyle<CSS['marginBlock']>
+  marginBlockStart?: CSS['marginBlockStart'] | ResponsiveStyle<CSS['marginBlockStart']>
+  marginBlockEnd?: CSS['marginBlockEnd'] | ResponsiveStyle<CSS['marginBlockEnd']>
+  marginInline?: CSS['marginInline'] | ResponsiveStyle<CSS['marginInline']>
+  marginInlineStart?: CSS['marginInlineStart'] | ResponsiveStyle<CSS['marginInlineStart']>
+  marginInlineEnd?: CSS['marginInlineEnd'] | ResponsiveStyle<CSS['marginInlineEnd']>
+  padding?: CSS['padding'] | ResponsiveStyle<CSS['padding']>
+  paddingTop?: CSS['paddingTop'] | ResponsiveStyle<CSS['paddingTop']>
+  paddingRight?: CSS['paddingRight'] | ResponsiveStyle<CSS['paddingRight']>
+  paddingBottom?: CSS['paddingBottom'] | ResponsiveStyle<CSS['paddingBottom']>
+  paddingLeft?: CSS['paddingLeft'] | ResponsiveStyle<CSS['paddingLeft']>
+  paddingBlock?: CSS['paddingBlock'] | ResponsiveStyle<CSS['paddingBlock']>
+  paddingBlockStart?: CSS['paddingBlockStart'] | ResponsiveStyle<CSS['paddingBlockStart']>
+  paddingBlockEnd?: CSS['paddingBlockEnd'] | ResponsiveStyle<CSS['paddingBlockEnd']>
+  paddingInline?: CSS['paddingInline'] | ResponsiveStyle<CSS['paddingInline']>
+  paddingInlineStart?: CSS['paddingInlineStart'] | ResponsiveStyle<CSS['paddingInlineStart']>
+  paddingInlineEnd?: CSS['paddingInlineEnd'] | ResponsiveStyle<CSS['paddingInlineEnd']>
 }
 
 export const space = css<SpaceProps>`

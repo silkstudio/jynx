@@ -1,6 +1,7 @@
-import { CSSProperties, css } from 'styled-components'
+import { css } from 'styled-components'
 
 // Types
+import { Properties as CSS } from 'csstype'
 import { ResponsiveStyle } from '../types'
 
 // Utils
@@ -18,8 +19,8 @@ import { parser } from '../parsers/parser'
 */
 
 export interface ShadowProps {
-  boxShadow?: CSSProperties['boxShadow'] | ResponsiveStyle<CSSProperties['boxShadow']>
-  textShadow?: CSSProperties['textShadow'] | ResponsiveStyle<CSSProperties['textShadow']>
+  boxShadow?: CSS['boxShadow'] | ResponsiveStyle<CSS['boxShadow']>
+  textShadow?: CSS['textShadow'] | ResponsiveStyle<CSS['textShadow']>
 }
 
 export const shadow = css<ShadowProps>`

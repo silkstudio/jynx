@@ -1,7 +1,6 @@
-import { CSSProperties as CSS } from 'styled-components'
-
 // Types
-import { DefaultTheme, CssProperty } from '../types'
+import { Properties as CSS } from 'csstype'
+import { DefaultTheme, CSSProperty } from '../types'
 
 // Utils
 import get from 'lodash.get'
@@ -10,9 +9,9 @@ import { addUnitIfNeeded } from './addUnitIfNeeded'
 /**
  *
  * @param {keyof CSSProperties} property
- * @param {CssProperty} style
+ * @param {CSSProperty} style
  * @param {DefaultTheme[keyof DefaultTheme]} scale
- * @returns {CssProperty}
+ * @returns {CSSProperty}
  */
 
 /*
@@ -26,7 +25,7 @@ import { addUnitIfNeeded } from './addUnitIfNeeded'
 
 */
 
-const themeGet = (property: keyof CSS, style?: CssProperty, scale?: DefaultTheme[keyof DefaultTheme]): CssProperty | undefined => {
+const themeGet = (property: keyof CSS, style?: CSSProperty, scale?: DefaultTheme[keyof DefaultTheme]): CSSProperty | undefined => {
   if (!style || !scale) return style
 
   if (Array.isArray(scale)) {
