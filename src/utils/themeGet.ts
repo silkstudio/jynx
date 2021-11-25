@@ -35,7 +35,7 @@ const themeGet = (property: keyof CSS, style?: CSSProperty, scale?: DefaultTheme
     return style
   }
 
-  return get(scale, style, style) || style
+  return addUnitIfNeeded(property, get(scale, style, style) || style)
 }
 
 export { themeGet }
