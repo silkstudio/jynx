@@ -1,6 +1,7 @@
 // Internal Utils
 export { addUnitIfNeeded } from './addUnitIfNeeded'
 export { createMediaQuery } from './createMediaQuery'
+export { createStyles } from './createStyles'
 export { isNumber } from './isNumber'
 export { merge } from './merge'
 export { sort } from './sort'
