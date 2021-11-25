@@ -1,11 +1,9 @@
-import { css } from 'styled-components'
-
 // Types
 import { Properties as CSS } from 'csstype'
-import { ResponsiveStyle } from '../types'
+import { ResponsiveStyle, StyledFunctionConfig, StyledFunction } from '../types'
 
 // Utils
-import { parser } from '../parsers/parser'
+import { createStyles } from '../utils'
 
 /*
 
@@ -18,14 +16,28 @@ import { parser } from '../parsers/parser'
 
 */
 
-export interface ColorProps {
+const config: StyledFunctionConfig = {
+  color: {
+    property: 'color',
+    scale: 'colors'
+  },
+  backgroundColor: {
+    property: 'backgroundColor',
+    scale: 'colors'
+  },
+  opacity: {
+    property: 'opacity'
+  }
+}
+
+interface ColorProps {
   color?: CSS['color'] | ResponsiveStyle<CSS['color']>
   backgroundColor?: CSS['backgroundColor'] | ResponsiveStyle<CSS['backgroundColor']>
   opacity?: CSS['opacity'] | ResponsiveStyle<CSS['opacity']>
 }
 
-export const color = css<ColorProps>`
-  ${({ color: T, theme }) => T && parser('color', T, theme, 'colors')}
-  ${({ backgroundColor: T, theme }) => T && parser('backgroundColor', T, theme, 'colors')}
-  ${({ opacity: T, theme }) => T && parser('opacity', T, theme)}
-`
+const color: StyledFunction<ColorProps> = ({ theme, ...styles }) => {
+  return createStyles<typeof styles>(styles, theme, config)
+}
+
+export { color, ColorProps }

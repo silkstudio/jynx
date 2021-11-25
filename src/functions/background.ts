@@ -1,11 +1,9 @@
-import { css } from 'styled-components'
-
 // Types
 import { Properties as CSS } from 'csstype'
-import { ResponsiveStyle } from '../types'
+import { ResponsiveStyle, StyledFunction, StyledFunctionConfig } from '../types'
 
 // Utils
-import { parser } from '../parsers/parser'
+import { createStyles } from '../utils'
 
 /*
 
@@ -18,7 +16,18 @@ import { parser } from '../parsers/parser'
 
 */
 
-export interface BackgroundProps {
+const config: StyledFunctionConfig = {
+  backgroundColor: {
+    property: 'backgroundColor',
+    scale: 'colors'
+  },
+  color: {
+    property: 'color',
+    scale: 'colors'
+  }
+}
+
+interface BackgroundProps {
   backgroundAttachment?: CSS['backgroundAttachment'] | ResponsiveStyle<CSS['backgroundAttachment']>
   backgroundBlendMode?: CSS['backgroundBlendMode'] | ResponsiveStyle<CSS['backgroundBlendMode']>
   backgroundClip?: CSS['backgroundClip'] | ResponsiveStyle<CSS['backgroundClip']>
@@ -32,16 +41,8 @@ export interface BackgroundProps {
   backgroundSize?: CSS['backgroundSize'] | ResponsiveStyle<CSS['backgroundSize']>
 }
 
-export const background = css<BackgroundProps>`
-  ${({ backgroundAttachment: T, theme: t }) => T && parser('backgroundAttachment', T, t)}
-  ${({ backgroundBlendMode: T, theme: t }) => T && parser('backgroundBlendMode', T, t)}
-  ${({ backgroundClip: T, theme: t }) => T && parser('backgroundClip', T, t)}
-  ${({ backgroundColor: T, theme: t }) => T && parser('backgroundColor', T, t)}
-  ${({ backgroundImage: T, theme: t }) => T && parser('backgroundImage', T, t)}
-  ${({ backgroundOrigin: T, theme: t }) => T && parser('backgroundOrigin', T, t)}
-  ${({ backgroundPosition: T, theme: t }) => T && parser('backgroundPosition', T, t)}
-  ${({ backgroundPositionX: T, theme: t }) => T && parser('backgroundPositionX', T, t)}
-  ${({ backgroundPositionY: T, theme: t }) => T && parser('backgroundPositionY', T, t)}
-  ${({ backgroundRepeat: T, theme: t }) => T && parser('backgroundRepeat', T, t)}
-  ${({ backgroundSize: T, theme: t }) => T && parser('backgroundSize', T, t)}
-`
+const background: StyledFunction<BackgroundProps> = ({ theme, ...styles }) => {
+  return createStyles<typeof styles>(styles, theme, config)
+}
+
+export { background, BackgroundProps }

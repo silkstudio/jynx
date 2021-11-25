@@ -1,11 +1,9 @@
-import { css } from 'styled-components'
-
 // Types
 import { Properties as CSS } from 'csstype'
-import { ResponsiveStyle } from '../types'
+import { ResponsiveStyle, StyledFunction, StyledFunctionConfig } from '../types'
 
 // Utils
-import { parser } from '../parsers/parser'
+import { createStyles } from '../utils'
 
 /*
 
@@ -18,7 +16,110 @@ import { parser } from '../parsers/parser'
 
 */
 
-export interface BorderProps {
+const config: StyledFunctionConfig = {
+  border: {
+    property: 'border',
+    scale: 'borders'
+  },
+  borderWidth: {
+    property: 'borderWidth',
+    scale: 'borderWidths'
+  },
+  borderStyle: {
+    property: 'borderStyle',
+    scale: 'borderStyles'
+  },
+  borderColor: {
+    property: 'borderColor',
+    scale: 'colors'
+  },
+  borderRadius: {
+    property: 'borderRadius',
+    scale: 'radii'
+  },
+  borderTop: {
+    property: 'borderTop',
+    scale: 'borders'
+  },
+  borderTopWidth: {
+    property: 'borderTopWidth',
+    scale: 'borderWidths'
+  },
+  borderTopStyle: {
+    property: 'borderTopStyle',
+    scale: 'borderStyles'
+  },
+  borderTopColor: {
+    property: 'borderTopColor',
+    scale: 'colors'
+  },
+  borderTopLeftRadius: {
+    property: 'borderTopLeftRadius',
+    scale: 'radii'
+  },
+  borderTopRightRadius: {
+    property: 'borderTopRightRadius',
+    scale: 'radii'
+  },
+  borderRight: {
+    property: 'borderRight',
+    scale: 'borders'
+  },
+  borderRightWidth: {
+    property: 'borderRightWidth',
+    scale: 'borderWidths'
+  },
+  borderRightStyle: {
+    property: 'borderRightStyle',
+    scale: 'borderStyles'
+  },
+  borderRightColor: {
+    property: 'borderRightColor',
+    scale: 'colors'
+  },
+  borderBottom: {
+    property: 'borderBottom',
+    scale: 'borders'
+  },
+  borderBottomWidth: {
+    property: 'borderBottomWidth',
+    scale: 'borderWidths'
+  },
+  borderBottomStyle: {
+    property: 'borderBottomStyle',
+    scale: 'borderStyles'
+  },
+  borderBottomColor: {
+    property: 'borderBottomColor',
+    scale: 'colors'
+  },
+  borderBottomLeftRadius: {
+    property: 'borderBottomLeftRadius',
+    scale: 'radii'
+  },
+  borderBottomRightRadius: {
+    property: 'borderBottomRightRadius',
+    scale: 'radii'
+  },
+  borderLeft: {
+    property: 'borderLeft',
+    scale: 'borders'
+  },
+  borderLeftWidth: {
+    property: 'borderLeftWidth',
+    scale: 'borderWidths'
+  },
+  borderLeftStyle: {
+    property: 'borderLeftStyle',
+    scale: 'borderStyles'
+  },
+  borderLeftColor: {
+    property: 'borderLeftColor',
+    scale: 'colors'
+  }
+}
+
+interface BorderProps {
   border?: CSS['border'] | ResponsiveStyle<CSS['border']>
   borderWidth?: CSS['borderWidth'] | ResponsiveStyle<CSS['borderWidth']>
   borderStyle?: CSS['borderStyle'] | ResponsiveStyle<CSS['borderStyle']>
@@ -46,30 +147,8 @@ export interface BorderProps {
   borderLeftColor?: CSS['borderLeftColor'] | ResponsiveStyle<CSS['borderLeftColor']>
 }
 
-export const border = css<BorderProps>`
-  ${({ border: T, theme }) => T && parser('border', T, theme)}
-  ${({ borderWidth: T, theme }) => T && parser('borderWidth', T, theme)}
-  ${({ borderStyle: T, theme }) => T && parser('borderStyle', T, theme)}
-  ${({ borderColor: T, theme }) => T && parser('borderColor', T, theme)}
-  ${({ borderRadius: T, theme }) => T && parser('borderRadius', T, theme)}
-  ${({ borderTop: T, theme }) => T && parser('borderTop', T, theme)}
-  ${({ borderTopWidth: T, theme }) => T && parser('borderTopWidth', T, theme)}
-  ${({ borderTopStyle: T, theme }) => T && parser('borderTopStyle', T, theme)}
-  ${({ borderTopColor: T, theme }) => T && parser('borderTopColor', T, theme)}
-  ${({ borderTopLeftRadius: T, theme }) => T && parser('borderTopLeftRadius', T, theme)}
-  ${({ borderTopRightRadius: T, theme }) => T && parser('borderTopRightRadius', T, theme)}
-  ${({ borderRight: T, theme }) => T && parser('borderRight', T, theme)}
-  ${({ borderRightWidth: T, theme }) => T && parser('borderRightWidth', T, theme)}
-  ${({ borderRightStyle: T, theme }) => T && parser('borderRightStyle', T, theme)}
-  ${({ borderRightColor: T, theme }) => T && parser('borderRightColor', T, theme)}
-  ${({ borderBottom: T, theme }) => T && parser('borderBottom', T, theme)}
-  ${({ borderBottomWidth: T, theme }) => T && parser('borderBottomWidth', T, theme)}
-  ${({ borderBottomStyle: T, theme }) => T && parser('borderBottomStyle', T, theme)}
-  ${({ borderBottomColor: T, theme }) => T && parser('borderBottomColor', T, theme)}
-  ${({ borderBottomLeftRadius: T, theme }) => T && parser('borderBottomLeftRadius', T, theme)}
-  ${({ borderBottomRightRadius: T, theme }) => T && parser('borderBottomRightRadius', T, theme)}
-  ${({ borderLeft: T, theme }) => T && parser('borderLeft', T, theme)}
-  ${({ borderLeftWidth: T, theme }) => T && parser('borderLeftWidth', T, theme)}
-  ${({ borderLeftStyle: T, theme }) => T && parser('borderLeftStyle', T, theme)}
-  ${({ borderLeftColor: T, theme }) => T && parser('borderLeftColor', T, theme)}
-`
+const border: StyledFunction<BorderProps> = ({ theme, ...styles }) => {
+  return createStyles<typeof styles>(styles, theme, config)
+}
+
+export { border, BorderProps }

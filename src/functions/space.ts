@@ -1,11 +1,9 @@
-import { css } from 'styled-components'
-
 // Types
 import { Properties as CSS } from 'csstype'
-import { ResponsiveStyle } from '../types'
+import { ResponsiveStyle, StyledFunction, StyledFunctionConfig } from '../types'
 
 // Utils
-import { parser } from '../parsers/parser'
+import { createStyles } from '../utils'
 
 /*
 
@@ -18,7 +16,98 @@ import { parser } from '../parsers/parser'
 
 */
 
-export interface SpaceProps {
+const config: StyledFunctionConfig = {
+  margin: {
+    property: 'margin',
+    scale: 'spaces'
+  },
+  marginTop: {
+    property: 'marginTop',
+    scale: 'spaces'
+  },
+  marginRight: {
+    property: 'marginRight',
+    scale: 'spaces'
+  },
+  marginBottom: {
+    property: 'marginBottom',
+    scale: 'spaces'
+  },
+  marginLeft: {
+    property: 'marginLeft',
+    scale: 'spaces'
+  },
+  marginBlock: {
+    property: 'marginBlock',
+    scale: 'spaces'
+  },
+  marginBlockStart: {
+    property: 'marginBlockStart',
+    scale: 'spaces'
+  },
+  marginBlockEnd: {
+    property: 'marginBlockEnd',
+    scale: 'spaces'
+  },
+  marginInline: {
+    property: 'marginInline',
+    scale: 'spaces'
+  },
+  marginInlineStart: {
+    property: 'marginInlineStart',
+    scale: 'spaces'
+  },
+  marginInlineEnd: {
+    property: 'marginInlineEnd',
+    scale: 'spaces'
+  },
+  padding: {
+    property: 'padding',
+    scale: 'spaces'
+  },
+  paddingTop: {
+    property: 'paddingTop',
+    scale: 'spaces'
+  },
+  paddingRight: {
+    property: 'paddingRight',
+    scale: 'spaces'
+  },
+  paddingBottom: {
+    property: 'paddingBottom',
+    scale: 'spaces'
+  },
+  paddingLeft: {
+    property: 'paddingLeft',
+    scale: 'spaces'
+  },
+  paddingBlock: {
+    property: 'paddingBlock',
+    scale: 'spaces'
+  },
+  paddingBlockStart: {
+    property: 'paddingBlockStart',
+    scale: 'spaces'
+  },
+  paddingBlockEnd: {
+    property: 'paddingBlockEnd',
+    scale: 'spaces'
+  },
+  paddingInline: {
+    property: 'paddingInline',
+    scale: 'spaces'
+  },
+  paddingInlineStart: {
+    property: 'paddingInlineStart',
+    scale: 'spaces'
+  },
+  paddingInlineEnd: {
+    property: 'paddingInlineEnd',
+    scale: 'spaces'
+  }
+}
+
+interface SpaceProps {
   margin?: CSS['margin'] | ResponsiveStyle<CSS['margin']>
   marginTop?: CSS['marginTop'] | ResponsiveStyle<CSS['marginTop']>
   marginRight?: CSS['marginRight'] | ResponsiveStyle<CSS['marginRight']>
@@ -43,27 +132,8 @@ export interface SpaceProps {
   paddingInlineEnd?: CSS['paddingInlineEnd'] | ResponsiveStyle<CSS['paddingInlineEnd']>
 }
 
-export const space = css<SpaceProps>`
-  ${({ margin: T, theme: t }) => parser('margin', T, t)}
-  ${({ marginTop: T, theme: t }) => parser('marginTop', T, t)}
-  ${({ marginRight: T, theme: t }) => parser('marginRight', T, t)}
-  ${({ marginBottom: T, theme: t }) => parser('marginBottom', T, t)}
-  ${({ marginLeft: T, theme: t }) => parser('marginLeft', T, t)}
-  ${({ marginBlock: T, theme: t }) => parser('marginBlock', T, t)}
-  ${({ marginBlockStart: T, theme: t }) => parser('marginBlockStart', T, t)}
-  ${({ marginBlockEnd: T, theme: t }) => parser('marginBlockEnd', T, t)}
-  ${({ marginInline: T, theme: t }) => parser('marginInline', T, t)}
-  ${({ marginInlineStart: T, theme: t }) => parser('marginInlineStart', T, t)}
-  ${({ marginInlineEnd: T, theme: t }) => parser('marginInlineEnd', T, t)}
-  ${({ padding: T, theme: t }) => parser('padding', T, t)}
-  ${({ paddingTop: T, theme: t }) => parser('paddingTop', T, t)}
-  ${({ paddingRight: T, theme: t }) => parser('paddingRight', T, t)}
-  ${({ paddingBottom: T, theme: t }) => parser('paddingBottom', T, t)}
-  ${({ paddingLeft: T, theme: t }) => parser('paddingLeft', T, t)}
-  ${({ paddingBlock: T, theme: t }) => parser('paddingBlock', T, t)}
-  ${({ paddingBlockStart: T, theme: t }) => parser('paddingBlockStart', T, t)}
-  ${({ paddingBlockEnd: T, theme: t }) => parser('paddingBlockEnd', T, t)}
-  ${({ paddingInline: T, theme: t }) => parser('paddingInline', T, t)}
-  ${({ paddingInlineStart: T, theme: t }) => parser('paddingInlineStart', T, t)}
-  ${({ paddingInlineEnd: T, theme: t }) => parser('paddingInlineEnd', T, t)}
-`
+const space: StyledFunction<SpaceProps> = ({ theme, ...styles }) => {
+  return createStyles<typeof styles>(styles, theme, config)
+}
+
+export { space, SpaceProps }

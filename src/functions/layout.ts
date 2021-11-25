@@ -1,11 +1,9 @@
-import { css } from 'styled-components'
-
 // Types
 import { Properties as CSS } from 'csstype'
-import { ResponsiveStyle } from '../types'
+import { ResponsiveStyle, StyledFunction, StyledFunctionConfig } from '../types'
 
 // Utils
-import { parser } from '../parsers/parser'
+import { createStyles } from '../utils'
 
 /*
 
@@ -18,7 +16,43 @@ import { parser } from '../parsers/parser'
 
 */
 
-export interface LayoutProps {
+const config: StyledFunctionConfig = {
+  width: {
+    property: 'width'
+  },
+  height: {
+    property: 'height'
+  },
+  minWidth: {
+    property: 'minWidth'
+  },
+  minHeight: {
+    property: 'minHeight'
+  },
+  maxWidth: {
+    property: 'maxWidth'
+  },
+  maxHeight: {
+    property: 'maxHeight'
+  },
+  display: {
+    property: 'display'
+  },
+  verticalAlign: {
+    property: 'verticalAlign'
+  },
+  overflow: {
+    property: 'overflow'
+  },
+  overflowX: {
+    property: 'overflowX'
+  },
+  overflowY: {
+    property: 'overflowY'
+  }
+}
+
+interface LayoutProps {
   width?: CSS['width'] | ResponsiveStyle<CSS['width']>
   height?: CSS['height'] | ResponsiveStyle<CSS['height']>
   minWidth?: CSS['minWidth'] | ResponsiveStyle<CSS['minWidth']>
@@ -32,16 +66,8 @@ export interface LayoutProps {
   overflowY?: CSS['overflowY'] | ResponsiveStyle<CSS['overflowY']>
 }
 
-export const layout = css<LayoutProps>`
-  ${({ width: T, theme }) => T && parser('width', T, theme)}
-  ${({ height: T, theme }) => T && parser('height', T, theme)}
-  ${({ minWidth: T, theme }) => T && parser('minWidth', T, theme)}
-  ${({ minHeight: T, theme }) => T && parser('minHeight', T, theme)}
-  ${({ maxWidth: T, theme }) => T && parser('maxWidth', T, theme)}
-  ${({ maxHeight: T, theme }) => T && parser('maxHeight', T, theme)}
-  ${({ display: T, theme }) => T && parser('display', T, theme)}
-  ${({ verticalAlign: T, theme }) => T && parser('verticalAlign', T, theme)}
-  ${({ overflow: T, theme }) => T && parser('overflow', T, theme)}
-  ${({ overflowX: T, theme }) => T && parser('overflowX', T, theme)}
-  ${({ overflowY: T, theme }) => T && parser('overflowY', T, theme)}
-`
+const layout: StyledFunction<LayoutProps> = ({ theme, ...styles }) => {
+  return createStyles<typeof styles>(styles, theme, config)
+}
+
+export { layout, LayoutProps }

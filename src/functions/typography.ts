@@ -1,11 +1,9 @@
-import { css } from 'styled-components'
-
 // Types
 import { Properties as CSS } from 'csstype'
-import { ResponsiveStyle } from '../types'
+import { ResponsiveStyle, StyledFunction, StyledFunctionConfig } from '../types'
 
 // Utils
-import { parser } from '../parsers/parser'
+import { createStyles } from '../utils'
 
 /*
 
@@ -18,7 +16,38 @@ import { parser } from '../parsers/parser'
 
 */
 
-export interface TypographyProps {
+const config: StyledFunctionConfig = {
+  fontFamily: {
+    property: 'fontFamily',
+    scale: 'fonts'
+  },
+  fontSize: {
+    property: 'fontSize'
+  },
+  fontWeight: {
+    property: 'fontWeight',
+    scale: 'fontWeights'
+  },
+  lineHeight: {
+    property: 'lineHeight',
+    scale: 'lineHeights'
+  },
+  letterSpacing: {
+    property: 'letterSpacing',
+    scale: 'letterSpacings'
+  },
+  textAlign: {
+    property: 'textAlign'
+  },
+  fontStyle: {
+    property: 'fontStyle'
+  },
+  textTransform: {
+    property: 'textTransform'
+  }
+}
+
+interface TypographyProps {
   fontFamily?: CSS['fontFamily'] | ResponsiveStyle<CSS['fontFamily']>
   fontSize?: CSS['fontSize'] | ResponsiveStyle<CSS['fontSize']>
   fontWeight?: CSS['fontWeight'] | ResponsiveStyle<CSS['fontWeight']>
@@ -29,13 +58,8 @@ export interface TypographyProps {
   textTransform?: CSS['textTransform'] | ResponsiveStyle<CSS['textTransform']>
 }
 
-export const typography = css<TypographyProps>`
-  ${({ fontFamily: T, theme }) => T && parser('fontFamily', T, theme)}
-  ${({ fontSize: T, theme }) => T && parser('fontSize', T, theme)} 
-  ${({ fontWeight: T, theme }) => T && parser('fontWeight', T, theme)}
-  ${({ lineHeight: T, theme }) => T && parser('lineHeight', T, theme)}
-  ${({ letterSpacing: T, theme }) => T && parser('letterSpacing', T, theme)}
-  ${({ textAlign: T, theme }) => T && parser('textAlign', T, theme)}
-  ${({ fontStyle: T, theme }) => T && parser('fontStyle', T, theme)}
-  ${({ textTransform: T, theme }) => T && parser('textTransform', T, theme)}
-`
+const typography: StyledFunction<TypographyProps> = ({ theme, ...styles }) => {
+  return createStyles<typeof styles>(styles, theme, config)
+}
+
+export { typography, TypographyProps }

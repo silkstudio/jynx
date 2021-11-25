@@ -1,11 +1,9 @@
-import { css } from 'styled-components'
-
 // Types
 import { Properties as CSS } from 'csstype'
-import { ResponsiveStyle } from '../types'
+import { ResponsiveStyle, StyledFunction, StyledFunctionConfig } from '../types'
 
 // Utils
-import { parser } from '../parsers/parser'
+import { createStyles } from 'src/utils'
 
 /*
 
@@ -18,7 +16,30 @@ import { parser } from '../parsers/parser'
 
 */
 
-export interface PositionProps {
+const config: StyledFunctionConfig = {
+  top: {
+    property: 'top',
+    scale: 'spaces'
+  },
+  right: {
+    property: 'right',
+    scale: 'spaces'
+  },
+  bottom: {
+    property: 'bottom',
+    scale: 'spaces'
+  },
+  left: {
+    property: 'left',
+    scale: 'spaces'
+  },
+  zIndex: {
+    property: 'zIndex',
+    scale: 'zIndices'
+  }
+}
+
+interface PositionProps {
   top?: CSS['top'] | ResponsiveStyle<CSS['top']>
   right?: CSS['right'] | ResponsiveStyle<CSS['right']>
   bottom?: CSS['bottom'] | ResponsiveStyle<CSS['bottom']>
@@ -26,10 +47,8 @@ export interface PositionProps {
   zIndex?: CSS['zIndex'] | ResponsiveStyle<CSS['zIndex']>
 }
 
-export const position = css<PositionProps>`
-  ${({ top: T, theme }) => T && parser('top', T, theme)}
-  ${({ right: T, theme }) => T && parser('right', T, theme)}
-  ${({ bottom: T, theme }) => T && parser('bottom', T, theme)}
-  ${({ left: T, theme }) => T && parser('left', T, theme)}
-  ${({ zIndex: T, theme }) => T && parser('zIndex', T, theme)}
-`
+const position: StyledFunction<PositionProps> = ({ theme, ...styles }) => {
+  return createStyles<typeof styles>(styles, theme, config)
+}
+
+export { position, PositionProps }

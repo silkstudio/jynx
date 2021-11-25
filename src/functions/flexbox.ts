@@ -1,11 +1,9 @@
-import { css } from 'styled-components'
-
 // Types
 import { Properties as CSS } from 'csstype'
-import { ResponsiveStyle } from '../types'
+import { ResponsiveStyle, StyledFunction, StyledFunctionConfig } from '../types'
 
 // Utils
-import { parser } from '../parsers/parser'
+import { createStyles } from '../utils'
 
 /*
 
@@ -18,7 +16,47 @@ import { parser } from '../parsers/parser'
 
 */
 
-export interface FlexboxProps {
+const config: StyledFunctionConfig = {
+  flexDirection: {
+    property: 'flexDirection'
+  },
+  flexFlow: {
+    property: 'flexFlow'
+  },
+  flexWrap: {
+    property: 'flexWrap'
+  },
+  alignItems: {
+    property: 'alignItems'
+  },
+  alignContent: {
+    property: 'alignContent'
+  },
+  alignSelf: {
+    property: 'alignSelf'
+  },
+  justifyContent: {
+    property: 'justifyContent'
+  },
+  gap: {
+    property: 'gap',
+    scale: 'spaces'
+  },
+  flexGrow: {
+    property: 'flexGrow'
+  },
+  flexShrink: {
+    property: 'flexShrink'
+  },
+  flexBasis: {
+    property: 'flexBasis'
+  },
+  order: {
+    property: 'order'
+  }
+}
+
+interface FlexboxProps {
   flexDirection?: CSS['flexDirection'] | ResponsiveStyle<CSS['flexDirection']>
   flexFlow?: CSS['flexFlow'] | ResponsiveStyle<CSS['flexFlow']>
   flexWrap?: CSS['flexWrap'] | ResponsiveStyle<CSS['flexWrap']>
@@ -33,47 +71,14 @@ export interface FlexboxProps {
   order?: CSS['order'] | ResponsiveStyle<CSS['order']>
 }
 
-export const flexbox = css<FlexboxProps>`
-  ${({
-    flexDirection,
-    flexFlow,
-    flexWrap,
-    alignItems,
-    alignContent,
-    alignSelf,
-    justifyContent,
-    gap,
-    flexGrow,
-    flexShrink,
-    flexBasis,
-    order
-  }) =>
-    (flexDirection ||
-      flexFlow ||
-      flexWrap ||
-      order ||
-      alignItems ||
-      alignContent ||
-      alignSelf ||
-      justifyContent ||
-      gap ||
-      flexGrow ||
-      flexShrink ||
-      flexBasis) &&
-    css`
-      display: flex;
-    `}
+const flexbox: StyledFunction<FlexboxProps> = ({ theme, ...styles }) => {
+  const result = createStyles<typeof styles>(styles, theme, config)
 
-  ${({ flexDirection: T, theme }) => T && parser('flexDirection', T, theme)}
-  ${({ flexFlow: T, theme }) => T && parser('flexFlow', T, theme)}
-  ${({ flexWrap: T, theme }) => T && parser('flexWrap', T, theme)}
-  ${({ alignItems: T, theme }) => T && parser('alignItems', T, theme)}
-  ${({ alignContent: T, theme }) => T && parser('alignContent', T, theme)}
-  ${({ alignSelf: T, theme }) => T && parser('alignSelf', T, theme)}
-  ${({ justifyContent: T, theme }) => T && parser('justifyContent', T, theme)}
-  ${({ gap: T, theme }) => T && parser('gap', T, theme)}
-  ${({ flexGrow: T, theme }) => T && parser('flexGrow', T, theme)}
-  ${({ flexShrink: T, theme }) => T && parser('flexShrink', T, theme)}
-  ${({ flexBasis: T, theme }) => T && parser('flexBasis', T, theme)}
-  ${({ order: T, theme }) => T && parser('order', T, theme)}
-`
+  if (Object.keys(styles).length) {
+    result.display = 'flex'
+  }
+
+  return result
+}
+
+export { flexbox, FlexboxProps }

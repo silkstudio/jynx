@@ -1,11 +1,9 @@
-import { css } from 'styled-components'
-
 // Types
 import { Properties as CSS } from 'csstype'
-import { ResponsiveStyle } from '../types'
+import { ResponsiveStyle, StyledFunction, StyledFunctionConfig } from '../types'
 
 // Utils
-import { parser } from '../parsers/parser'
+import { createStyles } from '../utils'
 
 /*
 
@@ -17,8 +15,61 @@ import { parser } from '../parsers/parser'
 
 
 */
+const config: StyledFunctionConfig = {
+  gridTemplateColumns: {
+    property: 'gridTemplateColumns'
+  },
+  gridTemplateRows: {
+    property: 'gridTemplateRows'
+  },
+  gridTemplateAreas: {
+    property: 'gridTemplateAreas'
+  },
+  gridColumnGap: {
+    property: 'gridColumnGap',
+    scale: 'spaces'
+  },
+  gridRowGap: {
+    property: 'gridRowGap',
+    scale: 'spaces'
+  },
+  gridGap: {
+    property: 'gridGap',
+    scale: 'spaces'
+  },
+  gridJustifyItems: {
+    property: 'justifyItems'
+  },
+  gridAlignItems: {
+    property: 'alignItems'
+  },
+  gridJustifyContent: {
+    property: 'justifyContent'
+  },
+  gridAlignContent: {
+    property: 'alignContent'
+  },
+  gridAutoColumns: {
+    property: 'gridAutoColumns'
+  },
+  gridAutoRows: {
+    property: 'gridAutoColumns'
+  },
+  gridAutoFlow: {
+    property: 'gridAutoFlow'
+  },
+  gridColumn: {
+    property: 'gridColumn'
+  },
+  gridRow: {
+    property: 'gridRow'
+  },
+  gridArea: {
+    property: 'gridArea'
+  }
+}
 
-export interface GridProps {
+interface GridProps {
   gridTemplateColumns?: CSS['gridTemplateColumns'] | ResponsiveStyle<CSS['gridTemplateColumns']>
   gridTemplateRows?: CSS['gridTemplateRows'] | ResponsiveStyle<CSS['gridTemplateRows']>
   gridTemplateAreas?: CSS['gridTemplateAreas'] | ResponsiveStyle<CSS['gridTemplateAreas']>
@@ -38,22 +89,8 @@ export interface GridProps {
   gridArea?: CSS['gridArea'] | ResponsiveStyle<CSS['gridArea']>
 }
 
-export const grid = css<GridProps>`
-  ${({ gridTemplateColumns: T, theme }) => T && parser('gridTemplateColumns', T, theme)}
-  ${({ gridTemplateRows: T, theme }) => T && parser('gridTemplateRows', T, theme)}
-  ${({ gridTemplateAreas: T, theme }) => T && parser('gridTemplateAreas', T, theme)}
-  ${({ gridColumnGap: T, theme }) => T && parser('columnGap', T, theme)}
-  ${({ gridRowGap: T, theme }) => T && parser('rowGap', T, theme)}
-  ${({ gridGap: T, theme }) => T && parser('gap', T, theme)}
-  ${({ gridJustifyItems: T, theme }) => T && parser('justifyItems', T, theme)}
-  ${({ gridAlignItems: T, theme }) => T && parser('alignItems', T, theme)}
-  ${({ gridJustifyContent: T, theme }) => T && parser('justifyContent', T, theme)}
-  ${({ gridAlignContent: T, theme }) => T && parser('alignContent', T, theme)}
-  ${({ gridAutoColumns: T, theme }) => T && parser('gridAutoColumns', T, theme)}
-  ${({ gridAutoRows: T, theme }) => T && parser('gridAutoRows', T, theme)}
-  ${({ gridAutoFlow: T, theme }) => T && parser('gridAutoFlow', T, theme)}
-  // Child Props
-  ${({ gridColumn: T, theme }) => T && parser('gridColumn', T, theme)}
-  ${({ gridRow: T, theme }) => T && parser('gridRow', T, theme)}
-  ${({ gridArea: T, theme }) => T && parser('gridArea', T, theme)}
-`
+const grid: StyledFunction<GridProps> = ({ theme, ...styles }) => {
+  return createStyles<typeof styles>(styles, theme, config)
+}
+
+export { grid, GridProps }
