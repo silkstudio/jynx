@@ -38,14 +38,20 @@ import { parseResponsiveArray } from './parseResponsiveArray'
 
 */
 
-const parser = <P extends keyof CSS, C extends CSS[P], T extends DefaultTheme>(
-  property: P,
-  values: C | ResponsiveStyle<C>,
-  theme: T,
-  scale?: keyof T,
+const parser = <P extends keyof CSS, C extends CSS[P], T extends DefaultTheme>({
+  property,
+  values,
+  theme,
+  scale,
+  transform
+}: {
+  property: P
+  values: C | ResponsiveStyle<C>
+  theme: T
+  scale?: keyof T
   transform?: (K: typeof values) => typeof K
-): Record<string, any> => {
-  const result: Record<string, any> = {}
+}): Record<string, unknown> => {
+  const result: Record<string, unknown> = {}
   const styles = transform ? transform(values) : values
   const defaultScale = scale && theme[scale]
 
