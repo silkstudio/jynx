@@ -1,5 +1,17 @@
+import { Properties as CSS } from 'csstype'
 import { systemTheme } from '../theme'
 import { DeepKeys } from './utils'
+
+/*
+
+
+
+
+
+
+
+
+*/
 
 /**
  * Basic theme object shape
@@ -71,6 +83,27 @@ type MappedTheme<T extends BaseExtensibleObject = BaseExtensibleObject> = {
  * @public
  */
 export type DefaultTheme = MappedTheme<SystemTheme>
+
+/**
+ * StyledFunction
+ *
+ * @since 1.0.0
+ * @public
+ */
+export type StyledFunction<T> = (props: T & { theme: DefaultTheme }) => BaseExtensibleObject
+
+/**
+ * StyledFunctionConfig
+ *
+ * @since 1.0.0
+ * @public
+ */
+export interface StyledFunctionConfig {
+  [key: string]: {
+    property: keyof CSS
+    scale?: keyof DefaultTheme
+  }
+}
 
 // =========================================== //
 // INTERNAL THEME PROPERTIES
