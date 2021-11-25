@@ -1,5 +1,18 @@
-import { Properties as CSS } from 'csstype'
-import { ResponsiveStyle, DefaultTheme, SystemTheme } from './index'
+// Types
+import type { Properties as CSS } from 'csstype'
+import type { DefaultTheme } from './theme'
+import type { ResponsiveStyle } from './responsive'
+
+/*
+
+
+
+
+
+
+
+
+*/
 
 // ================================================
 // GLOBALS

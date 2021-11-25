@@ -1,4 +1,16 @@
-import type { ResponsiveObject, ResponsiveArray, ResponsiveStyle } from './index'
+// Types
+import type { ResponsiveObject, ResponsiveArray, ResponsiveStyle } from './responsive'
+
+/*
+
+
+
+
+
+
+
+
+*/
 
 /**
  * Type guard to check if a passed value is a {@link ResponsiveObject}
