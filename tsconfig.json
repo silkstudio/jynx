@@ -13,6 +13,6 @@
       "forceConsistentCasingInFileNames": true,
       "moduleResolution": "node"
     },
-    "include": ["src", "*.config.js"],
-    "exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx"]
+    "include": ["src", "*.config.js", "test"],
+    "exclude": ["node_modules"]
   }
