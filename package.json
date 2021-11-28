@@ -14,6 +14,7 @@
     "build:dev": "if [ -e \"dist\" ];then rm -rf \"dist\"; fi && rollup -c",
     "format": "prettier --write \"src/**/*.+(ts|tsx|js|jsx|md)\"",
     "lint": "eslint src --fix",
+    "test": "jest",
     "precommit": "lint-staged && tsc",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
@@ -30,6 +31,7 @@
   },
   "homepage": "https://github.com/silkstudio/styled-framework#readme",
   "devDependencies": {
+    "@types/jest": "^27.0.3",
     "@types/lodash.get": "^4.4.6",
     "@types/lodash.kebabcase": "^4.1.6",
     "@types/react": "^17.0.34",
@@ -46,12 +48,14 @@
     "eslint-plugin-react": "^7.27.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^7.0.4",
+    "jest": "^27.3.1",
     "lint-staged": "^12.0.2",
     "pinst": "^2.1.6",
     "prettier": "^2.4.1",
     "rollup": "^2.60.0",
     "rollup-plugin-dts": "^4.0.1",
     "rollup-plugin-esbuild": "^4.6.0",
+    "ts-jest": "^27.0.7",
     "typescript": "^4.4.4"
   },
   "dependencies": {
