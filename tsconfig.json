@@ -2,10 +2,10 @@
     "compilerOptions": {
       "target": "esnext",
       "module": "esnext",
-      "baseUrl": "./",
+      "baseUrl": "/",
       "declaration": true,
-      "outDir": "dist",
       "strict": true,
+      "noEmit": true,
       "skipLibCheck": true,
       "jsx": "react",
       "allowSyntheticDefaultImports": true,
@@ -13,6 +13,6 @@
       "forceConsistentCasingInFileNames": true,
       "moduleResolution": "node"
     },
-    "include": ["src", "*.config.js", "test"],
+    "include": ["src", "test", "*.config.js"],
     "exclude": ["node_modules"]
   }
