@@ -1,4 +1,4 @@
-import { isNumber } from '../../utils'
+import { isNumber } from '../../src/utils'
 
 describe('test isNumber utility', () => {
   test('should return true if the value passed to testit is a number', () => {

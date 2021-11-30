@@ -1,4 +1,4 @@
-import { sort } from '../../utils'
+import { sort } from '../../src/utils'
 
 const target = {
   color: 'red',

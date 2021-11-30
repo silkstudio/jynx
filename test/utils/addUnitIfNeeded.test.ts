@@ -1,4 +1,4 @@
-import { addUnitIfNeeded } from '../../utils'
+import { addUnitIfNeeded } from '../../src/utils'
 
 describe('addUnitIfNeeded utility function', () => {
   it('should return a string', () => {

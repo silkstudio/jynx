@@ -1,4 +1,4 @@
-import { createMediaQuery } from '../../utils'
+import { createMediaQuery } from '../../src/utils'
 
 describe('createMediaQuery utility function', () => {
   it('should return a string', () => {
