@@ -69,6 +69,16 @@ type MappedTheme<T extends BaseExtensibleObject = BaseExtensibleObject> = {
  */
 export type DefaultTheme = MappedTheme<SystemTheme>
 
+/**
+ * ThemeProps
+ *
+ * @since 1.0.0
+ * @public
+ */
+export type ThemeProps<T> = {
+  theme: T
+}
+
 // =========================================== //
 // INTERNAL THEME PROPERTIES
 // =========================================== //

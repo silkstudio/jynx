@@ -25,3 +25,26 @@ export type BaseExtensibleObject = {
  */
 // eslint-disable-next-line
 export type CSSProperty = string | number | (string & {}) | (number & {})
+
+/**
+ * Many
+ *
+ * @template T
+ *
+ * @since 1.0.0
+ */
+export type Many<T> = T | ReadonlyArray<T>
+
+/**
+ * PropertyName
+ *
+ * @since 1.0.0
+ */
+export type PropertyName = string | number | symbol
+
+/**
+ * PropertyPath
+ *
+ * @since 1.0.0
+ */
+export type PropertyPath = Many<PropertyName>
