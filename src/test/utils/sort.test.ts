@@ -52,6 +52,10 @@ describe('sort utility function', () => {
     expect(sort(unsorted)).toMatchObject(target)
   })
 
+  it('should sort an unsorted style object whose base style is not the first item within the object, into ascending order based on the media-queries used as the objects keys', () => {
+    expect(sort(unsortedMisplacedFirstItem)).toMatchObject(target)
+  })
+
   it('should return an empty object if value passed is an empty object', () => {
     expect(sort({})).toEqual({})
   })
