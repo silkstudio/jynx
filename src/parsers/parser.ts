@@ -4,7 +4,7 @@ import { DefaultTheme, ResponsiveStyle } from '../types'
 import { isResponsiveObject, isResponsiveStyle } from '../types/guards'
 
 // Utils
-import { themeGet } from '../utils'
+import { getValue } from '../utils'
 import { parseResponsiveObject } from './parseResponsiveObject'
 import { parseResponsiveArray } from './parseResponsiveArray'
 
@@ -58,7 +58,7 @@ const parser = <P extends keyof CSS, C extends CSS[P], T extends DefaultTheme>({
   if (!styles) return result
 
   if (!isResponsiveStyle<C>(styles)) {
-    result[property] = themeGet(property, styles, defaultScale)
+    result[property] = getValue(styles, defaultScale)
   }
 
   const parsed =

@@ -3,7 +3,7 @@ import { Properties as CSS } from 'csstype'
 import { BaseExtensibleObject, Breakpoint, DefaultTheme, ResponsiveObject } from '../types'
 
 // Utils
-import { createMediaQuery, sort, themeGet } from '../utils'
+import { createMediaQuery, sort, getValue } from '../utils'
 
 /**
  * Parser function that takes in either a single style or ResponsiveStyle and
@@ -46,10 +46,10 @@ const parseResponsiveObject = <P extends keyof CSS, C extends CSS[P], T extends 
 
   Object.entries(responsive).forEach(([bp, value]) => {
     const media = createMediaQuery(`${breakpoints[bp as Breakpoint]}`)
-    parsed[media] = { [property]: themeGet(property, value, scale) }
+    parsed[media] = { [property]: getValue(value, scale) }
   })
 
-  return { [property]: themeGet(property, base, scale), ...sort(parsed) }
+  return { [property]: getValue(base, scale), ...sort(parsed) }
 }
 
 export { parseResponsiveObject }

@@ -1,17 +1,16 @@
 // Types
-import { Properties as CSS } from 'csstype'
-import { DefaultTheme, CSSProperty } from '../types'
+import { DefaultTheme, ThemeProps, PropertyPath } from '../types'
 
 // Utils
 import get from 'lodash.get'
-import { addUnitIfNeeded } from './addUnitIfNeeded'
+
+type ThemeGetFunction = (props: ThemeProps<DefaultTheme>) => any
 
 /**
  *
- * @param {keyof CSSProperties} property
- * @param {CSSProperty} style
- * @param {DefaultTheme[keyof DefaultTheme]} scale
- * @returns {CSSProperty}
+ * @param {PropertyPath} path
+ * @param {unknown} [fallback=unknown]
+ * @returns
  */
 
 /*
@@ -25,17 +24,9 @@ import { addUnitIfNeeded } from './addUnitIfNeeded'
 
 */
 
-const themeGet = (property: keyof CSS, style?: CSSProperty, scale?: DefaultTheme[keyof DefaultTheme]): CSSProperty | undefined => {
-  if (!style || !scale) return style
-
-  if (Array.isArray(scale)) {
-    if (typeof style === 'number') {
-      return addUnitIfNeeded(property, style < scale.length ? scale[style] : style)
-    }
-    return style
-  }
-
-  return addUnitIfNeeded(property, get(scale, style, style) || style)
-}
+const themeGet =
+  (path: PropertyPath, fallback: unknown = null): ThemeGetFunction =>
+  props =>
+    get(props.theme, path, fallback)
 
 export { themeGet }

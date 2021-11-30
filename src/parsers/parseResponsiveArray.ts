@@ -3,7 +3,7 @@ import { Properties as CSS } from 'csstype'
 import { DefaultTheme, ResponsiveArray, BaseExtensibleObject } from '../types'
 
 // Utils
-import { createMediaQuery, sort, themeGet } from '../utils'
+import { createMediaQuery, sort, getValue } from '../utils'
 
 /**
  * Parser function that takes in either a single style or ResponsiveStyle and
@@ -45,13 +45,13 @@ const parseResponsiveArray = <P extends keyof CSS, C extends CSS[P], T extends D
   const parsed: Record<string, any> = {}
 
   responsive.forEach((value, index) => {
-    if (value === null) return
+    if (value === null || value === undefined) return
 
     const media = createMediaQuery(`${breakpoints[index]}`)
-    parsed[media] = { [property]: themeGet(property, value, scale) }
+    parsed[media] = { [property]: getValue(value, scale) }
   })
 
-  return { [property]: themeGet(property, base, scale), ...sort(parsed) }
+  return { [property]: getValue(base, scale), ...sort(parsed) }
 }
 
 export { parseResponsiveArray }
