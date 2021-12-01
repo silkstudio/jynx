@@ -24,7 +24,7 @@ describe('isResponsiveArray type guard', () => {
     expect(isResponsiveArray<string>(check)).toBe(true)
   })
 
-  it('should return a false if an array is passed it has no values', () => {
+  it('should return a false if an array is passed and it has no values', () => {
     expect(isResponsiveArray<string>([])).toBe(false)
   })
 
