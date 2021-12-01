@@ -1,4 +1,4 @@
-import { isResponsiveArray } from '../../src/types'
+import { isResponsiveArray } from '../../../src/types'
 
 const check = ['blue', 'red', 'green']
 
