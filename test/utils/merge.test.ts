@@ -12,7 +12,18 @@ const bar = {
   f: 'f'
 }
 
-describe('test merge utility', () => {
+/*
+
+
+
+
+
+
+
+
+*/
+
+describe('merge utility function', () => {
   it('should return combined object of `foo` and `bar`', () => {
     expect(merge(foo, bar)).toEqual({ a: 'a', b: 'b', c: 'c', d: 'd', e: 'e', f: 'f' })
   })

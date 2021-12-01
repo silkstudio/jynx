@@ -4,16 +4,17 @@ import { systemTheme } from '../../src/theme'
 
 const theme: DefaultTheme = systemTheme
 
-const colors = {
-  red: '#F2335D',
-  orange: '#FE8400',
-  yellow: '#FFCC00',
-  green: '#7CD420',
-  blue: '#12A5EC',
-  purple: '#7753F8'
+const testTheme = {
+  colors: {
+    red: '#F2335D',
+    orange: '#FE8400',
+    yellow: '#FFCC00',
+    green: '#7CD420',
+    blue: '#12A5EC',
+    purple: '#7753F8'
+  },
+  spaces: [0, 4, 8, 16, 32, 64, 128, 256]
 }
-
-const spaces = [0, 4, 8, 16, 32, 64, 128, 256]
 
 /*
 
@@ -31,14 +32,14 @@ describe('themeGet utility function', () => {
     const foo = themeGet('colors')({ theme })
 
     expect(typeof foo).toBe('object')
-    expect(foo).toMatchObject(colors)
+    expect(foo).toMatchObject(testTheme.colors)
   })
 
   it("should return a theme scale as an array if passed a single level key that's corresponding theme property is defined as an array", () => {
     const foo = themeGet('spaces')({ theme })
 
     expect(Array.isArray(foo)).toBe(true)
-    expect(foo).toEqual(spaces)
+    expect(foo).toEqual(testTheme.spaces)
   })
 
   it('should be able to access a object-based, string theme property through dot notation', () => {

@@ -1,6 +1,17 @@
 import { isNumber } from '../../src/utils'
 
-describe('test isNumber utility', () => {
+/*
+
+
+
+
+
+
+
+
+*/
+
+describe('isNumber utility function', () => {
   test('should return true if the value passed to testit is a number', () => {
     expect(isNumber(2)).toBe(true)
   })

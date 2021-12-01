@@ -1,5 +1,16 @@
 import { createMediaQuery } from '../../src/utils'
 
+/*
+
+
+
+
+
+
+
+
+*/
+
 describe('createMediaQuery utility function', () => {
   it('should return a string', () => {
     expect(typeof createMediaQuery(1280)).toBe('string')
