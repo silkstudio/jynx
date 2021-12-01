@@ -15,6 +15,7 @@
     "format": "prettier --write \"src/**/*.+(ts|tsx|js|jsx|md)\"",
     "lint": "eslint src --fix",
     "test": "jest",
+    "test:dev": "if [ -e \"coverage\" ];then rm -rf \"coverage\"; fi && jest --coverage",
     "precommit": "lint-staged && tsc",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
