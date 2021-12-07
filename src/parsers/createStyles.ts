@@ -2,10 +2,14 @@
 import { DefaultTheme, StyledFunctionConfig } from '../types'
 
 // Utils
-import { parser } from '../parsers/parser'
+import { parser } from './parser'
 
 /**
- * Function used to build a style object from the raw styles, a given theme and a config object
+ * Function used to build a style object from the raw styles, a given theme and a config object.
+ *
+ * Whilst it does include the {@link parser} function, this is the _main_ function used to build the styles
+ * that are passed to a styled component and should be the only thing having any interation font-end interaction
+ * with any components (through our styled functions).
  *
  * @template T Used to define the type of {@link raw} (should ideally be instantiated as `<typeof raw>`)
  *
