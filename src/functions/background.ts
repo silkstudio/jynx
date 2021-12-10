@@ -3,7 +3,7 @@ import { Properties as CSS } from 'csstype'
 import { ResponsiveStyle, StyledFunction, StyledFunctionConfig } from '../types'
 
 // Utils
-import { createStyles } from '../parsers'
+import { createStyles } from '../constructors'
 
 /*
 

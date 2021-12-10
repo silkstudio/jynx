@@ -2,7 +2,7 @@
 import { DefaultTheme, StyledFunctionConfig } from '../types'
 
 // Utils
-import { parser } from './parser'
+import { parser } from '../parsers/parser'
 
 /**
  * Function used to build a style object from the raw styles, a given theme and a config object.
