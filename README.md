@@ -1,6 +1,6 @@
 # Styled Framework
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/silkstudio/styled-framework/Publish)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/silkstudio/styled-framework/CI?label=CI&logo=git&logoColor=white)
 ![npm](https://img.shields.io/npm/v/@silkstudio/styled-utils)
 ![GitHub Repo stars](https://img.shields.io/github/stars/silkstudio/styled-framework)
 ![npm](https://img.shields.io/npm/dw/@silkstudio/styled-utils)
