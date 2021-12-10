@@ -52,4 +52,4 @@ export const systemTheme = {
     modals: 3,
     notifications: 4
   }
-}
+} as const

@@ -2,7 +2,8 @@ import { systemTheme } from '../theme'
 
 // Types
 import type { BaseExtensibleObject } from './common'
-import type { DeepKeys } from './utils'
+import type { DeepKeys, StringOrNumber } from './utils'
+import type { ElementOf } from 'ts-essentials'
 
 /*
 
@@ -42,6 +43,9 @@ type ThemePropertyObject = {
 //   [key: string]: string | number | ThemePropertyRecursiveObject
 // }
 
+/* -------- */
+/*  THEMES  */
+/* -------- */
 /**
  * SystemTheme
  *
@@ -69,8 +73,12 @@ type MappedTheme<T extends BaseExtensibleObject = BaseExtensibleObject> = {
  */
 export type DefaultTheme = MappedTheme<SystemTheme>
 
+/* ------------------ */
+/*  THEME ATTRIBUTES  */
+/* ------------------ */
 /**
  * ThemeProps
+ * @template T
  *
  * @since 1.0.0
  * @public
@@ -79,10 +87,53 @@ export type ThemeProps<T> = {
   theme: T
 }
 
-// =========================================== //
-// INTERNAL THEME PROPERTIES
-// =========================================== //
+/**
+ * ThemeValue
+ *
+ * @template T
+ * @template K extends keyof T
+ * @template S [=T[K]]
+ *
+ * @since 1.0.0
+ */
+export type ThemeValue<T, K extends keyof T, S = T[K]> = S extends string | number
+  ? S
+  : S extends any[] | readonly [...any]
+  ? ElementOf<S>
+  : S extends Record<string, infer E>
+  ? E
+  : never
 
+/**
+ * ThemeScale
+ *
+ * @template K extends keyof T
+ * @template T extends {@link DefaultTheme} [=DefaultTheme]
+ * @template S [=T[K]]
+ *
+ * @since 1.0.0
+ */
+export type ThemeScale<K extends keyof T, T extends DefaultTheme = DefaultTheme, S = T[K]> = S extends string | number
+  ? StringOrNumber<S>
+  : S extends any[] | readonly [...infer P]
+  ? StringOrNumber<P[number]>
+  : S extends Record<string, infer E>
+  ? StringOrNumber<E>
+  : never
+
+/**
+ * StrictThemeScale
+ *
+ * @template K extends keyof T
+ * @template T extends {@link DefaultTheme} [=DefaultTheme]
+ *
+ * @since 1.0.0
+ */
+export type StrictThemeScale<K extends keyof T, T extends DefaultTheme = DefaultTheme> = T[K]
+
+/* ------------------ */
+/*  THEME PROPERTIES  */
+/* ------------------ */
 /**
  * Breakpoints
  *

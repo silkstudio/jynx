@@ -2,6 +2,7 @@
 import type { Properties as CSS } from 'csstype'
 import type { DefaultTheme } from './theme'
 import type { ResponsiveStyle } from './responsive'
+import type { ElementOf } from 'ts-essentials'
 
 /*
 
@@ -14,20 +15,40 @@ import type { ResponsiveStyle } from './responsive'
 
 */
 
-// ================================================
-// GLOBALS
-// ================================================
-
+/* -------- */
+/*  OBJECT  */
+/* -------- */
 type Obj = Record<string, any>
 
-type ExtractKeys<O extends Obj> = {
+/* -------------- */
+/*  EXTRACT KEYS  */
+/* -------------- */
+/**
+ * ExtractKeys
+ *
+ * @template O extends {@link Obj}
+ *
+ * @since 1.0.0
+ */
+export type ExtractKeys<O extends Obj> = {
   [K in keyof O]: O[K] extends Obj ? K : never
 }[keyof O]
 
-// ================================================
-// DEEP KEYS
-// ================================================
+/* ------------------ */
+/*  STRING OR NUMBER  */
+/* ------------------ */
+/**
+ * StringOrNumber
+ *
+ * @template T extends any
+ *
+ * @since 1.0.0
+ */
+export type StringOrNumber<T> = T extends string ? string : T extends number ? number : T
 
+/* ----------- */
+/*  DEEP KEYS  */
+/* ----------- */
 /**
  * Recursively retrieve all nested keys from an object
  *
@@ -37,18 +58,28 @@ type ExtractKeys<O extends Obj> = {
  * @since 1.0.0
  */
 
-type DeepKeys<
+export type DeepKeys<
   O extends Obj,
   // @ts-expect-error Type 'keyof O' does not satisfy the constraint 'string'.
   K extends string = keyof O
 > = K extends ExtractKeys<O> ? DeepKeys<O[K]> : K
 
-// ================================================
-// DOTTED KEYS
-// ================================================
+/* ---------- */
+/*  DOT JOIN  */
+/* ---------- */
+/**
+ * DotJoin
+ *
+ * @template A extends string
+ * @template B extends string
+ *
+ * @since 1.0.0
+ */
+export type DotJoin<A extends string, B extends string> = A extends '' ? B : `${A}.${B}`
 
-type DotJoin<A extends string, B extends string> = A extends '' ? B : `${A}.${B}`
-
+/* ------------- */
+/*  DOTTED KEYS  */
+/* ------------- */
 /**
  * Recursively retrieve all nested keys from an object with their full dotted path
  *
@@ -59,28 +90,26 @@ type DotJoin<A extends string, B extends string> = A extends '' ? B : `${A}.${B}
  * @since 1.0.0
  */
 
-type DottedKeys<
+export type DottedKeys<
   O extends Obj,
   P extends string = '',
   // @ts-expect-error Type 'keyof O' does not satisfy the constraint 'string'.
   K extends string = keyof O
 > = K extends ExtractKeys<O> ? DottedKeys<O[K], DotJoin<P, K>> : DotJoin<P, K>
 
-// ================================================
-// Style
-// ================================================
-
-// type LiteralUnion<T extends U, U = string | number> = T | (U & {})
+/* ------------- */
+/*  STYLE  */
+/* ------------- */
+// type LiteralUnion<T extends U, U = string | number | Record<string, string | number>> = T | (U & {})
 // let x: LiteralUnion<keyof DefaultTheme['breakpoints']>
 // x = ''
-
 /**
  *
  * @template K extends keyof {@link CSSProperties}
  *
  * @since 1.0.0
  */
-type Style<K extends keyof CSS> = CSS[K] | ResponsiveStyle<CSS[K]>
+export type Style<K extends keyof CSS> = CSS[K] | ResponsiveStyle<CSS[K]>
 
 /**
  *
@@ -90,19 +119,6 @@ type Style<K extends keyof CSS> = CSS[K] | ResponsiveStyle<CSS[K]>
  *
  * @since 1.0.0
  */
-type StyleWithTheme<K extends keyof CSS, S extends keyof T, T extends DefaultTheme = DefaultTheme> =
+export type StyleWithTheme<K extends keyof CSS, S extends keyof T, T extends DefaultTheme = DefaultTheme> =
   | (CSS[K] | keyof T[S])
   | ResponsiveStyle<CSS[K] | keyof T[S]>
-
-/*
-
-
-
-
-
-
-
-
-*/
-
-export type { DeepKeys, DottedKeys, Style, StyleWithTheme }
