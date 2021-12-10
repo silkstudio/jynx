@@ -1,5 +1,5 @@
-import { getValue } from '../../src/utils'
-import { systemTheme as theme } from '../../src/theme'
+import { getValue } from '../index'
+import { systemTheme as theme } from '../../theme'
 
 /*
 

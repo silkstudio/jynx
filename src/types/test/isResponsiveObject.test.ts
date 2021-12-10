@@ -1,4 +1,4 @@
-import { isResponsiveObject } from '../../../src/types'
+import { isResponsiveObject } from '../index'
 
 const check = { _: 'red', sm: 'orange', md: 'yellow', lg: 'green' }
 

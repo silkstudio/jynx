@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 // Components
-import { ThemeProvider } from '../../src/theme'
+import { ThemeProvider } from '..'
 
 // Utils
 import { render, cleanup } from '@testing-library/react'

@@ -1,5 +1,4 @@
-import { isNumber } from '../../src/utils'
-
+import { isNumber } from '../index'
 /*
 
 

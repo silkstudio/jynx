@@ -1,4 +1,4 @@
-import { addUnitIfNeeded } from '../../src/utils'
+import { addUnitIfNeeded } from '../index'
 
 const unitsBasedProp = 'width'
 const unitlessProp = 'gridRow'
