@@ -40,6 +40,10 @@ const parseResponsiveArray = <P extends keyof CSS, C extends CSS[P], T extends D
   theme: T,
   scale?: T[keyof T]
 ): BaseExtensibleObject => {
+  if (!property || !styles || !theme) {
+    return {}
+  }
+
   const breakpoints = Object.values(theme.breakpoints)
   const [base, ...responsive] = styles
   const parsed: Record<string, any> = {}
