@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Components
-import { ThemeProvider as SCThemeProvider } from 'styled-components'
+import { ThemeProvider as StyledComponentsThemeProvider } from 'styled-components'
 
 // Types
 import { BaseExtensibleObject } from '../types'
@@ -27,7 +27,7 @@ interface Props {
 */
 
 const ThemeProvider: React.FC<Props> = ({ theme, children }) => {
-  return <SCThemeProvider theme={merge(systemTheme, theme)}>{children}</SCThemeProvider>
+  return <StyledComponentsThemeProvider theme={merge(systemTheme, theme)}>{children}</StyledComponentsThemeProvider>
 }
 
 export { ThemeProvider }
