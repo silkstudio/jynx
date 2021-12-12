@@ -1,12 +1,12 @@
 // Types
-import { Properties as CSS } from 'csstype'
-import { DefaultTheme, ResponsiveStyle } from '../types'
-import { isResponsiveObject, isResponsiveStyle } from '../types/guards'
+import type { Properties as CSS } from 'csstype'
+import type { BaseExtensibleObject, DefaultTheme, ResponsiveStyle } from '../types'
 
 // Utils
-import { getValue } from '../utils'
+import { addUnitIfNeeded, getValue } from '../utils'
 import { parseResponsiveObject } from './parseResponsiveObject'
 import { parseResponsiveArray } from './parseResponsiveArray'
+import { isResponsiveObject, isResponsiveStyle } from '../types/guards'
 
 /**
  * Parser function that takes in either a single style or ResponsiveStyle and
@@ -38,7 +38,7 @@ import { parseResponsiveArray } from './parseResponsiveArray'
 
 */
 
-const parser = <P extends keyof CSS, C extends CSS[P], T extends DefaultTheme>({
+const parser = <P extends keyof CSS, T extends DefaultTheme>({
   property,
   values,
   theme,
@@ -46,26 +46,29 @@ const parser = <P extends keyof CSS, C extends CSS[P], T extends DefaultTheme>({
   transform
 }: {
   property: P
-  values: C | ResponsiveStyle<C>
+  values: CSS[P] | ResponsiveStyle<CSS[P], T>
   theme: T
   scale?: keyof T
   transform?: (K: typeof values) => typeof K
-}): Record<string, unknown> => {
-  const result: Record<string, unknown> = {}
+}): BaseExtensibleObject => {
+  const result: BaseExtensibleObject = {}
   const styles = transform ? transform(values) : values
   const defaultScale = scale && theme[scale]
 
-  if (!styles) return result
-
-  if (!isResponsiveStyle<C>(styles)) {
-    result[property] = getValue(styles, defaultScale)
+  if (!property || !values || !theme || !styles) {
+    return result
   }
 
-  const parsed =
-    isResponsiveStyle<C>(styles) &&
-    (isResponsiveObject<C>(styles)
+  if (!isResponsiveStyle<CSS[P]>(styles)) {
+    result[property] = addUnitIfNeeded(property, getValue(styles, defaultScale))
+  }
+
+  const parsed = isResponsiveStyle<CSS[P]>(styles)
+    ? isResponsiveObject<CSS[P]>(styles)
       ? parseResponsiveObject(property, styles, theme, defaultScale)
-      : parseResponsiveArray(property, styles, theme, defaultScale))
+      : // @ts-ignore
+        parseResponsiveArray(property, styles, theme, defaultScale)
+    : {}
 
   Object.entries(parsed).forEach(([key, value]) => (result[key] = value))
 

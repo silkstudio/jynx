@@ -19,38 +19,38 @@ import { systemTheme } from '../../theme'
 describe('When a required argument is missing', () => {
   it('should return an empty object if a css property is not defined', () => {
     const maybeCssProperty = undefined as unknown as keyof CSS
-    const parser = parseResponsiveObject(maybeCssProperty, { _: 'red' }, systemTheme)
+    const foo = parseResponsiveObject(maybeCssProperty, { _: 'red' }, systemTheme)
 
-    expect(typeof parser).toBe('object')
-    expect(parser).toEqual({})
+    expect(typeof foo).toBe('object')
+    expect(foo).toEqual({})
   })
 
   it('should return an empty object if a style object is not defined', () => {
     const maybeArray = undefined as unknown as { _: 'red' }
-    const parser = parseResponsiveObject('color', maybeArray, systemTheme)
+    const foo = parseResponsiveObject('color', maybeArray, systemTheme)
 
-    expect(typeof parser).toBe('object')
-    expect(parser).toEqual({})
+    expect(typeof foo).toBe('object')
+    expect(foo).toEqual({})
   })
 
   it('should return an empty object if a theme is not defined', () => {
     const maybeTheme = undefined as unknown as typeof systemTheme
-    const parser = parseResponsiveObject('color', { _: 'red' }, maybeTheme)
+    const foo = parseResponsiveObject('color', { _: 'red' }, maybeTheme)
 
-    expect(typeof parser).toBe('object')
-    expect(parser).toEqual({})
+    expect(typeof foo).toBe('object')
+    expect(foo).toEqual({})
   })
 })
 
 describe('When passed a single item object', () => {
-  const parser = parseResponsiveObject('color', { _: 'red' }, systemTheme)
+  const foo = parseResponsiveObject('color', { _: 'red' }, systemTheme)
 
   it('should return an object ', () => {
-    expect(typeof parser).toBe('object')
+    expect(typeof foo).toBe('object')
   })
 
   it('should return an object with a single key/value pair', () => {
-    expect(parser).toEqual({
+    expect(foo).toEqual({
       color: 'red'
     })
   })
@@ -69,14 +69,14 @@ describe('When passed a single item object', () => {
 })
 
 describe('When passed an mutli-item object', () => {
-  const parser = parseResponsiveObject('color', { _: 'red', sm: 'blue', md: 'green' }, systemTheme)
+  const foo = parseResponsiveObject('color', { _: 'red', sm: 'blue', md: 'green' }, systemTheme)
 
   it('should return an object ', () => {
-    expect(typeof parser).toBe('object')
+    expect(typeof foo).toBe('object')
   })
 
   it('should return a style object sorted by its media query keys', () => {
-    expect(parser).toEqual({
+    expect(foo).toEqual({
       color: 'red',
       '@media screen and (min-width: 640px)': {
         color: 'blue'
@@ -89,14 +89,14 @@ describe('When passed an mutli-item object', () => {
 })
 
 describe('When passed an mutli-item object where only select breakpoints are referenced', () => {
-  const parser = parseResponsiveObject('color', { _: 'red', sm: 'blue', lg: 'green' }, systemTheme)
+  const foo = parseResponsiveObject('color', { _: 'red', sm: 'blue', lg: 'green' }, systemTheme)
 
   it('should return an object ', () => {
-    expect(typeof parser).toBe('object')
+    expect(typeof foo).toBe('object')
   })
 
   it('should return a style object, sorted by its media query keys and skipping values (and breakpoints) where null is passed as the style', () => {
-    expect(parser).toEqual({
+    expect(foo).toEqual({
       color: 'red',
       '@media screen and (min-width: 640px)': {
         color: 'blue'
@@ -109,14 +109,14 @@ describe('When passed an mutli-item object where only select breakpoints are ref
 })
 
 describe('When passed an mutli-item object, not referenced in size order', () => {
-  const parser = parseResponsiveObject('color', { lg: 'blue', _: 'red', sm: 'green' }, systemTheme)
+  const foo = parseResponsiveObject('color', { lg: 'blue', _: 'red', sm: 'green' }, systemTheme)
 
   it('should return an object ', () => {
-    expect(typeof parser).toBe('object')
+    expect(typeof foo).toBe('object')
   })
 
   it('should return a sorted style object, referencing the appropriate breakpoints', () => {
-    expect(parser).toEqual({
+    expect(foo).toEqual({
       color: 'red',
       '@media screen and (min-width: 640px)': {
         color: 'green'

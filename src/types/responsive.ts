@@ -43,4 +43,4 @@ export type ResponsiveObject<K, T extends DefaultTheme = DefaultTheme> = { _: K 
  * @since 1.0.0
  * @public
  */
-export type ResponsiveStyle<T> = ResponsiveArray<T> | ResponsiveObject<T>
+export type ResponsiveStyle<K, T extends DefaultTheme = DefaultTheme> = ResponsiveArray<K> | ResponsiveObject<K, T>
