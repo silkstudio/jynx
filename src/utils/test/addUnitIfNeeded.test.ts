@@ -18,9 +18,14 @@ describe('When a css-property is not defined', () => {
   // prettier-ignore
   const noProp = (undefined as unknown) as string
 
-  it('should return the originally passed value if a string is passed', () => {
+  it('should return the originally passed value if a non-numeric string is passed', () => {
+    expect(typeof addUnitIfNeeded(noProp, 'red')).toBe('string')
+    expect(addUnitIfNeeded(noProp, 'red')).toBe('red')
+  })
+
+  it('should return the originally passed value, converted to px, if a numeric string is passed', () => {
     expect(typeof addUnitIfNeeded(noProp, '5')).toBe('string')
-    expect(addUnitIfNeeded(noProp, '5')).toBe('5')
+    expect(addUnitIfNeeded(noProp, '5')).toBe('5px')
   })
 
   it('should return the originally passed value, converted to px, if a number is passed', () => {
@@ -76,9 +81,14 @@ describe('When a css-property and a string value are passed', () => {
     expect(addUnitIfNeeded(unitlessProp, '')).toBe('')
   })
 
-  it('should return the originally passed string when passed a `units-based` property and non-empty string', () => {
+  it('should return the originally passed string when passed a `units-based` property and non-empty, non-numeric string', () => {
+    expect(typeof addUnitIfNeeded(unitsBasedProp, 'red')).toBe('string')
+    expect(addUnitIfNeeded(unitsBasedProp, 'red')).toBe('red')
+  })
+
+  it('should return the originally passed string when passed a `units-based` property and non-empty, numeric string', () => {
     expect(typeof addUnitIfNeeded(unitsBasedProp, '600')).toBe('string')
-    expect(addUnitIfNeeded(unitsBasedProp, '600')).toBe('600')
+    expect(addUnitIfNeeded(unitsBasedProp, '600')).toBe('600px')
   })
 
   it('should return the originally passed string when passed a `unitless` property and non-empty string', () => {

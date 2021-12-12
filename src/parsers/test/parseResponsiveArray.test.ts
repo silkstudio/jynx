@@ -77,7 +77,7 @@ describe('When passed an mutli-item array', () => {
 })
 
 describe('When passed an mutli-item array containing null', () => {
-  const parser = parseResponsiveArray('color', ['red', 'blue', null, 'yellow'], systemTheme, 'colors')
+  const parser = parseResponsiveArray('color', ['red', 'blue', null, 'yellow'], systemTheme)
 
   it('should return an object ', () => {
     expect(typeof parser).toBe('object')
@@ -97,14 +97,8 @@ describe('When passed an mutli-item array containing null', () => {
 })
 
 describe('When a theme scale is passed', () => {
-  const parser = parseResponsiveArray('color', ['red', 'blue', 'yellow'], systemTheme, systemTheme.colors)
-
-  it('should return an object ', () => {
-    expect(typeof parser).toBe('object')
-  })
-
   it('should return a sorted style object, referencing correlating theme values if they exist', () => {
-    expect(parser).toEqual({
+    expect(parseResponsiveArray('color', ['red', 'blue', 'yellow'], systemTheme, systemTheme.colors)).toEqual({
       color: '#F2335D',
       '@media screen and (min-width: 640px)': {
         color: '#12A5EC'
