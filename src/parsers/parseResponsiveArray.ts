@@ -3,7 +3,7 @@ import { Properties as CSS } from 'csstype'
 import { DefaultTheme, ResponsiveArray, BaseExtensibleObject } from '../types'
 
 // Utils
-import { createMediaQuery, sort, getValue } from '../utils'
+import { createMediaQuery, sort, getValue, addUnitIfNeeded } from '../utils'
 
 /**
  * Parser function that takes in either a single style or ResponsiveStyle and
@@ -34,11 +34,11 @@ import { createMediaQuery, sort, getValue } from '../utils'
 
 */
 
-const parseResponsiveArray = <P extends keyof CSS, C extends CSS[P], T extends DefaultTheme>(
+const parseResponsiveArray = <P extends keyof CSS, T extends DefaultTheme = DefaultTheme, S = T[keyof T]>(
   property: P,
-  styles: ResponsiveArray<C>,
+  styles: ResponsiveArray<CSS[P]>,
   theme: T,
-  scale?: T[keyof T]
+  scale?: S
 ): BaseExtensibleObject => {
   if (!property || !styles || !theme) {
     return {}
@@ -52,10 +52,10 @@ const parseResponsiveArray = <P extends keyof CSS, C extends CSS[P], T extends D
     if (value === null || value === undefined) return
 
     const media = createMediaQuery(`${breakpoints[index]}`)
-    parsed[media] = { [property]: getValue(value, scale) }
+    parsed[media] = { [property]: addUnitIfNeeded(property, getValue(value, scale)) }
   })
 
-  return { [property]: getValue(base, scale), ...sort(parsed) }
+  return { [property]: addUnitIfNeeded(property, getValue(base, scale)), ...sort(parsed) }
 }
 
 export { parseResponsiveArray }
