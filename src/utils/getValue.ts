@@ -2,7 +2,7 @@
 import { DefaultTheme } from '../types'
 
 // Utils
-import { get } from '.'
+import get from 'lodash.get'
 
 /**
  *
