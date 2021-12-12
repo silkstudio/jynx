@@ -60,14 +60,14 @@ const parser = <P extends keyof CSS, T extends DefaultTheme>({
   }
 
   if (!isResponsiveStyle<CSS[P]>(styles)) {
-    result[property] = addUnitIfNeeded(property, getValue(styles, defaultScale))
+    result[property] = addUnitIfNeeded(property, getValue(styles, scale && theme[scale]))
   }
 
   const parsed = isResponsiveStyle<CSS[P]>(styles)
     ? isResponsiveObject<CSS[P]>(styles)
-      ? parseResponsiveObject(property, styles, theme, defaultScale)
+      ? parseResponsiveObject(property, styles, theme, scale)
       : // @ts-ignore
-        parseResponsiveArray(property, styles, theme, defaultScale)
+        parseResponsiveArray(property, styles, theme, scale)
     : {}
 
   Object.entries(parsed).forEach(([key, value]) => (result[key] = value))

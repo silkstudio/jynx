@@ -34,11 +34,11 @@ import { createMediaQuery, sort, getValue, addUnitIfNeeded } from '../utils'
  
 */
 
-const parseResponsiveObject = <P extends keyof CSS, T extends DefaultTheme = DefaultTheme, S = T[keyof T]>(
+const parseResponsiveObject = <P extends keyof CSS, T extends DefaultTheme = DefaultTheme, S = keyof T>(
   property: P,
   styles: ResponsiveObject<CSS[P], T>,
   theme: T,
-  scale?: S
+  scale?: keyof T
 ): BaseExtensibleObject => {
   if (!property || !styles || !theme) {
     return {}
@@ -50,10 +50,10 @@ const parseResponsiveObject = <P extends keyof CSS, T extends DefaultTheme = Def
 
   Object.entries(responsive).forEach(([bp, value]) => {
     const media = createMediaQuery(`${breakpoints[bp as Breakpoint]}`)
-    parsed[media] = { [property]: addUnitIfNeeded(property, getValue(value, scale)) }
+    parsed[media] = { [property]: addUnitIfNeeded(property, getValue(value, scale && theme[scale])) }
   })
 
-  return { [property]: addUnitIfNeeded(property, getValue(base, scale)), ...sort(parsed) }
+  return { [property]: addUnitIfNeeded(property, getValue(base, scale && theme[scale])), ...sort(parsed) }
 }
 
 export { parseResponsiveObject }
