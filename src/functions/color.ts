@@ -40,4 +40,4 @@ const color: StyledFunction<ColorProps> = ({ theme, ...styles }) => {
   return createStyles<typeof styles>(styles, theme, config)
 }
 
-export { color, ColorProps }
+export { color, ColorProps, config }

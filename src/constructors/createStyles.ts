@@ -1,5 +1,5 @@
 // Types
-import { DefaultTheme, StyledFunctionConfig } from '../types'
+import type { DefaultTheme, StyledFunctionConfig, BaseExtensibleObject } from '../types'
 
 // Utils
 import { parser } from '../parsers/parser'
@@ -36,8 +36,8 @@ import { parser } from '../parsers/parser'
 
 */
 
-const createStyles = <T>(raw: T, theme: DefaultTheme, config: StyledFunctionConfig): Record<string, unknown> => {
-  let styles: Record<string, unknown> = {}
+const createStyles = <T>(raw: T, theme: DefaultTheme, config: StyledFunctionConfig): BaseExtensibleObject => {
+  let styles: BaseExtensibleObject = {}
 
   Object.entries(raw).forEach(([key, values]) => {
     styles = { ...styles, ...parser({ values, theme, ...config[key] }) }
