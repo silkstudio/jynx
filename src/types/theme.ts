@@ -28,13 +28,6 @@ import type { ElementOf } from 'ts-essentials'
 /* -------- */
 /*  THEMES  */
 /* -------- */
-/**
- * SystemTheme
- *
- * @since 1.0.0
- * @public
- */
-export type SystemTheme = typeof systemTheme
 
 /**
  * DefaultTheme
@@ -63,12 +56,7 @@ export interface DefaultTheme {
 /**
  *
  */
-export type ExtensibleTheme = DefaultTheme & { [key: string]: any }
-
-/**
- *
- */
-export type StrictTheme = Required<DefaultTheme>
+export type RequiredTheme = Required<DefaultTheme>
 
 /* ------------------ */
 /*  THEME ATTRIBUTES  */
