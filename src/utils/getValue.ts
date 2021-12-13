@@ -22,7 +22,10 @@ import get from 'lodash.get'
 
 */
 
-const getValue = (value?: string | number, scale?: DefaultTheme[keyof DefaultTheme]): string | number | Record<string, any> => {
+const getValue = (
+  value?: string | number,
+  scale?: DefaultTheme[keyof DefaultTheme] | Record<string, any> | any[]
+): string | number | Record<string, any> => {
   if (scale) {
     return value ? get(scale, value, value) : ''
   }
