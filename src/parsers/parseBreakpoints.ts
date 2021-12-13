@@ -1,5 +1,5 @@
 // Types
-import type { ObjectOrArray } from '../types'
+import type { ObjectOrArray } from '../types/utils'
 import type { DefaultBreakpoints } from '../utils/defaultBreakpoints'
 
 // Utils

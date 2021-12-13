@@ -2,8 +2,7 @@ import { systemTheme } from '../theme'
 
 // Types
 import * as CSS from 'csstype'
-import type { ObjectOrArray } from './common'
-import type { StringOrNumber } from './utils'
+import type { ObjectOrArray, StringOrNumber } from './utils'
 import type { ElementOf } from 'ts-essentials'
 
 /*

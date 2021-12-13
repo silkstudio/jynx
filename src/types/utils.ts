@@ -34,6 +34,19 @@ export type ExtractKeys<O extends Obj> = {
   [K in keyof O]: O[K] extends Obj ? K : never
 }[keyof O]
 
+/* ----------------- */
+/*  OBJECT OR ARRAY  */
+/* ----------------- */
+/**
+ * StringOrNumber
+ *
+ * @template T extends any
+ *
+ * @since 1.0.0
+ */
+// export type ObjectOrArray<T> = T[] | Record<string, T | Record<string, T> | T[]>
+export type ObjectOrArray<T> = T[] | Record<string, T>
+
 /* ------------------ */
 /*  STRING OR NUMBER  */
 /* ------------------ */
