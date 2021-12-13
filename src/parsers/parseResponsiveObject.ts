@@ -4,6 +4,8 @@ import { BaseExtensibleObject, Breakpoint, DefaultTheme, ResponsiveObject } from
 
 // Utils
 import { createMediaQuery, sort, getValue, addUnitIfNeeded } from '../utils'
+import { DefaultBreakpoint } from '../utils/defaultBreakpoints'
+import { parseBreakpoints } from './parseBreakpoints'
 
 /**
  * Parser function that takes in either a single style or ResponsiveStyle and
@@ -34,9 +36,9 @@ import { createMediaQuery, sort, getValue, addUnitIfNeeded } from '../utils'
  
 */
 
-const parseResponsiveObject = <P extends keyof CSS, T extends DefaultTheme = DefaultTheme, S = keyof T>(
+const parseResponsiveObject = <P extends keyof CSS, T extends DefaultTheme = DefaultTheme>(
   property: P,
-  styles: ResponsiveObject<CSS[P], T>,
+  styles: ResponsiveObject<CSS[P]>,
   theme: T,
   scale?: keyof T
 ): BaseExtensibleObject => {
@@ -44,16 +46,17 @@ const parseResponsiveObject = <P extends keyof CSS, T extends DefaultTheme = Def
     return {}
   }
 
-  const { breakpoints } = theme
+  const breakpoints = parseBreakpoints(theme.breakpoints)
+  const themeScale = scale && theme[scale]
   const { _: base, ...responsive } = styles
   const parsed: Record<string, any> = {}
 
   Object.entries(responsive).forEach(([bp, value]) => {
-    const media = createMediaQuery(`${breakpoints[bp as Breakpoint]}`)
-    parsed[media] = { [property]: addUnitIfNeeded(property, getValue(value, scale && theme[scale])) }
+    const media = createMediaQuery(`${breakpoints[bp as DefaultBreakpoint]}`)
+    parsed[media] = { [property]: addUnitIfNeeded(property, getValue(value, themeScale)) }
   })
 
-  return { [property]: addUnitIfNeeded(property, getValue(base, scale && theme[scale])), ...sort(parsed) }
+  return { [property]: addUnitIfNeeded(property, getValue(base, themeScale)), ...sort(parsed) }
 }
 
 export { parseResponsiveObject }

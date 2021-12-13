@@ -1,6 +1,6 @@
 // Types
 import type { Properties as CSS } from 'csstype'
-import type { BaseExtensibleObject, DefaultTheme, ResponsiveStyle } from '../types'
+import type { BaseExtensibleObject, DefaultTheme, ResponsiveStyle, StrictTheme } from '../types'
 
 // Utils
 import { addUnitIfNeeded, getValue } from '../utils'
@@ -38,7 +38,7 @@ import { isResponsiveObject, isResponsiveStyle } from '../types/guards'
 
 */
 
-const parser = <P extends keyof CSS, T extends DefaultTheme>({
+const parser = <P extends keyof CSS, C extends CSS[P], T extends DefaultTheme = StrictTheme>({
   property,
   values,
   theme,
@@ -46,28 +46,26 @@ const parser = <P extends keyof CSS, T extends DefaultTheme>({
   transform
 }: {
   property: P
-  values: CSS[P] | ResponsiveStyle<CSS[P], T>
+  values: C | ResponsiveStyle<C>
   theme: T
   scale?: keyof T
   transform?: (K: typeof values) => typeof K
 }): BaseExtensibleObject => {
   const result: BaseExtensibleObject = {}
   const styles = transform ? transform(values) : values
-  const defaultScale = scale && theme[scale]
 
   if (!property || !values || !theme || !styles) {
     return result
   }
 
-  if (!isResponsiveStyle<CSS[P]>(styles)) {
+  if (!isResponsiveStyle<C>(styles)) {
     result[property] = addUnitIfNeeded(property, getValue(styles, scale && theme[scale]))
   }
 
-  const parsed = isResponsiveStyle<CSS[P]>(styles)
-    ? isResponsiveObject<CSS[P]>(styles)
+  const parsed = isResponsiveStyle<C>(styles)
+    ? isResponsiveObject<C>(styles)
       ? parseResponsiveObject(property, styles, theme, scale)
-      : // @ts-ignore
-        parseResponsiveArray(property, styles, theme, scale)
+      : parseResponsiveArray(property, styles, theme, scale)
     : {}
 
   Object.entries(parsed).forEach(([key, value]) => (result[key] = value))

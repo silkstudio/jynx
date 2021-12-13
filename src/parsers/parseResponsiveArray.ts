@@ -4,6 +4,7 @@ import { DefaultTheme, ResponsiveArray, BaseExtensibleObject } from '../types'
 
 // Utils
 import { createMediaQuery, sort, getValue, addUnitIfNeeded } from '../utils'
+import { parseBreakpoints } from './parseBreakpoints'
 
 /**
  * Parser function that takes in either a single style or ResponsiveStyle and
@@ -44,7 +45,8 @@ const parseResponsiveArray = <P extends keyof CSS, T extends DefaultTheme = Defa
     return {}
   }
 
-  const breakpoints = Object.values(theme.breakpoints)
+  const breakpoints = Object.values(parseBreakpoints(theme.breakpoints))
+  const themeScale = scale && theme[scale]
   const [base, ...responsive] = styles
   const parsed: Record<string, any> = {}
 
@@ -52,10 +54,10 @@ const parseResponsiveArray = <P extends keyof CSS, T extends DefaultTheme = Defa
     if (value === null || value === undefined) return
 
     const media = createMediaQuery(`${breakpoints[index]}`)
-    parsed[media] = { [property]: addUnitIfNeeded(property, getValue(value, scale && theme[scale])) }
+    parsed[media] = { [property]: addUnitIfNeeded(property, getValue(value, themeScale)) }
   })
 
-  return { [property]: addUnitIfNeeded(property, getValue(base, scale && theme[scale])), ...sort(parsed) }
+  return { [property]: addUnitIfNeeded(property, getValue(base, themeScale)), ...sort(parsed) }
 }
 
 export { parseResponsiveArray }
