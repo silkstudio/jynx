@@ -9,6 +9,12 @@
 
 */
 
+/**
+ *
+ */
+// export type ObjectOrArray<T> = T[] | Record<string, T | Record<string, T> | T[]>
+export type ObjectOrArray<T> = T[] | Record<string, T>
+
 /*
  * Basic theme object shape
  *
