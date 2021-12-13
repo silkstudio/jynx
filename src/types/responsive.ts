@@ -1,6 +1,6 @@
 // Types
-import { DefaultTheme } from '.'
-import type { Breakpoints } from './theme'
+import type { DefaultBreakpoints } from '../utils/defaultBreakpoints'
+import type { DefaultTheme } from './theme'
 
 /*
 
@@ -31,8 +31,14 @@ export type ResponsiveArray<T> = [T, ...Array<T | null>]
  * @since 1.0.0
  * @public
  */
-export type ResponsiveObject<K, T extends DefaultTheme = DefaultTheme> = { _: K } & {
-  [Breakpoint in keyof T['breakpoints']]?: K
+export type ResponsiveObject<K, T extends DefaultTheme['breakpoints'] = DefaultBreakpoints> = { _: K } & {
+  [key in T extends any[] | readonly [...any]
+    ? never
+    : T extends Record<string, string | number>
+    ? keyof T
+    : keyof DefaultBreakpoints]?: K
+} & {
+  [key: string]: K
 }
 
 /**
@@ -43,4 +49,4 @@ export type ResponsiveObject<K, T extends DefaultTheme = DefaultTheme> = { _: K 
  * @since 1.0.0
  * @public
  */
-export type ResponsiveStyle<K, T extends DefaultTheme = DefaultTheme> = ResponsiveArray<K> | ResponsiveObject<K, T>
+export type ResponsiveStyle<K> = ResponsiveArray<K> | ResponsiveObject<K>
