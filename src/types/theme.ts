@@ -1,8 +1,9 @@
 import { systemTheme } from '../theme'
 
 // Types
-import type { BaseExtensibleObject } from './common'
-import type { DeepKeys, StringOrNumber } from './utils'
+import * as CSS from 'csstype'
+import type { ObjectOrArray } from './common'
+import type { StringOrNumber } from './utils'
 import type { ElementOf } from 'ts-essentials'
 
 /*
@@ -16,31 +17,13 @@ import type { ElementOf } from 'ts-essentials'
 
 */
 
-/**
- * ThemePropertyObject
- *
- * @since 1.0.0
- */
-type ThemePropertyObject = {
-  [key: string]: string | number
-}
-
-// API V2
-//
 // /**
-//  * ThemePropertyArray
+//  * ThemePropertyObject
 //  *
 //  * @since 1.0.0
 //  */
-// type ThemePropertyArray = (string | number)[]
-//
-// /**
-//  * ThemePropertyRecursiveObject
-//  *
-//  * @since 1.0.0
-//  */
-// type ThemePropertyRecursiveObject = {
-//   [key: string]: string | number | ThemePropertyRecursiveObject
+// type ThemePropertyObject = {
+//   [key: string]: string | number
 // }
 
 /* -------- */
@@ -55,23 +38,38 @@ type ThemePropertyObject = {
 export type SystemTheme = typeof systemTheme
 
 /**
- * MappedTheme
- *
- * @template T extends {@link BaseExtensibleObject}
- *
- * @since 1.0.0
- */
-type MappedTheme<T extends BaseExtensibleObject = BaseExtensibleObject> = {
-  [K in keyof T]: T[K] | ThemePropertyObject
-}
-
-/**
  * DefaultTheme
  *
  * @since 1.0.0
  * @public
  */
-export type DefaultTheme = MappedTheme<SystemTheme>
+export interface DefaultTheme {
+  breakpoints?: ObjectOrArray<number | string>
+  spaces?: ObjectOrArray<CSS.Property.Margin<string | number>>
+  fontSizes?: ObjectOrArray<CSS.Property.FontSize<number>>
+  colors?: ObjectOrArray<CSS.Property.Color>
+  fonts?: ObjectOrArray<CSS.Property.FontFamily>
+  fontWeights?: ObjectOrArray<CSS.Property.FontWeight>
+  lineHeights?: ObjectOrArray<CSS.Property.LineHeight<number>>
+  letterSpacings?: ObjectOrArray<CSS.Property.LetterSpacing<number>>
+  sizes?: ObjectOrArray<CSS.Property.Height | CSS.Property.Width>
+  borders?: ObjectOrArray<CSS.Property.Border>
+  borderStyles?: ObjectOrArray<CSS.Property.Border>
+  borderWidths?: ObjectOrArray<CSS.Property.BorderWidth<number>>
+  radii?: ObjectOrArray<CSS.Property.BorderRadius<number>>
+  shadows?: ObjectOrArray<CSS.Property.BoxShadow>
+  zIndices?: ObjectOrArray<CSS.Property.ZIndex>
+}
+
+/**
+ *
+ */
+export type ExtensibleTheme = DefaultTheme & { [key: string]: any }
+
+/**
+ *
+ */
+export type StrictTheme = Required<DefaultTheme>
 
 /* ------------------ */
 /*  THEME ATTRIBUTES  */
@@ -96,11 +94,11 @@ export type ThemeProps<T> = {
  *
  * @since 1.0.0
  */
-export type ThemeValue<T, K extends keyof T, S = T[K]> = S extends string | number
-  ? S
-  : S extends any[] | readonly [...any]
-  ? ElementOf<S>
-  : S extends Record<string, infer E>
+export type ThemeValue<T, K extends keyof T, Q = T[K]> = Q extends string | number
+  ? Q
+  : Q extends any[] | readonly [...any]
+  ? ElementOf<Q>
+  : Q extends Record<string, infer E>
   ? E
   : never
 
@@ -147,7 +145,7 @@ export type Breakpoints = DefaultTheme['breakpoints']
  *
  * @since 1.0.0
  */
-export type Breakpoint = keyof Breakpoints
+export type Breakpoint = ThemeValue<DefaultTheme, 'breakpoints'>
 
 /**
  * Spaces
@@ -162,7 +160,7 @@ export type Spaces = DefaultTheme['spaces']
  *
  * @since 1.0.0
  */
-export type Space = keyof Spaces
+export type Space = ThemeValue<DefaultTheme, 'spaces'>
 
 /**
  * Fonts
@@ -177,7 +175,7 @@ export type Fonts = DefaultTheme['fonts']
  *
  * @since 1.0.0
  */
-export type Font = Fonts extends undefined ? never : DeepKeys<Fonts>
+export type Font = ThemeValue<DefaultTheme, 'fonts'>
 
 /**
  * Colors
@@ -192,7 +190,7 @@ export type Colors = DefaultTheme['colors']
  *
  * @since 1.0.0
  */
-export type Color = DeepKeys<Colors>
+export type Color = ThemeValue<DefaultTheme, 'colors'>
 
 /**
  * FontWeights
@@ -207,7 +205,7 @@ export type FontWeights = DefaultTheme['fontWeights']
  *
  * @since 1.0.0
  */
-export type FontWeight = keyof FontWeights
+export type FontWeight = ThemeValue<DefaultTheme, 'fontWeights'>
 
 /**
  * LineHeights
@@ -222,7 +220,7 @@ export type LineHeights = DefaultTheme['lineHeights']
  *
  * @since 1.0.0
  */
-export type LineHeight = keyof LineHeights
+export type LineHeight = ThemeValue<DefaultTheme, 'lineHeights'>
 
 /**
  * LetterSpacings
@@ -237,7 +235,7 @@ export type LetterSpacings = DefaultTheme['letterSpacings']
  *
  * @since 1.0.0
  */
-export type LetterSpacing = keyof LetterSpacings
+export type LetterSpacing = ThemeValue<DefaultTheme, 'letterSpacings'>
 
 /**
  * Sizes
@@ -252,7 +250,7 @@ export type Sizes = DefaultTheme['sizes']
  *
  * @since 1.0.0
  */
-export type Size = DeepKeys<Sizes>
+export type Size = ThemeValue<DefaultTheme, 'sizes'>
 
 /**
  * Borders
@@ -267,7 +265,7 @@ export type Borders = DefaultTheme['borders']
  *
  * @since 1.0.0
  */
-export type Border = keyof Borders
+export type Border = ThemeValue<DefaultTheme, 'borders'>
 
 /**
  * BorderWidths
@@ -282,7 +280,7 @@ export type BorderWidths = DefaultTheme['borderWidths']
  *
  * @since 1.0.0
  */
-export type BorderWidth = keyof BorderWidths
+export type BorderWidth = ThemeValue<DefaultTheme, 'borderWidths'>
 
 /**
  * BorderStyles
@@ -297,7 +295,7 @@ export type BorderStyles = DefaultTheme['borderStyles']
  *
  * @since 1.0.0
  */
-export type BorderStyle = keyof BorderStyles
+export type BorderStyle = ThemeValue<DefaultTheme, 'borderStyles'>
 
 /**
  * Radii
@@ -312,7 +310,7 @@ export type Radii = DefaultTheme['radii']
  *
  * @since 1.0.0
  */
-export type Radius = keyof Radii
+export type Radius = ThemeValue<DefaultTheme, 'radii'>
 
 /**
  * Shadows
@@ -327,7 +325,7 @@ export type Shadows = DefaultTheme['shadows']
  *
  * @since 1.0.0
  */
-export type Shadow = keyof Shadows
+export type Shadow = ThemeValue<DefaultTheme, 'shadows'>
 
 /**
  * ZIndicies
@@ -342,4 +340,4 @@ export type ZIndicies = DefaultTheme['zIndices']
  *
  * @since 1.0.0
  */
-export type ZIndicie = keyof ZIndicies
+export type ZIndicie = ThemeValue<DefaultTheme, 'zIndices'>
