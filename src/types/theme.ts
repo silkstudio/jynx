@@ -75,17 +75,16 @@ export type ThemeProps<T> = {
 /**
  * ThemeValue
  *
- * @template T
- * @template K extends keyof T
- * @template S [=T[K]]
+ * @template T Theme
+ * @template K extends keyof T — Theme scale
  *
  * @since 1.0.0
  */
-export type ThemeValue<T, K extends keyof T, Q = T[K]> = Q extends string | number
-  ? Q
-  : Q extends any[] | readonly [...any]
-  ? ElementOf<Q>
-  : Q extends Record<string, infer E>
+export type ThemeValue<K extends keyof T, T extends DefaultTheme = RequiredTheme, P = T[K]> = P extends string | number
+  ? P
+  : P extends any[] | readonly [...any]
+  ? ElementOf<P>
+  : P extends Record<string, infer E>
   ? E
   : never
 
@@ -132,7 +131,7 @@ export type Breakpoints = DefaultTheme['breakpoints']
  *
  * @since 1.0.0
  */
-export type Breakpoint = ThemeValue<DefaultTheme, 'breakpoints'>
+export type Breakpoint = ThemeValue<'breakpoints', DefaultTheme>
 
 /**
  * Spaces
@@ -147,7 +146,7 @@ export type Spaces = DefaultTheme['spaces']
  *
  * @since 1.0.0
  */
-export type Space = ThemeValue<DefaultTheme, 'spaces'>
+export type Space = ThemeValue<'spaces', DefaultTheme>
 
 /**
  * Fonts
@@ -162,7 +161,7 @@ export type Fonts = DefaultTheme['fonts']
  *
  * @since 1.0.0
  */
-export type Font = ThemeValue<DefaultTheme, 'fonts'>
+export type Font = ThemeValue<'fonts', DefaultTheme>
 
 /**
  * Colors
@@ -177,7 +176,7 @@ export type Colors = DefaultTheme['colors']
  *
  * @since 1.0.0
  */
-export type Color = ThemeValue<DefaultTheme, 'colors'>
+export type Color = ThemeValue<'colors', DefaultTheme>
 
 /**
  * FontWeights
@@ -192,7 +191,7 @@ export type FontWeights = DefaultTheme['fontWeights']
  *
  * @since 1.0.0
  */
-export type FontWeight = ThemeValue<DefaultTheme, 'fontWeights'>
+export type FontWeight = ThemeValue<'fontWeights', DefaultTheme>
 
 /**
  * LineHeights
@@ -207,7 +206,7 @@ export type LineHeights = DefaultTheme['lineHeights']
  *
  * @since 1.0.0
  */
-export type LineHeight = ThemeValue<DefaultTheme, 'lineHeights'>
+export type LineHeight = ThemeValue<'lineHeights', DefaultTheme>
 
 /**
  * LetterSpacings
@@ -222,7 +221,7 @@ export type LetterSpacings = DefaultTheme['letterSpacings']
  *
  * @since 1.0.0
  */
-export type LetterSpacing = ThemeValue<DefaultTheme, 'letterSpacings'>
+export type LetterSpacing = ThemeValue<'letterSpacings', DefaultTheme>
 
 /**
  * Sizes
@@ -237,7 +236,7 @@ export type Sizes = DefaultTheme['sizes']
  *
  * @since 1.0.0
  */
-export type Size = ThemeValue<DefaultTheme, 'sizes'>
+export type Size = ThemeValue<'sizes', DefaultTheme>
 
 /**
  * Borders
@@ -252,7 +251,7 @@ export type Borders = DefaultTheme['borders']
  *
  * @since 1.0.0
  */
-export type Border = ThemeValue<DefaultTheme, 'borders'>
+export type Border = ThemeValue<'borders', DefaultTheme>
 
 /**
  * BorderWidths
@@ -267,7 +266,7 @@ export type BorderWidths = DefaultTheme['borderWidths']
  *
  * @since 1.0.0
  */
-export type BorderWidth = ThemeValue<DefaultTheme, 'borderWidths'>
+export type BorderWidth = ThemeValue<'borderWidths', DefaultTheme>
 
 /**
  * BorderStyles
@@ -282,7 +281,7 @@ export type BorderStyles = DefaultTheme['borderStyles']
  *
  * @since 1.0.0
  */
-export type BorderStyle = ThemeValue<DefaultTheme, 'borderStyles'>
+export type BorderStyle = ThemeValue<'borderStyles', DefaultTheme>
 
 /**
  * Radii
@@ -297,7 +296,7 @@ export type Radii = DefaultTheme['radii']
  *
  * @since 1.0.0
  */
-export type Radius = ThemeValue<DefaultTheme, 'radii'>
+export type Radius = ThemeValue<'radii', DefaultTheme>
 
 /**
  * Shadows
@@ -312,7 +311,7 @@ export type Shadows = DefaultTheme['shadows']
  *
  * @since 1.0.0
  */
-export type Shadow = ThemeValue<DefaultTheme, 'shadows'>
+export type Shadow = ThemeValue<'shadows', DefaultTheme>
 
 /**
  * ZIndicies
@@ -327,4 +326,4 @@ export type ZIndicies = DefaultTheme['zIndices']
  *
  * @since 1.0.0
  */
-export type ZIndicie = ThemeValue<DefaultTheme, 'zIndices'>
+export type ZIndicie = ThemeValue<'zIndices', DefaultTheme>

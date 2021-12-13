@@ -1,6 +1,6 @@
 // Types
 import { Properties as CSS } from 'csstype'
-import { BaseExtensibleObject, Breakpoint, DefaultTheme, ResponsiveObject } from '../types'
+import { BaseExtensibleObject, DefaultTheme, ResponsiveObject } from '../types'
 
 // Utils
 import { createMediaQuery, sort, getValue, addUnitIfNeeded } from '../utils'
