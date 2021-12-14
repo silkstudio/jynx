@@ -39,7 +39,7 @@ interface ColorProps {
 }
 
 const color: StyledFunction<ColorProps> = ({ theme, ...styles }) => {
-  return createStyles<typeof styles>(styles, theme, config)
+  return createStyles<ColorProps>(styles, theme, config)
 }
 
 config.bgColor = config.backgroundColor
