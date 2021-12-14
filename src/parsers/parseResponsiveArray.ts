@@ -1,6 +1,8 @@
 // Types
 import type { CSSProperties } from '../types/css'
-import { DefaultTheme, ResponsiveArray, BaseExtensibleObject } from '../types'
+import type { DefaultTheme } from '../types/theme'
+import type { BaseExtensibleObject } from '../types/common'
+import type { ResponsiveArray } from '../types/responsive'
 
 // Utils
 import { createMediaQuery, sort, getValue, addUnitIfNeeded } from '../utils'

@@ -1,4 +1,4 @@
-import { isResponsiveStyle } from '../index'
+import { isResponsiveStyle } from '../guards'
 
 const objCheck = { _: 'red', sm: 'orange', md: 'yellow', lg: 'green' }
 const arrCheck = ['red', 'orange', 'yellow', 'green']

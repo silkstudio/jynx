@@ -1,4 +1,4 @@
-import { isResponsiveArray } from '../index'
+import { isResponsiveArray } from '../guards'
 
 const check = ['blue', 'red', 'green']
 

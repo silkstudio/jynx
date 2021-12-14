@@ -1,5 +1,5 @@
 // Types
-import { DefaultTheme } from '../types'
+import type { DefaultTheme } from '../types/theme'
 
 // Utils
 import get from 'lodash.get'

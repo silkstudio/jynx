@@ -1,6 +1,7 @@
 // Types
 import type { CSSProperties } from '../types/css'
-import { ResponsiveStyle, StyledFunction, StyledFunctionConfig } from '../types'
+import type { ResponsiveStyle } from '../types/responsive'
+import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
 import { createStyles } from '../constructors'

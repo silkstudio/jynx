@@ -1,5 +1,7 @@
 // Types
-import type { DefaultTheme, StyledFunctionConfig, BaseExtensibleObject } from '../types'
+import type { DefaultTheme } from '../types/theme'
+import type { StyledFunctionConfig } from '../types/functions'
+import type { BaseExtensibleObject } from '../types/common'
 
 // Utils
 import { parser } from '../parsers/parser'

@@ -1,7 +1,7 @@
 import { systemTheme } from './theme'
 
 // Types
-import type { BaseTheme, CustomTheme, DefaultTheme } from './types'
+import type { BaseTheme, CustomTheme, DefaultTheme } from './types/theme'
 
 // StyleFunction Imports
 import { background, border, color, flexbox, grid, layout, position, shadow, space, typography } from './functions'

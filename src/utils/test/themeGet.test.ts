@@ -1,5 +1,8 @@
+// Types
+import type { DefaultTheme } from '../../types/theme'
+
+// Utils
 import { themeGet } from '../index'
-import { DefaultTheme } from '../../types'
 import { systemTheme } from '../../theme'
 
 const theme: DefaultTheme = systemTheme

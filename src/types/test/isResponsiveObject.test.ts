@@ -1,4 +1,4 @@
-import { isResponsiveObject } from '../index'
+import { isResponsiveObject } from '../guards'
 
 const check = { _: 'red', sm: 'orange', md: 'yellow', lg: 'green' }
 

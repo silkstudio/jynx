@@ -1,6 +1,8 @@
 // Types
 import type { CSSProperties } from '../types/css'
-import type { BaseExtensibleObject, DefaultTheme, ResponsiveStyle } from '../types'
+import type { DefaultTheme } from '../types/theme'
+import type { BaseExtensibleObject } from '../types/common'
+import type { ResponsiveStyle } from '../types/responsive'
 
 // Utils
 import { addUnitIfNeeded, getValue } from '../utils'
