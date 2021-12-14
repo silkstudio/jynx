@@ -1,5 +1,5 @@
 // Types
-import { Properties as CSS } from 'csstype'
+import type { CSSProperties } from '../types/css'
 import { ResponsiveStyle, StyledFunction, StyledFunctionConfig } from '../types'
 
 // Utils
@@ -48,14 +48,14 @@ const config: StyledFunctionConfig = {
 }
 
 interface TypographyProps {
-  fontFamily?: CSS['fontFamily'] | ResponsiveStyle<CSS['fontFamily']>
-  fontSize?: CSS['fontSize'] | ResponsiveStyle<CSS['fontSize']>
-  fontWeight?: CSS['fontWeight'] | ResponsiveStyle<CSS['fontWeight']>
-  lineHeight?: CSS['lineHeight'] | ResponsiveStyle<CSS['lineHeight']>
-  letterSpacing?: CSS['letterSpacing'] | ResponsiveStyle<CSS['letterSpacing']>
-  textAlign?: CSS['textAlign'] | ResponsiveStyle<CSS['textAlign']>
-  fontStyle?: CSS['fontStyle'] | ResponsiveStyle<CSS['fontStyle']>
-  textTransform?: CSS['textTransform'] | ResponsiveStyle<CSS['textTransform']>
+  fontFamily?: CSSProperties['fontFamily'] | ResponsiveStyle<CSSProperties['fontFamily']>
+  fontSize?: CSSProperties['fontSize'] | ResponsiveStyle<CSSProperties['fontSize']>
+  fontWeight?: CSSProperties['fontWeight'] | ResponsiveStyle<CSSProperties['fontWeight']>
+  lineHeight?: CSSProperties['lineHeight'] | ResponsiveStyle<CSSProperties['lineHeight']>
+  letterSpacing?: CSSProperties['letterSpacing'] | ResponsiveStyle<CSSProperties['letterSpacing']>
+  textAlign?: CSSProperties['textAlign'] | ResponsiveStyle<CSSProperties['textAlign']>
+  fontStyle?: CSSProperties['fontStyle'] | ResponsiveStyle<CSSProperties['fontStyle']>
+  textTransform?: CSSProperties['textTransform'] | ResponsiveStyle<CSSProperties['textTransform']>
 }
 
 const typography: StyledFunction<TypographyProps> = ({ theme, ...styles }) => {

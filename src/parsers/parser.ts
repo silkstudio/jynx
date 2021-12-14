@@ -1,5 +1,5 @@
 // Types
-import type { Properties as CSS } from 'csstype'
+import type { CSSProperties } from '../types/css'
 import type { BaseExtensibleObject, DefaultTheme, ResponsiveStyle, RequiredTheme } from '../types'
 
 // Utils
@@ -38,7 +38,7 @@ import { isResponsiveObject, isResponsiveStyle } from '../types/guards'
 
 */
 
-const parser = <P extends keyof CSS, C extends CSS[P], T extends DefaultTheme = RequiredTheme>({
+const parser = <P extends keyof CSSProperties, C extends CSSProperties[P], T extends DefaultTheme = RequiredTheme>({
   property,
   values,
   theme,

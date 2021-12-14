@@ -1,6 +1,6 @@
 // Types
-import { Properties as CSS } from 'csstype'
-import { ResponsiveStyle, StyledFunction, StyledFunctionConfig } from '../types'
+import type { CSSProperties } from '../types/css'
+import type { ResponsiveStyle, StyledFunction, StyledFunctionConfig } from '../types'
 
 // Utils
 import { createStyles } from '../constructors'
@@ -28,17 +28,17 @@ const config: StyledFunctionConfig = {
 }
 
 interface BackgroundProps {
-  backgroundAttachment?: CSS['backgroundAttachment'] | ResponsiveStyle<CSS['backgroundAttachment']>
-  backgroundBlendMode?: CSS['backgroundBlendMode'] | ResponsiveStyle<CSS['backgroundBlendMode']>
-  backgroundClip?: CSS['backgroundClip'] | ResponsiveStyle<CSS['backgroundClip']>
-  backgroundColor?: CSS['backgroundColor'] | ResponsiveStyle<CSS['backgroundColor']>
-  backgroundImage?: CSS['backgroundImage'] | ResponsiveStyle<CSS['backgroundImage']>
-  backgroundOrigin?: CSS['backgroundOrigin'] | ResponsiveStyle<CSS['backgroundOrigin']>
-  backgroundPosition?: CSS['backgroundPosition'] | ResponsiveStyle<CSS['backgroundPosition']>
-  backgroundPositionX?: CSS['backgroundPositionX'] | ResponsiveStyle<CSS['backgroundPositionX']>
-  backgroundPositionY?: CSS['backgroundPositionY'] | ResponsiveStyle<CSS['backgroundPositionY']>
-  backgroundRepeat?: CSS['backgroundRepeat'] | ResponsiveStyle<CSS['backgroundRepeat']>
-  backgroundSize?: CSS['backgroundSize'] | ResponsiveStyle<CSS['backgroundSize']>
+  backgroundAttachment?: CSSProperties['backgroundAttachment'] | ResponsiveStyle<CSSProperties['backgroundAttachment']>
+  backgroundBlendMode?: CSSProperties['backgroundBlendMode'] | ResponsiveStyle<CSSProperties['backgroundBlendMode']>
+  backgroundClip?: CSSProperties['backgroundClip'] | ResponsiveStyle<CSSProperties['backgroundClip']>
+  backgroundColor?: CSSProperties['backgroundColor'] | ResponsiveStyle<CSSProperties['backgroundColor']>
+  backgroundImage?: CSSProperties['backgroundImage'] | ResponsiveStyle<CSSProperties['backgroundImage']>
+  backgroundOrigin?: CSSProperties['backgroundOrigin'] | ResponsiveStyle<CSSProperties['backgroundOrigin']>
+  backgroundPosition?: CSSProperties['backgroundPosition'] | ResponsiveStyle<CSSProperties['backgroundPosition']>
+  backgroundPositionX?: CSSProperties['backgroundPositionX'] | ResponsiveStyle<CSSProperties['backgroundPositionX']>
+  backgroundPositionY?: CSSProperties['backgroundPositionY'] | ResponsiveStyle<CSSProperties['backgroundPositionY']>
+  backgroundRepeat?: CSSProperties['backgroundRepeat'] | ResponsiveStyle<CSSProperties['backgroundRepeat']>
+  backgroundSize?: CSSProperties['backgroundSize'] | ResponsiveStyle<CSSProperties['backgroundSize']>
 }
 
 const background: StyledFunction<BackgroundProps> = ({ theme, ...styles }) => {

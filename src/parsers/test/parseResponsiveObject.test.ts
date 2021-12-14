@@ -1,5 +1,5 @@
 // Types
-import { Properties as CSS } from 'csstype'
+import type { CSSProperties } from '../../types/css'
 
 // Utils
 import { parseResponsiveObject } from '../parseResponsiveObject'
@@ -18,7 +18,7 @@ import { systemTheme } from '../../theme'
 
 describe('When a required argument is missing', () => {
   it('should return an empty object if a css property is not defined', () => {
-    const maybeCssProperty = undefined as unknown as keyof CSS
+    const maybeCssProperty = undefined as unknown as keyof CSSProperties
     const foo = parseResponsiveObject(maybeCssProperty, { _: 'red' }, systemTheme)
 
     expect(typeof foo).toBe('object')

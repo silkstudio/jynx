@@ -1,5 +1,5 @@
 // Types
-import { Properties as CSS } from 'csstype'
+import type { CSSProperties } from '../types/css'
 import { ResponsiveStyle, StyledFunction, StyledFunctionConfig } from '../types'
 
 // Utils
@@ -53,17 +53,17 @@ const config: StyledFunctionConfig = {
 }
 
 interface LayoutProps {
-  width?: CSS['width'] | ResponsiveStyle<CSS['width']>
-  height?: CSS['height'] | ResponsiveStyle<CSS['height']>
-  minWidth?: CSS['minWidth'] | ResponsiveStyle<CSS['minWidth']>
-  minHeight?: CSS['minHeight'] | ResponsiveStyle<CSS['minHeight']>
-  maxWidth?: CSS['maxWidth'] | ResponsiveStyle<CSS['maxWidth']>
-  maxHeight?: CSS['maxHeight'] | ResponsiveStyle<CSS['maxHeight']>
-  display?: CSS['display'] | ResponsiveStyle<CSS['display']>
-  verticalAlign?: CSS['verticalAlign'] | ResponsiveStyle<CSS['verticalAlign']>
-  overflow?: CSS['overflow'] | ResponsiveStyle<CSS['overflow']>
-  overflowX?: CSS['overflowX'] | ResponsiveStyle<CSS['overflowX']>
-  overflowY?: CSS['overflowY'] | ResponsiveStyle<CSS['overflowY']>
+  width?: CSSProperties['width'] | ResponsiveStyle<CSSProperties['width']>
+  height?: CSSProperties['height'] | ResponsiveStyle<CSSProperties['height']>
+  minWidth?: CSSProperties['minWidth'] | ResponsiveStyle<CSSProperties['minWidth']>
+  minHeight?: CSSProperties['minHeight'] | ResponsiveStyle<CSSProperties['minHeight']>
+  maxWidth?: CSSProperties['maxWidth'] | ResponsiveStyle<CSSProperties['maxWidth']>
+  maxHeight?: CSSProperties['maxHeight'] | ResponsiveStyle<CSSProperties['maxHeight']>
+  display?: CSSProperties['display'] | ResponsiveStyle<CSSProperties['display']>
+  verticalAlign?: CSSProperties['verticalAlign'] | ResponsiveStyle<CSSProperties['verticalAlign']>
+  overflow?: CSSProperties['overflow'] | ResponsiveStyle<CSSProperties['overflow']>
+  overflowX?: CSSProperties['overflowX'] | ResponsiveStyle<CSSProperties['overflowX']>
+  overflowY?: CSSProperties['overflowY'] | ResponsiveStyle<CSSProperties['overflowY']>
 }
 
 const layout: StyledFunction<LayoutProps> = ({ theme, ...styles }) => {

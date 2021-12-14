@@ -16,7 +16,7 @@ import * as CSS from 'csstype'
  *
  * @since 1.0.0
  */
-interface CSSProperties extends CSS.StandardProperties<number | string>, CSS.SvgProperties<number | string> {}
+export interface CSSProperties extends CSS.StandardProperties<number | string>, CSS.SvgProperties<number | string> {}
 
 /**
  * CSSPseudos
@@ -30,7 +30,7 @@ export type CSSPseudos = { [K in CSS.Pseudos]?: CSSObject }
  *
  * @since 1.0.0
  */
-type CSSPropertiesWithMultiValues = {
+export type CSSPropertiesWithMultiValues = {
   [K in keyof CSSProperties]: CSSProperties[K]
 }
 
@@ -39,14 +39,14 @@ type CSSPropertiesWithMultiValues = {
  *
  * @since 1.0.0
  */
-type CSSInterpolation = undefined | number | string | CSSObject
+export type CSSInterpolation = undefined | number | string | CSSObject
 
 /**
  * CSSOthersObjectForCSSObject
  *
  * @since 1.0.0
  */
-interface CSSOthersObjectForCSSObject {
+export interface CSSOthersObjectForCSSObject {
   [propertiesName: string]: CSSInterpolation
 }
 

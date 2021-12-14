@@ -1,5 +1,5 @@
 // Types
-import type { Properties as CSS } from 'csstype'
+import type { CSSProperties } from './css'
 import type { DefaultTheme } from './theme'
 import type { ResponsiveStyle } from './responsive'
 
@@ -140,7 +140,7 @@ export type DottedKeys<
  *
  * @since 1.0.0
  */
-export type Style<K extends keyof CSS> = CSS[K] | ResponsiveStyle<CSS[K]>
+export type Style<K extends keyof CSSProperties> = CSSProperties[K] | ResponsiveStyle<CSSProperties[K]>
 
 /**
  *
@@ -150,6 +150,6 @@ export type Style<K extends keyof CSS> = CSS[K] | ResponsiveStyle<CSS[K]>
  *
  * @since 1.0.0
  */
-export type StyleWithTheme<K extends keyof CSS, S extends keyof T, T extends DefaultTheme = DefaultTheme> =
-  | (CSS[K] | keyof T[S])
-  | ResponsiveStyle<CSS[K] | keyof T[S]>
+export type StyleWithTheme<K extends keyof CSSProperties, S extends keyof T, T extends DefaultTheme = DefaultTheme> =
+  | (CSSProperties[K] | keyof T[S])
+  | ResponsiveStyle<CSSProperties[K] | keyof T[S]>

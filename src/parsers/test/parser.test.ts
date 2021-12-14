@@ -1,5 +1,5 @@
 // Types
-import { Properties as CSS } from 'csstype'
+import type { CSSProperties } from '../../types/css'
 
 // Utils
 import { parser } from '../parser'
@@ -18,7 +18,7 @@ import { systemTheme } from '../../theme'
 
 describe('When a required argument is missing', () => {
   it('should return an empty object if a css property is not defined', () => {
-    const maybeCssProperty = undefined as unknown as keyof CSS
+    const maybeCssProperty = undefined as unknown as keyof CSSProperties
     const foo = parser({ property: maybeCssProperty, values: ['red'], theme: systemTheme })
 
     expect(typeof foo).toBe('object')

@@ -1,5 +1,5 @@
 // Types
-import { Properties as CSS } from 'csstype'
+import type { CSSProperties } from '../types/css'
 import { ResponsiveStyle, StyledFunction, StyledFunctionConfig } from '../types'
 
 // Utils
@@ -40,11 +40,11 @@ const config: StyledFunctionConfig = {
 }
 
 interface PositionProps {
-  top?: CSS['top'] | ResponsiveStyle<CSS['top']>
-  right?: CSS['right'] | ResponsiveStyle<CSS['right']>
-  bottom?: CSS['bottom'] | ResponsiveStyle<CSS['bottom']>
-  left?: CSS['left'] | ResponsiveStyle<CSS['left']>
-  zIndex?: CSS['zIndex'] | ResponsiveStyle<CSS['zIndex']>
+  top?: CSSProperties['top'] | ResponsiveStyle<CSSProperties['top']>
+  right?: CSSProperties['right'] | ResponsiveStyle<CSSProperties['right']>
+  bottom?: CSSProperties['bottom'] | ResponsiveStyle<CSSProperties['bottom']>
+  left?: CSSProperties['left'] | ResponsiveStyle<CSSProperties['left']>
+  zIndex?: CSSProperties['zIndex'] | ResponsiveStyle<CSSProperties['zIndex']>
 }
 
 const position: StyledFunction<PositionProps> = ({ theme, ...styles }) => {

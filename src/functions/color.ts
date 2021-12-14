@@ -1,5 +1,5 @@
 // Types
-import { Properties as CSS } from 'csstype'
+import type { CSSProperties } from '../types/css'
 import { ResponsiveStyle, StyledFunctionConfig, StyledFunction } from '../types'
 
 // Utils
@@ -31,9 +31,9 @@ const config: StyledFunctionConfig = {
 }
 
 interface ColorProps {
-  color?: CSS['color'] | ResponsiveStyle<CSS['color']>
-  backgroundColor?: CSS['backgroundColor'] | ResponsiveStyle<CSS['backgroundColor']>
-  opacity?: CSS['opacity'] | ResponsiveStyle<CSS['opacity']>
+  color?: CSSProperties['color'] | ResponsiveStyle<CSSProperties['color']>
+  backgroundColor?: CSSProperties['backgroundColor'] | ResponsiveStyle<CSSProperties['backgroundColor']>
+  opacity?: CSSProperties['opacity'] | ResponsiveStyle<CSSProperties['opacity']>
 }
 
 const color: StyledFunction<ColorProps> = ({ theme, ...styles }) => {

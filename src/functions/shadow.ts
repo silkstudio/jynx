@@ -1,5 +1,5 @@
 // Types
-import { Properties as CSS } from 'csstype'
+import type { CSSProperties } from '../types/css'
 import { ResponsiveStyle, StyledFunction, StyledFunctionConfig } from '../types'
 
 // Utils
@@ -28,8 +28,8 @@ const config: StyledFunctionConfig = {
 }
 
 interface ShadowProps {
-  boxShadow?: CSS['boxShadow'] | ResponsiveStyle<CSS['boxShadow']>
-  textShadow?: CSS['textShadow'] | ResponsiveStyle<CSS['textShadow']>
+  boxShadow?: CSSProperties['boxShadow'] | ResponsiveStyle<CSSProperties['boxShadow']>
+  textShadow?: CSSProperties['textShadow'] | ResponsiveStyle<CSSProperties['textShadow']>
 }
 
 const shadow: StyledFunction<ShadowProps> = ({ theme, ...styles }) => {

@@ -1,5 +1,5 @@
 // Types
-import { Properties as CSS } from 'csstype'
+import type { CSSProperties } from '../types/css'
 import { BaseExtensibleObject, DefaultTheme, ResponsiveObject } from '../types'
 
 // Utils
@@ -36,9 +36,9 @@ import { parseBreakpoints } from './parseBreakpoints'
  
 */
 
-const parseResponsiveObject = <P extends keyof CSS, T extends DefaultTheme = DefaultTheme>(
+const parseResponsiveObject = <P extends keyof CSSProperties, T extends DefaultTheme = DefaultTheme>(
   property: P,
-  styles: ResponsiveObject<CSS[P]>,
+  styles: ResponsiveObject<CSSProperties[P]>,
   theme: T,
   scale?: keyof T
 ): BaseExtensibleObject => {
