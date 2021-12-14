@@ -18,6 +18,9 @@ import { createStyles } from '../constructors'
 */
 
 const config: StyledFunctionConfig = {
+  position: {
+    property: 'position'
+  },
   top: {
     property: 'top',
     scale: 'spaces'
@@ -41,15 +44,21 @@ const config: StyledFunctionConfig = {
 }
 
 interface PositionProps {
+  position?: CSSProperties['position'] | ResponsiveStyle<CSSProperties['position']>
+  pos?: CSSProperties['position'] | ResponsiveStyle<CSSProperties['position']>
   top?: CSSProperties['top'] | ResponsiveStyle<CSSProperties['top']>
   right?: CSSProperties['right'] | ResponsiveStyle<CSSProperties['right']>
   bottom?: CSSProperties['bottom'] | ResponsiveStyle<CSSProperties['bottom']>
   left?: CSSProperties['left'] | ResponsiveStyle<CSSProperties['left']>
   zIndex?: CSSProperties['zIndex'] | ResponsiveStyle<CSSProperties['zIndex']>
+  z?: CSSProperties['zIndex'] | ResponsiveStyle<CSSProperties['zIndex']>
 }
 
 const position: StyledFunction<PositionProps> = ({ theme, ...styles }) => {
-  return createStyles<typeof styles>(styles, theme, config)
+  return createStyles<PositionProps>(styles, theme, config)
 }
+
+config.pos = config.position
+config.z = config.zIndex
 
 export { position, PositionProps }
