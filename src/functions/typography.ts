@@ -25,42 +25,58 @@ const config: StyledFunctionConfig = {
   fontSize: {
     property: 'fontSize'
   },
+  fontStyle: {
+    property: 'fontStyle'
+  },
   fontWeight: {
     property: 'fontWeight',
     scale: 'fontWeights'
-  },
-  lineHeight: {
-    property: 'lineHeight',
-    scale: 'lineHeights'
   },
   letterSpacing: {
     property: 'letterSpacing',
     scale: 'letterSpacings'
   },
+  lineHeight: {
+    property: 'lineHeight',
+    scale: 'lineHeights'
+  },
   textAlign: {
     property: 'textAlign'
   },
-  fontStyle: {
-    property: 'fontStyle'
+  textDecoration: {
+    property: 'textDecoration'
+  },
+  textOverflow: {
+    property: 'textOverflow'
   },
   textTransform: {
     property: 'textTransform'
+  },
+  whiteSpace: {
+    property: 'whiteSpace'
+  },
+  wordBreak: {
+    property: 'wordBreak'
   }
 }
 
 interface TypographyProps {
   fontFamily?: CSSProperties['fontFamily'] | ResponsiveStyle<CSSProperties['fontFamily']>
   fontSize?: CSSProperties['fontSize'] | ResponsiveStyle<CSSProperties['fontSize']>
-  fontWeight?: CSSProperties['fontWeight'] | ResponsiveStyle<CSSProperties['fontWeight']>
-  lineHeight?: CSSProperties['lineHeight'] | ResponsiveStyle<CSSProperties['lineHeight']>
-  letterSpacing?: CSSProperties['letterSpacing'] | ResponsiveStyle<CSSProperties['letterSpacing']>
-  textAlign?: CSSProperties['textAlign'] | ResponsiveStyle<CSSProperties['textAlign']>
   fontStyle?: CSSProperties['fontStyle'] | ResponsiveStyle<CSSProperties['fontStyle']>
+  fontWeight?: CSSProperties['fontWeight'] | ResponsiveStyle<CSSProperties['fontWeight']>
+  letterSpacing?: CSSProperties['letterSpacing'] | ResponsiveStyle<CSSProperties['letterSpacing']>
+  lineHeight?: CSSProperties['lineHeight'] | ResponsiveStyle<CSSProperties['lineHeight']>
+  textAlign?: CSSProperties['textAlign'] | ResponsiveStyle<CSSProperties['textAlign']>
+  textDecoration?: CSSProperties['textDecoration'] | ResponsiveStyle<CSSProperties['textDecoration']>
+  textOverflow?: CSSProperties['textOverflow'] | ResponsiveStyle<CSSProperties['textOverflow']>
   textTransform?: CSSProperties['textTransform'] | ResponsiveStyle<CSSProperties['textTransform']>
+  whiteSpace?: CSSProperties['whiteSpace'] | ResponsiveStyle<CSSProperties['whiteSpace']>
+  wordBreak?: CSSProperties['wordBreak'] | ResponsiveStyle<CSSProperties['wordBreak']>
 }
 
 const typography: StyledFunction<TypographyProps> = ({ theme, ...styles }) => {
-  return createStyles<typeof styles>(styles, theme, config)
+  return createStyles<TypographyProps>(styles, theme, config)
 }
 
 export { typography, TypographyProps }
