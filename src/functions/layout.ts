@@ -55,12 +55,19 @@ const config: StyledFunctionConfig = {
 
 interface LayoutProps {
   width?: CSSProperties['width'] | ResponsiveStyle<CSSProperties['width']>
+  w?: CSSProperties['width'] | ResponsiveStyle<CSSProperties['width']>
   height?: CSSProperties['height'] | ResponsiveStyle<CSSProperties['height']>
+  h?: CSSProperties['height'] | ResponsiveStyle<CSSProperties['height']>
   minWidth?: CSSProperties['minWidth'] | ResponsiveStyle<CSSProperties['minWidth']>
+  minW?: CSSProperties['minWidth'] | ResponsiveStyle<CSSProperties['minWidth']>
   minHeight?: CSSProperties['minHeight'] | ResponsiveStyle<CSSProperties['minHeight']>
+  minH?: CSSProperties['minHeight'] | ResponsiveStyle<CSSProperties['minHeight']>
   maxWidth?: CSSProperties['maxWidth'] | ResponsiveStyle<CSSProperties['maxWidth']>
+  maxW?: CSSProperties['maxWidth'] | ResponsiveStyle<CSSProperties['maxWidth']>
   maxHeight?: CSSProperties['maxHeight'] | ResponsiveStyle<CSSProperties['maxHeight']>
+  maxH?: CSSProperties['maxHeight'] | ResponsiveStyle<CSSProperties['maxHeight']>
   display?: CSSProperties['display'] | ResponsiveStyle<CSSProperties['display']>
+  d?: CSSProperties['display'] | ResponsiveStyle<CSSProperties['display']>
   verticalAlign?: CSSProperties['verticalAlign'] | ResponsiveStyle<CSSProperties['verticalAlign']>
   overflow?: CSSProperties['overflow'] | ResponsiveStyle<CSSProperties['overflow']>
   overflowX?: CSSProperties['overflowX'] | ResponsiveStyle<CSSProperties['overflowX']>
@@ -68,7 +75,15 @@ interface LayoutProps {
 }
 
 const layout: StyledFunction<LayoutProps> = ({ theme, ...styles }) => {
-  return createStyles<typeof styles>(styles, theme, config)
+  return createStyles<LayoutProps>(styles, theme, config)
 }
+
+config.w = config.width
+config.h = config.height
+config.minW = config.minWidth
+config.minH = config.minHeight
+config.maxW = config.maxWidth
+config.maxH = config.maxHeight
+config.d = config.display
 
 export { layout, LayoutProps }
