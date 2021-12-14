@@ -153,7 +153,7 @@ interface BorderProps {
 }
 
 const border: StyledFunction<BorderProps> = ({ theme, ...styles }) => {
-  return createStyles<typeof styles>(styles, theme, config)
+  return createStyles<BorderProps>(styles, theme, config)
 }
 
 export { border, BorderProps }
