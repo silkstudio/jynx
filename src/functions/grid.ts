@@ -26,15 +26,15 @@ const config: StyledFunctionConfig = {
   gridTemplateAreas: {
     property: 'gridTemplateAreas'
   },
-  gridColumnGap: {
+  columnGap: {
     property: 'columnGap',
     scale: 'spaces'
   },
-  gridRowGap: {
+  rowGap: {
     property: 'rowGap',
     scale: 'spaces'
   },
-  gridGap: {
+  gap: {
     property: 'gap',
     scale: 'spaces'
   },
@@ -74,9 +74,9 @@ interface GridProps {
   gridTemplateColumns?: CSSProperties['gridTemplateColumns'] | ResponsiveStyle<CSSProperties['gridTemplateColumns']>
   gridTemplateRows?: CSSProperties['gridTemplateRows'] | ResponsiveStyle<CSSProperties['gridTemplateRows']>
   gridTemplateAreas?: CSSProperties['gridTemplateAreas'] | ResponsiveStyle<CSSProperties['gridTemplateAreas']>
-  gridColumnGap?: CSSProperties['columnGap'] | ResponsiveStyle<CSSProperties['columnGap']>
-  gridRowGap?: CSSProperties['rowGap'] | ResponsiveStyle<CSSProperties['rowGap']>
-  gridGap?: CSSProperties['gap'] | ResponsiveStyle<CSSProperties['gap']>
+  columnGap?: CSSProperties['columnGap'] | ResponsiveStyle<CSSProperties['columnGap']>
+  rowGap?: CSSProperties['rowGap'] | ResponsiveStyle<CSSProperties['rowGap']>
+  gap?: CSSProperties['gap'] | ResponsiveStyle<CSSProperties['gap']>
   gridJustifyItems?: CSSProperties['justifyItems'] | ResponsiveStyle<CSSProperties['justifyItems']>
   gridAlignItems?: CSSProperties['alignItems'] | ResponsiveStyle<CSSProperties['alignItems']>
   gridJustifyContent?: CSSProperties['justifyContent'] | ResponsiveStyle<CSSProperties['justifyContent']>
@@ -91,7 +91,7 @@ interface GridProps {
 }
 
 const grid: StyledFunction<GridProps> = ({ theme, ...styles }) => {
-  return createStyles<typeof styles>(styles, theme, config)
+  return createStyles<GridProps>(styles, theme, config)
 }
 
 export { grid, GridProps }
