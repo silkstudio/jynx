@@ -173,90 +173,104 @@ describe('When an array-based theme scale is passed', () => {
   })
 })
 
-// describe('When using alternative breakpoints from a user-defined theme', () => {
-//   const customTheme = {
-//     ...systemTheme,
-//     breakpoints: {
-//       small: 540,
-//       medium: 720,
-//       large: 1080
-//     }
-//   }
+describe('When using alternative breakpoints from a user-defined theme', () => {
+  const customTheme = {
+    ...systemTheme,
+    breakpoints: {
+      mobile: 540,
+      tablet: 720,
+      desktop: 1080
+    }
+  }
 
-//   it('should return an object', () => {
-//     expect(typeof parseResponsiveArray('padding', ['48', '64', '128'], customTheme, 'spaces')).toBe('object')
-//   })
+  /**
+   * The following tests have been hidden with `@ts-expect-error` comments.
+   * This is due to the fact that in order to use a custom theme with
+   * typescript, the user needs to extend the DefaultTheme interface and merge
+   * in there own properties using a declaration (.d.ts) file.
+   */
 
-//   it('should return a sorted style object, using the new breakpoints', () => {
-//     expect(parseResponsiveArray('padding', ['48', '64', '128'], customTheme, 'spaces')).toEqual({
-//       padding: '48px',
-//       '@media screen and (min-width: 540px)': {
-//         padding: '64px'
-//       },
-//       '@media screen and (min-width: 720px)': {
-//         padding: '128px'
-//       }
-//     })
-//   })
+  it('should return an object', () => {
+    // @ts-expect-error
+    expect(typeof parseResponsiveArray('padding', ['48', '64', '128'], customTheme, 'spaces')).toBe('object')
+  })
 
-//   it('should still be able to skip breakpoint values that are not defined in the ResponsiveObject', () => {
-//     expect(parseResponsiveArray('padding', ['48', '64', null, '128'], customTheme, 'spaces')).toEqual({
-//       padding: '48px',
-//       '@media screen and (min-width: 540px)': {
-//         padding: '64px'
-//       },
-//       '@media screen and (min-width: 1080px)': {
-//         padding: '128px'
-//       }
-//     })
-//   })
+  it('should return a sorted style object, using the new breakpoints', () => {
+    // @ts-expect-error
+    expect(parseResponsiveArray('padding', ['48', '64', '128'], customTheme, 'spaces')).toEqual({
+      padding: '48px',
+      '@media screen and (min-width: 540px)': {
+        padding: '64px'
+      },
+      '@media screen and (min-width: 720px)': {
+        padding: '128px'
+      }
+    })
+  })
 
-//   it('should still be able to access object-based theme scales', () => {
-//     expect(parseResponsiveArray('color', ['red', 'blue', 'green'], customTheme, 'colors')).toEqual({
-//       color: '#F2335D',
-//       '@media screen and (min-width: 540px)': {
-//         color: '#12A5EC'
-//       },
-//       '@media screen and (min-width: 720px)': {
-//         color: '#7CD420'
-//       }
-//     })
-//   })
+  it('should still be able to skip breakpoint values that are not defined in the ResponsiveObject', () => {
+    // @ts-expect-error
+    expect(parseResponsiveArray('padding', ['48', '64', null, '128'], customTheme, 'spaces')).toEqual({
+      padding: '48px',
+      '@media screen and (min-width: 540px)': {
+        padding: '64px'
+      },
+      '@media screen and (min-width: 1080px)': {
+        padding: '128px'
+      }
+    })
+  })
 
-//   it('should still be able return the originally passed style if it does not exist within the theme, when accessing object-based theme scales', () => {
-//     expect(parseResponsiveArray('color', ['aquamarine', 'blue', null, 'green'], customTheme, 'colors')).toEqual({
-//       color: 'aquamarine',
-//       '@media screen and (min-width: 540px)': {
-//         color: '#12A5EC'
-//       },
-//       '@media screen and (min-width: 1080px)': {
-//         color: '#7CD420'
-//       }
-//     })
-//   })
+  it('should still be able to access object-based theme scales', () => {
+    // @ts-expect-error
+    expect(parseResponsiveArray('color', ['red', 'blue', 'green'], customTheme, 'colors')).toEqual({
+      color: '#F2335D',
+      '@media screen and (min-width: 540px)': {
+        color: '#12A5EC'
+      },
+      '@media screen and (min-width: 720px)': {
+        color: '#7CD420'
+      }
+    })
+  })
 
-//   it('should still be able to access arrray-based theme scales', () => {
-//     // CAVEAT: Array values can be selected by passing numbers here but they must be strings, e.g. '1' not 1
-//     expect(parseResponsiveArray('padding', ['1', '2', '3'], customTheme, 'spaces')).toEqual({
-//       padding: '4px',
-//       '@media screen and (min-width: 540px)': {
-//         padding: '8px'
-//       },
-//       '@media screen and (min-width: 720px)': {
-//         padding: '16px'
-//       }
-//     })
-//   })
+  it('should still be able return the originally passed style if it does not exist within the theme, when accessing object-based theme scales', () => {
+    // @ts-expect-error
+    expect(parseResponsiveArray('color', ['aquamarine', 'blue', null, 'green'], customTheme, 'colors')).toEqual({
+      color: 'aquamarine',
+      '@media screen and (min-width: 540px)': {
+        color: '#12A5EC'
+      },
+      '@media screen and (min-width: 1080px)': {
+        color: '#7CD420'
+      }
+    })
+  })
 
-//   it('should still be able return the originally passed style if it does not exist within the theme, when accessing array-based theme scales', () => {
-//     expect(parseResponsiveArray('padding', ['48', '5', null, '6'], customTheme, 'spaces')).toEqual({
-//       padding: '48px',
-//       '@media screen and (min-width: 540px)': {
-//         padding: '64px'
-//       },
-//       '@media screen and (min-width: 1080px)': {
-//         padding: '128px'
-//       }
-//     })
-//   })
-// })
+  it('should still be able to access arrray-based theme scales', () => {
+    // CAVEAT: Array values can be selected by passing numbers here but they must be strings, e.g. '1' not 1
+    // @ts-expect-error
+    expect(parseResponsiveArray('padding', ['1', '2', '3'], customTheme, 'spaces')).toEqual({
+      padding: '4px',
+      '@media screen and (min-width: 540px)': {
+        padding: '8px'
+      },
+      '@media screen and (min-width: 720px)': {
+        padding: '16px'
+      }
+    })
+  })
+
+  it('should still be able return the originally passed style if it does not exist within the theme, when accessing array-based theme scales', () => {
+    // @ts-expect-error
+    expect(parseResponsiveArray('padding', ['48', '5', null, '6'], customTheme, 'spaces')).toEqual({
+      padding: '48px',
+      '@media screen and (min-width: 540px)': {
+        padding: '64px'
+      },
+      '@media screen and (min-width: 1080px)': {
+        padding: '128px'
+      }
+    })
+  })
+})
