@@ -19,12 +19,32 @@ export type BaseExtensibleObject = {
 }
 
 /**
- * Basic theme object shape
+ * AnyIfEmpty
+ *
+ * @template T extends object
  *
  * @since 1.0.0
  */
-// eslint-disable-next-line
-export type CSSProperty = string | number | (string & {}) | (number & {})
+export type AnyIfEmpty<T extends object> = keyof T extends never ? any : T
+
+/**
+ * ObjectOrArray
+ *
+ * @template T extends any
+ *
+ * @since 1.0.0
+ */
+// export type ObjectOrArray<T> = T[] | Record<string, T | Record<string, T> | T[]>
+export type ObjectOrArray<T> = T[] | Record<string, T>
+
+/**
+ * StringOrNumber
+ *
+ * @template T extends any
+ *
+ * @since 1.0.0
+ */
+export type StringOrNumber<T> = T extends string ? string : T extends number ? number : T
 
 /**
  * Many

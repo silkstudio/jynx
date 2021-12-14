@@ -2,7 +2,6 @@
 import type { Properties as CSS } from 'csstype'
 import type { DefaultTheme } from './theme'
 import type { ResponsiveStyle } from './responsive'
-import type { ElementOf } from 'ts-essentials'
 
 /*
 
@@ -34,30 +33,16 @@ export type ExtractKeys<O extends Obj> = {
   [K in keyof O]: O[K] extends Obj ? K : never
 }[keyof O]
 
-/* ----------------- */
-/*  OBJECT OR ARRAY  */
-/* ----------------- */
-/**
- * StringOrNumber
- *
- * @template T extends any
- *
- * @since 1.0.0
- */
-// export type ObjectOrArray<T> = T[] | Record<string, T | Record<string, T> | T[]>
-export type ObjectOrArray<T> = T[] | Record<string, T>
+/*
 
-/* ------------------ */
-/*  STRING OR NUMBER  */
-/* ------------------ */
-/**
- * StringOrNumber
- *
- * @template T extends any
- *
- * @since 1.0.0
- */
-export type StringOrNumber<T> = T extends string ? string : T extends number ? number : T
+
+
+
+
+
+
+
+*/
 
 /* ----------- */
 /*  DEEP KEYS  */
@@ -77,6 +62,17 @@ export type DeepKeys<
   K extends string = keyof O
 > = K extends ExtractKeys<O> ? DeepKeys<O[K]> : K
 
+/*
+
+
+
+
+
+
+
+
+*/
+
 /* ---------- */
 /*  DOT JOIN  */
 /* ---------- */
@@ -89,6 +85,17 @@ export type DeepKeys<
  * @since 1.0.0
  */
 export type DotJoin<A extends string, B extends string> = A extends '' ? B : `${A}.${B}`
+
+/*
+
+
+
+
+
+
+
+
+*/
 
 /* ------------- */
 /*  DOTTED KEYS  */
@@ -109,6 +116,17 @@ export type DottedKeys<
   // @ts-expect-error Type 'keyof O' does not satisfy the constraint 'string'.
   K extends string = keyof O
 > = K extends ExtractKeys<O> ? DottedKeys<O[K], DotJoin<P, K>> : DotJoin<P, K>
+
+/*
+
+
+
+
+
+
+
+
+*/
 
 /* ------------- */
 /*  STYLE  */
