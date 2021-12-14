@@ -1,8 +1,3 @@
-import { systemTheme } from './theme'
-
-// Types
-import type { BaseTheme, CustomTheme, DefaultTheme } from './types/theme'
-
 // StyleFunctions
 import {
   animation,
@@ -34,6 +29,11 @@ import type {
   TypographyProps
 } from './functions'
 
+// Themes
+import { systemTheme } from './theme'
+
+import type { BaseTheme, CustomTheme, DefaultTheme } from './types/theme'
+
 /*
 
 
@@ -44,8 +44,6 @@ import type {
 
 
 */
-
-export { systemTheme }
 
 // StyleFunctions
 export { animation, background, border, color, flexbox, grid, layout, position, shadow, space, transition, typography }
@@ -65,5 +63,7 @@ export type {
   TypographyProps
 }
 
-// Types
+// Themes
+export { systemTheme }
+
 export type { BaseTheme, CustomTheme, DefaultTheme }
