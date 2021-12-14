@@ -16,7 +16,7 @@ import type {
   TypographyProps
 } from './functions'
 
-import type { DefaultTheme } from './types'
+import type { BaseTheme } from './types'
 
 // eslint-disable-next-line
 interface DefaultEmptyTheme {}
@@ -48,6 +48,6 @@ export type {
   ShadowProps,
   SpaceProps,
   TypographyProps,
-  DefaultTheme,
+  BaseTheme as DefaultTheme,
   DefaultEmptyTheme
 }

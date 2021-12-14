@@ -1,10 +1,10 @@
 // Types
-import { DefaultTheme, ThemeProps, PropertyPath } from '../types'
+import { BaseTheme, ThemeProps, PropertyPath } from '../types'
 
 // Utils
 import get from 'lodash.get'
 
-type ThemeGetFunction = (props: ThemeProps<DefaultTheme>) => any
+type ThemeGetFunction = (props: ThemeProps<BaseTheme>) => any
 
 /**
  *

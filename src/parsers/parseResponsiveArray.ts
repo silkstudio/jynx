@@ -1,6 +1,6 @@
 // Types
 import type { CSSProperties } from '../types/css'
-import { DefaultTheme, ResponsiveArray, BaseExtensibleObject } from '../types'
+import { BaseTheme, ResponsiveArray, BaseExtensibleObject } from '../types'
 
 // Utils
 import { createMediaQuery, sort, getValue, addUnitIfNeeded } from '../utils'
@@ -16,7 +16,7 @@ import { parseBreakpoints } from './parseBreakpoints'
  *
  * @param {P} property
  * @param {ResponsiveArray<C>} styles
- * @param {DefaultTheme} theme
+ * @param {BaseTheme} theme
  * @param {(p: Path) => string | number | undefined} scaleGet
  *
  *
@@ -35,7 +35,7 @@ import { parseBreakpoints } from './parseBreakpoints'
 
 */
 
-const parseResponsiveArray = <P extends keyof CSSProperties, T extends DefaultTheme = DefaultTheme>(
+const parseResponsiveArray = <P extends keyof CSSProperties, T extends BaseTheme = BaseTheme>(
   property: P,
   styles: ResponsiveArray<CSSProperties[P]>,
   theme: T,

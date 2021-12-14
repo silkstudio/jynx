@@ -1,8 +1,8 @@
 import { themeGet } from '../index'
-import { DefaultTheme } from '../../types'
+import { BaseTheme } from '../../types'
 import { systemTheme } from '../../theme'
 
-const theme: DefaultTheme = systemTheme
+const theme: BaseTheme = systemTheme
 
 const testTheme = {
   colors: {

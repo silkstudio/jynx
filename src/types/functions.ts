@@ -1,7 +1,7 @@
 // Types
 import type { CSSProperties } from './css'
 import type { BaseExtensibleObject } from './common'
-import type { DefaultTheme } from './theme'
+import type { BaseTheme } from './theme'
 
 /*
 
@@ -20,7 +20,7 @@ import type { DefaultTheme } from './theme'
  * @since 1.0.0
  * @public
  */
-export type StyledFunction<T> = (props: T & { theme: DefaultTheme }) => BaseExtensibleObject
+export type StyledFunction<T> = (props: T & { theme: BaseTheme }) => BaseExtensibleObject
 
 /**
  * StyledFunctionConfig
@@ -31,6 +31,6 @@ export type StyledFunction<T> = (props: T & { theme: DefaultTheme }) => BaseExte
 export interface StyledFunctionConfig {
   [key: string]: {
     property: keyof CSSProperties
-    scale?: keyof DefaultTheme
+    scale?: keyof BaseTheme
   }
 }
