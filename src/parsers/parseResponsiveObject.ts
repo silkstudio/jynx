@@ -6,7 +6,6 @@ import type { ResponsiveObject } from '../types/responsive'
 
 // Utils
 import { createMediaQuery, sort, getValue, addUnitIfNeeded } from '../utils'
-import { DefaultBreakpoint } from '../utils/defaultBreakpoints'
 import { parseBreakpoints } from './parseBreakpoints'
 
 /**
@@ -14,13 +13,12 @@ import { parseBreakpoints } from './parseBreakpoints'
  * returns a styled-copmonents-compatible {@link FlattenSimpleInterpolation}
  *
  * @template P extends keyof CSSProperties
- * @template C extends CSSProperties[P]
  * @template T extends {@link DefaultTheme}
  *
  * @param {P} property
- * @param {ResponsiveObject<C>} styles
+ * @param {ResponsiveObject<CSSProperties[P]>} styles
  * @param {DefaultTheme} theme
- * @param {(p: Path) => string | number | undefined} scaleGet
+ * @param {keyof DefaultTheme} scale
  *
  *
  * @since 1.0.0
@@ -54,7 +52,7 @@ const parseResponsiveObject = <P extends keyof CSSProperties, T extends DefaultT
   const parsed: Record<string, any> = {}
 
   Object.entries(responsive).forEach(([bp, value]) => {
-    const media = createMediaQuery(`${breakpoints[bp as DefaultBreakpoint]}`)
+    const media = createMediaQuery(`${breakpoints[bp as keyof typeof breakpoints]}`)
     parsed[media] = { [property]: addUnitIfNeeded(property, getValue(value, themeScale)) }
   })
 
