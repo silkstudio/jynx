@@ -34,11 +34,14 @@ const config: StyledFunctionConfig = {
 interface ColorProps {
   color?: CSSProperties['color'] | ResponsiveStyle<CSSProperties['color']>
   backgroundColor?: CSSProperties['backgroundColor'] | ResponsiveStyle<CSSProperties['backgroundColor']>
+  bgColor?: CSSProperties['backgroundColor'] | ResponsiveStyle<CSSProperties['backgroundColor']>
   opacity?: CSSProperties['opacity'] | ResponsiveStyle<CSSProperties['opacity']>
 }
 
 const color: StyledFunction<ColorProps> = ({ theme, ...styles }) => {
   return createStyles<typeof styles>(styles, theme, config)
 }
+
+config.bgColor = config.backgroundColor
 
 export { color, ColorProps, config }
