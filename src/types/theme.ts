@@ -1,8 +1,7 @@
-import { systemTheme } from '../theme'
-
 // Types
 import * as CSS from 'csstype'
 import type { ObjectOrArray, StringOrNumber } from './common'
+import type { DefaultBreakpoints } from '../utils/defaultBreakpoints'
 import type { ElementOf } from 'ts-essentials'
 
 /*
@@ -15,15 +14,6 @@ import type { ElementOf } from 'ts-essentials'
 
 
 */
-
-// /**
-//  * ThemePropertyObject
-//  *
-//  * @since 1.0.0
-//  */
-// type ThemePropertyObject = {
-//   [key: string]: string | number
-// }
 
 /* -------- */
 /*  THEMES  */
@@ -54,9 +44,44 @@ export interface BaseTheme {
 }
 
 /**
+ * BaseThemeWithBreakpoints
  *
+ * @since 1.0.0
+ */
+export interface BaseThemeWithBreakpoints extends Omit<BaseTheme, 'breakpoints'> {
+  breakpoints: DefaultBreakpoints
+}
+
+/**
+ * RequiredTheme
+ *
+ * @since 1.0.0
  */
 export type RequiredTheme = Required<BaseTheme>
+
+/**
+ * CustomTheme
+ *
+ * @since 1.0.0
+ */
+// eslint-disable-next-line
+export interface CustomTheme {}
+
+/**
+ * BaseIfEmpty
+ *
+ * @template T extends object
+ *
+ * @since 1.0.0
+ */
+export type BaseIfEmpty<T extends object> = keyof T extends never ? BaseThemeWithBreakpoints : T
+
+/**
+ * CustomTheme
+ *
+ * @since 1.0.0
+ */
+export type DefaultTheme = BaseIfEmpty<CustomTheme>
 
 /* ------------------ */
 /*  THEME ATTRIBUTES  */

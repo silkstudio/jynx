@@ -205,102 +205,102 @@ describe('When an array-based theme scale is passed', () => {
   })
 })
 
-describe('When using alternative breakpoints from a user-defined theme', () => {
-  const customTheme = {
-    ...systemTheme,
-    breakpoints: {
-      small: 540,
-      medium: 720,
-      large: 1080
-    }
-  }
+// describe('When using alternative breakpoints from a user-defined theme', () => {
+//   const customTheme = {
+//     ...systemTheme,
+//     breakpoints: {
+//       small: 540,
+//       medium: 720,
+//       large: 1080
+//     }
+//   }
 
-  it('should return an object', () => {
-    expect(typeof parseResponsiveObject('padding', { _: '48', small: '64', medium: '128' }, customTheme, 'spaces')).toBe('object')
-  })
+//   it('should return an object', () => {
+//     expect(typeof parseResponsiveObject('padding', { _: '48', small: '64', medium: '128' }, customTheme, 'spaces')).toBe('object')
+//   })
 
-  it('should return a sorted style object, using the new breakpoints', () => {
-    expect(parseResponsiveObject('padding', { _: '48', small: '64', medium: '128' }, customTheme, 'spaces')).toEqual({
-      padding: '48px',
-      '@media screen and (min-width: 540px)': {
-        padding: '64px'
-      },
-      '@media screen and (min-width: 720px)': {
-        padding: '128px'
-      }
-    })
-  })
+//   it('should return a sorted style object, using the new breakpoints', () => {
+//     expect(parseResponsiveObject('padding', { _: '48', small: '64', medium: '128' }, customTheme, 'spaces')).toEqual({
+//       padding: '48px',
+//       '@media screen and (min-width: 540px)': {
+//         padding: '64px'
+//       },
+//       '@media screen and (min-width: 720px)': {
+//         padding: '128px'
+//       }
+//     })
+//   })
 
-  it('should still be able to skip breakpoint values that are not defined in the ResponsiveObject', () => {
-    expect(parseResponsiveObject('padding', { _: '48', small: '64', large: '128' }, customTheme, 'spaces')).toEqual({
-      padding: '48px',
-      '@media screen and (min-width: 540px)': {
-        padding: '64px'
-      },
-      '@media screen and (min-width: 1080px)': {
-        padding: '128px'
-      }
-    })
-  })
+//   it('should still be able to skip breakpoint values that are not defined in the ResponsiveObject', () => {
+//     expect(parseResponsiveObject('padding', { _: '48', small: '64', large: '128' }, customTheme, 'spaces')).toEqual({
+//       padding: '48px',
+//       '@media screen and (min-width: 540px)': {
+//         padding: '64px'
+//       },
+//       '@media screen and (min-width: 1080px)': {
+//         padding: '128px'
+//       }
+//     })
+//   })
 
-  it("should still be able to sort a style object that's not referenced in size order", () => {
-    expect(parseResponsiveObject('padding', { small: '64', _: '48', large: '128' }, customTheme, 'spaces')).toEqual({
-      padding: '48px',
-      '@media screen and (min-width: 540px)': {
-        padding: '64px'
-      },
-      '@media screen and (min-width: 1080px)': {
-        padding: '128px'
-      }
-    })
-  })
+//   it("should still be able to sort a style object that's not referenced in size order", () => {
+//     expect(parseResponsiveObject('padding', { small: '64', _: '48', large: '128' }, customTheme, 'spaces')).toEqual({
+//       padding: '48px',
+//       '@media screen and (min-width: 540px)': {
+//         padding: '64px'
+//       },
+//       '@media screen and (min-width: 1080px)': {
+//         padding: '128px'
+//       }
+//     })
+//   })
 
-  it('should still be able to access object-based theme scales', () => {
-    expect(parseResponsiveObject('color', { _: 'red', small: 'blue', medium: 'green' }, customTheme, 'colors')).toEqual({
-      color: '#F2335D',
-      '@media screen and (min-width: 540px)': {
-        color: '#12A5EC'
-      },
-      '@media screen and (min-width: 720px)': {
-        color: '#7CD420'
-      }
-    })
-  })
+//   it('should still be able to access object-based theme scales', () => {
+//     expect(parseResponsiveObject('color', { _: 'red', small: 'blue', medium: 'green' }, customTheme, 'colors')).toEqual({
+//       color: '#F2335D',
+//       '@media screen and (min-width: 540px)': {
+//         color: '#12A5EC'
+//       },
+//       '@media screen and (min-width: 720px)': {
+//         color: '#7CD420'
+//       }
+//     })
+//   })
 
-  it('should still be able return the originally passed style if it does not exist within the theme, when accessing object-based theme scales', () => {
-    expect(parseResponsiveObject('color', { _: 'aquamarine', small: 'blue', large: 'green' }, customTheme, 'colors')).toEqual({
-      color: 'aquamarine',
-      '@media screen and (min-width: 540px)': {
-        color: '#12A5EC'
-      },
-      '@media screen and (min-width: 1080px)': {
-        color: '#7CD420'
-      }
-    })
-  })
+//   it('should still be able return the originally passed style if it does not exist within the theme, when accessing object-based theme scales', () => {
+//     expect(parseResponsiveObject('color', { _: 'aquamarine', small: 'blue', large: 'green' }, customTheme, 'colors')).toEqual({
+//       color: 'aquamarine',
+//       '@media screen and (min-width: 540px)': {
+//         color: '#12A5EC'
+//       },
+//       '@media screen and (min-width: 1080px)': {
+//         color: '#7CD420'
+//       }
+//     })
+//   })
 
-  it('should still be able to access arrray-based theme scales', () => {
-    // CAVEAT: Array values can be selected by passing numbers here but they must be strings, e.g. '1' not 1
-    expect(parseResponsiveObject('padding', { _: '1', small: '2', medium: '3' }, customTheme, 'spaces')).toEqual({
-      padding: '4px',
-      '@media screen and (min-width: 540px)': {
-        padding: '8px'
-      },
-      '@media screen and (min-width: 720px)': {
-        padding: '16px'
-      }
-    })
-  })
+//   it('should still be able to access arrray-based theme scales', () => {
+//     // CAVEAT: Array values can be selected by passing numbers here but they must be strings, e.g. '1' not 1
+//     expect(parseResponsiveObject('padding', { _: '1', small: '2', medium: '3' }, customTheme, 'spaces')).toEqual({
+//       padding: '4px',
+//       '@media screen and (min-width: 540px)': {
+//         padding: '8px'
+//       },
+//       '@media screen and (min-width: 720px)': {
+//         padding: '16px'
+//       }
+//     })
+//   })
 
-  it('should still be able return the originally passed style if it does not exist within the theme, when accessing array-based theme scales', () => {
-    expect(parseResponsiveObject('padding', { _: '48', small: '5', large: '6' }, customTheme, 'spaces')).toEqual({
-      padding: '48px',
-      '@media screen and (min-width: 540px)': {
-        padding: '64px'
-      },
-      '@media screen and (min-width: 1080px)': {
-        padding: '128px'
-      }
-    })
-  })
-})
+//   it('should still be able return the originally passed style if it does not exist within the theme, when accessing array-based theme scales', () => {
+//     expect(parseResponsiveObject('padding', { _: '48', small: '5', large: '6' }, customTheme, 'spaces')).toEqual({
+//       padding: '48px',
+//       '@media screen and (min-width: 540px)': {
+//         padding: '64px'
+//       },
+//       '@media screen and (min-width: 1080px)': {
+//         padding: '128px'
+//       }
+//     })
+//   })
+// })

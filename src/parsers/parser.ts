@@ -1,6 +1,6 @@
 // Types
 import type { CSSProperties } from '../types/css'
-import type { BaseExtensibleObject, BaseTheme, ResponsiveStyle, RequiredTheme } from '../types'
+import type { BaseExtensibleObject, DefaultTheme, ResponsiveStyle } from '../types'
 
 // Utils
 import { addUnitIfNeeded, getValue } from '../utils'
@@ -18,7 +18,7 @@ import { isResponsiveObject, isResponsiveStyle } from '../types/guards'
  *
  * @param {P} property
  * @param {C | ResponsiveStyle<C>} values
- * @param {BaseTheme} theme
+ * @param {DefaultTheme} theme
  * @param {(K: typeof values) => void} transform
  *
  * @returns {FlattenSimpleInterpolation}
@@ -38,7 +38,7 @@ import { isResponsiveObject, isResponsiveStyle } from '../types/guards'
 
 */
 
-const parser = <P extends keyof CSSProperties, C extends CSSProperties[P], T extends BaseTheme = RequiredTheme>({
+const parser = <P extends keyof CSSProperties, C extends CSSProperties[P], T extends DefaultTheme>({
   property,
   values,
   theme,

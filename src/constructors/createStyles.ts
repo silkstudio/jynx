@@ -1,5 +1,5 @@
 // Types
-import type { BaseTheme, StyledFunctionConfig, BaseExtensibleObject } from '../types'
+import type { DefaultTheme, StyledFunctionConfig, BaseExtensibleObject } from '../types'
 
 // Utils
 import { parser } from '../parsers/parser'
@@ -14,7 +14,7 @@ import { parser } from '../parsers/parser'
  * @template T Used to define the type of {@link raw} (should ideally be instantiated as `<typeof raw>`)
  *
  * @param {T} raw Styles being passed from React component
- * @param {BaseTheme} theme Theme used in parser
+ * @param {DefaultTheme} theme Theme used in parser
  * @param {StyledFunctionConfig} config Object used to define the css property and scale to the parser
  * @returns {Record<string, unknown>} Built
  *
@@ -36,7 +36,7 @@ import { parser } from '../parsers/parser'
 
 */
 
-const createStyles = <T>(raw: T, theme: BaseTheme, config: StyledFunctionConfig): BaseExtensibleObject => {
+const createStyles = <T>(raw: T, theme: DefaultTheme, config: StyledFunctionConfig): BaseExtensibleObject => {
   let styles: BaseExtensibleObject = {}
 
   Object.entries(raw).forEach(([key, values]) => {

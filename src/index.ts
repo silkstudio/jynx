@@ -1,6 +1,9 @@
 import { systemTheme } from './theme'
 
-// Function Imports
+// Types
+import type { BaseTheme, CustomTheme, DefaultTheme } from './types'
+
+// StyleFunction Imports
 import { background, border, color, flexbox, grid, layout, position, shadow, space, typography } from './functions'
 
 import type {
@@ -16,11 +19,6 @@ import type {
   TypographyProps
 } from './functions'
 
-import type { BaseTheme } from './types'
-
-// eslint-disable-next-line
-interface DefaultEmptyTheme {}
-
 /*
 
 
@@ -34,7 +32,7 @@ interface DefaultEmptyTheme {}
 
 export { systemTheme }
 
-// Function Exports
+// StyleFunction Exports
 export { background, border, color, flexbox, grid, layout, position, shadow, space, typography }
 
 export type {
@@ -47,7 +45,8 @@ export type {
   PositionProps,
   ShadowProps,
   SpaceProps,
-  TypographyProps,
-  BaseTheme as DefaultTheme,
-  DefaultEmptyTheme
+  TypographyProps
 }
+
+// Types
+export type { BaseTheme, CustomTheme, DefaultTheme }
