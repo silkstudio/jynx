@@ -1,5 +1,5 @@
 // Types
-import { BaseTheme } from '../types'
+import { DefaultTheme } from '../types'
 
 // Utils
 import get from 'lodash.get'
@@ -7,7 +7,7 @@ import get from 'lodash.get'
 /**
  *
  * @param {string | number} value
- * @param {BaseTheme[keyof BaseTheme]} scale
+ * @param {DefaultTheme[keyof DefaultTheme]} scale
  * @returns {string | number | Record<string, any>}
  */
 
@@ -24,7 +24,7 @@ import get from 'lodash.get'
 
 const getValue = (
   value?: string | number,
-  scale?: BaseTheme[keyof BaseTheme] | Record<string, any> | any[]
+  scale?: DefaultTheme[keyof DefaultTheme] | Record<string, any> | any[]
 ): string | number | Record<string, any> => {
   if (scale) {
     return value ? get(scale, value, value) : ''
