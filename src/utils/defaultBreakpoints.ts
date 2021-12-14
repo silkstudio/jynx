@@ -4,7 +4,7 @@ const defaultBreakpoints = {
   lg: 1280,
   xl: 1366,
   xxl: 1600
-} as const
+}
 
 type DefaultBreakpoints = typeof defaultBreakpoints
 

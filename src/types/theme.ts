@@ -2,7 +2,7 @@ import { systemTheme } from '../theme'
 
 // Types
 import * as CSS from 'csstype'
-import type { ObjectOrArray, StringOrNumber } from './utils'
+import type { ObjectOrArray, StringOrNumber } from './common'
 import type { ElementOf } from 'ts-essentials'
 
 /*
@@ -80,7 +80,7 @@ export type ThemeProps<T> = {
  *
  * @since 1.0.0
  */
-export type ThemeValue<K extends keyof T, T extends DefaultTheme = RequiredTheme, P = T[K]> = P extends string | number
+export type ThemeValue<K extends keyof T, T extends DefaultTheme = DefaultTheme, P = T[K]> = P extends string | number
   ? P
   : P extends any[] | readonly [...any]
   ? ElementOf<P>
