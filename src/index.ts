@@ -3,10 +3,24 @@ import { systemTheme } from './theme'
 // Types
 import type { BaseTheme, CustomTheme, DefaultTheme } from './types/theme'
 
-// StyleFunction Imports
-import { background, border, color, flexbox, grid, layout, position, shadow, space, transition, typography } from './functions'
+// StyleFunctions
+import {
+  animation,
+  background,
+  border,
+  color,
+  flexbox,
+  grid,
+  layout,
+  position,
+  shadow,
+  space,
+  transition,
+  typography
+} from './functions'
 
 import type {
+  AnimationProps,
   BackgroundProps,
   BorderProps,
   ColorProps,
@@ -33,10 +47,11 @@ import type {
 
 export { systemTheme }
 
-// StyleFunction Exports
-export { background, border, color, flexbox, grid, layout, position, shadow, space, transition, typography }
+// StyleFunctions
+export { animation, background, border, color, flexbox, grid, layout, position, shadow, space, transition, typography }
 
 export type {
+  AnimationProps,
   BackgroundProps,
   BorderProps,
   ColorProps,
