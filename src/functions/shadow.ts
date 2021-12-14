@@ -34,7 +34,7 @@ interface ShadowProps {
 }
 
 const shadow: StyledFunction<ShadowProps> = ({ theme, ...styles }) => {
-  return createStyles<typeof styles>(styles, theme, config)
+  return createStyles<ShadowProps>(styles, theme, config)
 }
 
 export { shadow, ShadowProps }
