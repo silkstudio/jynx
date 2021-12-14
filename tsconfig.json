@@ -2,10 +2,10 @@
     "compilerOptions": {
       "target": "esnext",
       "module": "esnext",
-      "baseUrl": "./",
+      "baseUrl": "/",
       "declaration": true,
-      "outDir": "dist",
       "strict": true,
+      "noEmit": true,
       "skipLibCheck": true,
       "jsx": "react",
       "allowSyntheticDefaultImports": true,
@@ -14,5 +14,5 @@
       "moduleResolution": "node"
     },
     "include": ["src", "rollup.config.js"],
-    "exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx", "docs"]
+    "exclude": ["node_modules", "docs"]
   }

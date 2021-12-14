@@ -1,10 +1,10 @@
-import { CSSProperties, css } from 'styled-components'
-
 // Types
-import { ResponsiveStyle } from '../types'
+import type { CSSProperties } from '../types/css'
+import type { ResponsiveStyle } from '../types/responsive'
+import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { styleParser } from '../parsers/styleParser'
+import { createStyles } from '../constructors'
 
 /*
 
@@ -17,7 +17,38 @@ import { styleParser } from '../parsers/styleParser'
 
 */
 
-export interface TypographyProps {
+const config: StyledFunctionConfig = {
+  fontFamily: {
+    property: 'fontFamily',
+    scale: 'fonts'
+  },
+  fontSize: {
+    property: 'fontSize'
+  },
+  fontWeight: {
+    property: 'fontWeight',
+    scale: 'fontWeights'
+  },
+  lineHeight: {
+    property: 'lineHeight',
+    scale: 'lineHeights'
+  },
+  letterSpacing: {
+    property: 'letterSpacing',
+    scale: 'letterSpacings'
+  },
+  textAlign: {
+    property: 'textAlign'
+  },
+  fontStyle: {
+    property: 'fontStyle'
+  },
+  textTransform: {
+    property: 'textTransform'
+  }
+}
+
+interface TypographyProps {
   fontFamily?: CSSProperties['fontFamily'] | ResponsiveStyle<CSSProperties['fontFamily']>
   fontSize?: CSSProperties['fontSize'] | ResponsiveStyle<CSSProperties['fontSize']>
   fontWeight?: CSSProperties['fontWeight'] | ResponsiveStyle<CSSProperties['fontWeight']>
@@ -28,13 +59,8 @@ export interface TypographyProps {
   textTransform?: CSSProperties['textTransform'] | ResponsiveStyle<CSSProperties['textTransform']>
 }
 
-export const typography = css<TypographyProps>`
-  ${({ fontFamily: T, theme }) => T && styleParser('fontFamily', T, theme)}
-  ${({ fontSize: T, theme }) => T && styleParser('fontSize', T, theme)} 
-  ${({ fontWeight: T, theme }) => T && styleParser('fontWeight', T, theme)}
-  ${({ lineHeight: T, theme }) => T && styleParser('lineHeight', T, theme)}
-  ${({ letterSpacing: T, theme }) => T && styleParser('letterSpacing', T, theme)}
-  ${({ textAlign: T, theme }) => T && styleParser('textAlign', T, theme)}
-  ${({ fontStyle: T, theme }) => T && styleParser('fontStyle', T, theme)}
-  ${({ textTransform: T, theme }) => T && styleParser('textTransform', T, theme)}
-`
+const typography: StyledFunction<TypographyProps> = ({ theme, ...styles }) => {
+  return createStyles<typeof styles>(styles, theme, config)
+}
+
+export { typography, TypographyProps }

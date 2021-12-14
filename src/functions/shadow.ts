@@ -1,10 +1,10 @@
-import { CSSProperties, css } from 'styled-components'
-
 // Types
-import { ResponsiveStyle } from '../types'
+import type { CSSProperties } from '../types/css'
+import type { ResponsiveStyle } from '../types/responsive'
+import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { styleParser } from '../parsers/styleParser'
+import { createStyles } from '../constructors'
 
 /*
 
@@ -17,12 +17,24 @@ import { styleParser } from '../parsers/styleParser'
 
 */
 
-export interface ShadowProps {
+const config: StyledFunctionConfig = {
+  boxShadow: {
+    property: 'boxShadow',
+    scale: 'shadows'
+  },
+  textShadow: {
+    property: 'textShadow',
+    scale: 'shadows'
+  }
+}
+
+interface ShadowProps {
   boxShadow?: CSSProperties['boxShadow'] | ResponsiveStyle<CSSProperties['boxShadow']>
   textShadow?: CSSProperties['textShadow'] | ResponsiveStyle<CSSProperties['textShadow']>
 }
 
-export const shadow = css<ShadowProps>`
-  ${({ boxShadow: T, theme }) => T && styleParser('boxShadow', T, theme)}
-  ${({ textShadow: T, theme }) => T && styleParser('textShadow', T, theme)}
-`
+const shadow: StyledFunction<ShadowProps> = ({ theme, ...styles }) => {
+  return createStyles<typeof styles>(styles, theme, config)
+}
+
+export { shadow, ShadowProps }

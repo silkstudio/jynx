@@ -1,7 +1,9 @@
-import { styleParser } from './parsers/styleParser'
-import { ThemeProvider } from './theme'
+import { systemTheme } from './theme'
 
-// Function Imports
+// Types
+import type { BaseTheme, CustomTheme, DefaultTheme } from './types/theme'
+
+// StyleFunction Imports
 import { background, border, color, flexbox, grid, layout, position, shadow, space, typography } from './functions'
 
 import type {
@@ -28,9 +30,9 @@ import type {
 
 */
 
-export { ThemeProvider, styleParser }
+export { systemTheme }
 
-// Function Exports
+// StyleFunction Exports
 export { background, border, color, flexbox, grid, layout, position, shadow, space, typography }
 
 export type {
@@ -45,3 +47,6 @@ export type {
   SpaceProps,
   TypographyProps
 }
+
+// Types
+export type { BaseTheme, CustomTheme, DefaultTheme }

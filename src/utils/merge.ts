@@ -26,6 +26,6 @@
 */
 
 const merge = (...objects: (Record<string, any> | undefined)[]): Record<string, any> =>
-  objects.reduce((prev, curr) => ({ ...prev, ...curr }), {}) || {}
+  objects.reduce((prev, curr) => (typeof curr === 'object' ? { ...prev, ...curr } : { ...prev }), {}) || {}
 
 export { merge }

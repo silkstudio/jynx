@@ -1,4 +1,16 @@
-import type { ResponsiveObject, ResponsiveArray, ResponsiveStyle } from './index'
+// Types
+import type { ResponsiveObject, ResponsiveArray, ResponsiveStyle } from './responsive'
+
+/*
+
+
+
+
+
+
+
+
+*/
 
 /**
  * Type guard to check if a passed value is a {@link ResponsiveObject}
@@ -10,7 +22,8 @@ import type { ResponsiveObject, ResponsiveArray, ResponsiveStyle } from './index
  *
  * @since 1.0.0
  */
-export const isResponsiveObject = <T>(check: unknown): check is ResponsiveObject<T> => (check as ResponsiveObject<T>)._ !== undefined
+export const isResponsiveObject = <T>(check: unknown): check is ResponsiveObject<T> =>
+  !!check && (check as ResponsiveObject<T>)._ !== undefined
 
 /**
  * Type guard to check if a passed value is a {@link ResponsiveArray}

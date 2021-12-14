@@ -1,10 +1,10 @@
-import { CSSProperties, css } from 'styled-components'
-
 // Types
-import { ResponsiveStyle } from '../types'
+import type { CSSProperties } from '../types/css'
+import type { ResponsiveStyle } from '../types/responsive'
+import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { styleParser } from '../parsers/styleParser'
+import { createStyles } from '../constructors'
 
 /*
 
@@ -17,7 +17,43 @@ import { styleParser } from '../parsers/styleParser'
 
 */
 
-export interface LayoutProps {
+const config: StyledFunctionConfig = {
+  width: {
+    property: 'width'
+  },
+  height: {
+    property: 'height'
+  },
+  minWidth: {
+    property: 'minWidth'
+  },
+  minHeight: {
+    property: 'minHeight'
+  },
+  maxWidth: {
+    property: 'maxWidth'
+  },
+  maxHeight: {
+    property: 'maxHeight'
+  },
+  display: {
+    property: 'display'
+  },
+  verticalAlign: {
+    property: 'verticalAlign'
+  },
+  overflow: {
+    property: 'overflow'
+  },
+  overflowX: {
+    property: 'overflowX'
+  },
+  overflowY: {
+    property: 'overflowY'
+  }
+}
+
+interface LayoutProps {
   width?: CSSProperties['width'] | ResponsiveStyle<CSSProperties['width']>
   height?: CSSProperties['height'] | ResponsiveStyle<CSSProperties['height']>
   minWidth?: CSSProperties['minWidth'] | ResponsiveStyle<CSSProperties['minWidth']>
@@ -31,16 +67,8 @@ export interface LayoutProps {
   overflowY?: CSSProperties['overflowY'] | ResponsiveStyle<CSSProperties['overflowY']>
 }
 
-export const layout = css<LayoutProps>`
-  ${({ width: T, theme }) => T && styleParser('width', T, theme)}
-  ${({ height: T, theme }) => T && styleParser('height', T, theme)}
-  ${({ minWidth: T, theme }) => T && styleParser('minWidth', T, theme)}
-  ${({ minHeight: T, theme }) => T && styleParser('minHeight', T, theme)}
-  ${({ maxWidth: T, theme }) => T && styleParser('maxWidth', T, theme)}
-  ${({ maxHeight: T, theme }) => T && styleParser('maxHeight', T, theme)}
-  ${({ display: T, theme }) => T && styleParser('display', T, theme)}
-  ${({ verticalAlign: T, theme }) => T && styleParser('verticalAlign', T, theme)}
-  ${({ overflow: T, theme }) => T && styleParser('overflow', T, theme)}
-  ${({ overflowX: T, theme }) => T && styleParser('overflowX', T, theme)}
-  ${({ overflowY: T, theme }) => T && styleParser('overflowY', T, theme)}
-`
+const layout: StyledFunction<LayoutProps> = ({ theme, ...styles }) => {
+  return createStyles<typeof styles>(styles, theme, config)
+}
+
+export { layout, LayoutProps }

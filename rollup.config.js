@@ -27,7 +27,7 @@ const configDev = {
     },
     {
       file: `dist/styled-framework.js`,
-      format: 'esm',
+      format: 'es',
       sourcemap: true
     }
   ],

@@ -2,8 +2,8 @@
   "name": "@silkstudio/styled-framework",
   "version": "1.0.0",
   "description": "Build reusable, adaptable and extendable styled-components.",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "main": "./dist/styled-framework.cjs.js",
+  "module": "./dist/styled-framework.js",
   "typings": "./dist/index.d.ts",
   "files": [
     "dist"
@@ -14,6 +14,8 @@
     "build:dev": "if [ -e \"dist\" ];then rm -rf \"dist\"; fi && rollup -c",
     "format": "prettier --write \"src/**/*.+(ts|tsx|js|jsx|md)\"",
     "lint": "eslint src --fix",
+    "test": "jest",
+    "test:dev": "if [ -e \"coverage\" ];then rm -rf \"coverage\"; fi && jest --coverage",
     "precommit": "lint-staged && tsc",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
@@ -30,6 +32,8 @@
   },
   "homepage": "https://github.com/silkstudio/styled-framework#readme",
   "devDependencies": {
+    "@testing-library/react": "^12.1.2",
+    "@types/jest": "^27.0.3",
     "@types/lodash.get": "^4.4.6",
     "@types/lodash.kebabcase": "^4.1.6",
     "@types/react": "^17.0.34",
@@ -46,18 +50,26 @@
     "eslint-plugin-react": "^7.27.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^7.0.4",
+    "jest": "^27.3.1",
+    "jsdom": "^19.0.0",
     "lint-staged": "^12.0.2",
     "pinst": "^2.1.6",
     "prettier": "^2.4.1",
     "rollup": "^2.60.0",
     "rollup-plugin-dts": "^4.0.1",
     "rollup-plugin-esbuild": "^4.6.0",
+    "ts-essentials": "^9.0.0",
+    "ts-jest": "^27.0.7",
     "typescript": "^4.4.4"
   },
   "dependencies": {
+    "csstype": "^3.0.10",
     "lodash.get": "^4.4.2",
     "lodash.kebabcase": "^4.1.1",
-    "react": "^17.0.2",
     "styled-components": "^5.3.3"
+  }, 
+  "peerDependencies": {
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2"
   }
 }
