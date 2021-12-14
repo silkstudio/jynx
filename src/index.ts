@@ -4,7 +4,7 @@ import { systemTheme } from './theme'
 import type { BaseTheme, CustomTheme, DefaultTheme } from './types/theme'
 
 // StyleFunction Imports
-import { background, border, color, flexbox, grid, layout, position, shadow, space, typography } from './functions'
+import { background, border, color, flexbox, grid, layout, position, shadow, space, transition, typography } from './functions'
 
 import type {
   BackgroundProps,
@@ -16,6 +16,7 @@ import type {
   PositionProps,
   ShadowProps,
   SpaceProps,
+  TransitionProps,
   TypographyProps
 } from './functions'
 
@@ -33,7 +34,7 @@ import type {
 export { systemTheme }
 
 // StyleFunction Exports
-export { background, border, color, flexbox, grid, layout, position, shadow, space, typography }
+export { background, border, color, flexbox, grid, layout, position, shadow, space, transition, typography }
 
 export type {
   BackgroundProps,
@@ -45,6 +46,7 @@ export type {
   PositionProps,
   ShadowProps,
   SpaceProps,
+  TransitionProps,
   TypographyProps
 }
 
