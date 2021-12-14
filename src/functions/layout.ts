@@ -1,4 +1,5 @@
 // Types
+
 import type { CSSProperties } from '../types/css'
 import type { ResponsiveStyle } from '../types/responsive'
 import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
@@ -39,6 +40,12 @@ const config: StyledFunctionConfig = {
   display: {
     property: 'display'
   },
+  transform: {
+    property: 'transform'
+  },
+  transformOrigin: {
+    property: 'transformOrigin'
+  },
   verticalAlign: {
     property: 'verticalAlign'
   },
@@ -68,10 +75,14 @@ interface LayoutProps {
   maxH?: CSSProperties['maxHeight'] | ResponsiveStyle<CSSProperties['maxHeight']>
   display?: CSSProperties['display'] | ResponsiveStyle<CSSProperties['display']>
   d?: CSSProperties['display'] | ResponsiveStyle<CSSProperties['display']>
-  verticalAlign?: CSSProperties['verticalAlign'] | ResponsiveStyle<CSSProperties['verticalAlign']>
+  transform?: CSSProperties['transform'] | ResponsiveStyle<CSSProperties['transform']>
+  t?: CSSProperties['transform'] | ResponsiveStyle<CSSProperties['transform']>
+  transformOrigin?: CSSProperties['transformOrigin'] | ResponsiveStyle<CSSProperties['transformOrigin']>
   overflow?: CSSProperties['overflow'] | ResponsiveStyle<CSSProperties['overflow']>
   overflowX?: CSSProperties['overflowX'] | ResponsiveStyle<CSSProperties['overflowX']>
   overflowY?: CSSProperties['overflowY'] | ResponsiveStyle<CSSProperties['overflowY']>
+  verticalAlign?: CSSProperties['verticalAlign'] | ResponsiveStyle<CSSProperties['verticalAlign']>
+  vAlign?: CSSProperties['verticalAlign'] | ResponsiveStyle<CSSProperties['verticalAlign']>
 }
 
 const layout: StyledFunction<LayoutProps> = ({ theme, ...styles }) => {
@@ -85,5 +96,7 @@ config.minH = config.minHeight
 config.maxW = config.maxWidth
 config.maxH = config.maxHeight
 config.d = config.display
+config.t = config.transform
+config.vAlign = config.verticalAlign
 
 export { layout, LayoutProps }
