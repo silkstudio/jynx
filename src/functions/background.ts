@@ -1,10 +1,10 @@
 // Types
 import type { CSSProperties } from '../types/css'
 import type { ResponsiveStyle } from '../types/responsive'
-import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
+import type { StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStylesObject } from '../constructors'
+import { createStyleFunction } from '../constructors'
 
 /*
 
@@ -79,10 +79,6 @@ interface BackgroundProps {
   bgSize?: CSSProperties['backgroundSize'] | ResponsiveStyle<CSSProperties['backgroundSize']>
 }
 
-const background: StyledFunction<BackgroundProps> = ({ theme, ...styles }) => {
-  return createStylesObject<BackgroundProps>(styles, theme, config)
-}
-
 config.bgAttachment = config.backgroundAttachment
 config.bgBlendMode = config.backgroundBlendMode
 config.bgClip = config.backgroundClip
@@ -95,4 +91,6 @@ config.bgPositionY = config.backgroundPositionY
 config.bgRepeat = config.backgroundRepeat
 config.bgSize = config.backgroundSize
 
-export { background, BackgroundProps }
+const background = createStyleFunction<BackgroundProps>(config)
+
+export { background, config as backgroundConfig, BackgroundProps }

@@ -2,10 +2,10 @@
 
 import type { CSSProperties } from '../types/css'
 import type { ResponsiveStyle } from '../types/responsive'
-import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
+import type { StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStylesObject } from '../constructors'
+import { createStyleFunction } from '../constructors'
 
 /*
 
@@ -85,10 +85,6 @@ interface LayoutProps {
   vAlign?: CSSProperties['verticalAlign'] | ResponsiveStyle<CSSProperties['verticalAlign']>
 }
 
-const layout: StyledFunction<LayoutProps> = ({ theme, ...styles }) => {
-  return createStylesObject<LayoutProps>(styles, theme, config)
-}
-
 config.w = config.width
 config.h = config.height
 config.minW = config.minWidth
@@ -99,4 +95,6 @@ config.d = config.display
 config.t = config.transform
 config.vAlign = config.verticalAlign
 
-export { layout, LayoutProps }
+const layout = createStyleFunction<LayoutProps>(config)
+
+export { layout, config as layoutConfig, LayoutProps }

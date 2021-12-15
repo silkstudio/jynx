@@ -1,10 +1,10 @@
 // Types
 import type { CSSProperties } from '../types/css'
 import type { ResponsiveStyle } from '../types/responsive'
-import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
+import type { StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStylesObject } from '../constructors'
+import { createStyleFunction } from '../constructors'
 
 /*
 
@@ -33,8 +33,6 @@ interface ShadowProps {
   textShadow?: CSSProperties['textShadow'] | ResponsiveStyle<CSSProperties['textShadow']>
 }
 
-const shadow: StyledFunction<ShadowProps> = ({ theme, ...styles }) => {
-  return createStylesObject<ShadowProps>(styles, theme, config)
-}
+const shadow = createStyleFunction<ShadowProps>(config)
 
-export { shadow, ShadowProps }
+export { shadow, config as shadowConfig, ShadowProps }

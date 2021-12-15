@@ -1,8 +1,8 @@
 // Types
-import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
+import type { StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStylesObject } from '../constructors'
+import { createStyleFunction } from '../constructors'
 import { gridConfig, GridProps } from './grid'
 
 /*
@@ -35,10 +35,6 @@ interface ExtendedGridProps extends GridProps {
   area?: GridProps['gridArea']
 }
 
-const grid: StyledFunction<ExtendedGridProps> = ({ theme, ...styles }) => {
-  return createStylesObject<ExtendedGridProps>(styles, theme, config)
-}
-
 config.templateColumns = config.gridTemplateColumns
 config.templateRows = config.gridTemplateRows
 config.templateAreas = config.gridTemplateAreas
@@ -51,6 +47,8 @@ config.autoRows = config.gridAutoRows
 config.autoFlow = config.gridAutoFlow
 config.column = config.gridColumn
 config.row = config.gridRow
-config.area = config.griAarea
+config.area = config.gridAarea
+
+const grid = createStyleFunction<ExtendedGridProps>(config)
 
 export { grid, config as extendedGridConfig, ExtendedGridProps }

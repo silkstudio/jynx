@@ -1,10 +1,10 @@
 // Types
 import type { CSSProperties } from '../types/css'
 import type { ResponsiveStyle } from '../types/responsive'
-import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
+import type { StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStylesObject } from '../constructors'
+import { createStyleFunction } from '../constructors'
 
 /*
 
@@ -38,10 +38,8 @@ interface ColorProps {
   opacity?: CSSProperties['opacity'] | ResponsiveStyle<CSSProperties['opacity']>
 }
 
-const color: StyledFunction<ColorProps> = ({ theme, ...styles }) => {
-  return createStylesObject<ColorProps>(styles, theme, config)
-}
-
 config.bgColor = config.backgroundColor
 
-export { color, ColorProps, config }
+const color = createStyleFunction<ColorProps>(config)
+
+export { color, config as colorConfig, ColorProps }

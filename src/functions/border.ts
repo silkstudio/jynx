@@ -1,10 +1,10 @@
 // Types
 import type { CSSProperties } from '../types/css'
 import type { ResponsiveStyle } from '../types/responsive'
-import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
+import type { StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStylesObject } from '../constructors'
+import { createStyleFunction } from '../constructors'
 
 /*
 
@@ -152,8 +152,6 @@ interface BorderProps {
   borderLeftColor?: CSSProperties['borderLeftColor'] | ResponsiveStyle<CSSProperties['borderLeftColor']>
 }
 
-const border: StyledFunction<BorderProps> = ({ theme, ...styles }) => {
-  return createStylesObject<BorderProps>(styles, theme, config)
-}
+const border = createStyleFunction<BorderProps>(config)
 
-export { border, BorderProps }
+export { border, config as borderConfig, BorderProps }

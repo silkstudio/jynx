@@ -29,6 +29,15 @@ interface ExtendedFlexboxProps extends FlexboxProps {
   basis?: FlexboxProps['flexBasis']
 }
 
+config.direction = config.flexDirection
+config.flow = config.flexFlow
+config.wrap = config.flexWrap
+config.align = config.alignItems
+config.justify = config.justifyContent
+config.grow = config.flexGrow
+config.shrink = config.flexShrink
+config.basis = config.flexBasis
+
 const extendedFlexbox: StyledFunction<ExtendedFlexboxProps> = ({ theme, ...styles }) => {
   const result = createStylesObject<ExtendedFlexboxProps>(styles, theme, config)
 
@@ -39,13 +48,4 @@ const extendedFlexbox: StyledFunction<ExtendedFlexboxProps> = ({ theme, ...style
   return result
 }
 
-config.direction = config.flexDirection
-config.flow = config.flexFlow
-config.wrap = config.flexWrap
-config.align = config.alignItems
-config.justify = config.justifyContent
-config.grow = config.flexGrow
-config.shrink = config.flexShrink
-config.basis = config.flexBasis
-
-export { extendedFlexbox, ExtendedFlexboxProps }
+export { extendedFlexbox, config as extendedFlexboxConfig, ExtendedFlexboxProps }

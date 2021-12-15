@@ -1,10 +1,10 @@
 // Types
 import type { CSSProperties } from '../types/css'
 import type { ResponsiveStyle } from '../types/responsive'
-import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
+import type { StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStylesObject } from '../constructors'
+import { createStyleFunction } from '../constructors'
 
 /*
 
@@ -59,8 +59,6 @@ interface AnimationProps {
   animationPlayState?: CSSProperties['animationPlayState'] | ResponsiveStyle<CSSProperties['animationPlayState']>
 }
 
-const animation: StyledFunction<AnimationProps> = ({ theme, ...styles }) => {
-  return createStylesObject<AnimationProps>(styles, theme, config)
-}
+const animation = createStyleFunction<AnimationProps>(config)
 
-export { animation, AnimationProps }
+export { animation, config as animationConfig, AnimationProps }

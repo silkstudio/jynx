@@ -4,7 +4,7 @@ import type { ResponsiveStyle } from '../types/responsive'
 import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStylesObject } from '../constructors'
+import { createStyleFunction, createStylesObject } from '../constructors'
 
 /*
 
@@ -54,11 +54,9 @@ interface PositionProps {
   z?: CSSProperties['zIndex'] | ResponsiveStyle<CSSProperties['zIndex']>
 }
 
-const position: StyledFunction<PositionProps> = ({ theme, ...styles }) => {
-  return createStylesObject<PositionProps>(styles, theme, config)
-}
-
 config.pos = config.position
 config.z = config.zIndex
 
-export { position, PositionProps }
+const position = createStyleFunction<PositionProps>(config)
+
+export { position, config as positionConfig, PositionProps }

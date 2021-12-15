@@ -1,10 +1,10 @@
 // Types
 import type { CSSProperties } from '../types/css'
 import type { ResponsiveStyle } from '../types/responsive'
-import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
+import type { StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStylesObject } from '../constructors'
+import { createStyleFunction } from '../constructors'
 
 /*
 
@@ -166,10 +166,6 @@ const config: StyledFunctionConfig = { ...marginConfig, ...paddingConfig }
 // eslint-disable-next-line
 interface SpaceProps extends MarginProps, PaddingProps {}
 
-const space: StyledFunction<SpaceProps> = ({ theme, ...styles }) => {
-  return createStylesObject<SpaceProps>(styles, theme, config)
-}
-
 config.m = marginConfig.margin
 config.mt = marginConfig.marginTop
 config.mr = marginConfig.marginRight
@@ -194,4 +190,6 @@ config.pi = paddingConfig.paddingInline
 config.pis = paddingConfig.paddingInlineStart
 config.pie = paddingConfig.paddingInlineEnd
 
-export { space, SpaceProps }
+const space = createStyleFunction<SpaceProps>(config)
+
+export { space, config as spaceConfig, SpaceProps }

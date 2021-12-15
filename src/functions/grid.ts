@@ -1,10 +1,10 @@
 // Types
 import type { CSSProperties } from '../types/css'
 import type { ResponsiveStyle } from '../types/responsive'
-import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
+import type { StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStylesObject } from '../constructors'
+import { createStyleFunction } from '../constructors'
 import { gridSpanTransformer } from '../transformers/grid'
 
 /*
@@ -97,8 +97,6 @@ interface GridProps {
   gridArea?: GridChildProp<'gridArea'> | ResponsiveStyle<GridChildProp<'gridArea'>>
 }
 
-const grid: StyledFunction<GridProps> = ({ theme, ...styles }) => {
-  return createStylesObject<GridProps>(styles, theme, config)
-}
+const grid = createStyleFunction<GridProps>(config)
 
 export { grid, config as gridConfig, GridProps }

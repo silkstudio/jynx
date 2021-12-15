@@ -1,10 +1,10 @@
 // Types
 import type { CSSProperties } from '../types/css'
 import type { ResponsiveStyle } from '../types/responsive'
-import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
+import type { StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStylesObject } from '../constructors'
+import { createStyleFunction } from '../constructors'
 
 /*
 
@@ -75,8 +75,6 @@ interface TypographyProps {
   wordBreak?: CSSProperties['wordBreak'] | ResponsiveStyle<CSSProperties['wordBreak']>
 }
 
-const typography: StyledFunction<TypographyProps> = ({ theme, ...styles }) => {
-  return createStylesObject<TypographyProps>(styles, theme, config)
-}
+const typography = createStyleFunction<TypographyProps>(config)
 
-export { typography, TypographyProps }
+export { typography, config as typographyConfig, TypographyProps }
