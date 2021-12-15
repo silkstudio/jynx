@@ -4,7 +4,7 @@ import type { ResponsiveStyle } from '../types/responsive'
 import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyles } from '../constructors'
+import { createStylesObject } from '../constructors'
 
 /*
 
@@ -80,7 +80,7 @@ interface BackgroundProps {
 }
 
 const background: StyledFunction<BackgroundProps> = ({ theme, ...styles }) => {
-  return createStyles<BackgroundProps>(styles, theme, config)
+  return createStylesObject<BackgroundProps>(styles, theme, config)
 }
 
 config.bgAttachment = config.backgroundAttachment

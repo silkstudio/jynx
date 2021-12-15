@@ -4,7 +4,7 @@ import type { ResponsiveStyle } from '../types/responsive'
 import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyles } from '../constructors'
+import { createStylesObject } from '../constructors'
 
 /*
 
@@ -39,7 +39,7 @@ interface ColorProps {
 }
 
 const color: StyledFunction<ColorProps> = ({ theme, ...styles }) => {
-  return createStyles<ColorProps>(styles, theme, config)
+  return createStylesObject<ColorProps>(styles, theme, config)
 }
 
 config.bgColor = config.backgroundColor

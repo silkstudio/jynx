@@ -4,7 +4,7 @@ import type { ResponsiveStyle } from '../types/responsive'
 import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyles } from '../constructors'
+import { createStylesObject } from '../constructors'
 
 /*
 
@@ -44,7 +44,7 @@ interface TransitionProps {
 }
 
 const transition: StyledFunction<TransitionProps> = ({ theme, ...styles }) => {
-  return createStyles<TransitionProps>(styles, theme, config)
+  return createStylesObject<TransitionProps>(styles, theme, config)
 }
 
 export { transition, TransitionProps }

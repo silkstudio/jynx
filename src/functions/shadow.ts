@@ -4,7 +4,7 @@ import type { ResponsiveStyle } from '../types/responsive'
 import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyles } from '../constructors'
+import { createStylesObject } from '../constructors'
 
 /*
 
@@ -34,7 +34,7 @@ interface ShadowProps {
 }
 
 const shadow: StyledFunction<ShadowProps> = ({ theme, ...styles }) => {
-  return createStyles<ShadowProps>(styles, theme, config)
+  return createStylesObject<ShadowProps>(styles, theme, config)
 }
 
 export { shadow, ShadowProps }

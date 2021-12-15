@@ -38,7 +38,7 @@ import { parser } from '../parsers/parser'
 
 */
 
-const createStyles = <T>(raw: T, theme: DefaultTheme, config: StyledFunctionConfig): BaseExtensibleObject => {
+const createStylesObject = <T>(raw: T, theme: DefaultTheme, config: StyledFunctionConfig): BaseExtensibleObject => {
   let styles: BaseExtensibleObject = {}
 
   Object.entries(raw).forEach(([key, values]) => {
@@ -48,4 +48,4 @@ const createStyles = <T>(raw: T, theme: DefaultTheme, config: StyledFunctionConf
   return styles
 }
 
-export { createStyles }
+export { createStylesObject }

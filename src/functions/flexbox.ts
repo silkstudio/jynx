@@ -4,7 +4,7 @@ import type { ResponsiveStyle } from '../types/responsive'
 import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyles } from '../constructors'
+import { createStylesObject } from '../constructors'
 
 /*
 
@@ -73,7 +73,7 @@ interface FlexboxProps {
 }
 
 const flexbox: StyledFunction<FlexboxProps> = ({ theme, ...styles }) => {
-  const result = createStyles<FlexboxProps>(styles, theme, config)
+  const result = createStylesObject<FlexboxProps>(styles, theme, config)
 
   if (Object.keys(styles).length) {
     result.display = 'flex'

@@ -3,7 +3,7 @@ import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
 import { flexboxConfig, FlexboxProps } from './flexbox'
-import { createStyles } from '../constructors'
+import { createStylesObject } from '../constructors'
 
 /*
 
@@ -30,7 +30,7 @@ interface ExtendedFlexboxProps extends FlexboxProps {
 }
 
 const extendedFlexbox: StyledFunction<ExtendedFlexboxProps> = ({ theme, ...styles }) => {
-  const result = createStyles<ExtendedFlexboxProps>(styles, theme, config)
+  const result = createStylesObject<ExtendedFlexboxProps>(styles, theme, config)
 
   if (Object.keys(styles).length) {
     result.display = 'flex'

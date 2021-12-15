@@ -4,7 +4,7 @@ import type { ResponsiveStyle } from '../types/responsive'
 import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyles } from '../constructors'
+import { createStylesObject } from '../constructors'
 
 /*
 
@@ -153,7 +153,7 @@ interface BorderProps {
 }
 
 const border: StyledFunction<BorderProps> = ({ theme, ...styles }) => {
-  return createStyles<BorderProps>(styles, theme, config)
+  return createStylesObject<BorderProps>(styles, theme, config)
 }
 
 export { border, BorderProps }

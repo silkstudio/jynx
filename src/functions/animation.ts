@@ -4,7 +4,7 @@ import type { ResponsiveStyle } from '../types/responsive'
 import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyles } from '../constructors'
+import { createStylesObject } from '../constructors'
 
 /*
 
@@ -60,7 +60,7 @@ interface AnimationProps {
 }
 
 const animation: StyledFunction<AnimationProps> = ({ theme, ...styles }) => {
-  return createStyles<AnimationProps>(styles, theme, config)
+  return createStylesObject<AnimationProps>(styles, theme, config)
 }
 
 export { animation, AnimationProps }

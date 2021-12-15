@@ -4,7 +4,7 @@ import type { ResponsiveStyle } from '../types/responsive'
 import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyles } from '../constructors'
+import { createStylesObject } from '../constructors'
 
 /*
 
@@ -167,7 +167,7 @@ const config: StyledFunctionConfig = { ...marginConfig, ...paddingConfig }
 interface SpaceProps extends MarginProps, PaddingProps {}
 
 const space: StyledFunction<SpaceProps> = ({ theme, ...styles }) => {
-  return createStyles<SpaceProps>(styles, theme, config)
+  return createStylesObject<SpaceProps>(styles, theme, config)
 }
 
 config.m = marginConfig.margin

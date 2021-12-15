@@ -4,7 +4,7 @@ import type { ResponsiveStyle } from '../types/responsive'
 import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyles } from '../constructors'
+import { createStylesObject } from '../constructors'
 
 /*
 
@@ -55,7 +55,7 @@ interface PositionProps {
 }
 
 const position: StyledFunction<PositionProps> = ({ theme, ...styles }) => {
-  return createStyles<PositionProps>(styles, theme, config)
+  return createStylesObject<PositionProps>(styles, theme, config)
 }
 
 config.pos = config.position

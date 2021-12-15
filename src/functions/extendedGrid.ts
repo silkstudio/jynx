@@ -2,7 +2,7 @@
 import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyles } from '../constructors'
+import { createStylesObject } from '../constructors'
 import { gridConfig, GridProps } from './grid'
 
 /*
@@ -36,7 +36,7 @@ interface ExtendedGridProps extends GridProps {
 }
 
 const grid: StyledFunction<ExtendedGridProps> = ({ theme, ...styles }) => {
-  return createStyles<ExtendedGridProps>(styles, theme, config)
+  return createStylesObject<ExtendedGridProps>(styles, theme, config)
 }
 
 config.templateColumns = config.gridTemplateColumns

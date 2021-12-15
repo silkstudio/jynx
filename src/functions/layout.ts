@@ -5,7 +5,7 @@ import type { ResponsiveStyle } from '../types/responsive'
 import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyles } from '../constructors'
+import { createStylesObject } from '../constructors'
 
 /*
 
@@ -86,7 +86,7 @@ interface LayoutProps {
 }
 
 const layout: StyledFunction<LayoutProps> = ({ theme, ...styles }) => {
-  return createStyles<LayoutProps>(styles, theme, config)
+  return createStylesObject<LayoutProps>(styles, theme, config)
 }
 
 config.w = config.width

@@ -1,1 +1,1 @@
-export { createStyles } from './createStyles'
+export { createStylesObject } from './createStylesObject'

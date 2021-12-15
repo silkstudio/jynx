@@ -4,7 +4,7 @@ import type { ResponsiveStyle } from '../types/responsive'
 import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyles } from '../constructors'
+import { createStylesObject } from '../constructors'
 import { gridSpanTransformer } from '../transformers/grid'
 
 /*
@@ -98,7 +98,7 @@ interface GridProps {
 }
 
 const grid: StyledFunction<GridProps> = ({ theme, ...styles }) => {
-  return createStyles<GridProps>(styles, theme, config)
+  return createStylesObject<GridProps>(styles, theme, config)
 }
 
 export { grid, config as gridConfig, GridProps }

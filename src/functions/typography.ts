@@ -4,7 +4,7 @@ import type { ResponsiveStyle } from '../types/responsive'
 import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyles } from '../constructors'
+import { createStylesObject } from '../constructors'
 
 /*
 
@@ -76,7 +76,7 @@ interface TypographyProps {
 }
 
 const typography: StyledFunction<TypographyProps> = ({ theme, ...styles }) => {
-  return createStyles<TypographyProps>(styles, theme, config)
+  return createStylesObject<TypographyProps>(styles, theme, config)
 }
 
 export { typography, TypographyProps }
