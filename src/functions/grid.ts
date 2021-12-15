@@ -5,6 +5,7 @@ import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
 import { createStyles } from '../constructors'
+import { gridSpanTransformer } from '../transformers/grid'
 
 /*
 
@@ -16,6 +17,7 @@ import { createStyles } from '../constructors'
 
 
 */
+
 const config: StyledFunctionConfig = {
   gridTemplateColumns: {
     property: 'gridTemplateColumns'
@@ -60,15 +62,20 @@ const config: StyledFunctionConfig = {
     property: 'gridAutoFlow'
   },
   gridColumn: {
-    property: 'gridColumn'
+    property: 'gridColumn',
+    transform: gridSpanTransformer
   },
   gridRow: {
-    property: 'gridRow'
+    property: 'gridRow',
+    transform: gridSpanTransformer
   },
   gridArea: {
-    property: 'gridArea'
+    property: 'gridArea',
+    transform: gridSpanTransformer
   }
 }
+
+type GridProp<T extends keyof CSSProperties> = CSSProperties[T] | [CSSProperties[T], CSSProperties[T]]
 
 interface GridProps {
   gridTemplateColumns?: CSSProperties['gridTemplateColumns'] | ResponsiveStyle<CSSProperties['gridTemplateColumns']>
@@ -85,7 +92,7 @@ interface GridProps {
   gridAutoRows?: CSSProperties['gridAutoRows'] | ResponsiveStyle<CSSProperties['gridAutoRows']>
   gridAutoFlow?: CSSProperties['gridAutoFlow'] | ResponsiveStyle<CSSProperties['gridAutoFlow']>
   // Child Props
-  gridColumn?: CSSProperties['gridColumn'] | ResponsiveStyle<CSSProperties['gridColumn']>
+  gridColumn?: GridProp<'gridColumn'> | ResponsiveStyle<GridProp<'gridColumn'>>
   gridRow?: CSSProperties['gridRow'] | ResponsiveStyle<CSSProperties['gridRow']>
   gridArea?: CSSProperties['gridArea'] | ResponsiveStyle<CSSProperties['gridArea']>
 }
