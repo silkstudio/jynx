@@ -31,8 +31,11 @@ import type {
 
 // Themes
 import { systemTheme } from './theme'
-
 import type { BaseTheme, CustomTheme, DefaultTheme } from './types/theme'
+
+// Utils
+import { createStyleFunction } from './constructors'
+import type { StyledFunction, StyledFunctionConfig } from './types/functions'
 
 /*
 
@@ -67,3 +70,7 @@ export type {
 export { systemTheme }
 
 export type { BaseTheme, CustomTheme, DefaultTheme }
+
+// Utils
+export { createStyleFunction }
+export type { StyledFunction, StyledFunctionConfig }
