@@ -2,6 +2,7 @@
 import type { CSSProperties } from './css'
 import type { BaseExtensibleObject } from './common'
 import type { DefaultTheme } from './theme'
+import { ResponsiveStyle } from './responsive'
 
 /*
 
@@ -22,6 +23,8 @@ import type { DefaultTheme } from './theme'
  */
 export type StyledFunction<T> = (props: T & { theme: DefaultTheme }) => BaseExtensibleObject
 
+export type TransformFunction<T> = (values: T) => T
+
 /**
  * StyledFunctionConfig
  *
@@ -32,5 +35,6 @@ export interface StyledFunctionConfig {
   [key: string]: {
     property: keyof CSSProperties
     scale?: keyof DefaultTheme
+    transform?: TransformFunction<any>
   }
 }
