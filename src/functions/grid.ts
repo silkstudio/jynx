@@ -75,7 +75,7 @@ const config: StyledFunctionConfig = {
   }
 }
 
-type GridProp<T extends keyof CSSProperties> = CSSProperties[T] | [CSSProperties[T], CSSProperties[T]]
+type GridChildProp<T extends keyof CSSProperties> = CSSProperties[T] | [CSSProperties[T], CSSProperties[T]]
 
 interface GridProps {
   gridTemplateColumns?: CSSProperties['gridTemplateColumns'] | ResponsiveStyle<CSSProperties['gridTemplateColumns']>
@@ -92,13 +92,13 @@ interface GridProps {
   gridAutoRows?: CSSProperties['gridAutoRows'] | ResponsiveStyle<CSSProperties['gridAutoRows']>
   gridAutoFlow?: CSSProperties['gridAutoFlow'] | ResponsiveStyle<CSSProperties['gridAutoFlow']>
   // Child Props
-  gridColumn?: GridProp<'gridColumn'> | ResponsiveStyle<GridProp<'gridColumn'>>
-  gridRow?: CSSProperties['gridRow'] | ResponsiveStyle<CSSProperties['gridRow']>
-  gridArea?: CSSProperties['gridArea'] | ResponsiveStyle<CSSProperties['gridArea']>
+  gridColumn?: GridChildProp<'gridColumn'> | ResponsiveStyle<GridChildProp<'gridColumn'>>
+  gridRow?: GridChildProp<'gridRow'> | ResponsiveStyle<GridChildProp<'gridRow'>>
+  gridArea?: GridChildProp<'gridArea'> | ResponsiveStyle<GridChildProp<'gridArea'>>
 }
 
 const grid: StyledFunction<GridProps> = ({ theme, ...styles }) => {
   return createStyles<GridProps>(styles, theme, config)
 }
 
-export { grid, GridProps }
+export { grid, config as gridConfig, GridProps }
