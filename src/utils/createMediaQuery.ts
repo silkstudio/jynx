@@ -1,4 +1,4 @@
-import { isNumeric } from './isNumber'
+import { isNumeric } from './isNumeric'
 
 /**
  * Utility function that returns a 'min-width' media query as a string
