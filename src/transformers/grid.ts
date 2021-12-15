@@ -1,5 +1,5 @@
 // Utils
-import { createTransformer } from '../constructors/createTransformer'
+import { createTransformer } from '../constructors'
 
 const spanOperator = '|'
 
