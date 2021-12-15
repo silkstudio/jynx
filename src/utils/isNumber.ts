@@ -19,6 +19,6 @@
 
 */
 
-const isNumber = (value: any): value is number => typeof value === 'number' || (typeof value === 'string' && !isNaN(Number(value)))
+const isNumeric = (value: any): value is number => typeof value === 'number' || (typeof value === 'string' && !isNaN(Number(value)))
 
-export { isNumber }
+export { isNumeric }
