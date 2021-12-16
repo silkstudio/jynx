@@ -50,4 +50,6 @@ const extendedFlexbox: StyledFunction<ExtendedFlexboxProps> = ({ theme, ...style
   return result
 }
 
+extendedFlexbox.config = config
+
 export { extendedFlexbox, config as extendedFlexboxConfig, ExtendedFlexboxProps, FlexboxShorthandProps }

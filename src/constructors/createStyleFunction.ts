@@ -27,7 +27,9 @@ import { createStylesObject } from './createStylesObject'
 */
 
 const createStyleFunction = <K extends object>(config: StyledFunctionConfig): StyledFunction<K> => {
-  return ({ theme, ...styles }) => createStylesObject<typeof styles>(styles, theme, config)
+  const builder: StyledFunction<K> = ({ theme, ...styles }) => createStylesObject<typeof styles>(styles, theme, config)
+  builder.config = config
+  return builder
 }
 
 export { createStyleFunction }

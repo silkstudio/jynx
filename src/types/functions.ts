@@ -21,7 +21,10 @@ import type { DefaultTheme } from './theme'
  * @since 1.0.0
  * @public
  */
-export type StyledFunction<T> = (props: T & { theme: DefaultTheme }) => CSSObject
+export type StyledFunction<T> = {
+  (props: T & { theme: DefaultTheme }): CSSObject
+  config: StyledFunctionConfig
+}
 
 /**
  * StyledFunctionConfig

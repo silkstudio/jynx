@@ -4,7 +4,7 @@ import type { ResponsiveStyle } from '../types/responsive'
 import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyleFunction, createStylesObject } from '../constructors'
+import { createStyleFunction } from '../constructors'
 
 /*
 

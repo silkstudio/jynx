@@ -82,4 +82,6 @@ const flexbox: StyledFunction<FlexboxProps> = ({ theme, ...styles }) => {
   return result
 }
 
+flexbox.config = config
+
 export { flexbox, config as flexboxConfig, FlexboxProps }
