@@ -5,6 +5,7 @@ import type { StyledFunctionConfig } from '../types/functions'
 
 // Utils
 import { createStyleFunction } from '../constructors'
+import { spaceTransformer } from '../transformers/space'
 
 /*
 
@@ -24,19 +25,23 @@ const marginConfig: StyledFunctionConfig = {
   },
   marginTop: {
     property: 'marginTop',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   marginRight: {
     property: 'marginRight',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   marginBottom: {
     property: 'marginBottom',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   marginLeft: {
     property: 'marginLeft',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   marginBlock: {
     property: 'marginBlock',
@@ -44,11 +49,13 @@ const marginConfig: StyledFunctionConfig = {
   },
   marginBlockStart: {
     property: 'marginBlockStart',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   marginBlockEnd: {
     property: 'marginBlockEnd',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   marginInline: {
     property: 'marginInline',
@@ -56,11 +63,13 @@ const marginConfig: StyledFunctionConfig = {
   },
   marginInlineStart: {
     property: 'marginInlineStart',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   marginInlineEnd: {
     property: 'marginInlineEnd',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   }
 }
 
@@ -96,19 +105,23 @@ const paddingConfig: StyledFunctionConfig = {
   },
   paddingTop: {
     property: 'paddingTop',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   paddingRight: {
     property: 'paddingRight',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   paddingBottom: {
     property: 'paddingBottom',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   paddingLeft: {
     property: 'paddingLeft',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   paddingBlock: {
     property: 'paddingBlock',
@@ -116,11 +129,13 @@ const paddingConfig: StyledFunctionConfig = {
   },
   paddingBlockStart: {
     property: 'paddingBlockStart',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   paddingBlockEnd: {
     property: 'paddingBlockEnd',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   paddingInline: {
     property: 'paddingInline',
@@ -128,11 +143,13 @@ const paddingConfig: StyledFunctionConfig = {
   },
   paddingInlineStart: {
     property: 'paddingInlineStart',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   paddingInlineEnd: {
     property: 'paddingInlineEnd',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   }
 }
 
