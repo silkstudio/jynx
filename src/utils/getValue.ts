@@ -8,7 +8,7 @@ import get from 'lodash.get'
  *
  * @param {string | number} value
  * @param {DefaultTheme[keyof DefaultTheme]} scale
- * @returns {string | number | Record<string, any>}
+ * @returns {any}
  */
 
 /*
@@ -22,10 +22,7 @@ import get from 'lodash.get'
 
 */
 
-const getValue = (
-  value?: string | number,
-  scale?: DefaultTheme[keyof DefaultTheme] | Record<string, any> | any[]
-): string | number | Record<string, any> => {
+const getValue = (value?: string | number, scale?: DefaultTheme[keyof DefaultTheme] | Record<string, any> | any[]): any => {
   if (scale) {
     return value ? get(scale, value, value) : ''
   }

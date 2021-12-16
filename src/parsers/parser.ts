@@ -1,18 +1,27 @@
 // Types
-import type { CSSProperties } from '../types/css'
+import type { CSSObject, CSSProperties } from '../types/css'
 import type { DefaultTheme } from '../types/theme'
-import type { BaseExtensibleObject } from '../types/common'
 import type { ResponsiveStyle } from '../types/responsive'
+import type { TransformFunction } from '../types/functions'
 
 // Utils
-import { addUnitIfNeeded, getValue } from '../utils'
+import { addUnitIfNeeded, getValue, shouldTransform } from '../utils'
 import { parseResponsiveObject } from './parseResponsiveObject'
 import { parseResponsiveArray } from './parseResponsiveArray'
-import { isResponsiveObject, isResponsiveStyle } from '../types/guards'
+import { isResponsiveArray, isResponsiveObject, isResponsiveStyle } from '../types/guards'
+
+// Interfaces
+interface Props<P extends keyof CSSProperties> {
+  property: P
+  values: CSSProperties[P] | ResponsiveStyle<CSSProperties[P]>
+  theme: DefaultTheme
+  scale?: keyof DefaultTheme
+  transform?: (K: any) => typeof K
+  transformer?: TransformFunction<CSSProperties[P]>
+}
 
 /**
- * Parser function that takes in either a single style or ResponsiveStyle and
- * returns a styled-copmonents-compatible {@link FlattenSimpleInterpolation}
+ * Parser function that takes in a {@link ResponsiveStyle} and returns a {@link CSSObject}
  *
  * @template P extends keyof CSSProperties
  * @template C extends CSSProperties[P]
@@ -40,38 +49,34 @@ import { isResponsiveObject, isResponsiveStyle } from '../types/guards'
 
 */
 
-const parser = <P extends keyof CSSProperties, C extends CSSProperties[P], T extends DefaultTheme>({
-  property,
-  values,
-  theme,
-  scale,
-  transform
-}: {
-  property: P
-  values: C | ResponsiveStyle<C>
-  theme: T
-  scale?: keyof T
-  transform?: (K: typeof values) => typeof K
-}): BaseExtensibleObject => {
-  const result: BaseExtensibleObject = {}
-  const styles = transform ? transform(values) : values
+const parser = <P extends keyof CSSProperties>({ property, values, theme, scale, transformer }: Props<P>): CSSObject => {
+  const result: CSSObject = {}
 
-  if (!property || !values || !theme || !styles) {
+  // If required props don't exist, return empty object
+  if (!property || !values || !theme) {
     return result
   }
 
-  if (!isResponsiveStyle<C>(styles)) {
-    result[property] = addUnitIfNeeded(property, getValue(styles, scale && theme[scale]))
+  // If values is not responsive (i.e. string | number), add single rule to result object
+  if (!isResponsiveStyle<CSSProperties[P]>(values)) {
+    const value = getValue(values, scale && theme[scale])
+    const transformedValue = shouldTransform<CSSProperties[P]>(value, transformer)
+    Object.assign(result, { [property]: addUnitIfNeeded(property, transformedValue) })
   }
 
-  const parsed = isResponsiveStyle<C>(styles)
-    ? isResponsiveObject<C>(styles)
-      ? parseResponsiveObject(property, styles, theme, scale)
-      : parseResponsiveArray(property, styles, theme, scale)
-    : {}
+  // If values is an object, parse and add each rule to result object
+  if (isResponsiveObject<CSSProperties[P]>(values)) {
+    const parsed = parseResponsiveObject(property, values, theme, scale, transformer)
+    Object.entries(parsed).forEach(([key, value]) => (result[key] = value))
+  }
 
-  Object.entries(parsed).forEach(([key, value]) => (result[key] = value))
+  // If values is an array, parse and add each rule to result object
+  if (isResponsiveArray<CSSProperties[P]>(values)) {
+    const parsed = parseResponsiveArray(property, values, theme, scale, transformer)
+    Object.entries(parsed).forEach(([key, value]) => (result[key] = value))
+  }
 
+  // Return result as a CSSObject
   return result
 }
 

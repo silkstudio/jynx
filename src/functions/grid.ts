@@ -63,15 +63,15 @@ const config: StyledFunctionConfig = {
   },
   gridColumn: {
     property: 'gridColumn',
-    transform: gridSpanTransformer
+    transformer: gridSpanTransformer
   },
   gridRow: {
     property: 'gridRow',
-    transform: gridSpanTransformer
+    transformer: gridSpanTransformer
   },
   gridArea: {
     property: 'gridArea',
-    transform: gridSpanTransformer
+    transformer: gridSpanTransformer
   }
 }
 
