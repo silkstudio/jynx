@@ -1,4 +1,4 @@
-import { sort } from '../index'
+import { sort } from '../sort'
 
 const target = {
   color: 'red',

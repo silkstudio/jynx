@@ -1,4 +1,4 @@
-import { getValue } from '../index'
+import { getValue } from '../getValue'
 import { systemTheme as theme } from '../../theme'
 
 /*

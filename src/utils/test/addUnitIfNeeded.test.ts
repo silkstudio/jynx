@@ -1,5 +1,5 @@
 import type { CSSProperties } from '../../types/css'
-import { addUnitIfNeeded } from '../index'
+import { addUnitIfNeeded } from '../addUnitIfNeeded'
 
 const unitsBasedProp = 'width'
 const unitlessProp = 'gridRow'
