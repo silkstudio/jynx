@@ -18,7 +18,7 @@ import { gridConfig, GridProps } from './grid'
 
 const config: StyledFunctionConfig = gridConfig
 
-interface ExtendedGridProps extends GridProps {
+interface GridShorthandProps {
   templateColumns?: GridProps['gridTemplateColumns']
   templateRows?: GridProps['gridTemplateRows']
   templateAreas?: GridProps['gridTemplateAreas']
@@ -34,6 +34,8 @@ interface ExtendedGridProps extends GridProps {
   row?: GridProps['gridRow']
   area?: GridProps['gridArea']
 }
+
+interface ExtendedGridProps extends GridProps, GridShorthandProps {}
 
 config.templateColumns = config.gridTemplateColumns
 config.templateRows = config.gridTemplateRows

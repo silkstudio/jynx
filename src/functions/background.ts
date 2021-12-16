@@ -54,30 +54,35 @@ const config: StyledFunctionConfig = {
   }
 }
 
-interface BackgroundProps {
+interface BackgroundBaseProps {
   backgroundAttachment?: CSSProperties['backgroundAttachment'] | ResponsiveStyle<CSSProperties['backgroundAttachment']>
-  bgAttachment?: CSSProperties['backgroundAttachment'] | ResponsiveStyle<CSSProperties['backgroundAttachment']>
   backgroundBlendMode?: CSSProperties['backgroundBlendMode'] | ResponsiveStyle<CSSProperties['backgroundBlendMode']>
-  bgBlendMode?: CSSProperties['backgroundBlendMode'] | ResponsiveStyle<CSSProperties['backgroundBlendMode']>
   backgroundClip?: CSSProperties['backgroundClip'] | ResponsiveStyle<CSSProperties['backgroundClip']>
-  bgClip?: CSSProperties['backgroundClip'] | ResponsiveStyle<CSSProperties['backgroundClip']>
   backgroundColor?: CSSProperties['backgroundColor'] | ResponsiveStyle<CSSProperties['backgroundColor']>
-  bgColor?: CSSProperties['backgroundColor'] | ResponsiveStyle<CSSProperties['backgroundColor']>
   backgroundImage?: CSSProperties['backgroundImage'] | ResponsiveStyle<CSSProperties['backgroundImage']>
-  bgImage?: CSSProperties['backgroundImage'] | ResponsiveStyle<CSSProperties['backgroundImage']>
   backgroundOrigin?: CSSProperties['backgroundOrigin'] | ResponsiveStyle<CSSProperties['backgroundOrigin']>
-  bgOrigin?: CSSProperties['backgroundOrigin'] | ResponsiveStyle<CSSProperties['backgroundOrigin']>
   backgroundPosition?: CSSProperties['backgroundPosition'] | ResponsiveStyle<CSSProperties['backgroundPosition']>
-  bgPosition?: CSSProperties['backgroundPosition'] | ResponsiveStyle<CSSProperties['backgroundPosition']>
   backgroundPositionX?: CSSProperties['backgroundPositionX'] | ResponsiveStyle<CSSProperties['backgroundPositionX']>
-  bgPositionX?: CSSProperties['backgroundPositionX'] | ResponsiveStyle<CSSProperties['backgroundPositionX']>
   backgroundPositionY?: CSSProperties['backgroundPositionY'] | ResponsiveStyle<CSSProperties['backgroundPositionY']>
-  bgPositionY?: CSSProperties['backgroundPositionY'] | ResponsiveStyle<CSSProperties['backgroundPositionY']>
   backgroundRepeat?: CSSProperties['backgroundRepeat'] | ResponsiveStyle<CSSProperties['backgroundRepeat']>
-  bgRepeat?: CSSProperties['backgroundRepeat'] | ResponsiveStyle<CSSProperties['backgroundRepeat']>
   backgroundSize?: CSSProperties['backgroundSize'] | ResponsiveStyle<CSSProperties['backgroundSize']>
-  bgSize?: CSSProperties['backgroundSize'] | ResponsiveStyle<CSSProperties['backgroundSize']>
 }
+
+interface BackgroundShorthandProps {
+  bgAttachment?: BackgroundBaseProps['backgroundAttachment']
+  bgBlendMode?: BackgroundBaseProps['backgroundBlendMode']
+  bgClip?: BackgroundBaseProps['backgroundClip']
+  bgColor?: BackgroundBaseProps['backgroundColor']
+  bgImage?: BackgroundBaseProps['backgroundImage']
+  bgOrigin?: BackgroundBaseProps['backgroundOrigin']
+  bgPosition?: BackgroundBaseProps['backgroundPosition']
+  bgPositionX?: BackgroundBaseProps['backgroundPositionX']
+  bgPositionY?: BackgroundBaseProps['backgroundPositionY']
+  bgRepeat?: BackgroundBaseProps['backgroundRepeat']
+  bgSize?: BackgroundBaseProps['backgroundSize']
+}
+
+interface BackgroundProps extends BackgroundBaseProps, BackgroundShorthandProps {}
 
 config.bgAttachment = config.backgroundAttachment
 config.bgBlendMode = config.backgroundBlendMode
@@ -93,4 +98,4 @@ config.bgSize = config.backgroundSize
 
 const background = createStyleFunction<BackgroundProps>(config)
 
-export { background, config as backgroundConfig, BackgroundProps }
+export { background, config as backgroundConfig, BackgroundProps, BackgroundBaseProps, BackgroundShorthandProps }

@@ -43,20 +43,25 @@ const config: StyledFunctionConfig = {
   }
 }
 
-interface PositionProps {
+interface PositionBaseProps {
   position?: CSSProperties['position'] | ResponsiveStyle<CSSProperties['position']>
-  pos?: CSSProperties['position'] | ResponsiveStyle<CSSProperties['position']>
   top?: CSSProperties['top'] | ResponsiveStyle<CSSProperties['top']>
   right?: CSSProperties['right'] | ResponsiveStyle<CSSProperties['right']>
   bottom?: CSSProperties['bottom'] | ResponsiveStyle<CSSProperties['bottom']>
   left?: CSSProperties['left'] | ResponsiveStyle<CSSProperties['left']>
   zIndex?: CSSProperties['zIndex'] | ResponsiveStyle<CSSProperties['zIndex']>
-  z?: CSSProperties['zIndex'] | ResponsiveStyle<CSSProperties['zIndex']>
 }
+
+interface PositionShorthandProps {
+  pos?: PositionBaseProps['position']
+  z?: PositionBaseProps['zIndex']
+}
+
+interface PositionProps extends PositionBaseProps, PositionShorthandProps {}
 
 config.pos = config.position
 config.z = config.zIndex
 
 const position = createStyleFunction<PositionProps>(config)
 
-export { position, config as positionConfig, PositionProps }
+export { position, config as positionConfig, PositionProps, PositionBaseProps, PositionShorthandProps }

@@ -18,7 +18,7 @@ import { createStylesObject } from '../constructors'
 
 const config: StyledFunctionConfig = flexboxConfig
 
-interface ExtendedFlexboxProps extends FlexboxProps {
+interface FlexboxShorthandProps {
   direction?: FlexboxProps['flexDirection']
   flow?: FlexboxProps['flexFlow']
   wrap?: FlexboxProps['flexWrap']
@@ -28,6 +28,8 @@ interface ExtendedFlexboxProps extends FlexboxProps {
   shrink?: FlexboxProps['flexShrink']
   basis?: FlexboxProps['flexBasis']
 }
+
+interface ExtendedFlexboxProps extends FlexboxProps, FlexboxShorthandProps {}
 
 config.direction = config.flexDirection
 config.flow = config.flexFlow
@@ -48,4 +50,4 @@ const extendedFlexbox: StyledFunction<ExtendedFlexboxProps> = ({ theme, ...style
   return result
 }
 
-export { extendedFlexbox, config as extendedFlexboxConfig, ExtendedFlexboxProps }
+export { extendedFlexbox, config as extendedFlexboxConfig, ExtendedFlexboxProps, FlexboxShorthandProps }

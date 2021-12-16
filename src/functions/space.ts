@@ -18,6 +18,7 @@ import { spaceTransformer } from '../transformers/space'
 
 */
 
+// Margin
 const marginConfig: StyledFunctionConfig = {
   margin: {
     property: 'margin',
@@ -73,31 +74,37 @@ const marginConfig: StyledFunctionConfig = {
   }
 }
 
-interface MarginProps {
+interface MarginBaseProps {
   margin?: CSSProperties['margin'] | ResponsiveStyle<CSSProperties['margin']>
-  m?: CSSProperties['margin'] | ResponsiveStyle<CSSProperties['margin']>
   marginTop?: CSSProperties['marginTop'] | ResponsiveStyle<CSSProperties['marginTop']>
-  mt?: CSSProperties['marginTop'] | ResponsiveStyle<CSSProperties['marginTop']>
   marginRight?: CSSProperties['marginRight'] | ResponsiveStyle<CSSProperties['marginRight']>
-  mr?: CSSProperties['marginRight'] | ResponsiveStyle<CSSProperties['marginRight']>
   marginBottom?: CSSProperties['marginBottom'] | ResponsiveStyle<CSSProperties['marginBottom']>
-  mb?: CSSProperties['marginBottom'] | ResponsiveStyle<CSSProperties['marginBottom']>
   marginLeft?: CSSProperties['marginLeft'] | ResponsiveStyle<CSSProperties['marginLeft']>
-  ml?: CSSProperties['marginLeft'] | ResponsiveStyle<CSSProperties['marginLeft']>
   marginBlock?: CSSProperties['marginBlock'] | ResponsiveStyle<CSSProperties['marginBlock']>
-  mbl?: CSSProperties['marginBlock'] | ResponsiveStyle<CSSProperties['marginBlock']>
   marginBlockStart?: CSSProperties['marginBlockStart'] | ResponsiveStyle<CSSProperties['marginBlockStart']>
-  mbs?: CSSProperties['marginBlockStart'] | ResponsiveStyle<CSSProperties['marginBlockStart']>
   marginBlockEnd?: CSSProperties['marginBlockEnd'] | ResponsiveStyle<CSSProperties['marginBlockEnd']>
-  mbe?: CSSProperties['marginBlockEnd'] | ResponsiveStyle<CSSProperties['marginBlockEnd']>
   marginInline?: CSSProperties['marginInline'] | ResponsiveStyle<CSSProperties['marginInline']>
-  mi?: CSSProperties['marginInline'] | ResponsiveStyle<CSSProperties['marginInline']>
   marginInlineStart?: CSSProperties['marginInlineStart'] | ResponsiveStyle<CSSProperties['marginInlineStart']>
-  mis?: CSSProperties['marginInlineStart'] | ResponsiveStyle<CSSProperties['marginInlineStart']>
   marginInlineEnd?: CSSProperties['marginInlineEnd'] | ResponsiveStyle<CSSProperties['marginInlineEnd']>
-  mie?: CSSProperties['marginInlineEnd'] | ResponsiveStyle<CSSProperties['marginInlineEnd']>
 }
 
+interface MarginShorthandProps {
+  m?: MarginBaseProps['margin']
+  mt?: MarginBaseProps['marginTop']
+  mr?: MarginBaseProps['marginRight']
+  mb?: MarginBaseProps['marginBottom']
+  ml?: MarginBaseProps['marginLeft']
+  mbl?: MarginBaseProps['marginBlock']
+  mbs?: MarginBaseProps['marginBlockStart']
+  mbe?: MarginBaseProps['marginBlockEnd']
+  mi?: MarginBaseProps['marginInline']
+  mis?: MarginBaseProps['marginInlineStart']
+  mie?: MarginBaseProps['marginInlineEnd']
+}
+
+interface MarginProps extends MarginBaseProps, MarginShorthandProps {}
+
+// Padding
 const paddingConfig: StyledFunctionConfig = {
   padding: {
     property: 'padding',
@@ -153,34 +160,39 @@ const paddingConfig: StyledFunctionConfig = {
   }
 }
 
-interface PaddingProps {
+interface PaddingBaseProps {
   padding?: CSSProperties['padding'] | ResponsiveStyle<CSSProperties['padding']>
-  p?: CSSProperties['padding'] | ResponsiveStyle<CSSProperties['padding']>
   paddingTop?: CSSProperties['paddingTop'] | ResponsiveStyle<CSSProperties['paddingTop']>
-  pt?: CSSProperties['paddingTop'] | ResponsiveStyle<CSSProperties['paddingTop']>
   paddingRight?: CSSProperties['paddingRight'] | ResponsiveStyle<CSSProperties['paddingRight']>
-  pr?: CSSProperties['paddingRight'] | ResponsiveStyle<CSSProperties['paddingRight']>
   paddingBottom?: CSSProperties['paddingBottom'] | ResponsiveStyle<CSSProperties['paddingBottom']>
-  pb?: CSSProperties['paddingBottom'] | ResponsiveStyle<CSSProperties['paddingBottom']>
   paddingLeft?: CSSProperties['paddingLeft'] | ResponsiveStyle<CSSProperties['paddingLeft']>
-  pl?: CSSProperties['paddingLeft'] | ResponsiveStyle<CSSProperties['paddingLeft']>
   paddingBlock?: CSSProperties['paddingBlock'] | ResponsiveStyle<CSSProperties['paddingBlock']>
-  pbl?: CSSProperties['paddingBlock'] | ResponsiveStyle<CSSProperties['paddingBlock']>
   paddingBlockStart?: CSSProperties['paddingBlockStart'] | ResponsiveStyle<CSSProperties['paddingBlockStart']>
-  pbls?: CSSProperties['paddingBlockStart'] | ResponsiveStyle<CSSProperties['paddingBlockStart']>
   paddingBlockEnd?: CSSProperties['paddingBlockEnd'] | ResponsiveStyle<CSSProperties['paddingBlockEnd']>
-  pble?: CSSProperties['paddingBlockEnd'] | ResponsiveStyle<CSSProperties['paddingBlockEnd']>
   paddingInline?: CSSProperties['paddingInline'] | ResponsiveStyle<CSSProperties['paddingInline']>
-  pi?: CSSProperties['paddingInline'] | ResponsiveStyle<CSSProperties['paddingInline']>
   paddingInlineStart?: CSSProperties['paddingInlineStart'] | ResponsiveStyle<CSSProperties['paddingInlineStart']>
-  pis?: CSSProperties['paddingInlineStart'] | ResponsiveStyle<CSSProperties['paddingInlineStart']>
   paddingInlineEnd?: CSSProperties['paddingInlineEnd'] | ResponsiveStyle<CSSProperties['paddingInlineEnd']>
-  pie?: CSSProperties['paddingInlineEnd'] | ResponsiveStyle<CSSProperties['paddingInlineEnd']>
 }
 
+interface PaddingShorthandProps {
+  p?: PaddingBaseProps['padding']
+  pt?: PaddingBaseProps['paddingTop']
+  pr?: PaddingBaseProps['paddingRight']
+  pb?: PaddingBaseProps['paddingBottom']
+  pl?: PaddingBaseProps['paddingLeft']
+  pbl?: PaddingBaseProps['paddingBlock']
+  pbls?: PaddingBaseProps['paddingBlockStart']
+  pble?: PaddingBaseProps['paddingBlockEnd']
+  pi?: PaddingBaseProps['paddingInline']
+  pis?: PaddingBaseProps['paddingInlineStart']
+  pie?: PaddingBaseProps['paddingInlineEnd']
+}
+
+interface PaddingProps extends PaddingBaseProps, PaddingShorthandProps {}
+
+// Space
 const config: StyledFunctionConfig = { ...marginConfig, ...paddingConfig }
 
-// eslint-disable-next-line
 interface SpaceProps extends MarginProps, PaddingProps {}
 
 config.m = marginConfig.margin
@@ -209,4 +221,16 @@ config.pie = paddingConfig.paddingInlineEnd
 
 const space = createStyleFunction<SpaceProps>(config)
 
-export { space, config as spaceConfig, SpaceProps }
+export {
+  space,
+  marginConfig,
+  paddingConfig,
+  config as spaceConfig,
+  SpaceProps,
+  MarginProps,
+  MarginBaseProps,
+  MarginShorthandProps,
+  PaddingProps,
+  PaddingBaseProps,
+  PaddingShorthandProps
+}

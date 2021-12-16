@@ -31,15 +31,20 @@ const config: StyledFunctionConfig = {
   }
 }
 
-interface ColorProps {
+interface ColorBaseProps {
   color?: CSSProperties['color'] | ResponsiveStyle<CSSProperties['color']>
   backgroundColor?: CSSProperties['backgroundColor'] | ResponsiveStyle<CSSProperties['backgroundColor']>
-  bgColor?: CSSProperties['backgroundColor'] | ResponsiveStyle<CSSProperties['backgroundColor']>
   opacity?: CSSProperties['opacity'] | ResponsiveStyle<CSSProperties['opacity']>
 }
+
+interface ColorShorthandProps {
+  bgColor?: ColorBaseProps['backgroundColor']
+}
+
+interface ColorProps extends ColorBaseProps, ColorShorthandProps {}
 
 config.bgColor = config.backgroundColor
 
 const color = createStyleFunction<ColorProps>(config)
 
-export { color, config as colorConfig, ColorProps }
+export { color, config as colorConfig, ColorProps, ColorBaseProps, ColorShorthandProps }
