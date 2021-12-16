@@ -9,22 +9,21 @@ import { parser } from '../parsers/parser'
 /**
  * Function used to build a style object from the raw styles, a given theme and a config object.
  *
- * Whilst it does include the {@link parser} function, this is the _main_ function used to build the styles
- * that are passed to a styled component and should be the only thing having any interation font-end interaction
- * with any components (through our styled functions).
- *
- * @template T Used to define the type of {@link raw} (should ideally be instantiated as `<typeof raw>`)
+ * @template T Used to define the type of {@link raw}
  *
  * @param {T} raw Styles being passed from React component
  * @param {DefaultTheme} theme Theme used in parser
  * @param {StyledFunctionConfig} config Object used to define the css property and scale to the parser
- * @returns {Record<string, unknown>} Built
- *
- * @since 1.0.0
- * @public
+ * @returns {BaseExtensibleObject} Built styles object
  *
  * @example
- * const styleObject = createStyles<typeof raw>(raw, DefaultTheme, config)
+ * // Creating a `color` style function
+ * const color: StyledFunction<ColorProps> = ({ theme, ...styles }) => {
+ *    return createStylesObject<ColorProps>(styles, theme, config)}
+ *  }
+ *
+ * @since 1.0.0
+ *
  */
 
 /*
