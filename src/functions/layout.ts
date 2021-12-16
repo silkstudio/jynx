@@ -6,6 +6,7 @@ import type { StyledFunctionConfig } from '../types/functions'
 
 // Utils
 import { createStyleFunction } from '../constructors'
+import { lengthTransformer } from '../transformers/layout'
 
 /*
 
@@ -20,10 +21,12 @@ import { createStyleFunction } from '../constructors'
 
 const config: StyledFunctionConfig = {
   width: {
-    property: 'width'
+    property: 'width',
+    transformer: lengthTransformer
   },
   height: {
-    property: 'height'
+    property: 'height',
+    transformer: lengthTransformer
   },
   minWidth: {
     property: 'minWidth'
