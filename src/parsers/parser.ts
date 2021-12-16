@@ -5,7 +5,7 @@ import type { ResponsiveStyle } from '../types/responsive'
 import type { TransformFunction } from '../types/functions'
 
 // Utils
-import { addUnitIfNeeded, getValue, shouldTransform } from '../utils'
+import { addUnitIfNeeded, getValue } from '../utils'
 import { parseResponsiveObject } from './parseResponsiveObject'
 import { parseResponsiveArray } from './parseResponsiveArray'
 import { isResponsiveArray, isResponsiveObject, isResponsiveStyle } from '../types/guards'

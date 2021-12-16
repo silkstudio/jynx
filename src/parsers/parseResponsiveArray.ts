@@ -5,7 +5,7 @@ import type { ResponsiveArray } from '../types/responsive'
 import type { TransformFunction } from '../types/functions'
 
 // Utils
-import { createMediaQuery, sort, getValue, addUnitIfNeeded, shouldTransform } from '../utils'
+import { createMediaQuery, sort, getValue, addUnitIfNeeded } from '../utils'
 import { parseBreakpoints } from './parseBreakpoints'
 
 /**
