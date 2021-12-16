@@ -16,7 +16,6 @@ interface Props<P extends keyof CSSProperties> {
   values: CSSProperties[P] | ResponsiveStyle<CSSProperties[P]>
   theme: DefaultTheme
   scale?: keyof DefaultTheme
-  transform?: (K: any) => typeof K
   transformer?: TransformFunction<CSSProperties[P]>
 }
 
@@ -24,13 +23,12 @@ interface Props<P extends keyof CSSProperties> {
  * Parser function that takes in a {@link ResponsiveStyle} and returns a {@link CSSObject}
  *
  * @template P extends keyof CSSProperties
- * @template C extends CSSProperties[P]
- * @template T extends {@link DefaultTheme}
  *
  * @param {P} property
  * @param {C | ResponsiveStyle<C>} values
  * @param {DefaultTheme} theme
- * @param {(K: typeof values) => void} transform
+ * @param {keyof DefaultTheme} scale
+ * @param {TransformFunction<CSSProperties[P]>} transformer
  *
  * @returns {FlattenSimpleInterpolation}
  *
@@ -49,7 +47,7 @@ interface Props<P extends keyof CSSProperties> {
 
 */
 
-const parser = <P extends keyof CSSProperties>({ property, values, theme, scale, transformer }: Props<P>): CSSObject => {
+const parser = <P extends keyof CSSProperties>({ property, values, theme, scale, transformer = getValue }: Props<P>): CSSObject => {
   const result: CSSObject = {}
 
   // If required props don't exist, return empty object
@@ -59,9 +57,7 @@ const parser = <P extends keyof CSSProperties>({ property, values, theme, scale,
 
   // If values is not responsive (i.e. string | number), add single rule to result object
   if (!isResponsiveStyle<CSSProperties[P]>(values)) {
-    const value = getValue(values, scale && theme[scale])
-    const transformedValue = shouldTransform<CSSProperties[P]>(value, transformer)
-    Object.assign(result, { [property]: addUnitIfNeeded(property, transformedValue) })
+    Object.assign(result, { [property]: addUnitIfNeeded(property, transformer(values, scale && theme[scale])) })
   }
 
   // If values is an object, parse and add each rule to result object

@@ -40,29 +40,23 @@ const parseResponsiveObject = <P extends keyof CSSProperties>(
   styles: ResponsiveObject<CSSProperties[P]>,
   theme: DefaultTheme,
   scale?: keyof DefaultTheme,
-  transformer?: TransformFunction<CSSProperties[P]>
+  transformer: TransformFunction<CSSProperties[P]> = getValue
 ): CSSObject => {
   if (!property || !styles || !theme) {
     return {}
   }
 
-  // Set-up
   const breakpoints = parseBreakpoints(theme.breakpoints)
   const themeScale = scale && theme[scale]
   const { _: base, ...responsive } = styles
   const parsed: CSSObject = {}
 
-  // Base style
-  const transformedBase = shouldTransform<CSSProperties[P]>(getValue(base, themeScale), transformer)
-
-  // Responsive styles
   Object.entries(responsive).forEach(([bp, value]) => {
     const media = createMediaQuery(`${breakpoints[bp as keyof typeof breakpoints]}`)
-    const transformed = shouldTransform<CSSProperties[P]>(getValue(value, themeScale), transformer)
-    parsed[media] = { [property]: addUnitIfNeeded(property, transformed) }
+    parsed[media] = { [property]: addUnitIfNeeded(property, transformer(value, themeScale)) }
   })
 
-  return { [property]: addUnitIfNeeded(property, transformedBase), ...sort(parsed) }
+  return { [property]: addUnitIfNeeded(property, transformer(base, themeScale)), ...sort(parsed) }
 }
 
 export { parseResponsiveObject }

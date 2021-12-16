@@ -46,4 +46,4 @@ export interface StyledFunctionConfig {
  * @since 1.0.0
  * @public
  */
-export type TransformFunction<T> = (values: T) => T
+export type TransformFunction<T> = (values: T, scale?: DefaultTheme[keyof DefaultTheme] | Record<string, any> | any[]) => T
