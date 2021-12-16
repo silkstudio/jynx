@@ -3,7 +3,18 @@ import type { DefaultTheme } from '../types/theme'
 import type { CSSProperties } from '../types/css'
 
 // Utils
-import { getValue, isNumeric } from '../utils'
+import { addUnitIfNeeded, getValue, isNumeric } from '../utils'
+
+/*
+
+
+
+
+
+
+
+
+*/
 
 /**
  * spaceTransformer
@@ -15,16 +26,6 @@ import { getValue, isNumeric } from '../utils'
  * @since 1.0.0
  *
  */
-/*
-
-
-
-
-
-
-
-
-*/
 
 const spaceTransformer = (
   value: CSSProperties['margin' | 'padding'],
@@ -45,4 +46,29 @@ const spaceTransformer = (
   return themeValue * (isNegative ? -1 : 1)
 }
 
-export { spaceTransformer }
+/**
+ * spaceMultiTransformer
+ *
+ * @param {CSSProperties['margin' | 'padding']} value
+ * @param {DefaultTheme[keyof DefaultTheme] | Record<string, any> | any[]} scale
+ * @returns {string | number | undefined}
+ *
+ * @since 1.0.0
+ *
+ */
+
+const spaceMultiTransformer = (
+  value: CSSProperties['margin' | 'padding'],
+  scale?: DefaultTheme[keyof DefaultTheme] | Record<string, any> | any[]
+): string | number | undefined => {
+  if (Array.isArray(value)) {
+    return value
+      .map(i => spaceTransformer(i, scale))
+      .map(i => addUnitIfNeeded('margin' || 'padding', i))
+      .join(' ')
+  }
+
+  return spaceTransformer(value, scale)
+}
+
+export { spaceTransformer, spaceMultiTransformer }
