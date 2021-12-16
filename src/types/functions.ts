@@ -1,6 +1,5 @@
 // Types
-import type { CSSProperties } from './css'
-import type { BaseExtensibleObject } from './common'
+import type { CSSObject, CSSProperties } from './css'
 import type { DefaultTheme } from './theme'
 
 /*
@@ -22,7 +21,7 @@ import type { DefaultTheme } from './theme'
  * @since 1.0.0
  * @public
  */
-export type StyledFunction<T> = (props: T & { theme: DefaultTheme }) => BaseExtensibleObject
+export type StyledFunction<T> = (props: T & { theme: DefaultTheme }) => CSSObject
 
 /**
  * StyledFunctionConfig

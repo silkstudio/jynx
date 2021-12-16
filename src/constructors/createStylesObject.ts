@@ -1,7 +1,7 @@
 // Types
 import type { DefaultTheme } from '../types/theme'
 import type { StyledFunctionConfig } from '../types/functions'
-import type { BaseExtensibleObject } from '../types/common'
+import type { CSSObject } from '../types/css'
 
 // Utils
 import { parser } from '../parsers/parser'
@@ -14,7 +14,7 @@ import { parser } from '../parsers/parser'
  * @param {T} raw Styles being passed from React component
  * @param {DefaultTheme} theme Theme used in parser
  * @param {StyledFunctionConfig} config Object used to define the css property and scale to the parser
- * @returns {BaseExtensibleObject} Built styles object
+ * @returns {CSSObject} Built styles object
  *
  * @example
  * // Creating a `color` style function
@@ -37,8 +37,8 @@ import { parser } from '../parsers/parser'
 
 */
 
-const createStylesObject = <T>(raw: T, theme: DefaultTheme, config: StyledFunctionConfig): BaseExtensibleObject => {
-  let styles: BaseExtensibleObject = {}
+const createStylesObject = <T>(raw: T, theme: DefaultTheme, config: StyledFunctionConfig): CSSObject => {
+  let styles: CSSObject = {}
 
   Object.entries(raw).forEach(([key, values]) => {
     styles = { ...styles, ...parser({ values, theme, ...config[key] }) }
