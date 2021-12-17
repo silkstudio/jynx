@@ -50,7 +50,7 @@ import type { BaseTheme, CustomTheme, DefaultTheme, ThemeProps, ThemeValue } fro
 import { systemTheme } from './theme'
 
 // Utils
-import { createStyleFunction } from './constructors'
+import { createStyleFunction, compose } from './constructors'
 
 /*
 
@@ -111,4 +111,4 @@ export type {
 export { systemTheme }
 
 // Utils
-export { createStyleFunction }
+export { createStyleFunction, compose }
