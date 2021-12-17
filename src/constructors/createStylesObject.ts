@@ -5,6 +5,7 @@ import type { CSSObject } from '../types/css'
 
 // Utils
 import { parser } from '../parsers/parser'
+import { deepMerge } from '../utils'
 
 /**
  * Function used to build a style object from the raw styles, a given theme and a config object.
@@ -41,7 +42,7 @@ const createStylesObject = <T>(raw: T, theme: DefaultTheme, config: StyledFuncti
   let styles: CSSObject = {}
 
   Object.entries(raw).forEach(([key, values]) => {
-    styles = { ...styles, ...parser({ values, theme, ...config[key] }) }
+    styles = deepMerge(styles, parser({ values, theme, ...config[key] }))
   })
 
   return styles
