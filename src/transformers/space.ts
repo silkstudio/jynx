@@ -31,6 +31,10 @@ const spaceTransformer = (
   value: CSSProperties['margin' | 'padding'],
   scale?: DefaultTheme[keyof DefaultTheme] | Record<string, any> | any[]
 ): string | number | undefined => {
+  if (!value || typeof value === 'object' || typeof value === 'boolean') {
+    return
+  }
+
   if (!isNumeric(value)) {
     return getValue(value, scale)
   }

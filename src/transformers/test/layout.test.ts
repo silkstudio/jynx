@@ -82,25 +82,9 @@ describe('When a non-numeric string is passed', () => {
 describe('When an incorrect value is passed', () => {
   it('should return undefined if undefined is passed', () => {
     expect(lengthTransformer(undefined)).toBe(undefined)
-  })
-
-  it('should return undefined if null is passed', () => {
-    const maybeNull = null as unknown as string
-    expect(lengthTransformer(maybeNull)).toBe(undefined)
-  })
-
-  it('should return undefined if true is passed', () => {
-    const maybeTrue = true as unknown as string
-    expect(lengthTransformer(maybeTrue)).toBe(undefined)
-  })
-
-  it('should return undefined if false is passed', () => {
-    const maybeFalse = false as unknown as string
-    expect(lengthTransformer(maybeFalse)).toBe(undefined)
-  })
-
-  it('should return undefined if an object is passed', () => {
-    const maybeFalse = {} as unknown as string
-    expect(lengthTransformer(maybeFalse)).toBe(undefined)
+    expect(lengthTransformer(null as unknown as string)).toBe(undefined)
+    expect(lengthTransformer(true as unknown as string)).toBe(undefined)
+    expect(lengthTransformer(false as unknown as string)).toBe(undefined)
+    expect(lengthTransformer({} as unknown as string)).toBe(undefined)
   })
 })
