@@ -1,4 +1,4 @@
-import { spaceTransformer } from '../space'
+import { spaceTransformer } from '../../space'
 
 const arrScale = [2, 4, 6, 8, 12, 16, 24, 32]
 

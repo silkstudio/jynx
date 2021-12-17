@@ -62,7 +62,7 @@ const spaceTransformer = (
  */
 
 const spaceMultiTransformer = (
-  value: CSSProperties['margin' | 'padding'],
+  value: CSSProperties['margin' | 'padding'] | CSSProperties['margin' | 'padding'][],
   scale?: DefaultTheme[keyof DefaultTheme] | Record<string, any> | any[]
 ): string | number | undefined => {
   if (Array.isArray(value)) {
