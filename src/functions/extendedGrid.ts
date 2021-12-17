@@ -1,5 +1,5 @@
 // Types
-import type { StyledFunctionConfig } from '../types/functions'
+import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
 import { createStyleFunction } from '../constructors'
@@ -16,7 +16,7 @@ import { gridConfig, GridProps } from './grid'
 
 */
 
-const config: StyledFunctionConfig = gridConfig
+const config: StyleFunctionConfig = gridConfig
 
 interface GridShorthandProps {
   templateColumns?: GridProps['gridTemplateColumns']

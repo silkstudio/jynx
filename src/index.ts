@@ -43,7 +43,7 @@ import type {
 
 // Types
 import type { CSSObject, CSSProperties } from './types/css'
-import type { StyledFunction, StyledFunctionConfig, TransformFunction } from './types/functions'
+import type { StyleFunction, StyleFunctionConfig, TransformFunction } from './types/functions'
 import type { BaseTheme, CustomTheme, DefaultTheme, ThemeProps, ThemeValue } from './types/theme'
 
 // Themes
@@ -97,8 +97,8 @@ export type {
 export type {
   CSSObject,
   CSSProperties,
-  StyledFunction,
-  StyledFunctionConfig,
+  StyleFunction,
+  StyleFunctionConfig,
   TransformFunction,
   BaseTheme,
   CustomTheme,

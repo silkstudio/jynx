@@ -1,7 +1,7 @@
 // Types
 import type { CSSProperties } from '../types/css'
 import type { ResponsiveStyle } from '../types/responsive'
-import type { StyledFunctionConfig } from '../types/functions'
+import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
 import { createStyleFunction } from '../constructors'
@@ -19,7 +19,7 @@ import { spaceMultiTransformer, spaceTransformer } from '../transformers/space'
 */
 
 // Margin
-const marginConfig: StyledFunctionConfig = {
+const marginConfig: StyleFunctionConfig = {
   margin: {
     property: 'margin',
     scale: 'spaces',
@@ -114,7 +114,7 @@ interface MarginShorthandProps {
 interface MarginProps extends MarginBaseProps, MarginShorthandProps {}
 
 // Padding
-const paddingConfig: StyledFunctionConfig = {
+const paddingConfig: StyleFunctionConfig = {
   padding: {
     property: 'padding',
     scale: 'spaces',
@@ -212,7 +212,7 @@ interface PaddingShorthandProps {
 interface PaddingProps extends PaddingBaseProps, PaddingShorthandProps {}
 
 // Space
-const config: StyledFunctionConfig = { ...marginConfig, ...paddingConfig }
+const config: StyleFunctionConfig = { ...marginConfig, ...paddingConfig }
 
 interface SpaceProps extends MarginProps, PaddingProps {}
 

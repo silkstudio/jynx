@@ -1,7 +1,7 @@
 // Types
 import type { CSSProperties } from '../types/css'
 import type { ResponsiveStyle } from '../types/responsive'
-import type { StyledFunctionConfig } from '../types/functions'
+import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
 import { createStyleFunction } from '../constructors'
@@ -18,7 +18,7 @@ import { gridSpanTransformer } from '../transformers/grid'
 
 */
 
-const config: StyledFunctionConfig = {
+const config: StyleFunctionConfig = {
   gridTemplateColumns: {
     property: 'gridTemplateColumns'
   },

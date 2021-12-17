@@ -1,5 +1,5 @@
 // Types
-import type { StyledFunction } from '../types/functions'
+import type { StyleFunction } from '../types/functions'
 
 // Utils
 import { createStyleFunction } from './createStyleFunction'
@@ -9,8 +9,8 @@ import { createStyleFunction } from './createStyleFunction'
  *
  * @template T extends object
  *
- * @param {StyledFunction<any>[]} styledFunctions
- * @returns {StyledFunction<T>}
+ * @param {StyleFunction<any>[]} styleFunctions
+ * @returns {StyleFunction<T>}
  *
  * @example
  * // Define all props that can be passed to the component
@@ -37,15 +37,15 @@ import { createStyleFunction } from './createStyleFunction'
 
 */
 
-const compose = <T extends object>(...styledFunctions: StyledFunction<any>[]): StyledFunction<T> => {
+const compose = <T extends object>(...styleFunctions: StyleFunction<any>[]): StyleFunction<T> => {
   let config = {}
 
-  styledFunctions.forEach(styledFunction => {
-    if (!styledFunction || !styledFunction.config) {
+  styleFunctions.forEach(styleFunction => {
+    if (!styleFunction || !styleFunction.config) {
       return
     }
 
-    config = { ...config, ...styledFunction.config }
+    config = { ...config, ...styleFunction.config }
   })
 
   return createStyleFunction<T>(config)

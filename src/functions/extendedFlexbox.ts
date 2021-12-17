@@ -1,5 +1,5 @@
 // Types
-import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
+import type { StyleFunction, StyleFunctionConfig } from '../types/functions'
 
 // Utils
 import { flexboxConfig, FlexboxProps } from './flexbox'
@@ -16,7 +16,7 @@ import { createStylesObject } from '../constructors'
 
 */
 
-const config: StyledFunctionConfig = flexboxConfig
+const config: StyleFunctionConfig = flexboxConfig
 
 interface FlexboxShorthandProps {
   direction?: FlexboxProps['flexDirection']
@@ -40,7 +40,7 @@ config.grow = config.flexGrow
 config.shrink = config.flexShrink
 config.basis = config.flexBasis
 
-const extendedFlexbox: StyledFunction<ExtendedFlexboxProps> = ({ theme, ...styles }) => {
+const extendedFlexbox: StyleFunction<ExtendedFlexboxProps> = ({ theme, ...styles }) => {
   const result = createStylesObject<ExtendedFlexboxProps>(styles, theme, config)
 
   if (Object.keys(styles).length) {

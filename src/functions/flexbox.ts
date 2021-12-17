@@ -1,7 +1,7 @@
 // Types
 import type { CSSProperties } from '../types/css'
 import type { ResponsiveStyle } from '../types/responsive'
-import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
+import type { StyleFunction, StyleFunctionConfig } from '../types/functions'
 
 // Utils
 import { createStylesObject } from '../constructors'
@@ -17,7 +17,7 @@ import { createStylesObject } from '../constructors'
 
 */
 
-const config: StyledFunctionConfig = {
+const config: StyleFunctionConfig = {
   flexDirection: {
     property: 'flexDirection'
   },
@@ -72,7 +72,7 @@ interface FlexboxProps {
   order?: CSSProperties['order'] | ResponsiveStyle<CSSProperties['order']>
 }
 
-const flexbox: StyledFunction<FlexboxProps> = ({ theme, ...styles }) => {
+const flexbox: StyleFunction<FlexboxProps> = ({ theme, ...styles }) => {
   const result = createStylesObject<FlexboxProps>(styles, theme, config)
 
   if (Object.keys(styles).length) {

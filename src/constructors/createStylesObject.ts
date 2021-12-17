@@ -1,6 +1,6 @@
 // Types
 import type { DefaultTheme } from '../types/theme'
-import type { StyledFunctionConfig } from '../types/functions'
+import type { StyleFunctionConfig } from '../types/functions'
 import type { CSSObject } from '../types/css'
 
 // Utils
@@ -14,12 +14,12 @@ import { deepMerge } from '../utils'
  *
  * @param {T} raw Styles being passed from React component
  * @param {DefaultTheme} theme Theme used in parser
- * @param {StyledFunctionConfig} config Object used to define the css property and scale to the parser
+ * @param {StyleFunctionConfig} config Object used to define the css property and scale to the parser
  * @returns {CSSObject} Built styles object
  *
  * @example
  * // Creating a `color` style function
- * const color: StyledFunction<ColorProps> = ({ theme, ...styles }) => {
+ * const color: StyleFunction<ColorProps> = ({ theme, ...styles }) => {
  *    return createStylesObject<ColorProps>(styles, theme, config)}
  *  }
  *
@@ -38,7 +38,7 @@ import { deepMerge } from '../utils'
 
 */
 
-const createStylesObject = <T>(raw: T, theme: DefaultTheme, config: StyledFunctionConfig): CSSObject => {
+const createStylesObject = <T>(raw: T, theme: DefaultTheme, config: StyleFunctionConfig): CSSObject => {
   let styles: CSSObject = {}
 
   Object.entries(raw).forEach(([key, values]) => {

@@ -1,7 +1,7 @@
 // Types
 import type { CSSProperties } from '../types/css'
 import type { ResponsiveStyle } from '../types/responsive'
-import type { StyledFunctionConfig } from '../types/functions'
+import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
 import { createStyleFunction } from '../constructors'
@@ -17,7 +17,7 @@ import { createStyleFunction } from '../constructors'
 
 */
 
-const config: StyledFunctionConfig = {
+const config: StyleFunctionConfig = {
   animation: {
     property: 'animation'
   },

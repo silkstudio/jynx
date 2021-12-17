@@ -14,25 +14,25 @@ import type { DefaultTheme } from './theme'
 */
 
 /**
- * StyledFunction
+ * StyleFunction
  *
  * @template T
  *
  * @since 1.0.0
  * @public
  */
-export type StyledFunction<T> = {
+export type StyleFunction<T> = {
   (props: T & { theme: DefaultTheme }): CSSObject
-  config: StyledFunctionConfig
+  config: StyleFunctionConfig
 }
 
 /**
- * StyledFunctionConfig
+ * StyleFunctionConfig
  *
  * @since 1.0.0
  * @public
  */
-export interface StyledFunctionConfig {
+export interface StyleFunctionConfig {
   [key: string]: {
     property: keyof CSSProperties
     scale?: keyof DefaultTheme

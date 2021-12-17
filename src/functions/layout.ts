@@ -2,7 +2,7 @@
 
 import type { CSSProperties } from '../types/css'
 import type { ResponsiveStyle } from '../types/responsive'
-import type { StyledFunctionConfig } from '../types/functions'
+import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
 import { createStyleFunction } from '../constructors'
@@ -19,7 +19,7 @@ import { lengthTransformer } from '../transformers/layout'
 
 */
 
-const config: StyledFunctionConfig = {
+const config: StyleFunctionConfig = {
   width: {
     property: 'width',
     transformer: lengthTransformer

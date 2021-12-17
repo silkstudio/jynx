@@ -1,6 +1,6 @@
 // Types
 import type { ThemeProps } from '../../types/theme'
-import type { StyledFunction } from '../../types/functions'
+import type { StyleFunction } from '../../types/functions'
 
 // Utils
 import { compose } from '../compose'
@@ -33,14 +33,14 @@ const styles: StylesProps = {
   m: [2, 4, null, 8]
 }
 
-describe('When passed multiple styledFunctions', () => {
+describe('When passed multiple styleFunctions', () => {
   const composed = compose<Props>(color, layout, space)
 
-  it('should return a single styledFunction', () => {
+  it('should return a single styleFunction', () => {
     expect(typeof composed).toBe('function')
   })
 
-  it('should be able to use the returned function to parse styles for all of constituent styledFunctions', () => {
+  it('should be able to use the returned function to parse styles for all of constituent styleFunctions', () => {
     expect(composed(styles)).toEqual({
       color: 'red',
       width: '300px',
@@ -63,16 +63,16 @@ describe('When passed multiple styledFunctions', () => {
 
 describe('When passed null', () => {
   // prettier-ignore
-  const maybeNull = (null as unknown) as StyledFunction<any>
+  const maybeNull = (null as unknown) as StyleFunction<any>
   // prettier-ignore
-  const maybeObj = ({} as unknown) as StyledFunction<any>
+  const maybeObj = ({} as unknown) as StyleFunction<any>
   const composed = compose(maybeNull, maybeObj)
 
-  it('should return a single styledFunction', () => {
+  it('should return a single styleFunction', () => {
     expect(typeof composed).toBe('function')
   })
 
-  it('should be able to handle `null` styledFunctions', () => {
+  it('should be able to handle `null` styleFunctions', () => {
     expect(composed(styles)).toEqual({})
   })
 })
