@@ -36,6 +36,7 @@
     "@types/jest": "^27.0.3",
     "@types/lodash.get": "^4.4.6",
     "@types/lodash.kebabcase": "^4.1.6",
+    "@types/lodash.merge": "^4.6.6",
     "@types/react": "^17.0.34",
     "@types/styled-components": "^5.1.15",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
@@ -66,8 +67,9 @@
     "csstype": "^3.0.10",
     "lodash.get": "^4.4.2",
     "lodash.kebabcase": "^4.1.1",
+    "lodash.merge": "^4.6.2",
     "styled-components": "^5.3.3"
-  }, 
+  },
   "peerDependencies": {
     "react": ">=17.0.2",
     "react-dom": ">=17.0.2"

@@ -10,3 +10,4 @@ export { themeGet } from './themeGet'
 
 // External Utils
 export { default as get } from 'lodash.get'
+export { default as constructiveMerge } from 'lodash.merge'
