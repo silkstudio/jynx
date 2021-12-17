@@ -78,6 +78,22 @@ describe('When a non-numeric string is passed', () => {
   it('should return the originally passed string', () => {
     expect(spaceTransformer('5rem')).toBe('5rem')
   })
+
+  it('should be able to return negative values if the originally passed string is negative and no scale is passed', () => {
+    expect(spaceTransformer('-5rem')).toBe('-5rem')
+  })
+
+  it('should return the originally passed string if a scale is passed but no corresponding value is found', () => {
+    expect(spaceTransformer('5rem', objScale)).toBe('5rem')
+  })
+
+  it('should be able to return negative values if the originally passed string is negative and no corresponding scale value is found', () => {
+    expect(spaceTransformer('-5rem', objScale)).toBe('-5rem')
+  })
+
+  it('should return a scale value if a scale is passed and a corresponding value is found', () => {
+    expect(spaceTransformer('medium', objScale)).toBe(4)
+  })
 })
 
 describe('When an incorrect value is passed', () => {
