@@ -1,7 +1,9 @@
+/* eslint-disable  @typescript-eslint/ban-types */
+
 // Types
 import type { CSSProperties } from '../types/css'
 
-const spanOperator = '|'
+export const spanOperator = '|'
 
 /*
 
@@ -20,8 +22,13 @@ const spanOperator = '|'
  * @param {CSSProperties['gridColumn' | 'gridRow' | 'gridArea']} value
  * @returns {string | (number & {}) | undefined}
  */
-// eslint-disable-next-line @typescript-eslint/ban-types
-const gridSpanTransformer = (value: CSSProperties['gridColumn' | 'gridRow' | 'gridArea']): string | (number & {}) | undefined => {
+const gridSpanTransformer = (
+  value: CSSProperties['gridColumn' | 'gridRow' | 'gridArea'] | CSSProperties['gridColumn' | 'gridRow' | 'gridArea'][]
+): string | (number & {}) | undefined => {
+  if (!value || typeof value === 'boolean' || (typeof value === 'object' && !Array.isArray(value))) {
+    return
+  }
+
   const flattened = Array.isArray(value) ? value.join(' / ') : value
   const parsed = typeof flattened === 'string' ? flattened.replaceAll(spanOperator, 'span ') : flattened
 

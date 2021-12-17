@@ -80,7 +80,7 @@ describe('When a non-numeric string is passed', () => {
 })
 
 describe('When an incorrect value is passed', () => {
-  it('should return undefined if undefined is passed', () => {
+  it('should return undefined', () => {
     expect(lengthTransformer(undefined)).toBe(undefined)
     expect(lengthTransformer(null as unknown as string)).toBe(undefined)
     expect(lengthTransformer(true as unknown as string)).toBe(undefined)
