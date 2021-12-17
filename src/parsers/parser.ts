@@ -51,7 +51,7 @@ const parser = <P extends keyof CSSProperties>({ property, values, theme, scale,
   const result: CSSObject = {}
 
   // If required props don't exist, return empty object
-  if (!property || !values || !theme) {
+  if (!property || (values !== 0 && !values) || !theme) {
     return result
   }
 
