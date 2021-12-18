@@ -20,10 +20,9 @@ import { spaceConfig } from '../../functions/space'
 
 */
 
-describe('Name of the group', () => {
+describe('createStyleFunction', () => {
   // Set-up
   type Props = ColorProps & ThemeProps<typeof theme>
-
   const theme = {
     breakpoints: defaultBreakpoints,
     spaces: [4, 8, 16, 32, 48],
@@ -40,7 +39,7 @@ describe('Name of the group', () => {
     expect(typeof color).toBe('function')
   })
 
-  it('should parse single values', () => {
+  it('should return a function that can parse single style values', () => {
     const styles: Props = {
       theme,
       color: 'tomato',
@@ -49,7 +48,7 @@ describe('Name of the group', () => {
     expect(color(styles)).toEqual({ color: 'tomato', backgroundColor: 'blue' })
   })
 
-  it('should parse responsive values', () => {
+  it('should return a function that can parse responsive style values', () => {
     const styles: Props = {
       theme,
       color: ['tomato', 'aquamarine', null, 'orange']
@@ -61,7 +60,7 @@ describe('Name of the group', () => {
     })
   })
 
-  it('should merge multiple responsive values', () => {
+  it('should return a function that merges multiple responsive style declarations', () => {
     const styles: Props = {
       theme,
       color: ['tomato', 'aquamarine', null, 'orange'],
@@ -75,7 +74,7 @@ describe('Name of the group', () => {
     })
   })
 
-  it('should resolve theme values', () => {
+  it('should return a function that resolves theme values of they exist', () => {
     const colorStyles: Props = {
       theme,
       color: ['primary', 'aquamarine', null, 'secondary']
@@ -97,7 +96,7 @@ describe('Name of the group', () => {
     })
   })
 
-  it('should resolve 0 index values', () => {
+  it('should return a return a function that can resolve 0 index values within the theme', () => {
     const styles: SpaceProps & ThemeProps<typeof theme> = {
       theme,
       margin: 0
@@ -108,5 +107,8 @@ describe('Name of the group', () => {
     })
   })
 
-  it('should return parser configs that can be composed manually', () => {})
+  it('should return a function with accessible configs that can be used to manually compose combined functions', () => {
+    expect(color.config).toMatchObject(colorConfig)
+    expect(space.config).toMatchObject(spaceConfig)
+  })
 })
