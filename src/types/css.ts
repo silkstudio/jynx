@@ -2,7 +2,6 @@ import * as CSS from 'csstype'
 
 // Types
 import type { ResponsiveStyle } from './responsive'
-import type { DefaultTheme, ThemeValue } from './theme'
 
 /*
 
