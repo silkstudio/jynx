@@ -34,8 +34,16 @@ export type AnyIfEmpty<T extends object> = keyof T extends never ? any : T
  *
  * @since 1.0.0
  */
-// export type ObjectOrArray<T> = T[] | Record<string, T | Record<string, T> | T[]>
-export type ObjectOrArray<T> = T[] | Record<string, T>
+export type ObjectOrArray<T> = T[] | Record<string, T | Record<string, T> | T[]>
+
+/**
+ * ObjectOrArray
+ *
+ * @template T extends any
+ *
+ * @since 1.0.0
+ */
+export type SingleLayerObjectOrArray<T> = T[] | Record<string, T>
 
 /**
  * StringOrNumber
