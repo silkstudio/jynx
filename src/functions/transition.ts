@@ -1,6 +1,6 @@
 // Types
-import type { CSSProperties } from '../types/css'
-import type { ResponsiveStyle } from '../types/responsive'
+import type { Property } from 'csstype'
+import type { StyleProp } from '../types/css'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -36,11 +36,11 @@ const config: StyleFunctionConfig = {
 }
 
 interface TransitionProps {
-  transition?: CSSProperties['transition'] | ResponsiveStyle<CSSProperties['transition']>
-  transitionProperty?: CSSProperties['transitionProperty'] | ResponsiveStyle<CSSProperties['transitionProperty']>
-  transitionDuration?: CSSProperties['transitionDuration'] | ResponsiveStyle<CSSProperties['transitionDuration']>
-  transitionTimingFunction?: CSSProperties['transitionTimingFunction'] | ResponsiveStyle<CSSProperties['transitionTimingFunction']>
-  transitionDelay?: CSSProperties['transitionDelay'] | ResponsiveStyle<CSSProperties['transitionDelay']>
+  transition?: StyleProp<Property.Transition>
+  transitionProperty?: StyleProp<Property.TransitionProperty>
+  transitionDuration?: StyleProp<Property.TransitionDuration>
+  transitionTimingFunction?: StyleProp<Property.TransitionTimingFunction>
+  transitionDelay?: StyleProp<Property.TransitionDelay>
 }
 
 const transition = createStyleFunction<TransitionProps>(config)

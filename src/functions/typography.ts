@@ -1,6 +1,7 @@
 // Types
-import type { CSSProperties } from '../types/css'
-import type { ResponsiveStyle } from '../types/responsive'
+import type { Property } from 'csstype'
+import type { StyleProp } from '../types/css'
+import type { ThemeValue } from '../types/theme'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -61,18 +62,18 @@ const config: StyleFunctionConfig = {
 }
 
 interface TypographyProps {
-  fontFamily?: CSSProperties['fontFamily'] | ResponsiveStyle<CSSProperties['fontFamily']>
-  fontSize?: CSSProperties['fontSize'] | ResponsiveStyle<CSSProperties['fontSize']>
-  fontStyle?: CSSProperties['fontStyle'] | ResponsiveStyle<CSSProperties['fontStyle']>
-  fontWeight?: CSSProperties['fontWeight'] | ResponsiveStyle<CSSProperties['fontWeight']>
-  letterSpacing?: CSSProperties['letterSpacing'] | ResponsiveStyle<CSSProperties['letterSpacing']>
-  lineHeight?: CSSProperties['lineHeight'] | ResponsiveStyle<CSSProperties['lineHeight']>
-  textAlign?: CSSProperties['textAlign'] | ResponsiveStyle<CSSProperties['textAlign']>
-  textDecoration?: CSSProperties['textDecoration'] | ResponsiveStyle<CSSProperties['textDecoration']>
-  textOverflow?: CSSProperties['textOverflow'] | ResponsiveStyle<CSSProperties['textOverflow']>
-  textTransform?: CSSProperties['textTransform'] | ResponsiveStyle<CSSProperties['textTransform']>
-  whiteSpace?: CSSProperties['whiteSpace'] | ResponsiveStyle<CSSProperties['whiteSpace']>
-  wordBreak?: CSSProperties['wordBreak'] | ResponsiveStyle<CSSProperties['wordBreak']>
+  fontFamily?: StyleProp<Property.FontFamily | ThemeValue<'fonts'>>
+  fontSize?: StyleProp<Property.FontSize | ThemeValue<'fontSizes'> | number>
+  fontStyle?: StyleProp<Property.FontStyle>
+  fontWeight?: StyleProp<Property.FontWeight | ThemeValue<'fontWeights'> | number>
+  letterSpacing?: StyleProp<Property.LetterSpacing | ThemeValue<'letterSpacings'> | number>
+  lineHeight?: StyleProp<Property.LineHeight | ThemeValue<'lineHeights'> | number>
+  textAlign?: StyleProp<Property.TextAlign>
+  textDecoration?: StyleProp<Property.TextDecoration>
+  textOverflow?: StyleProp<Property.TextOverflow>
+  textTransform?: StyleProp<Property.TextTransform>
+  whiteSpace?: StyleProp<Property.WhiteSpace>
+  wordBreak?: StyleProp<Property.WordBreak>
 }
 
 const typography = createStyleFunction<TypographyProps>(config)

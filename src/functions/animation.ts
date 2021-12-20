@@ -1,6 +1,6 @@
 // Types
-import type { CSSProperties } from '../types/css'
-import type { ResponsiveStyle } from '../types/responsive'
+import type { Property } from 'csstype'
+import type { StyleProp } from '../types/css'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -48,15 +48,15 @@ const config: StyleFunctionConfig = {
 }
 
 interface AnimationProps {
-  animation?: CSSProperties['animation'] | ResponsiveStyle<CSSProperties['animation']>
-  animationName?: CSSProperties['animationName'] | ResponsiveStyle<CSSProperties['animationName']>
-  animationDuration?: CSSProperties['animationDuration'] | ResponsiveStyle<CSSProperties['animationDuration']>
-  animationTimingFunction?: CSSProperties['animationTimingFunction'] | ResponsiveStyle<CSSProperties['animationTimingFunction']>
-  animationDelay?: CSSProperties['animationDelay'] | ResponsiveStyle<CSSProperties['animationDelay']>
-  animationIterationCount?: CSSProperties['animationIterationCount'] | ResponsiveStyle<CSSProperties['animationIterationCount']>
-  animationDirection?: CSSProperties['animationDirection'] | ResponsiveStyle<CSSProperties['animationDirection']>
-  animationFillMode?: CSSProperties['animationFillMode'] | ResponsiveStyle<CSSProperties['animationFillMode']>
-  animationPlayState?: CSSProperties['animationPlayState'] | ResponsiveStyle<CSSProperties['animationPlayState']>
+  animation?: StyleProp<Property.Animation>
+  animationName?: StyleProp<Property.AnimationName>
+  animationDuration?: StyleProp<Property.AnimationDuration<string | 0 | number>>
+  animationTimingFunction?: StyleProp<Property.AnimationTimingFunction>
+  animationDelay?: StyleProp<Property.AnimationDelay<string | 0 | number>>
+  animationIterationCount?: StyleProp<Property.AnimationIterationCount>
+  animationDirection?: StyleProp<Property.AnimationDirection>
+  animationFillMode?: StyleProp<Property.AnimationFillMode>
+  animationPlayState?: StyleProp<Property.AnimationPlayState>
 }
 
 const animation = createStyleFunction<AnimationProps>(config)

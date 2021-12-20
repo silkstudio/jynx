@@ -1,6 +1,7 @@
 // Types
-import type { CSSProperties } from '../types/css'
-import type { ResponsiveStyle } from '../types/responsive'
+import type { Property } from 'csstype'
+import type { StyleProp } from '../types/css'
+import type { ThemeValue } from '../types/theme'
 import type { StyleFunction, StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -41,7 +42,7 @@ const config: StyleFunctionConfig = {
   },
   gap: {
     property: 'gap',
-    scale: 'spaces'
+    scale: 'space'
   },
   flexGrow: {
     property: 'flexGrow'
@@ -58,18 +59,18 @@ const config: StyleFunctionConfig = {
 }
 
 interface FlexboxProps {
-  flexDirection?: CSSProperties['flexDirection'] | ResponsiveStyle<CSSProperties['flexDirection']>
-  flexFlow?: CSSProperties['flexFlow'] | ResponsiveStyle<CSSProperties['flexFlow']>
-  flexWrap?: CSSProperties['flexWrap'] | ResponsiveStyle<CSSProperties['flexWrap']>
-  alignItems?: CSSProperties['alignItems'] | ResponsiveStyle<CSSProperties['alignItems']>
-  alignContent?: CSSProperties['alignContent'] | ResponsiveStyle<CSSProperties['alignContent']>
-  alignSelf?: CSSProperties['alignSelf'] | ResponsiveStyle<CSSProperties['alignSelf']>
-  justifyContent?: CSSProperties['justifyContent'] | ResponsiveStyle<CSSProperties['justifyContent']>
-  gap?: CSSProperties['gap'] | ResponsiveStyle<CSSProperties['gap']>
-  flexGrow?: CSSProperties['flexGrow'] | ResponsiveStyle<CSSProperties['flexGrow']>
-  flexShrink?: CSSProperties['flexShrink'] | ResponsiveStyle<CSSProperties['flexShrink']>
-  flexBasis?: CSSProperties['flexBasis'] | ResponsiveStyle<CSSProperties['flexBasis']>
-  order?: CSSProperties['order'] | ResponsiveStyle<CSSProperties['order']>
+  flexDirection?: StyleProp<Property.FlexDirection>
+  flexFlow?: StyleProp<Property.FlexFlow>
+  flexWrap?: StyleProp<Property.FlexWrap>
+  alignItems?: StyleProp<Property.AlignItems>
+  alignContent?: StyleProp<Property.AlignContent>
+  alignSelf?: StyleProp<Property.AlignSelf>
+  justifyContent?: StyleProp<Property.JustifyContent>
+  gap?: StyleProp<Property.Gap<ThemeValue<'space'> | number>>
+  flexGrow?: StyleProp<Property.FlexGrow>
+  flexShrink?: StyleProp<Property.FlexShrink>
+  flexBasis?: StyleProp<Property.FlexBasis>
+  order?: StyleProp<Property.Order>
 }
 
 const flexbox: StyleFunction<FlexboxProps> = ({ theme, ...styles }) => {

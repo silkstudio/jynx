@@ -1,5 +1,8 @@
 import * as CSS from 'csstype'
 
+// Types
+import type { ResponsiveStyle } from './responsive'
+
 /*
 
 
@@ -66,3 +69,12 @@ export interface CSSOthersObjectForCSSObject {
  */
 
 export interface CSSObject extends CSSPropertiesWithMultiValues, CSSPseudos, CSSOthersObjectForCSSObject {}
+
+/**
+ * StyleProp
+ *
+ * @template T
+ *
+ * @since 1.0.0
+ */
+export type StyleProp<T> = T | ResponsiveStyle<T>

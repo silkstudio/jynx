@@ -1,5 +1,5 @@
 // Types
-import type { ObjectOrArray } from '../types/common'
+import type { SingleLayerObjectOrArray } from '../types/common'
 import type { DefaultBreakpoints } from '../utils/defaultBreakpoints'
 
 // Utils
@@ -8,7 +8,7 @@ import { defaultBreakpoints } from '../utils'
 /**
  * parseBreakpoints
  *
- * @param {ObjectOrArray<string | number>} breakpoints
+ * @param {SingleLayerObjectOrArray<string | number>} breakpoints
  * @returns {Record<string, string | number>}
  */
 
@@ -24,7 +24,7 @@ import { defaultBreakpoints } from '../utils'
 */
 
 export const parseBreakpoints = (
-  breakpoints?: ObjectOrArray<string | number>
+  breakpoints?: SingleLayerObjectOrArray<string | number>
 ): DefaultBreakpoints | Record<string, string | number> => {
   if (!breakpoints || (typeof breakpoints !== 'object' && !Array.isArray(breakpoints))) {
     return defaultBreakpoints

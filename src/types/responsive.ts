@@ -1,5 +1,5 @@
 // Types
-import { DefaultTheme } from './theme'
+import type { DefaultTheme } from './theme'
 
 /*
 

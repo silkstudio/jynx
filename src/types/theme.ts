@@ -1,8 +1,8 @@
 // Types
 import * as CSS from 'csstype'
-import type { ObjectOrArray, StringOrNumber } from './common'
+import type { ObjectOrArray } from './common'
 import type { DefaultBreakpoints } from '../utils/defaultBreakpoints'
-import type { ElementOf } from 'ts-essentials'
+import type { DeepLeaves } from './utils'
 
 /*
 
@@ -27,7 +27,7 @@ import type { ElementOf } from 'ts-essentials'
  */
 export interface BaseTheme {
   breakpoints?: ObjectOrArray<number | string>
-  spaces?: ObjectOrArray<CSS.Property.Margin<string | number>>
+  space?: ObjectOrArray<CSS.Property.Margin<string | number>>
   fontSizes?: ObjectOrArray<CSS.Property.FontSize<number>>
   colors?: ObjectOrArray<CSS.Property.Color>
   fonts?: ObjectOrArray<CSS.Property.FontFamily>
@@ -51,13 +51,6 @@ export interface BaseTheme {
 export interface BaseThemeWithBreakpoints extends Omit<BaseTheme, 'breakpoints'> {
   breakpoints: DefaultBreakpoints
 }
-
-/**
- * RequiredTheme
- *
- * @since 1.0.0
- */
-export type RequiredTheme = Required<BaseTheme>
 
 /**
  * CustomTheme
@@ -100,45 +93,14 @@ export type ThemeProps<T> = {
 /**
  * ThemeValue
  *
- * @template T Theme
  * @template K extends keyof T — Theme scale
+ * @template T Theme
  *
  * @since 1.0.0
  */
-export type ThemeValue<K extends keyof T, T extends BaseTheme = BaseTheme, P = T[K]> = P extends string | number
-  ? P
-  : P extends any[] | readonly [...any]
-  ? ElementOf<P>
-  : P extends Record<string, infer E>
-  ? E
-  : never
-
-/**
- * ThemeScale
- *
- * @template K extends keyof T
- * @template T extends {@link BaseTheme} [=DefaultTheme]
- * @template S [=T[K]]
- *
- * @since 1.0.0
- */
-export type ThemeScale<K extends keyof T, T extends BaseTheme = BaseTheme, S = T[K]> = S extends string | number
-  ? StringOrNumber<S>
-  : S extends any[] | readonly [...infer P]
-  ? StringOrNumber<P[number]>
-  : S extends Record<string, infer E>
-  ? StringOrNumber<E>
-  : never
-
-/**
- * StrictThemeScale
- *
- * @template K extends keyof T
- * @template T extends {@link BaseTheme} [=DefaultTheme]
- *
- * @since 1.0.0
- */
-export type StrictThemeScale<K extends keyof T, T extends BaseTheme = BaseTheme> = T[K]
+export type ThemeValue<T extends keyof DefaultTheme> = DefaultTheme[T] extends string | number
+  ? DefaultTheme[T]
+  : DeepLeaves<DefaultTheme[T]>
 
 /* ------------------ */
 /*  THEME PROPERTIES  */
@@ -149,14 +111,14 @@ export type StrictThemeScale<K extends keyof T, T extends BaseTheme = BaseTheme>
  * @since 1.0.0
  * @nestable false
  */
-export type Breakpoints = BaseTheme['breakpoints']
+export type Breakpoints = DefaultTheme['breakpoints']
 
 /**
  * Breakpoint
  *
  * @since 1.0.0
  */
-export type Breakpoint = ThemeValue<'breakpoints', BaseTheme>
+export type Breakpoint = ThemeValue<'breakpoints'>
 
 /**
  * Spaces
@@ -164,14 +126,14 @@ export type Breakpoint = ThemeValue<'breakpoints', BaseTheme>
  * @since 1.0.0
  * @nestable false
  */
-export type Spaces = BaseTheme['spaces']
+export type Spaces = DefaultTheme['space']
 
 /**
  * Space
  *
  * @since 1.0.0
  */
-export type Space = ThemeValue<'spaces', BaseTheme>
+export type Space = ThemeValue<'space'>
 
 /**
  * Fonts
@@ -179,14 +141,14 @@ export type Space = ThemeValue<'spaces', BaseTheme>
  * @since 1.0.0
  * @nestable true
  */
-export type Fonts = BaseTheme['fonts']
+export type Fonts = DefaultTheme['fonts']
 
 /**
  * Font
  *
  * @since 1.0.0
  */
-export type Font = ThemeValue<'fonts', BaseTheme>
+export type Font = ThemeValue<'fonts'>
 
 /**
  * Colors
@@ -194,14 +156,14 @@ export type Font = ThemeValue<'fonts', BaseTheme>
  * @since 1.0.0
  * @nestable true
  */
-export type Colors = BaseTheme['colors']
+export type Colors = DefaultTheme['colors']
 
 /**
  * Color
  *
  * @since 1.0.0
  */
-export type Color = ThemeValue<'colors', BaseTheme>
+export type Color = ThemeValue<'colors'>
 
 /**
  * FontWeights
@@ -209,14 +171,14 @@ export type Color = ThemeValue<'colors', BaseTheme>
  * @since 1.0.0
  * @nestable false
  */
-export type FontWeights = BaseTheme['fontWeights']
+export type FontWeights = DefaultTheme['fontWeights']
 
 /**
  * FontWeight
  *
  * @since 1.0.0
  */
-export type FontWeight = ThemeValue<'fontWeights', BaseTheme>
+export type FontWeight = ThemeValue<'fontWeights'>
 
 /**
  * LineHeights
@@ -224,14 +186,14 @@ export type FontWeight = ThemeValue<'fontWeights', BaseTheme>
  * @since 1.0.0
  * @nestable false
  */
-export type LineHeights = BaseTheme['lineHeights']
+export type LineHeights = DefaultTheme['lineHeights']
 
 /**
  * LineHeight
  *
  * @since 1.0.0
  */
-export type LineHeight = ThemeValue<'lineHeights', BaseTheme>
+export type LineHeight = ThemeValue<'lineHeights'>
 
 /**
  * LetterSpacings
@@ -239,14 +201,14 @@ export type LineHeight = ThemeValue<'lineHeights', BaseTheme>
  * @since 1.0.0
  * @nestable false
  */
-export type LetterSpacings = BaseTheme['letterSpacings']
+export type LetterSpacings = DefaultTheme['letterSpacings']
 
 /**
  * LetterSpacing
  *
  * @since 1.0.0
  */
-export type LetterSpacing = ThemeValue<'letterSpacings', BaseTheme>
+export type LetterSpacing = ThemeValue<'letterSpacings'>
 
 /**
  * Sizes
@@ -254,14 +216,14 @@ export type LetterSpacing = ThemeValue<'letterSpacings', BaseTheme>
  * @since 1.0.0
  * @nestable true
  */
-export type Sizes = BaseTheme['sizes']
+export type Sizes = DefaultTheme['sizes']
 
 /**
  * Size
  *
  * @since 1.0.0
  */
-export type Size = ThemeValue<'sizes', BaseTheme>
+export type Size = ThemeValue<'sizes'>
 
 /**
  * Borders
@@ -269,14 +231,14 @@ export type Size = ThemeValue<'sizes', BaseTheme>
  * @since 1.0.0
  * @nestable false
  */
-export type Borders = BaseTheme['borders']
+export type Borders = DefaultTheme['borders']
 
 /**
  * Border
  *
  * @since 1.0.0
  */
-export type Border = ThemeValue<'borders', BaseTheme>
+export type Border = ThemeValue<'borders'>
 
 /**
  * BorderWidths
@@ -284,14 +246,14 @@ export type Border = ThemeValue<'borders', BaseTheme>
  * @since 1.0.0
  * @nestable false
  */
-export type BorderWidths = BaseTheme['borderWidths']
+export type BorderWidths = DefaultTheme['borderWidths']
 
 /**
  * BorderWidth
  *
  * @since 1.0.0
  */
-export type BorderWidth = ThemeValue<'borderWidths', BaseTheme>
+export type BorderWidth = ThemeValue<'borderWidths'>
 
 /**
  * BorderStyles
@@ -299,14 +261,14 @@ export type BorderWidth = ThemeValue<'borderWidths', BaseTheme>
  * @since 1.0.0
  * @nestable false
  */
-export type BorderStyles = BaseTheme['borderStyles']
+export type BorderStyles = DefaultTheme['borderStyles']
 
 /**
  * BorderStyle
  *
  * @since 1.0.0
  */
-export type BorderStyle = ThemeValue<'borderStyles', BaseTheme>
+export type BorderStyle = ThemeValue<'borderStyles'>
 
 /**
  * Radii
@@ -314,14 +276,14 @@ export type BorderStyle = ThemeValue<'borderStyles', BaseTheme>
  * @since 1.0.0
  * @nestable false
  */
-export type Radii = BaseTheme['radii']
+export type Radii = DefaultTheme['radii']
 
 /**
  * Radius
  *
  * @since 1.0.0
  */
-export type Radius = ThemeValue<'radii', BaseTheme>
+export type Radius = ThemeValue<'radii'>
 
 /**
  * Shadows
@@ -329,14 +291,14 @@ export type Radius = ThemeValue<'radii', BaseTheme>
  * @since 1.0.0
  * @nestable false
  */
-export type Shadows = BaseTheme['shadows']
+export type Shadows = DefaultTheme['shadows']
 
 /**
  * Shadow
  *
  * @since 1.0.0
  */
-export type Shadow = ThemeValue<'shadows', BaseTheme>
+export type Shadow = ThemeValue<'shadows'>
 
 /**
  * ZIndicies
@@ -344,11 +306,11 @@ export type Shadow = ThemeValue<'shadows', BaseTheme>
  * @since 1.0.0
  * @nestable false
  */
-export type ZIndicies = BaseTheme['zIndices']
+export type ZIndicies = DefaultTheme['zIndices']
 
 /**
  * ZIndicie
  *
  * @since 1.0.0
  */
-export type ZIndicie = ThemeValue<'zIndices', BaseTheme>
+export type ZIndicie = ThemeValue<'zIndices'>

@@ -9,23 +9,14 @@
 
 */
 
-/*
- * Basic theme object shape
- *
- * @since 1.0.0
- */
-export type BaseExtensibleObject = {
-  [key: string]: any
-}
-
 /**
- * AnyIfEmpty
+ * ObjectOrArray
  *
- * @template T extends object
+ * @template T extends any
  *
  * @since 1.0.0
  */
-export type AnyIfEmpty<T extends object> = keyof T extends never ? any : T
+export type ObjectOrArray<T> = T[] | Record<string, T | Record<string, T> | T[]>
 
 /**
  * ObjectOrArray
@@ -34,8 +25,7 @@ export type AnyIfEmpty<T extends object> = keyof T extends never ? any : T
  *
  * @since 1.0.0
  */
-// export type ObjectOrArray<T> = T[] | Record<string, T | Record<string, T> | T[]>
-export type ObjectOrArray<T> = T[] | Record<string, T>
+export type SingleLayerObjectOrArray<T> = T[] | Record<string, T>
 
 /**
  * StringOrNumber
@@ -45,6 +35,15 @@ export type ObjectOrArray<T> = T[] | Record<string, T>
  * @since 1.0.0
  */
 export type StringOrNumber<T> = T extends string ? string : T extends number ? number : T
+
+/**
+ * OneOrMany
+ *
+ * @template T extends any
+ *
+ * @since 1.0.0
+ */
+export type OneOrMany<T> = T | T[]
 
 /**
  * Many

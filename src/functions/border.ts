@@ -1,6 +1,7 @@
 // Types
-import type { CSSProperties } from '../types/css'
-import type { ResponsiveStyle } from '../types/responsive'
+import type { Property } from 'csstype'
+import type { StyleProp } from '../types/css'
+import type { ThemeValue } from '../types/theme'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -121,31 +122,35 @@ const config: StyleFunctionConfig = {
 }
 
 interface BorderProps {
-  border?: CSSProperties['border'] | ResponsiveStyle<CSSProperties['border']>
-  borderWidth?: CSSProperties['borderWidth'] | ResponsiveStyle<CSSProperties['borderWidth']>
-  borderStyle?: CSSProperties['borderStyle'] | ResponsiveStyle<CSSProperties['borderStyle']>
-  borderColor?: CSSProperties['borderColor'] | ResponsiveStyle<CSSProperties['borderColor']>
-  borderRadius?: CSSProperties['borderRadius'] | ResponsiveStyle<CSSProperties['borderRadius']>
-  borderTop?: CSSProperties['borderTop'] | ResponsiveStyle<CSSProperties['borderTop']>
-  borderTopWidth?: CSSProperties['borderTopWidth'] | ResponsiveStyle<CSSProperties['borderTopWidth']>
-  borderTopStyle?: CSSProperties['borderTopStyle'] | ResponsiveStyle<CSSProperties['borderTopStyle']>
-  borderTopColor?: CSSProperties['borderTopColor'] | ResponsiveStyle<CSSProperties['borderTopColor']>
-  borderTopLeftRadius?: CSSProperties['borderTopLeftRadius'] | ResponsiveStyle<CSSProperties['borderTopLeftRadius']>
-  borderTopRightRadius?: CSSProperties['borderTopRightRadius'] | ResponsiveStyle<CSSProperties['borderTopRightRadius']>
-  borderRight?: CSSProperties['borderRight'] | ResponsiveStyle<CSSProperties['borderRight']>
-  borderRightWidth?: CSSProperties['borderRightWidth'] | ResponsiveStyle<CSSProperties['borderRightWidth']>
-  borderRightStyle?: CSSProperties['borderRightStyle'] | ResponsiveStyle<CSSProperties['borderRightStyle']>
-  borderRightColor?: CSSProperties['borderRightColor'] | ResponsiveStyle<CSSProperties['borderRightColor']>
-  borderBottom?: CSSProperties['borderBottom'] | ResponsiveStyle<CSSProperties['borderBottom']>
-  borderBottomWidth?: CSSProperties['borderBottomWidth'] | ResponsiveStyle<CSSProperties['borderBottomWidth']>
-  borderBottomStyle?: CSSProperties['borderBottomStyle'] | ResponsiveStyle<CSSProperties['borderBottomStyle']>
-  borderBottomColor?: CSSProperties['borderBottomColor'] | ResponsiveStyle<CSSProperties['borderBottomColor']>
-  borderBottomLeftRadius?: CSSProperties['borderBottomLeftRadius'] | ResponsiveStyle<CSSProperties['borderBottomLeftRadius']>
-  borderBottomRightRadius?: CSSProperties['borderBottomRightRadius'] | ResponsiveStyle<CSSProperties['borderBottomRightRadius']>
-  borderLeft?: CSSProperties['borderLeft'] | ResponsiveStyle<CSSProperties['borderLeft']>
-  borderLeftWidth?: CSSProperties['borderLeftWidth'] | ResponsiveStyle<CSSProperties['borderLeftWidth']>
-  borderLeftStyle?: CSSProperties['borderLeftStyle'] | ResponsiveStyle<CSSProperties['borderLeftStyle']>
-  borderLeftColor?: CSSProperties['borderLeftColor'] | ResponsiveStyle<CSSProperties['borderLeftColor']>
+  border?: StyleProp<Property.Border | ThemeValue<'borders'>>
+  borderWidth?: StyleProp<Property.BorderWidth<ThemeValue<'borderWidths'> | number>>
+  borderStyle?: StyleProp<Property.BorderStyle | ThemeValue<'borderStyles'>>
+  borderColor?: StyleProp<Property.BorderColor | ThemeValue<'colors'>>
+  borderRadius?: StyleProp<Property.BorderRadius<ThemeValue<'radii'> | number>>
+
+  borderTop?: StyleProp<Property.BorderTop | ThemeValue<'borders'>>
+  borderTopWidth?: StyleProp<Property.BorderTopWidth<ThemeValue<'borderWidths'> | number>>
+  borderTopStyle?: StyleProp<Property.BorderTopStyle | ThemeValue<'borderStyles'>>
+  borderTopColor?: StyleProp<Property.BorderTopColor | ThemeValue<'colors'>>
+  borderTopLeftRadius?: StyleProp<Property.BorderTopLeftRadius<ThemeValue<'radii'> | number>>
+  borderTopRightRadius?: StyleProp<Property.BorderTopRightRadius<ThemeValue<'radii'> | number>>
+
+  borderRight?: StyleProp<Property.BorderRight | ThemeValue<'borders'>>
+  borderRightWidth?: StyleProp<Property.BorderTopWidth<ThemeValue<'borderWidths'> | number>>
+  borderRightStyle?: StyleProp<Property.BorderRightStyle | ThemeValue<'borderStyles'>>
+  borderRightColor?: StyleProp<Property.BorderRightColor | ThemeValue<'colors'>>
+
+  borderBottom?: StyleProp<Property.BorderBottom | ThemeValue<'borders'>>
+  borderBottomWidth?: StyleProp<Property.BorderBottomWidth<ThemeValue<'borderWidths'> | number>>
+  borderBottomStyle?: StyleProp<Property.BorderBottomStyle | ThemeValue<'borderStyles'>>
+  borderBottomColor?: StyleProp<Property.BorderBottomColor | ThemeValue<'colors'>>
+  borderBottomLeftRadius?: StyleProp<Property.BorderBottomLeftRadius<ThemeValue<'radii'> | number>>
+  borderBottomRightRadius?: StyleProp<Property.BorderBottomRightRadius<ThemeValue<'radii'> | number>>
+
+  borderLeft?: StyleProp<Property.BorderLeft | ThemeValue<'borders'>>
+  borderLeftWidth?: StyleProp<Property.BorderLeftWidth<ThemeValue<'borderWidths'> | number>>
+  borderLeftStyle?: StyleProp<Property.BorderLeftStyle | ThemeValue<'borderStyles'>>
+  borderLeftColor?: StyleProp<Property.BorderLeftColor | ThemeValue<'colors'>>
 }
 
 const border = createStyleFunction<BorderProps>(config)

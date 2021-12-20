@@ -1,6 +1,7 @@
 // Types
-import type { CSSProperties } from '../types/css'
-import type { ResponsiveStyle } from '../types/responsive'
+import type { Property } from 'csstype'
+import type { StyleProp } from '../types/css'
+import type { ThemeValue } from '../types/theme'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -23,19 +24,19 @@ const config: StyleFunctionConfig = {
   },
   top: {
     property: 'top',
-    scale: 'spaces'
+    scale: 'space'
   },
   right: {
     property: 'right',
-    scale: 'spaces'
+    scale: 'space'
   },
   bottom: {
     property: 'bottom',
-    scale: 'spaces'
+    scale: 'space'
   },
   left: {
     property: 'left',
-    scale: 'spaces'
+    scale: 'space'
   },
   zIndex: {
     property: 'zIndex',
@@ -44,12 +45,12 @@ const config: StyleFunctionConfig = {
 }
 
 interface PositionBaseProps {
-  position?: CSSProperties['position'] | ResponsiveStyle<CSSProperties['position']>
-  top?: CSSProperties['top'] | ResponsiveStyle<CSSProperties['top']>
-  right?: CSSProperties['right'] | ResponsiveStyle<CSSProperties['right']>
-  bottom?: CSSProperties['bottom'] | ResponsiveStyle<CSSProperties['bottom']>
-  left?: CSSProperties['left'] | ResponsiveStyle<CSSProperties['left']>
-  zIndex?: CSSProperties['zIndex'] | ResponsiveStyle<CSSProperties['zIndex']>
+  position?: StyleProp<Property.Position>
+  top?: StyleProp<Property.Top<ThemeValue<'space'> | number>>
+  right?: StyleProp<Property.Right<ThemeValue<'space'> | number>>
+  bottom?: StyleProp<Property.Bottom<ThemeValue<'space'> | number>>
+  left?: StyleProp<Property.Left<ThemeValue<'space'> | number>>
+  zIndex?: StyleProp<Property.ZIndex | ThemeValue<'zIndices'> | number>
 }
 
 interface PositionShorthandProps {

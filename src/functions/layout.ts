@@ -1,7 +1,7 @@
 // Types
-
-import type { CSSProperties } from '../types/css'
-import type { ResponsiveStyle } from '../types/responsive'
+import type { Property } from 'csstype'
+import type { StyleProp } from '../types/css'
+import type { ThemeValue } from '../types/theme'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -22,23 +22,29 @@ import { lengthTransformer } from '../transformers/layout'
 const config: StyleFunctionConfig = {
   width: {
     property: 'width',
+    scale: 'space',
     transformer: lengthTransformer
   },
   height: {
     property: 'height',
+    scale: 'space',
     transformer: lengthTransformer
   },
   minWidth: {
-    property: 'minWidth'
+    property: 'minWidth',
+    scale: 'space'
   },
   minHeight: {
-    property: 'minHeight'
+    property: 'minHeight',
+    scale: 'space'
   },
   maxWidth: {
-    property: 'maxWidth'
+    property: 'maxWidth',
+    scale: 'space'
   },
   maxHeight: {
-    property: 'maxHeight'
+    property: 'maxHeight',
+    scale: 'space'
   },
   display: {
     property: 'display'
@@ -64,19 +70,19 @@ const config: StyleFunctionConfig = {
 }
 
 interface LayoutBaseProps {
-  width?: CSSProperties['width'] | ResponsiveStyle<CSSProperties['width']>
-  height?: CSSProperties['height'] | ResponsiveStyle<CSSProperties['height']>
-  minWidth?: CSSProperties['minWidth'] | ResponsiveStyle<CSSProperties['minWidth']>
-  minHeight?: CSSProperties['minHeight'] | ResponsiveStyle<CSSProperties['minHeight']>
-  maxWidth?: CSSProperties['maxWidth'] | ResponsiveStyle<CSSProperties['maxWidth']>
-  maxHeight?: CSSProperties['maxHeight'] | ResponsiveStyle<CSSProperties['maxHeight']>
-  display?: CSSProperties['display'] | ResponsiveStyle<CSSProperties['display']>
-  transform?: CSSProperties['transform'] | ResponsiveStyle<CSSProperties['transform']>
-  transformOrigin?: CSSProperties['transformOrigin'] | ResponsiveStyle<CSSProperties['transformOrigin']>
-  overflow?: CSSProperties['overflow'] | ResponsiveStyle<CSSProperties['overflow']>
-  overflowX?: CSSProperties['overflowX'] | ResponsiveStyle<CSSProperties['overflowX']>
-  overflowY?: CSSProperties['overflowY'] | ResponsiveStyle<CSSProperties['overflowY']>
-  verticalAlign?: CSSProperties['verticalAlign'] | ResponsiveStyle<CSSProperties['verticalAlign']>
+  width?: StyleProp<Property.Width<ThemeValue<'space'> | number>>
+  height?: StyleProp<Property.Height<ThemeValue<'space'> | number>>
+  minWidth?: StyleProp<Property.MinWidth<ThemeValue<'space'> | number>>
+  minHeight?: StyleProp<Property.MinHeight<ThemeValue<'space'> | number>>
+  maxWidth?: StyleProp<Property.MaxWidth<ThemeValue<'space'> | number>>
+  maxHeight?: StyleProp<Property.MaxHeight<ThemeValue<'space'> | number>>
+  display?: StyleProp<Property.Display>
+  transform?: StyleProp<Property.Transform>
+  transformOrigin?: StyleProp<Property.TransformOrigin>
+  overflow?: StyleProp<Property.Overflow>
+  overflowX?: StyleProp<Property.OverflowX>
+  overflowY?: StyleProp<Property.OverflowY>
+  verticalAlign?: StyleProp<Property.VerticalAlign>
 }
 
 interface LayoutShorthandProps {
