@@ -1,5 +1,7 @@
 // Types
-import type { StylePropWithScale } from '../types/css'
+import type { Property } from 'csstype'
+import type { StyleProp } from '../types/css'
+import type { ThemeValue } from '../types/theme'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -120,31 +122,35 @@ const config: StyleFunctionConfig = {
 }
 
 interface BorderProps {
-  border?: StylePropWithScale<'border', 'borders'>
-  borderWidth?: StylePropWithScale<'borderWidth', 'borderWidths'>
-  borderStyle?: StylePropWithScale<'borderStyle', 'borderStyles'>
-  borderColor?: StylePropWithScale<'borderColor', 'colors'>
-  borderRadius?: StylePropWithScale<'borderRadius', 'radii'>
-  borderTop?: StylePropWithScale<'borderTop', 'borders'>
-  borderTopWidth?: StylePropWithScale<'borderTopWidth', 'borderWidths'>
-  borderTopStyle?: StylePropWithScale<'borderTopStyle', 'borderStyles'>
-  borderTopColor?: StylePropWithScale<'borderTopColor', 'colors'>
-  borderTopLeftRadius?: StylePropWithScale<'borderTopLeftRadius', 'radii'>
-  borderTopRightRadius?: StylePropWithScale<'borderTopRightRadius', 'radii'>
-  borderRight?: StylePropWithScale<'borderRight', 'borders'>
-  borderRightWidth?: StylePropWithScale<'borderRightWidth', 'borderWidths'>
-  borderRightStyle?: StylePropWithScale<'borderRightStyle', 'borderStyles'>
-  borderRightColor?: StylePropWithScale<'borderRightColor', 'colors'>
-  borderBottom?: StylePropWithScale<'borderBottom', 'borders'>
-  borderBottomWidth?: StylePropWithScale<'borderBottomWidth', 'borderWidths'>
-  borderBottomStyle?: StylePropWithScale<'borderBottomStyle', 'borderStyles'>
-  borderBottomColor?: StylePropWithScale<'borderBottomColor', 'colors'>
-  borderBottomLeftRadius?: StylePropWithScale<'borderBottomLeftRadius', 'radii'>
-  borderBottomRightRadius?: StylePropWithScale<'borderBottomRightRadius', 'radii'>
-  borderLeft?: StylePropWithScale<'borderLeft', 'borders'>
-  borderLeftWidth?: StylePropWithScale<'borderLeftWidth', 'borderWidths'>
-  borderLeftStyle?: StylePropWithScale<'borderLeftStyle', 'borderStyles'>
-  borderLeftColor?: StylePropWithScale<'borderLeftColor', 'colors'>
+  border?: StyleProp<Property.Border | ThemeValue<'borders'>>
+  borderWidth?: StyleProp<Property.BorderWidth<ThemeValue<'borderWidths'> | number>>
+  borderStyle?: StyleProp<Property.BorderStyle | ThemeValue<'borderStyles'>>
+  borderColor?: StyleProp<Property.BorderColor | ThemeValue<'colors'>>
+  borderRadius?: StyleProp<Property.BorderRadius<ThemeValue<'radii'> | number>>
+
+  borderTop?: StyleProp<Property.BorderTop | ThemeValue<'borders'>>
+  borderTopWidth?: StyleProp<Property.BorderTopWidth<ThemeValue<'borderWidths'> | number>>
+  borderTopStyle?: StyleProp<Property.BorderTopStyle | ThemeValue<'borderStyles'>>
+  borderTopColor?: StyleProp<Property.BorderTopColor | ThemeValue<'colors'>>
+  borderTopLeftRadius?: StyleProp<Property.BorderTopLeftRadius<ThemeValue<'radii'> | number>>
+  borderTopRightRadius?: StyleProp<Property.BorderTopRightRadius<ThemeValue<'radii'> | number>>
+
+  borderRight?: StyleProp<Property.BorderRight | ThemeValue<'borders'>>
+  borderRightWidth?: StyleProp<Property.BorderTopWidth<ThemeValue<'borderWidths'> | number>>
+  borderRightStyle?: StyleProp<Property.BorderRightStyle | ThemeValue<'borderStyles'>>
+  borderRightColor?: StyleProp<Property.BorderRightColor | ThemeValue<'colors'>>
+
+  borderBottom?: StyleProp<Property.BorderBottom | ThemeValue<'borders'>>
+  borderBottomWidth?: StyleProp<Property.BorderBottomWidth<ThemeValue<'borderWidths'> | number>>
+  borderBottomStyle?: StyleProp<Property.BorderBottomStyle | ThemeValue<'borderStyles'>>
+  borderBottomColor?: StyleProp<Property.BorderBottomColor | ThemeValue<'colors'>>
+  borderBottomLeftRadius?: StyleProp<Property.BorderBottomLeftRadius<ThemeValue<'radii'> | number>>
+  borderBottomRightRadius?: StyleProp<Property.BorderBottomRightRadius<ThemeValue<'radii'> | number>>
+
+  borderLeft?: StyleProp<Property.BorderLeft | ThemeValue<'borders'>>
+  borderLeftWidth?: StyleProp<Property.BorderLeftWidth<ThemeValue<'borderWidths'> | number>>
+  borderLeftStyle?: StyleProp<Property.BorderLeftStyle | ThemeValue<'borderStyles'>>
+  borderLeftColor?: StyleProp<Property.BorderLeftColor | ThemeValue<'colors'>>
 }
 
 const border = createStyleFunction<BorderProps>(config)

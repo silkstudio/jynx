@@ -1,12 +1,13 @@
 // Types
-import type { CSSProperties, StylePropWithScale } from '../types/css'
-import type { ResponsiveStyle } from '../types/responsive'
+import type { Property } from 'csstype'
 import type { StyleFunctionConfig } from '../types/functions'
+import type { StyleProp } from '../types/css'
+import type { ThemeValue } from '../types/theme'
+import type { OneOrMany } from '../types/common'
 
 // Utils
 import { createStyleFunction } from '../constructors'
 import { spaceMultiTransformer, spaceTransformer } from '../transformers/space'
-import { ThemeValue } from '..'
 
 /*
 
@@ -78,23 +79,18 @@ const marginConfig: StyleFunctionConfig = {
   }
 }
 
-type SpaceArrayProp<T extends keyof CSSProperties> =
-  | CSSProperties[T]
-  | ThemeValue<'spaces'>
-  | (CSSProperties[T] | ThemeValue<'spaces'>)[]
-
 interface MarginBaseProps {
-  margin?: SpaceArrayProp<'margin'> | ResponsiveStyle<SpaceArrayProp<'margin'>>
-  marginTop?: StylePropWithScale<'marginTop', 'spaces'>
-  marginRight?: StylePropWithScale<'marginRight', 'spaces'>
-  marginBottom?: StylePropWithScale<'marginBottom', 'spaces'>
-  marginLeft?: StylePropWithScale<'marginLeft', 'spaces'>
-  marginBlock?: SpaceArrayProp<'marginBlock'> | ResponsiveStyle<SpaceArrayProp<'marginBlock'>>
-  marginBlockStart?: StylePropWithScale<'marginBlockStart', 'spaces'>
-  marginBlockEnd?: StylePropWithScale<'marginBlockEnd', 'spaces'>
-  marginInline?: SpaceArrayProp<'marginInline'> | ResponsiveStyle<SpaceArrayProp<'marginInline'>>
-  marginInlineStart?: StylePropWithScale<'marginInlineStart', 'spaces'>
-  marginInlineEnd?: StylePropWithScale<'marginInlineEnd', 'spaces'>
+  margin?: StyleProp<OneOrMany<Property.Margin<ThemeValue<'spaces'> | number>>>
+  marginTop?: StyleProp<Property.MarginTop<ThemeValue<'spaces'> | number>>
+  marginRight?: StyleProp<Property.MarginRight<ThemeValue<'spaces'> | number>>
+  marginBottom?: StyleProp<Property.MarginBottom<ThemeValue<'spaces'> | number>>
+  marginLeft?: StyleProp<Property.MarginLeft<ThemeValue<'spaces'> | number>>
+  marginBlock?: StyleProp<OneOrMany<Property.MarginBlock<ThemeValue<'spaces'> | number>>>
+  marginBlockStart?: StyleProp<Property.MarginBlockStart<ThemeValue<'spaces'> | number>>
+  marginBlockEnd?: StyleProp<Property.MarginBlockEnd<ThemeValue<'spaces'> | number>>
+  marginInline?: StyleProp<OneOrMany<Property.MarginInline<ThemeValue<'spaces'> | number>>>
+  marginInlineStart?: StyleProp<Property.MarginInlineStart<ThemeValue<'spaces'> | number>>
+  marginInlineEnd?: StyleProp<Property.MarginInlineEnd<ThemeValue<'spaces'> | number>>
 }
 
 interface MarginShorthandProps {
@@ -173,17 +169,17 @@ const paddingConfig: StyleFunctionConfig = {
 }
 
 interface PaddingBaseProps {
-  padding?: SpaceArrayProp<'padding'> | ResponsiveStyle<SpaceArrayProp<'padding'>>
-  paddingTop?: StylePropWithScale<'paddingTop', 'spaces'>
-  paddingRight?: StylePropWithScale<'paddingRight', 'spaces'>
-  paddingBottom?: StylePropWithScale<'paddingBottom', 'spaces'>
-  paddingLeft?: StylePropWithScale<'paddingLeft', 'spaces'>
-  paddingBlock?: SpaceArrayProp<'paddingBlock'> | ResponsiveStyle<SpaceArrayProp<'paddingBlock'>>
-  paddingBlockStart?: StylePropWithScale<'paddingBlockStart', 'spaces'>
-  paddingBlockEnd?: StylePropWithScale<'paddingBlockEnd', 'spaces'>
-  paddingInline?: SpaceArrayProp<'paddingInline'> | ResponsiveStyle<SpaceArrayProp<'paddingInline'>>
-  paddingInlineStart?: StylePropWithScale<'paddingInlineStart', 'spaces'>
-  paddingInlineEnd?: StylePropWithScale<'paddingInlineEnd', 'spaces'>
+  padding?: StyleProp<OneOrMany<Property.Padding<ThemeValue<'spaces'> | number>>>
+  paddingTop?: StyleProp<Property.PaddingTop<ThemeValue<'spaces'> | number>>
+  paddingRight?: StyleProp<Property.PaddingRight<ThemeValue<'spaces'> | number>>
+  paddingBottom?: StyleProp<Property.PaddingBottom<ThemeValue<'spaces'> | number>>
+  paddingLeft?: StyleProp<Property.PaddingLeft<ThemeValue<'spaces'> | number>>
+  paddingBlock?: StyleProp<OneOrMany<Property.PaddingBlock<ThemeValue<'spaces'> | number>>>
+  paddingBlockStart?: StyleProp<Property.PaddingBlockStart<ThemeValue<'spaces'> | number>>
+  paddingBlockEnd?: StyleProp<Property.PaddingBlockEnd<ThemeValue<'spaces'> | number>>
+  paddingInline?: StyleProp<OneOrMany<Property.PaddingInline<ThemeValue<'spaces'> | number>>>
+  paddingInlineStart?: StyleProp<Property.PaddingInlineStart<ThemeValue<'spaces'> | number>>
+  paddingInlineEnd?: StyleProp<Property.PaddingInlineEnd<ThemeValue<'spaces'> | number>>
 }
 
 interface PaddingShorthandProps {

@@ -1,6 +1,7 @@
 // Types
-
-import type { StyleProp, StylePropWithScale } from '../types/css'
+import type { Property } from 'csstype'
+import type { StyleProp } from '../types/css'
+import type { ThemeValue } from '../types/theme'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -21,23 +22,29 @@ import { lengthTransformer } from '../transformers/layout'
 const config: StyleFunctionConfig = {
   width: {
     property: 'width',
+    scale: 'spaces',
     transformer: lengthTransformer
   },
   height: {
     property: 'height',
+    scale: 'spaces',
     transformer: lengthTransformer
   },
   minWidth: {
-    property: 'minWidth'
+    property: 'minWidth',
+    scale: 'spaces'
   },
   minHeight: {
-    property: 'minHeight'
+    property: 'minHeight',
+    scale: 'spaces'
   },
   maxWidth: {
-    property: 'maxWidth'
+    property: 'maxWidth',
+    scale: 'spaces'
   },
   maxHeight: {
-    property: 'maxHeight'
+    property: 'maxHeight',
+    scale: 'spaces'
   },
   display: {
     property: 'display'
@@ -63,19 +70,19 @@ const config: StyleFunctionConfig = {
 }
 
 interface LayoutBaseProps {
-  width?: StylePropWithScale<'width', 'spaces'>
-  height?: StylePropWithScale<'height', 'spaces'>
-  minWidth?: StylePropWithScale<'minWidth', 'spaces'>
-  minHeight?: StylePropWithScale<'minHeight', 'spaces'>
-  maxWidth?: StylePropWithScale<'maxWidth', 'spaces'>
-  maxHeight?: StylePropWithScale<'maxHeight', 'spaces'>
-  display?: StyleProp<'display'>
-  transform?: StyleProp<'transform'>
-  transformOrigin?: StyleProp<'transformOrigin'>
-  overflow?: StyleProp<'overflow'>
-  overflowX?: StyleProp<'overflowX'>
-  overflowY?: StyleProp<'overflowY'>
-  verticalAlign?: StyleProp<'verticalAlign'>
+  width?: StyleProp<Property.Width<ThemeValue<'spaces'> | number>>
+  height?: StyleProp<Property.Height<ThemeValue<'spaces'> | number>>
+  minWidth?: StyleProp<Property.MinWidth<ThemeValue<'spaces'> | number>>
+  minHeight?: StyleProp<Property.MinHeight<ThemeValue<'spaces'> | number>>
+  maxWidth?: StyleProp<Property.MaxWidth<ThemeValue<'spaces'> | number>>
+  maxHeight?: StyleProp<Property.MaxHeight<ThemeValue<'spaces'> | number>>
+  display?: StyleProp<Property.Display>
+  transform?: StyleProp<Property.Transform>
+  transformOrigin?: StyleProp<Property.TransformOrigin>
+  overflow?: StyleProp<Property.Overflow>
+  overflowX?: StyleProp<Property.OverflowX>
+  overflowY?: StyleProp<Property.OverflowY>
+  verticalAlign?: StyleProp<Property.VerticalAlign>
 }
 
 interface LayoutShorthandProps {

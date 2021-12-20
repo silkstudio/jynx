@@ -1,5 +1,7 @@
 // Types
-import type { StyleProp, StylePropWithScale } from '../types/css'
+import type { Property } from 'csstype'
+import type { StyleProp } from '../types/css'
+import type { ThemeValue } from '../types/theme'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -60,18 +62,18 @@ const config: StyleFunctionConfig = {
 }
 
 interface TypographyProps {
-  fontFamily?: StylePropWithScale<'fontFamily', 'fonts'>
-  fontSize?: StylePropWithScale<'fontSize', 'fontSizes'>
-  fontStyle?: StyleProp<'fontStyle'>
-  fontWeight?: StylePropWithScale<'fontWeight', 'fontWeights'>
-  letterSpacing?: StylePropWithScale<'letterSpacing', 'letterSpacings'>
-  lineHeight?: StylePropWithScale<'lineHeight', 'lineHeights'>
-  textAlign?: StyleProp<'textAlign'>
-  textDecoration?: StyleProp<'textDecoration'>
-  textOverflow?: StyleProp<'textOverflow'>
-  textTransform?: StyleProp<'textTransform'>
-  whiteSpace?: StyleProp<'whiteSpace'>
-  wordBreak?: StyleProp<'wordBreak'>
+  fontFamily?: StyleProp<Property.FontFamily | ThemeValue<'fonts'>>
+  fontSize?: StyleProp<Property.FontSize | ThemeValue<'fontSizes'> | number>
+  fontStyle?: StyleProp<Property.FontStyle>
+  fontWeight?: StyleProp<Property.FontWeight | ThemeValue<'fontWeights'> | number>
+  letterSpacing?: StyleProp<Property.LetterSpacing | ThemeValue<'letterSpacings'> | number>
+  lineHeight?: StyleProp<Property.LineHeight | ThemeValue<'lineHeights'> | number>
+  textAlign?: StyleProp<Property.TextAlign>
+  textDecoration?: StyleProp<Property.TextDecoration>
+  textOverflow?: StyleProp<Property.TextOverflow>
+  textTransform?: StyleProp<Property.TextTransform>
+  whiteSpace?: StyleProp<Property.WhiteSpace>
+  wordBreak?: StyleProp<Property.WordBreak>
 }
 
 const typography = createStyleFunction<TypographyProps>(config)

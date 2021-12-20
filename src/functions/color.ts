@@ -1,5 +1,7 @@
 // Types
-import type { StyleProp, StylePropWithScale } from '../types/css'
+import type { Property } from 'csstype'
+import type { StyleProp } from '../types/css'
+import type { ThemeValue } from '../types/theme'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -31,9 +33,9 @@ const config: StyleFunctionConfig = {
 }
 
 interface ColorBaseProps {
-  color?: StylePropWithScale<'color', 'colors'>
-  backgroundColor?: StylePropWithScale<'color', 'colors'>
-  opacity?: StyleProp<'opacity'>
+  color?: StyleProp<Property.Color | ThemeValue<'colors'>>
+  backgroundColor?: StyleProp<Property.BackgroundColor | ThemeValue<'colors'>>
+  opacity?: StyleProp<Property.Opacity>
 }
 
 interface ColorShorthandProps {

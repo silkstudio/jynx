@@ -1,4 +1,5 @@
 // Types
+import type { Property } from 'csstype'
 import type { StyleProp } from '../types/css'
 import type { StyleFunctionConfig } from '../types/functions'
 
@@ -35,11 +36,11 @@ const config: StyleFunctionConfig = {
 }
 
 interface TransitionProps {
-  transition?: StyleProp<'transition'>
-  transitionProperty?: StyleProp<'transitionProperty'>
-  transitionDuration?: StyleProp<'transitionDuration'>
-  transitionTimingFunction?: StyleProp<'transitionTimingFunction'>
-  transitionDelay?: StyleProp<'transitionDelay'>
+  transition?: StyleProp<Property.Transition>
+  transitionProperty?: StyleProp<Property.TransitionProperty>
+  transitionDuration?: StyleProp<Property.TransitionDuration>
+  transitionTimingFunction?: StyleProp<Property.TransitionTimingFunction>
+  transitionDelay?: StyleProp<Property.TransitionDelay>
 }
 
 const transition = createStyleFunction<TransitionProps>(config)

@@ -1,5 +1,7 @@
 // Types
-import type { StyleProp, StylePropWithScale } from '../types/css'
+import type { Property } from 'csstype'
+import type { StyleProp } from '../types/css'
+import type { ThemeValue } from '../types/theme'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -43,12 +45,12 @@ const config: StyleFunctionConfig = {
 }
 
 interface PositionBaseProps {
-  position?: StyleProp<'position'>
-  top?: StylePropWithScale<'top', 'spaces'>
-  right?: StylePropWithScale<'right', 'spaces'>
-  bottom?: StylePropWithScale<'bottom', 'spaces'>
-  left?: StylePropWithScale<'left', 'spaces'>
-  zIndex?: StyleProp<'zIndex'>
+  position?: StyleProp<Property.Position>
+  top?: StyleProp<Property.Top<ThemeValue<'spaces'> | number>>
+  right?: StyleProp<Property.Right<ThemeValue<'spaces'> | number>>
+  bottom?: StyleProp<Property.Bottom<ThemeValue<'spaces'> | number>>
+  left?: StyleProp<Property.Left<ThemeValue<'spaces'> | number>>
+  zIndex?: StyleProp<Property.ZIndex | ThemeValue<'zIndices'> | number>
 }
 
 interface PositionShorthandProps {

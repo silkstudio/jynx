@@ -1,4 +1,5 @@
 // Types
+import type { Property } from 'csstype'
 import type { StyleProp } from '../types/css'
 import type { StyleFunctionConfig } from '../types/functions'
 
@@ -47,15 +48,15 @@ const config: StyleFunctionConfig = {
 }
 
 interface AnimationProps {
-  animation?: StyleProp<'animation'>
-  animationName?: StyleProp<'animationName'>
-  animationDuration?: StyleProp<'animationDuration'>
-  animationTimingFunction?: StyleProp<'animationTimingFunction'>
-  animationDelay?: StyleProp<'animationDelay'>
-  animationIterationCount?: StyleProp<'animationIterationCount'>
-  animationDirection?: StyleProp<'animationDirection'>
-  animationFillMode?: StyleProp<'animationFillMode'>
-  animationPlayState?: StyleProp<'animationPlayState'>
+  animation?: StyleProp<Property.Animation>
+  animationName?: StyleProp<Property.AnimationName>
+  animationDuration?: StyleProp<Property.AnimationDuration<string | 0 | number>>
+  animationTimingFunction?: StyleProp<Property.AnimationTimingFunction>
+  animationDelay?: StyleProp<Property.AnimationDelay<string | 0 | number>>
+  animationIterationCount?: StyleProp<Property.AnimationIterationCount>
+  animationDirection?: StyleProp<Property.AnimationDirection>
+  animationFillMode?: StyleProp<Property.AnimationFillMode>
+  animationPlayState?: StyleProp<Property.AnimationPlayState>
 }
 
 const animation = createStyleFunction<AnimationProps>(config)

@@ -1,5 +1,7 @@
 // Types
-import type { StyleProp, StylePropWithScale } from '../types/css'
+import type { Property } from 'csstype'
+import type { StyleProp } from '../types/css'
+import type { ThemeValue } from '../types/theme'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -54,17 +56,17 @@ const config: StyleFunctionConfig = {
 }
 
 interface BackgroundBaseProps {
-  backgroundAttachment?: StyleProp<'backgroundAttachment'>
-  backgroundBlendMode?: StyleProp<'backgroundBlendMode'>
-  backgroundClip?: StyleProp<'backgroundClip'>
-  backgroundColor?: StylePropWithScale<'backgroundColor', 'colors'>
-  backgroundImage?: StyleProp<'backgroundImage'>
-  backgroundOrigin?: StyleProp<'backgroundOrigin'>
-  backgroundPosition?: StyleProp<'backgroundPosition'>
-  backgroundPositionX?: StyleProp<'backgroundPositionX'>
-  backgroundPositionY?: StyleProp<'backgroundPositionY'>
-  backgroundRepeat?: StyleProp<'backgroundRepeat'>
-  backgroundSize?: StyleProp<'backgroundSize'>
+  backgroundAttachment?: StyleProp<Property.BackgroundAttachment>
+  backgroundBlendMode?: StyleProp<Property.BackgroundBlendMode>
+  backgroundClip?: StyleProp<Property.BackgroundClip>
+  backgroundColor?: StyleProp<Property.BackgroundColor | ThemeValue<'colors'>>
+  backgroundImage?: StyleProp<Property.BackgroundImage>
+  backgroundOrigin?: StyleProp<Property.BackgroundOrigin>
+  backgroundPosition?: StyleProp<Property.BackgroundPosition>
+  backgroundPositionX?: StyleProp<Property.BackgroundPositionX>
+  backgroundPositionY?: StyleProp<Property.BackgroundPositionY>
+  backgroundRepeat?: StyleProp<Property.BackgroundRepeat>
+  backgroundSize?: StyleProp<Property.BackgroundSize>
 }
 
 interface BackgroundShorthandProps {

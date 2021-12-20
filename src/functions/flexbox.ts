@@ -1,5 +1,7 @@
 // Types
-import type { StylePropWithScale, StyleProp } from '../types/css'
+import type { Property } from 'csstype'
+import type { StyleProp } from '../types/css'
+import type { ThemeValue } from '../types/theme'
 import type { StyleFunction, StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -57,18 +59,18 @@ const config: StyleFunctionConfig = {
 }
 
 interface FlexboxProps {
-  flexDirection?: StyleProp<'flexDirection'>
-  flexFlow?: StyleProp<'flexFlow'>
-  flexWrap?: StyleProp<'flexWrap'>
-  alignItems?: StyleProp<'alignItems'>
-  alignContent?: StyleProp<'alignContent'>
-  alignSelf?: StyleProp<'alignSelf'>
-  justifyContent?: StyleProp<'justifyContent'>
-  gap?: StylePropWithScale<'gap', 'spaces'>
-  flexGrow?: StyleProp<'flexGrow'>
-  flexShrink?: StyleProp<'flexShrink'>
-  flexBasis?: StyleProp<'flexBasis'>
-  order?: StyleProp<'order'>
+  flexDirection?: StyleProp<Property.FlexDirection>
+  flexFlow?: StyleProp<Property.FlexFlow>
+  flexWrap?: StyleProp<Property.FlexWrap>
+  alignItems?: StyleProp<Property.AlignItems>
+  alignContent?: StyleProp<Property.AlignContent>
+  alignSelf?: StyleProp<Property.AlignSelf>
+  justifyContent?: StyleProp<Property.JustifyContent>
+  gap?: StyleProp<Property.Gap<ThemeValue<'spaces'> | number>>
+  flexGrow?: StyleProp<Property.FlexGrow>
+  flexShrink?: StyleProp<Property.FlexShrink>
+  flexBasis?: StyleProp<Property.FlexBasis>
+  order?: StyleProp<Property.Order>
 }
 
 const flexbox: StyleFunction<FlexboxProps> = ({ theme, ...styles }) => {

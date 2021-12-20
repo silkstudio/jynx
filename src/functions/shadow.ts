@@ -1,5 +1,7 @@
 // Types
-import type { StylePropWithScale } from '../types/css'
+import type { Property } from 'csstype'
+import type { StyleProp } from '../types/css'
+import type { ThemeValue } from '../types/theme'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -28,8 +30,8 @@ const config: StyleFunctionConfig = {
 }
 
 interface ShadowProps {
-  boxShadow?: StylePropWithScale<'boxShadow', 'shadows'>
-  textShadow?: StylePropWithScale<'textShadow', 'shadows'>
+  boxShadow?: StyleProp<Property.BoxShadow | ThemeValue<'shadows'>>
+  textShadow?: StyleProp<Property.TextShadow | ThemeValue<'shadows'>>
 }
 
 const shadow = createStyleFunction<ShadowProps>(config)

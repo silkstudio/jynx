@@ -1,7 +1,7 @@
 // Types
-import type { CSSProperties, StyleProp, StylePropWithScale } from '../types/css'
+import type { Property } from 'csstype'
+import type { StyleProp } from '../types/css'
 import type { ThemeValue } from '../types/theme'
-import type { ResponsiveStyle } from '../types/responsive'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -76,29 +76,26 @@ const config: StyleFunctionConfig = {
   }
 }
 
-type GridChildType<T extends keyof CSSProperties> =
-  | CSSProperties[T]
-  | ThemeValue<'spaces'>
-  | [CSSProperties[T] | ThemeValue<'spaces'>, CSSProperties[T] | ThemeValue<'spaces'>]
+type GridChild<T> = T | [T, T]
 
 interface GridProps {
-  gridTemplateColumns?: StyleProp<'gridTemplateColumns'>
-  gridTemplateRows?: StyleProp<'gridTemplateRows'>
-  gridTemplateAreas?: StyleProp<'gridTemplateAreas'>
-  columnGap?: StylePropWithScale<'columnGap', 'sizes'>
-  rowGap?: StylePropWithScale<'rowGap', 'sizes'>
-  gap?: StylePropWithScale<'gap', 'sizes'>
-  gridJustifyItems?: StyleProp<'justifyItems'>
-  gridAlignItems?: StyleProp<'alignItems'>
-  gridJustifyContent?: StyleProp<'justifyContent'>
-  gridAlignContent?: StyleProp<'alignContent'>
-  gridAutoColumns?: StyleProp<'gridAutoColumns'>
-  gridAutoRows?: StyleProp<'gridAutoRows'>
-  gridAutoFlow?: StyleProp<'gridAutoFlow'>
+  gridTemplateColumns?: StyleProp<Property.GridTemplateColumns>
+  gridTemplateRows?: StyleProp<Property.GridTemplateRows>
+  gridTemplateAreas?: StyleProp<Property.GridTemplateAreas>
+  columnGap?: StyleProp<Property.ColumnGap<ThemeValue<'spaces'> | number>>
+  rowGap?: StyleProp<Property.RowGap<ThemeValue<'spaces'> | number>>
+  gap?: StyleProp<Property.Gap<ThemeValue<'spaces'> | number>>
+  gridJustifyItems?: StyleProp<Property.JustifyItems>
+  gridAlignItems?: StyleProp<Property.AlignItems>
+  gridJustifyContent?: StyleProp<Property.JustifyContent>
+  gridAlignContent?: StyleProp<Property.AlignContent>
+  gridAutoColumns?: StyleProp<Property.GridAutoColumns>
+  gridAutoRows?: StyleProp<Property.GridAutoRows>
+  gridAutoFlow?: StyleProp<Property.GridAutoFlow>
   // Child Props
-  gridColumn?: GridChildType<'gridColumn'> | ResponsiveStyle<GridChildType<'gridColumn'>>
-  gridRow?: GridChildType<'gridRow'> | ResponsiveStyle<GridChildType<'gridRow'>>
-  gridArea?: GridChildType<'gridArea'> | ResponsiveStyle<GridChildType<'gridArea'>>
+  gridColumn?: StyleProp<GridChild<Property.GridColumn>>
+  gridRow?: StyleProp<GridChild<Property.GridRow>>
+  gridArea?: StyleProp<GridChild<Property.GridArea>>
 }
 
 const grid = createStyleFunction<GridProps>(config)
