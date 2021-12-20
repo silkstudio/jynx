@@ -25,7 +25,7 @@ describe('createStyleFunction', () => {
   type Props = ColorProps & ThemeProps<typeof theme>
   const theme = {
     breakpoints: defaultBreakpoints,
-    spaces: [4, 8, 16, 32, 48],
+    space: [4, 8, 16, 32, 48],
     colors: {
       primary: 'rebeccapurple',
       secondary: 'maroon'

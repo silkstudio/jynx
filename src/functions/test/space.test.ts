@@ -133,7 +133,7 @@ describe('When passing multiple responsive styles', () => {
 describe('When passing styles containing theme values', () => {
   const theme = {
     breakpoints: defaultBreakpoints,
-    spaces: [2, 4, 8, 16, 24, 32]
+    space: [2, 4, 8, 16, 24, 32]
   }
 
   const styles: SpaceProps & ThemeProps<typeof theme> = {
@@ -163,7 +163,7 @@ describe('When passing styles containing theme values', () => {
 describe('When passing styles containing 0 index theme values', () => {
   const theme = {
     breakpoints: defaultBreakpoints,
-    spaces: [2, 4, 8, 16, 24, 32]
+    space: [2, 4, 8, 16, 24, 32]
   }
 
   const styles: SpaceProps & ThemeProps<typeof theme> = {

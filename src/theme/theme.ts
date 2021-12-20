@@ -6,7 +6,7 @@ export const systemTheme = {
     xl: 1366,
     xxl: 1600
   },
-  spaces: [0, 4, 8, 16, 32, 64, 128, 256],
+  space: [0, 4, 8, 16, 32, 64, 128, 256],
   fontSizes: [12, 14, 16, 24, 32, 48, 64, 96, 128],
   colors: {
     red: '#F2335D',

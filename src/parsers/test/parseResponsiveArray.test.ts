@@ -137,7 +137,7 @@ describe('When an object-based theme scale is passed', () => {
 describe('When an array-based theme scale is passed', () => {
   it('should return a sorted style object, referencing correlating theme values if they exist', () => {
     // CAVEAT: Array values can be selected by passing numbers here but they must be strings, e.g. '1' not 1
-    expect(parseResponsiveArray('padding', ['1', '2', '3'], systemTheme, 'spaces')).toEqual({
+    expect(parseResponsiveArray('padding', ['1', '2', '3'], systemTheme, 'space')).toEqual({
       padding: '4px',
       '@media screen and (min-width: 640px)': {
         padding: '8px'
@@ -149,7 +149,7 @@ describe('When an array-based theme scale is passed', () => {
   })
 
   it('should return a sorted style object, referencing correlating theme values if they exist, with styles defined for the appropriate breakpoints', () => {
-    expect(parseResponsiveArray('padding', ['1', '2', null, '3'], systemTheme, 'spaces')).toEqual({
+    expect(parseResponsiveArray('padding', ['1', '2', null, '3'], systemTheme, 'space')).toEqual({
       padding: '4px',
       '@media screen and (min-width: 640px)': {
         padding: '8px'
@@ -161,7 +161,7 @@ describe('When an array-based theme scale is passed', () => {
   })
 
   it('should return a sorted style object, using the originally passed style if the value does not exist in the theme, with styles defined for the appropriate breakpoints', () => {
-    expect(parseResponsiveArray('padding', ['48', '5', null, '6'], systemTheme, 'spaces')).toEqual({
+    expect(parseResponsiveArray('padding', ['48', '5', null, '6'], systemTheme, 'space')).toEqual({
       padding: '48px',
       '@media screen and (min-width: 640px)': {
         padding: '64px'
@@ -192,12 +192,12 @@ describe('When using alternative breakpoints from a user-defined theme', () => {
 
   it('should return an object', () => {
     // @ts-expect-error
-    expect(typeof parseResponsiveArray('padding', ['48', '64', '128'], customTheme, 'spaces')).toBe('object')
+    expect(typeof parseResponsiveArray('padding', ['48', '64', '128'], customTheme, 'space')).toBe('object')
   })
 
   it('should return a sorted style object, using the new breakpoints', () => {
     // @ts-expect-error
-    expect(parseResponsiveArray('padding', ['48', '64', '128'], customTheme, 'spaces')).toEqual({
+    expect(parseResponsiveArray('padding', ['48', '64', '128'], customTheme, 'space')).toEqual({
       padding: '48px',
       '@media screen and (min-width: 540px)': {
         padding: '64px'
@@ -210,7 +210,7 @@ describe('When using alternative breakpoints from a user-defined theme', () => {
 
   it('should still be able to skip breakpoint values that are not defined in the ResponsiveObject', () => {
     // @ts-expect-error
-    expect(parseResponsiveArray('padding', ['48', '64', null, '128'], customTheme, 'spaces')).toEqual({
+    expect(parseResponsiveArray('padding', ['48', '64', null, '128'], customTheme, 'space')).toEqual({
       padding: '48px',
       '@media screen and (min-width: 540px)': {
         padding: '64px'
@@ -250,7 +250,7 @@ describe('When using alternative breakpoints from a user-defined theme', () => {
   it('should still be able to access arrray-based theme scales', () => {
     // CAVEAT: Array values can be selected by passing numbers here but they must be strings, e.g. '1' not 1
     // @ts-expect-error
-    expect(parseResponsiveArray('padding', ['1', '2', '3'], customTheme, 'spaces')).toEqual({
+    expect(parseResponsiveArray('padding', ['1', '2', '3'], customTheme, 'space')).toEqual({
       padding: '4px',
       '@media screen and (min-width: 540px)': {
         padding: '8px'
@@ -263,7 +263,7 @@ describe('When using alternative breakpoints from a user-defined theme', () => {
 
   it('should still be able return the originally passed style if it does not exist within the theme, when accessing array-based theme scales', () => {
     // @ts-expect-error
-    expect(parseResponsiveArray('padding', ['48', '5', null, '6'], customTheme, 'spaces')).toEqual({
+    expect(parseResponsiveArray('padding', ['48', '5', null, '6'], customTheme, 'space')).toEqual({
       padding: '48px',
       '@media screen and (min-width: 540px)': {
         padding: '64px'

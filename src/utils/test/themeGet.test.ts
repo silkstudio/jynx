@@ -16,7 +16,7 @@ const testTheme = {
     blue: '#12A5EC',
     purple: '#7753F8'
   },
-  spaces: [0, 4, 8, 16, 32, 64, 128, 256]
+  space: [0, 4, 8, 16, 32, 64, 128, 256]
 }
 
 /*
@@ -38,9 +38,9 @@ describe('When passed a single-level key', () => {
   })
 
   it("should return a theme scale as an array if it's corresponding theme property is defined as an array", () => {
-    const foo = themeGet('spaces')({ theme })
+    const foo = themeGet('space')({ theme })
     expect(Array.isArray(foo)).toBe(true)
-    expect(foo).toEqual(testTheme.spaces)
+    expect(foo).toEqual(testTheme.space)
   })
 
   it('should return null if accessing a value that doesnt exist', () => {
@@ -69,7 +69,7 @@ describe('When passed a dotted key', () => {
   })
 
   it('should be able to access a array-based, numeric theme property', () => {
-    const foo = themeGet('spaces.2')({ theme })
+    const foo = themeGet('space.2')({ theme })
 
     expect(typeof foo).toBe('number')
     expect(foo).toBe(8)
@@ -105,8 +105,8 @@ describe('When passing a fallback value', () => {
   it("should return a given numeric fallback value when accessing a array-based property that doesn't exist", () => {
     expect(typeof themeGet('fontWeights.nope', 400)({ theme })).toBe('number')
 
-    expect(typeof themeGet('spaces.100', 24)({ theme })).toBe('number')
-    expect(themeGet('spaces.100', 24)({ theme })).toBe(24)
+    expect(typeof themeGet('space.100', 24)({ theme })).toBe('number')
+    expect(themeGet('space.100', 24)({ theme })).toBe(24)
   })
 
   it("should return a given array-typed fallback value when accessing a array-typed scale that doesn't exist", () => {

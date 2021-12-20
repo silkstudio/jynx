@@ -24,19 +24,19 @@ const config: StyleFunctionConfig = {
   },
   top: {
     property: 'top',
-    scale: 'spaces'
+    scale: 'space'
   },
   right: {
     property: 'right',
-    scale: 'spaces'
+    scale: 'space'
   },
   bottom: {
     property: 'bottom',
-    scale: 'spaces'
+    scale: 'space'
   },
   left: {
     property: 'left',
-    scale: 'spaces'
+    scale: 'space'
   },
   zIndex: {
     property: 'zIndex',
@@ -46,10 +46,10 @@ const config: StyleFunctionConfig = {
 
 interface PositionBaseProps {
   position?: StyleProp<Property.Position>
-  top?: StyleProp<Property.Top<ThemeValue<'spaces'> | number>>
-  right?: StyleProp<Property.Right<ThemeValue<'spaces'> | number>>
-  bottom?: StyleProp<Property.Bottom<ThemeValue<'spaces'> | number>>
-  left?: StyleProp<Property.Left<ThemeValue<'spaces'> | number>>
+  top?: StyleProp<Property.Top<ThemeValue<'space'> | number>>
+  right?: StyleProp<Property.Right<ThemeValue<'space'> | number>>
+  bottom?: StyleProp<Property.Bottom<ThemeValue<'space'> | number>>
+  left?: StyleProp<Property.Left<ThemeValue<'space'> | number>>
   zIndex?: StyleProp<Property.ZIndex | ThemeValue<'zIndices'> | number>
 }
 

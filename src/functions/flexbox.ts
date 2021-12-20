@@ -42,7 +42,7 @@ const config: StyleFunctionConfig = {
   },
   gap: {
     property: 'gap',
-    scale: 'spaces'
+    scale: 'space'
   },
   flexGrow: {
     property: 'flexGrow'
@@ -66,7 +66,7 @@ interface FlexboxProps {
   alignContent?: StyleProp<Property.AlignContent>
   alignSelf?: StyleProp<Property.AlignSelf>
   justifyContent?: StyleProp<Property.JustifyContent>
-  gap?: StyleProp<Property.Gap<ThemeValue<'spaces'> | number>>
+  gap?: StyleProp<Property.Gap<ThemeValue<'space'> | number>>
   flexGrow?: StyleProp<Property.FlexGrow>
   flexShrink?: StyleProp<Property.FlexShrink>
   flexBasis?: StyleProp<Property.FlexBasis>

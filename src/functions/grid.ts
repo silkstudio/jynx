@@ -31,15 +31,15 @@ const config: StyleFunctionConfig = {
   },
   columnGap: {
     property: 'columnGap',
-    scale: 'spaces'
+    scale: 'space'
   },
   rowGap: {
     property: 'rowGap',
-    scale: 'spaces'
+    scale: 'space'
   },
   gap: {
     property: 'gap',
-    scale: 'spaces'
+    scale: 'space'
   },
   gridJustifyItems: {
     property: 'justifyItems'
@@ -82,9 +82,9 @@ interface GridProps {
   gridTemplateColumns?: StyleProp<Property.GridTemplateColumns>
   gridTemplateRows?: StyleProp<Property.GridTemplateRows>
   gridTemplateAreas?: StyleProp<Property.GridTemplateAreas>
-  columnGap?: StyleProp<Property.ColumnGap<ThemeValue<'spaces'> | number>>
-  rowGap?: StyleProp<Property.RowGap<ThemeValue<'spaces'> | number>>
-  gap?: StyleProp<Property.Gap<ThemeValue<'spaces'> | number>>
+  columnGap?: StyleProp<Property.ColumnGap<ThemeValue<'space'> | number>>
+  rowGap?: StyleProp<Property.RowGap<ThemeValue<'space'> | number>>
+  gap?: StyleProp<Property.Gap<ThemeValue<'space'> | number>>
   gridJustifyItems?: StyleProp<Property.JustifyItems>
   gridAlignItems?: StyleProp<Property.AlignItems>
   gridJustifyContent?: StyleProp<Property.JustifyContent>

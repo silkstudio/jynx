@@ -169,7 +169,7 @@ describe('When an object-based theme scale is passed', () => {
 describe('When an array-based theme scale is passed', () => {
   it('should return a sorted style object, referencing correlating theme values if they exist', () => {
     // CAVEAT: Array values can be selected by passing numbers here but they must be strings, e.g. '1' not 1
-    expect(parseResponsiveObject('padding', { _: '1', sm: '2', md: '3' }, systemTheme, 'spaces')).toEqual({
+    expect(parseResponsiveObject('padding', { _: '1', sm: '2', md: '3' }, systemTheme, 'space')).toEqual({
       padding: '4px',
       '@media screen and (min-width: 640px)': {
         padding: '8px'
@@ -181,7 +181,7 @@ describe('When an array-based theme scale is passed', () => {
   })
 
   it('should return a sorted style object, referencing correlating theme values if they exist, with styles defined for the appropriate breakpoints', () => {
-    expect(parseResponsiveObject('padding', { _: '1', sm: '2', lg: '3' }, systemTheme, 'spaces')).toEqual({
+    expect(parseResponsiveObject('padding', { _: '1', sm: '2', lg: '3' }, systemTheme, 'space')).toEqual({
       padding: '4px',
       '@media screen and (min-width: 640px)': {
         padding: '8px'
@@ -193,7 +193,7 @@ describe('When an array-based theme scale is passed', () => {
   })
 
   it('should return a sorted style object, using the originally passed style if the value does not exist in the theme, with styles defined for the appropriate breakpoints', () => {
-    expect(parseResponsiveObject('padding', { _: '48', sm: '5', lg: '6' }, systemTheme, 'spaces')).toEqual({
+    expect(parseResponsiveObject('padding', { _: '48', sm: '5', lg: '6' }, systemTheme, 'space')).toEqual({
       padding: '48px',
       '@media screen and (min-width: 640px)': {
         padding: '64px'
@@ -224,12 +224,12 @@ describe('When using alternative breakpoints from a user-defined theme', () => {
 
   it('should return an object', () => {
     // @ts-ignore
-    expect(typeof parseResponsiveObject('padding', { _: '48', mobile: '64', tablet: '128' }, customTheme, 'spaces')).toBe('object')
+    expect(typeof parseResponsiveObject('padding', { _: '48', mobile: '64', tablet: '128' }, customTheme, 'space')).toBe('object')
   })
 
   it('should return a sorted style object, using the new breakpoints', () => {
     // @ts-ignore
-    expect(parseResponsiveObject('padding', { _: '48', mobile: '64', tablet: '128' }, customTheme, 'spaces')).toEqual({
+    expect(parseResponsiveObject('padding', { _: '48', mobile: '64', tablet: '128' }, customTheme, 'space')).toEqual({
       padding: '48px',
       '@media screen and (min-width: 540px)': {
         padding: '64px'
@@ -242,7 +242,7 @@ describe('When using alternative breakpoints from a user-defined theme', () => {
 
   it('should still be able to skip breakpoint values that are not defined in the ResponsiveObject', () => {
     // @ts-ignore
-    expect(parseResponsiveObject('padding', { _: '48', mobile: '64', desktop: '128' }, customTheme, 'spaces')).toEqual({
+    expect(parseResponsiveObject('padding', { _: '48', mobile: '64', desktop: '128' }, customTheme, 'space')).toEqual({
       padding: '48px',
       '@media screen and (min-width: 540px)': {
         padding: '64px'
@@ -255,7 +255,7 @@ describe('When using alternative breakpoints from a user-defined theme', () => {
 
   it("should still be able to sort a style object that's not referenced in size order", () => {
     // @ts-ignore
-    expect(parseResponsiveObject('padding', { mobile: '64', _: '48', desktop: '128' }, customTheme, 'spaces')).toEqual({
+    expect(parseResponsiveObject('padding', { mobile: '64', _: '48', desktop: '128' }, customTheme, 'space')).toEqual({
       padding: '48px',
       '@media screen and (min-width: 540px)': {
         padding: '64px'
@@ -295,7 +295,7 @@ describe('When using alternative breakpoints from a user-defined theme', () => {
   it('should still be able to access arrray-based theme scales', () => {
     // CAVEAT: Array values can be selected by passing numbers here but they must be strings, e.g. '1' not 1
     // @ts-ignore
-    expect(parseResponsiveObject('padding', { _: '1', mobile: '2', tablet: '3' }, customTheme, 'spaces')).toEqual({
+    expect(parseResponsiveObject('padding', { _: '1', mobile: '2', tablet: '3' }, customTheme, 'space')).toEqual({
       padding: '4px',
       '@media screen and (min-width: 540px)': {
         padding: '8px'
@@ -308,7 +308,7 @@ describe('When using alternative breakpoints from a user-defined theme', () => {
 
   it('should still be able return the originally passed style if it does not exist within the theme, when accessing array-based theme scales', () => {
     // @ts-ignore
-    expect(parseResponsiveObject('padding', { _: '48', mobile: '5', desktop: '6' }, customTheme, 'spaces')).toEqual({
+    expect(parseResponsiveObject('padding', { _: '48', mobile: '5', desktop: '6' }, customTheme, 'space')).toEqual({
       padding: '48px',
       '@media screen and (min-width: 540px)': {
         padding: '64px'

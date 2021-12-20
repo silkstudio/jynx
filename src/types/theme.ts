@@ -27,7 +27,7 @@ import type { DeepLeaves } from './utils'
  */
 export interface BaseTheme {
   breakpoints?: ObjectOrArray<number | string>
-  spaces?: ObjectOrArray<CSS.Property.Margin<string | number>>
+  space?: ObjectOrArray<CSS.Property.Margin<string | number>>
   fontSizes?: ObjectOrArray<CSS.Property.FontSize<number>>
   colors?: ObjectOrArray<CSS.Property.Color>
   fonts?: ObjectOrArray<CSS.Property.FontFamily>
@@ -126,14 +126,14 @@ export type Breakpoint = ThemeValue<'breakpoints'>
  * @since 1.0.0
  * @nestable false
  */
-export type Spaces = DefaultTheme['spaces']
+export type Spaces = DefaultTheme['space']
 
 /**
  * Space
  *
  * @since 1.0.0
  */
-export type Space = ThemeValue<'spaces'>
+export type Space = ThemeValue<'space'>
 
 /**
  * Fonts

@@ -22,29 +22,29 @@ import { lengthTransformer } from '../transformers/layout'
 const config: StyleFunctionConfig = {
   width: {
     property: 'width',
-    scale: 'spaces',
+    scale: 'space',
     transformer: lengthTransformer
   },
   height: {
     property: 'height',
-    scale: 'spaces',
+    scale: 'space',
     transformer: lengthTransformer
   },
   minWidth: {
     property: 'minWidth',
-    scale: 'spaces'
+    scale: 'space'
   },
   minHeight: {
     property: 'minHeight',
-    scale: 'spaces'
+    scale: 'space'
   },
   maxWidth: {
     property: 'maxWidth',
-    scale: 'spaces'
+    scale: 'space'
   },
   maxHeight: {
     property: 'maxHeight',
-    scale: 'spaces'
+    scale: 'space'
   },
   display: {
     property: 'display'
@@ -70,12 +70,12 @@ const config: StyleFunctionConfig = {
 }
 
 interface LayoutBaseProps {
-  width?: StyleProp<Property.Width<ThemeValue<'spaces'> | number>>
-  height?: StyleProp<Property.Height<ThemeValue<'spaces'> | number>>
-  minWidth?: StyleProp<Property.MinWidth<ThemeValue<'spaces'> | number>>
-  minHeight?: StyleProp<Property.MinHeight<ThemeValue<'spaces'> | number>>
-  maxWidth?: StyleProp<Property.MaxWidth<ThemeValue<'spaces'> | number>>
-  maxHeight?: StyleProp<Property.MaxHeight<ThemeValue<'spaces'> | number>>
+  width?: StyleProp<Property.Width<ThemeValue<'space'> | number>>
+  height?: StyleProp<Property.Height<ThemeValue<'space'> | number>>
+  minWidth?: StyleProp<Property.MinWidth<ThemeValue<'space'> | number>>
+  minHeight?: StyleProp<Property.MinHeight<ThemeValue<'space'> | number>>
+  maxWidth?: StyleProp<Property.MaxWidth<ThemeValue<'space'> | number>>
+  maxHeight?: StyleProp<Property.MaxHeight<ThemeValue<'space'> | number>>
   display?: StyleProp<Property.Display>
   transform?: StyleProp<Property.Transform>
   transformOrigin?: StyleProp<Property.TransformOrigin>
