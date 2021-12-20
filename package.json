@@ -12,6 +12,7 @@
   "scripts": {
     "build": "rollup -c",
     "build:dev": "if [ -e \"dist\" ];then rm -rf \"dist\"; fi && rollup -c",
+    "watch": "rollup -c -w",
     "format": "prettier --write \"src/**/*.+(ts|tsx|js|jsx|md)\"",
     "lint": "eslint src --fix",
     "test": "jest",
