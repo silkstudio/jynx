@@ -4,6 +4,8 @@ import {
   background,
   border,
   color,
+  extendedFlexbox,
+  extendedGrid,
   flexbox,
   grid,
   layout,
@@ -23,6 +25,8 @@ import type {
   ColorBaseProps,
   ColorShorthandProps,
   ColorProps,
+  ExtendedFlexboxProps,
+  ExtendedGridProps,
   FlexboxProps,
   GridProps,
   LayoutProps,
@@ -64,7 +68,22 @@ import { createStyleFunction, compose } from './constructors'
 */
 
 // StyleFunctions
-export { animation, background, border, color, flexbox, grid, layout, position, shadow, space, transition, typography }
+export {
+  animation,
+  background,
+  border,
+  color,
+  extendedFlexbox,
+  extendedGrid,
+  flexbox,
+  grid,
+  layout,
+  position,
+  shadow,
+  space,
+  transition,
+  typography
+}
 
 export type {
   AnimationProps,
@@ -75,6 +94,8 @@ export type {
   ColorBaseProps,
   ColorShorthandProps,
   ColorProps,
+  ExtendedFlexboxProps,
+  ExtendedGridProps,
   FlexboxProps,
   GridProps,
   LayoutProps,
