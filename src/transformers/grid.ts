@@ -3,6 +3,9 @@
 // Types
 import type { CSSProperties } from '../types/css'
 
+// Utils
+import { replaceAll } from '../utils'
+
 export const spanOperator = '|'
 
 /*
@@ -30,7 +33,7 @@ const gridSpanTransformer = (
   }
 
   const flattened = Array.isArray(value) ? value.join(' / ') : value
-  const parsed = typeof flattened === 'string' ? flattened.replaceAll(spanOperator, 'span ') : flattened
+  const parsed = typeof flattened === 'string' ? replaceAll(flattened, spanOperator, 'span ') : flattened
 
   return parsed
 }
