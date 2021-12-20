@@ -51,6 +51,6 @@ config.column = config.gridColumn
 config.row = config.gridRow
 config.area = config.gridAarea
 
-const grid = createStyleFunction<ExtendedGridProps>(config)
+const extendedGrid = createStyleFunction<ExtendedGridProps>(config)
 
-export { grid, config as extendedGridConfig, ExtendedGridProps }
+export { extendedGrid, config as extendedGridConfig, ExtendedGridProps }
