@@ -1,7 +1,6 @@
 // Types
 
-import type { CSSProperties } from '../types/css'
-import type { ResponsiveStyle } from '../types/responsive'
+import type { StyleProp, StylePropWithScale } from '../types/css'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -64,19 +63,19 @@ const config: StyleFunctionConfig = {
 }
 
 interface LayoutBaseProps {
-  width?: CSSProperties['width'] | ResponsiveStyle<CSSProperties['width']>
-  height?: CSSProperties['height'] | ResponsiveStyle<CSSProperties['height']>
-  minWidth?: CSSProperties['minWidth'] | ResponsiveStyle<CSSProperties['minWidth']>
-  minHeight?: CSSProperties['minHeight'] | ResponsiveStyle<CSSProperties['minHeight']>
-  maxWidth?: CSSProperties['maxWidth'] | ResponsiveStyle<CSSProperties['maxWidth']>
-  maxHeight?: CSSProperties['maxHeight'] | ResponsiveStyle<CSSProperties['maxHeight']>
-  display?: CSSProperties['display'] | ResponsiveStyle<CSSProperties['display']>
-  transform?: CSSProperties['transform'] | ResponsiveStyle<CSSProperties['transform']>
-  transformOrigin?: CSSProperties['transformOrigin'] | ResponsiveStyle<CSSProperties['transformOrigin']>
-  overflow?: CSSProperties['overflow'] | ResponsiveStyle<CSSProperties['overflow']>
-  overflowX?: CSSProperties['overflowX'] | ResponsiveStyle<CSSProperties['overflowX']>
-  overflowY?: CSSProperties['overflowY'] | ResponsiveStyle<CSSProperties['overflowY']>
-  verticalAlign?: CSSProperties['verticalAlign'] | ResponsiveStyle<CSSProperties['verticalAlign']>
+  width?: StylePropWithScale<'width', 'spaces'>
+  height?: StylePropWithScale<'height', 'spaces'>
+  minWidth?: StylePropWithScale<'minWidth', 'spaces'>
+  minHeight?: StylePropWithScale<'minHeight', 'spaces'>
+  maxWidth?: StylePropWithScale<'maxWidth', 'spaces'>
+  maxHeight?: StylePropWithScale<'maxHeight', 'spaces'>
+  display?: StyleProp<'display'>
+  transform?: StyleProp<'transform'>
+  transformOrigin?: StyleProp<'transformOrigin'>
+  overflow?: StyleProp<'overflow'>
+  overflowX?: StyleProp<'overflowX'>
+  overflowY?: StyleProp<'overflowY'>
+  verticalAlign?: StyleProp<'verticalAlign'>
 }
 
 interface LayoutShorthandProps {

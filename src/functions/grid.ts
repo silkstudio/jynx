@@ -1,5 +1,6 @@
 // Types
-import type { CSSProperties } from '../types/css'
+import type { CSSProperties, StyleProp, StylePropWithScale } from '../types/css'
+import type { ThemeValue } from '../types/theme'
 import type { ResponsiveStyle } from '../types/responsive'
 import type { StyleFunctionConfig } from '../types/functions'
 
@@ -75,26 +76,29 @@ const config: StyleFunctionConfig = {
   }
 }
 
-type GridChildProp<T extends keyof CSSProperties> = CSSProperties[T] | [CSSProperties[T], CSSProperties[T]]
+type GridChildType<T extends keyof CSSProperties> =
+  | CSSProperties[T]
+  | ThemeValue<'spaces'>
+  | [CSSProperties[T] | ThemeValue<'spaces'>, CSSProperties[T] | ThemeValue<'spaces'>]
 
 interface GridProps {
-  gridTemplateColumns?: CSSProperties['gridTemplateColumns'] | ResponsiveStyle<CSSProperties['gridTemplateColumns']>
-  gridTemplateRows?: CSSProperties['gridTemplateRows'] | ResponsiveStyle<CSSProperties['gridTemplateRows']>
-  gridTemplateAreas?: CSSProperties['gridTemplateAreas'] | ResponsiveStyle<CSSProperties['gridTemplateAreas']>
-  columnGap?: CSSProperties['columnGap'] | ResponsiveStyle<CSSProperties['columnGap']>
-  rowGap?: CSSProperties['rowGap'] | ResponsiveStyle<CSSProperties['rowGap']>
-  gap?: CSSProperties['gap'] | ResponsiveStyle<CSSProperties['gap']>
-  gridJustifyItems?: CSSProperties['justifyItems'] | ResponsiveStyle<CSSProperties['justifyItems']>
-  gridAlignItems?: CSSProperties['alignItems'] | ResponsiveStyle<CSSProperties['alignItems']>
-  gridJustifyContent?: CSSProperties['justifyContent'] | ResponsiveStyle<CSSProperties['justifyContent']>
-  gridAlignContent?: CSSProperties['alignContent'] | ResponsiveStyle<CSSProperties['alignContent']>
-  gridAutoColumns?: CSSProperties['gridAutoColumns'] | ResponsiveStyle<CSSProperties['gridAutoColumns']>
-  gridAutoRows?: CSSProperties['gridAutoRows'] | ResponsiveStyle<CSSProperties['gridAutoRows']>
-  gridAutoFlow?: CSSProperties['gridAutoFlow'] | ResponsiveStyle<CSSProperties['gridAutoFlow']>
+  gridTemplateColumns?: StyleProp<'gridTemplateColumns'>
+  gridTemplateRows?: StyleProp<'gridTemplateRows'>
+  gridTemplateAreas?: StyleProp<'gridTemplateAreas'>
+  columnGap?: StylePropWithScale<'columnGap', 'sizes'>
+  rowGap?: StylePropWithScale<'rowGap', 'sizes'>
+  gap?: StylePropWithScale<'gap', 'sizes'>
+  gridJustifyItems?: StyleProp<'justifyItems'>
+  gridAlignItems?: StyleProp<'alignItems'>
+  gridJustifyContent?: StyleProp<'justifyContent'>
+  gridAlignContent?: StyleProp<'alignContent'>
+  gridAutoColumns?: StyleProp<'gridAutoColumns'>
+  gridAutoRows?: StyleProp<'gridAutoRows'>
+  gridAutoFlow?: StyleProp<'gridAutoFlow'>
   // Child Props
-  gridColumn?: GridChildProp<'gridColumn'> | ResponsiveStyle<GridChildProp<'gridColumn'>>
-  gridRow?: GridChildProp<'gridRow'> | ResponsiveStyle<GridChildProp<'gridRow'>>
-  gridArea?: GridChildProp<'gridArea'> | ResponsiveStyle<GridChildProp<'gridArea'>>
+  gridColumn?: GridChildType<'gridColumn'> | ResponsiveStyle<GridChildType<'gridColumn'>>
+  gridRow?: GridChildType<'gridRow'> | ResponsiveStyle<GridChildType<'gridRow'>>
+  gridArea?: GridChildType<'gridArea'> | ResponsiveStyle<GridChildType<'gridArea'>>
 }
 
 const grid = createStyleFunction<GridProps>(config)

@@ -1,6 +1,5 @@
 // Types
-import type { CSSProperties } from '../types/css'
-import type { ResponsiveStyle } from '../types/responsive'
+import type { StylePropWithScale, StyleProp } from '../types/css'
 import type { StyleFunction, StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -58,18 +57,18 @@ const config: StyleFunctionConfig = {
 }
 
 interface FlexboxProps {
-  flexDirection?: CSSProperties['flexDirection'] | ResponsiveStyle<CSSProperties['flexDirection']>
-  flexFlow?: CSSProperties['flexFlow'] | ResponsiveStyle<CSSProperties['flexFlow']>
-  flexWrap?: CSSProperties['flexWrap'] | ResponsiveStyle<CSSProperties['flexWrap']>
-  alignItems?: CSSProperties['alignItems'] | ResponsiveStyle<CSSProperties['alignItems']>
-  alignContent?: CSSProperties['alignContent'] | ResponsiveStyle<CSSProperties['alignContent']>
-  alignSelf?: CSSProperties['alignSelf'] | ResponsiveStyle<CSSProperties['alignSelf']>
-  justifyContent?: CSSProperties['justifyContent'] | ResponsiveStyle<CSSProperties['justifyContent']>
-  gap?: CSSProperties['gap'] | ResponsiveStyle<CSSProperties['gap']>
-  flexGrow?: CSSProperties['flexGrow'] | ResponsiveStyle<CSSProperties['flexGrow']>
-  flexShrink?: CSSProperties['flexShrink'] | ResponsiveStyle<CSSProperties['flexShrink']>
-  flexBasis?: CSSProperties['flexBasis'] | ResponsiveStyle<CSSProperties['flexBasis']>
-  order?: CSSProperties['order'] | ResponsiveStyle<CSSProperties['order']>
+  flexDirection?: StyleProp<'flexDirection'>
+  flexFlow?: StyleProp<'flexFlow'>
+  flexWrap?: StyleProp<'flexWrap'>
+  alignItems?: StyleProp<'alignItems'>
+  alignContent?: StyleProp<'alignContent'>
+  alignSelf?: StyleProp<'alignSelf'>
+  justifyContent?: StyleProp<'justifyContent'>
+  gap?: StylePropWithScale<'gap', 'spaces'>
+  flexGrow?: StyleProp<'flexGrow'>
+  flexShrink?: StyleProp<'flexShrink'>
+  flexBasis?: StyleProp<'flexBasis'>
+  order?: StyleProp<'order'>
 }
 
 const flexbox: StyleFunction<FlexboxProps> = ({ theme, ...styles }) => {

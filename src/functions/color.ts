@@ -1,6 +1,5 @@
 // Types
-import type { CSSProperties } from '../types/css'
-import type { ResponsiveStyle } from '../types/responsive'
+import type { StyleProp, StylePropWithScale } from '../types/css'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -32,9 +31,9 @@ const config: StyleFunctionConfig = {
 }
 
 interface ColorBaseProps {
-  color?: CSSProperties['color'] | ResponsiveStyle<CSSProperties['color']>
-  backgroundColor?: CSSProperties['backgroundColor'] | ResponsiveStyle<CSSProperties['backgroundColor']>
-  opacity?: CSSProperties['opacity'] | ResponsiveStyle<CSSProperties['opacity']>
+  color?: StylePropWithScale<'color', 'colors'>
+  backgroundColor?: StylePropWithScale<'color', 'colors'>
+  opacity?: StyleProp<'opacity'>
 }
 
 interface ColorShorthandProps {

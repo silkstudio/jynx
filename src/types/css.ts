@@ -77,7 +77,7 @@ export interface CSSObject extends CSSPropertiesWithMultiValues, CSSPseudos, CSS
  *
  * @since 1.0.0
  */
-export type CSSStyle<T extends keyof CSSProperties> = CSSProperties[T] | ResponsiveStyle<CSSProperties[T]>
+export type StyleProp<T extends keyof CSSProperties> = CSSProperties[T] | ResponsiveStyle<CSSProperties[T]>
 
 /**
  *
@@ -86,7 +86,7 @@ export type CSSStyle<T extends keyof CSSProperties> = CSSProperties[T] | Respons
  *
  * @since 1.0.0
  */
-export type CSSStyleWithTheme<K extends keyof CSSProperties, T extends keyof DefaultTheme> =
+export type StylePropWithScale<K extends keyof CSSProperties, T extends keyof DefaultTheme> =
   | CSSProperties[K]
   | ThemeValue<T>
   | ResponsiveStyle<CSSProperties[K] | ThemeValue<T>>

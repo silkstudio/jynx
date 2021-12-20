@@ -1,6 +1,5 @@
 // Types
-import type { CSSProperties } from '../types/css'
-import type { ResponsiveStyle } from '../types/responsive'
+import type { StyleProp, StylePropWithScale } from '../types/css'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -55,17 +54,17 @@ const config: StyleFunctionConfig = {
 }
 
 interface BackgroundBaseProps {
-  backgroundAttachment?: CSSProperties['backgroundAttachment'] | ResponsiveStyle<CSSProperties['backgroundAttachment']>
-  backgroundBlendMode?: CSSProperties['backgroundBlendMode'] | ResponsiveStyle<CSSProperties['backgroundBlendMode']>
-  backgroundClip?: CSSProperties['backgroundClip'] | ResponsiveStyle<CSSProperties['backgroundClip']>
-  backgroundColor?: CSSProperties['backgroundColor'] | ResponsiveStyle<CSSProperties['backgroundColor']>
-  backgroundImage?: CSSProperties['backgroundImage'] | ResponsiveStyle<CSSProperties['backgroundImage']>
-  backgroundOrigin?: CSSProperties['backgroundOrigin'] | ResponsiveStyle<CSSProperties['backgroundOrigin']>
-  backgroundPosition?: CSSProperties['backgroundPosition'] | ResponsiveStyle<CSSProperties['backgroundPosition']>
-  backgroundPositionX?: CSSProperties['backgroundPositionX'] | ResponsiveStyle<CSSProperties['backgroundPositionX']>
-  backgroundPositionY?: CSSProperties['backgroundPositionY'] | ResponsiveStyle<CSSProperties['backgroundPositionY']>
-  backgroundRepeat?: CSSProperties['backgroundRepeat'] | ResponsiveStyle<CSSProperties['backgroundRepeat']>
-  backgroundSize?: CSSProperties['backgroundSize'] | ResponsiveStyle<CSSProperties['backgroundSize']>
+  backgroundAttachment?: StyleProp<'backgroundAttachment'>
+  backgroundBlendMode?: StyleProp<'backgroundBlendMode'>
+  backgroundClip?: StyleProp<'backgroundClip'>
+  backgroundColor?: StylePropWithScale<'backgroundColor', 'colors'>
+  backgroundImage?: StyleProp<'backgroundImage'>
+  backgroundOrigin?: StyleProp<'backgroundOrigin'>
+  backgroundPosition?: StyleProp<'backgroundPosition'>
+  backgroundPositionX?: StyleProp<'backgroundPositionX'>
+  backgroundPositionY?: StyleProp<'backgroundPositionY'>
+  backgroundRepeat?: StyleProp<'backgroundRepeat'>
+  backgroundSize?: StyleProp<'backgroundSize'>
 }
 
 interface BackgroundShorthandProps {

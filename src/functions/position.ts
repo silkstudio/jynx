@@ -1,6 +1,5 @@
 // Types
-import type { CSSProperties } from '../types/css'
-import type { ResponsiveStyle } from '../types/responsive'
+import type { StyleProp, StylePropWithScale } from '../types/css'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -44,12 +43,12 @@ const config: StyleFunctionConfig = {
 }
 
 interface PositionBaseProps {
-  position?: CSSProperties['position'] | ResponsiveStyle<CSSProperties['position']>
-  top?: CSSProperties['top'] | ResponsiveStyle<CSSProperties['top']>
-  right?: CSSProperties['right'] | ResponsiveStyle<CSSProperties['right']>
-  bottom?: CSSProperties['bottom'] | ResponsiveStyle<CSSProperties['bottom']>
-  left?: CSSProperties['left'] | ResponsiveStyle<CSSProperties['left']>
-  zIndex?: CSSProperties['zIndex'] | ResponsiveStyle<CSSProperties['zIndex']>
+  position?: StyleProp<'position'>
+  top?: StylePropWithScale<'top', 'spaces'>
+  right?: StylePropWithScale<'right', 'spaces'>
+  bottom?: StylePropWithScale<'bottom', 'spaces'>
+  left?: StylePropWithScale<'left', 'spaces'>
+  zIndex?: StyleProp<'zIndex'>
 }
 
 interface PositionShorthandProps {

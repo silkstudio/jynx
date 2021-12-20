@@ -1,6 +1,5 @@
 // Types
-import type { CSSProperties } from '../types/css'
-import type { ResponsiveStyle } from '../types/responsive'
+import type { StyleProp } from '../types/css'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -48,15 +47,15 @@ const config: StyleFunctionConfig = {
 }
 
 interface AnimationProps {
-  animation?: CSSProperties['animation'] | ResponsiveStyle<CSSProperties['animation']>
-  animationName?: CSSProperties['animationName'] | ResponsiveStyle<CSSProperties['animationName']>
-  animationDuration?: CSSProperties['animationDuration'] | ResponsiveStyle<CSSProperties['animationDuration']>
-  animationTimingFunction?: CSSProperties['animationTimingFunction'] | ResponsiveStyle<CSSProperties['animationTimingFunction']>
-  animationDelay?: CSSProperties['animationDelay'] | ResponsiveStyle<CSSProperties['animationDelay']>
-  animationIterationCount?: CSSProperties['animationIterationCount'] | ResponsiveStyle<CSSProperties['animationIterationCount']>
-  animationDirection?: CSSProperties['animationDirection'] | ResponsiveStyle<CSSProperties['animationDirection']>
-  animationFillMode?: CSSProperties['animationFillMode'] | ResponsiveStyle<CSSProperties['animationFillMode']>
-  animationPlayState?: CSSProperties['animationPlayState'] | ResponsiveStyle<CSSProperties['animationPlayState']>
+  animation?: StyleProp<'animation'>
+  animationName?: StyleProp<'animationName'>
+  animationDuration?: StyleProp<'animationDuration'>
+  animationTimingFunction?: StyleProp<'animationTimingFunction'>
+  animationDelay?: StyleProp<'animationDelay'>
+  animationIterationCount?: StyleProp<'animationIterationCount'>
+  animationDirection?: StyleProp<'animationDirection'>
+  animationFillMode?: StyleProp<'animationFillMode'>
+  animationPlayState?: StyleProp<'animationPlayState'>
 }
 
 const animation = createStyleFunction<AnimationProps>(config)
