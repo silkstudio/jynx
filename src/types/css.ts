@@ -1,5 +1,9 @@
 import * as CSS from 'csstype'
 
+// Types
+import type { ResponsiveStyle } from './responsive'
+import type { DefaultTheme, ThemeValue } from './theme'
+
 /*
 
 
@@ -66,3 +70,23 @@ export interface CSSOthersObjectForCSSObject {
  */
 
 export interface CSSObject extends CSSPropertiesWithMultiValues, CSSPseudos, CSSOthersObjectForCSSObject {}
+
+/**
+ *
+ * @template T extends keyof {@link CSSProperties}
+ *
+ * @since 1.0.0
+ */
+export type CSSStyle<T extends keyof CSSProperties> = CSSProperties[T] | ResponsiveStyle<CSSProperties[T]>
+
+/**
+ *
+ * @template K extends keyof {@link CSSProperties}
+ * @template T extends keyof {@link DefaultTheme}
+ *
+ * @since 1.0.0
+ */
+export type CSSStyleWithTheme<K extends keyof CSSProperties, T extends keyof DefaultTheme> =
+  | CSSProperties[K]
+  | ThemeValue<T>
+  | ResponsiveStyle<CSSProperties[K] | ThemeValue<T>>
