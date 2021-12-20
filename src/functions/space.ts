@@ -1,10 +1,11 @@
 // Types
 import type { CSSProperties } from '../types/css'
 import type { ResponsiveStyle } from '../types/responsive'
-import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
+import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyles } from '../constructors'
+import { createStyleFunction } from '../constructors'
+import { spaceMultiTransformer, spaceTransformer } from '../transformers/space'
 
 /*
 
@@ -17,158 +18,203 @@ import { createStyles } from '../constructors'
 
 */
 
-const marginConfig: StyledFunctionConfig = {
+// Margin
+const marginConfig: StyleFunctionConfig = {
   margin: {
     property: 'margin',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceMultiTransformer
   },
   marginTop: {
     property: 'marginTop',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   marginRight: {
     property: 'marginRight',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   marginBottom: {
     property: 'marginBottom',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   marginLeft: {
     property: 'marginLeft',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   marginBlock: {
     property: 'marginBlock',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceMultiTransformer
   },
   marginBlockStart: {
     property: 'marginBlockStart',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   marginBlockEnd: {
     property: 'marginBlockEnd',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   marginInline: {
     property: 'marginInline',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceMultiTransformer
   },
   marginInlineStart: {
     property: 'marginInlineStart',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   marginInlineEnd: {
     property: 'marginInlineEnd',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   }
 }
 
-interface MarginProps {
-  margin?: CSSProperties['margin'] | ResponsiveStyle<CSSProperties['margin']>
-  m?: CSSProperties['margin'] | ResponsiveStyle<CSSProperties['margin']>
+interface MarginBaseProps {
+  margin?: CSSProperties['margin'] | CSSProperties['margin'][] | ResponsiveStyle<CSSProperties['margin'] | CSSProperties['margin'][]>
   marginTop?: CSSProperties['marginTop'] | ResponsiveStyle<CSSProperties['marginTop']>
-  mt?: CSSProperties['marginTop'] | ResponsiveStyle<CSSProperties['marginTop']>
   marginRight?: CSSProperties['marginRight'] | ResponsiveStyle<CSSProperties['marginRight']>
-  mr?: CSSProperties['marginRight'] | ResponsiveStyle<CSSProperties['marginRight']>
   marginBottom?: CSSProperties['marginBottom'] | ResponsiveStyle<CSSProperties['marginBottom']>
-  mb?: CSSProperties['marginBottom'] | ResponsiveStyle<CSSProperties['marginBottom']>
   marginLeft?: CSSProperties['marginLeft'] | ResponsiveStyle<CSSProperties['marginLeft']>
-  ml?: CSSProperties['marginLeft'] | ResponsiveStyle<CSSProperties['marginLeft']>
-  marginBlock?: CSSProperties['marginBlock'] | ResponsiveStyle<CSSProperties['marginBlock']>
-  mbl?: CSSProperties['marginBlock'] | ResponsiveStyle<CSSProperties['marginBlock']>
+  marginBlock?:
+    | CSSProperties['marginBlock']
+    | CSSProperties['marginBlock'][]
+    | ResponsiveStyle<CSSProperties['marginBlock'] | CSSProperties['marginBlock'][]>
   marginBlockStart?: CSSProperties['marginBlockStart'] | ResponsiveStyle<CSSProperties['marginBlockStart']>
-  mbs?: CSSProperties['marginBlockStart'] | ResponsiveStyle<CSSProperties['marginBlockStart']>
   marginBlockEnd?: CSSProperties['marginBlockEnd'] | ResponsiveStyle<CSSProperties['marginBlockEnd']>
-  mbe?: CSSProperties['marginBlockEnd'] | ResponsiveStyle<CSSProperties['marginBlockEnd']>
-  marginInline?: CSSProperties['marginInline'] | ResponsiveStyle<CSSProperties['marginInline']>
-  mi?: CSSProperties['marginInline'] | ResponsiveStyle<CSSProperties['marginInline']>
+  marginInline?:
+    | CSSProperties['marginInline']
+    | CSSProperties['marginInline'][]
+    | ResponsiveStyle<CSSProperties['marginInline'] | CSSProperties['marginInline'][]>
   marginInlineStart?: CSSProperties['marginInlineStart'] | ResponsiveStyle<CSSProperties['marginInlineStart']>
-  mis?: CSSProperties['marginInlineStart'] | ResponsiveStyle<CSSProperties['marginInlineStart']>
   marginInlineEnd?: CSSProperties['marginInlineEnd'] | ResponsiveStyle<CSSProperties['marginInlineEnd']>
-  mie?: CSSProperties['marginInlineEnd'] | ResponsiveStyle<CSSProperties['marginInlineEnd']>
 }
 
-const paddingConfig: StyledFunctionConfig = {
+interface MarginShorthandProps {
+  m?: MarginBaseProps['margin']
+  mt?: MarginBaseProps['marginTop']
+  mr?: MarginBaseProps['marginRight']
+  mb?: MarginBaseProps['marginBottom']
+  ml?: MarginBaseProps['marginLeft']
+  mbl?: MarginBaseProps['marginBlock']
+  mbs?: MarginBaseProps['marginBlockStart']
+  mbe?: MarginBaseProps['marginBlockEnd']
+  mi?: MarginBaseProps['marginInline']
+  mis?: MarginBaseProps['marginInlineStart']
+  mie?: MarginBaseProps['marginInlineEnd']
+}
+
+interface MarginProps extends MarginBaseProps, MarginShorthandProps {}
+
+// Padding
+const paddingConfig: StyleFunctionConfig = {
   padding: {
     property: 'padding',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceMultiTransformer
   },
   paddingTop: {
     property: 'paddingTop',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   paddingRight: {
     property: 'paddingRight',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   paddingBottom: {
     property: 'paddingBottom',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   paddingLeft: {
     property: 'paddingLeft',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   paddingBlock: {
     property: 'paddingBlock',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceMultiTransformer
   },
   paddingBlockStart: {
     property: 'paddingBlockStart',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   paddingBlockEnd: {
     property: 'paddingBlockEnd',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   paddingInline: {
     property: 'paddingInline',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceMultiTransformer
   },
   paddingInlineStart: {
     property: 'paddingInlineStart',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   },
   paddingInlineEnd: {
     property: 'paddingInlineEnd',
-    scale: 'spaces'
+    scale: 'spaces',
+    transformer: spaceTransformer
   }
 }
 
-interface PaddingProps {
-  padding?: CSSProperties['padding'] | ResponsiveStyle<CSSProperties['padding']>
-  p?: CSSProperties['padding'] | ResponsiveStyle<CSSProperties['padding']>
+interface PaddingBaseProps {
+  padding?:
+    | CSSProperties['padding']
+    | CSSProperties['padding'][]
+    | ResponsiveStyle<CSSProperties['padding'] | CSSProperties['padding'][]>
   paddingTop?: CSSProperties['paddingTop'] | ResponsiveStyle<CSSProperties['paddingTop']>
-  pt?: CSSProperties['paddingTop'] | ResponsiveStyle<CSSProperties['paddingTop']>
   paddingRight?: CSSProperties['paddingRight'] | ResponsiveStyle<CSSProperties['paddingRight']>
-  pr?: CSSProperties['paddingRight'] | ResponsiveStyle<CSSProperties['paddingRight']>
   paddingBottom?: CSSProperties['paddingBottom'] | ResponsiveStyle<CSSProperties['paddingBottom']>
-  pb?: CSSProperties['paddingBottom'] | ResponsiveStyle<CSSProperties['paddingBottom']>
   paddingLeft?: CSSProperties['paddingLeft'] | ResponsiveStyle<CSSProperties['paddingLeft']>
-  pl?: CSSProperties['paddingLeft'] | ResponsiveStyle<CSSProperties['paddingLeft']>
-  paddingBlock?: CSSProperties['paddingBlock'] | ResponsiveStyle<CSSProperties['paddingBlock']>
-  pbl?: CSSProperties['paddingBlock'] | ResponsiveStyle<CSSProperties['paddingBlock']>
+  paddingBlock?:
+    | CSSProperties['paddingBlock']
+    | CSSProperties['paddingBlock'][]
+    | ResponsiveStyle<CSSProperties['paddingBlock'] | CSSProperties['paddingBlock'][]>
   paddingBlockStart?: CSSProperties['paddingBlockStart'] | ResponsiveStyle<CSSProperties['paddingBlockStart']>
-  pbls?: CSSProperties['paddingBlockStart'] | ResponsiveStyle<CSSProperties['paddingBlockStart']>
   paddingBlockEnd?: CSSProperties['paddingBlockEnd'] | ResponsiveStyle<CSSProperties['paddingBlockEnd']>
-  pble?: CSSProperties['paddingBlockEnd'] | ResponsiveStyle<CSSProperties['paddingBlockEnd']>
-  paddingInline?: CSSProperties['paddingInline'] | ResponsiveStyle<CSSProperties['paddingInline']>
-  pi?: CSSProperties['paddingInline'] | ResponsiveStyle<CSSProperties['paddingInline']>
+  paddingInline?:
+    | CSSProperties['paddingInline']
+    | CSSProperties['paddingInline'][]
+    | ResponsiveStyle<CSSProperties['paddingInline'] | CSSProperties['paddingInline'][]>
   paddingInlineStart?: CSSProperties['paddingInlineStart'] | ResponsiveStyle<CSSProperties['paddingInlineStart']>
-  pis?: CSSProperties['paddingInlineStart'] | ResponsiveStyle<CSSProperties['paddingInlineStart']>
   paddingInlineEnd?: CSSProperties['paddingInlineEnd'] | ResponsiveStyle<CSSProperties['paddingInlineEnd']>
-  pie?: CSSProperties['paddingInlineEnd'] | ResponsiveStyle<CSSProperties['paddingInlineEnd']>
 }
 
-const config: StyledFunctionConfig = { ...marginConfig, ...paddingConfig }
+interface PaddingShorthandProps {
+  p?: PaddingBaseProps['padding']
+  pt?: PaddingBaseProps['paddingTop']
+  pr?: PaddingBaseProps['paddingRight']
+  pb?: PaddingBaseProps['paddingBottom']
+  pl?: PaddingBaseProps['paddingLeft']
+  pbl?: PaddingBaseProps['paddingBlock']
+  pbls?: PaddingBaseProps['paddingBlockStart']
+  pble?: PaddingBaseProps['paddingBlockEnd']
+  pi?: PaddingBaseProps['paddingInline']
+  pis?: PaddingBaseProps['paddingInlineStart']
+  pie?: PaddingBaseProps['paddingInlineEnd']
+}
 
-// eslint-disable-next-line
+interface PaddingProps extends PaddingBaseProps, PaddingShorthandProps {}
+
+// Space
+const config: StyleFunctionConfig = { ...marginConfig, ...paddingConfig }
+
 interface SpaceProps extends MarginProps, PaddingProps {}
-
-const space: StyledFunction<SpaceProps> = ({ theme, ...styles }) => {
-  return createStyles<SpaceProps>(styles, theme, config)
-}
 
 config.m = marginConfig.margin
 config.mt = marginConfig.marginTop
@@ -194,4 +240,18 @@ config.pi = paddingConfig.paddingInline
 config.pis = paddingConfig.paddingInlineStart
 config.pie = paddingConfig.paddingInlineEnd
 
-export { space, SpaceProps }
+const space = createStyleFunction<SpaceProps>(config)
+
+export {
+  space,
+  marginConfig,
+  paddingConfig,
+  config as spaceConfig,
+  SpaceProps,
+  MarginProps,
+  MarginBaseProps,
+  MarginShorthandProps,
+  PaddingProps,
+  PaddingBaseProps,
+  PaddingShorthandProps
+}

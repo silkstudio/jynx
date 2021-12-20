@@ -1,4 +1,5 @@
-import { addUnitIfNeeded } from '../index'
+import type { CSSProperties } from '../../types/css'
+import { addUnitIfNeeded } from '../addUnitIfNeeded'
 
 const unitsBasedProp = 'width'
 const unitlessProp = 'gridRow'
@@ -16,47 +17,52 @@ const unitlessProp = 'gridRow'
 
 describe('When a css-property is not defined', () => {
   // prettier-ignore
-  const noProp = (undefined as unknown) as string
+  const maybeUndefined = (undefined as unknown) as keyof CSSProperties
 
   it('should return the originally passed value if a non-numeric string is passed', () => {
-    expect(typeof addUnitIfNeeded(noProp, 'red')).toBe('string')
-    expect(addUnitIfNeeded(noProp, 'red')).toBe('red')
+    expect(typeof addUnitIfNeeded(maybeUndefined, 'red')).toBe('string')
+    expect(addUnitIfNeeded(maybeUndefined, 'red')).toBe('red')
   })
 
   it('should return the originally passed value, converted to px, if a numeric string is passed', () => {
-    expect(typeof addUnitIfNeeded(noProp, '5')).toBe('string')
-    expect(addUnitIfNeeded(noProp, '5')).toBe('5px')
+    expect(typeof addUnitIfNeeded(maybeUndefined, '5')).toBe('string')
+    expect(addUnitIfNeeded(maybeUndefined, '5')).toBe('5px')
   })
 
   it('should return the originally passed value, converted to px, if a number is passed', () => {
-    expect(typeof addUnitIfNeeded(noProp, 5)).toBe('string')
-    expect(addUnitIfNeeded(noProp, 5)).toBe('5px')
+    expect(typeof addUnitIfNeeded(maybeUndefined, 5)).toBe('string')
+    expect(addUnitIfNeeded(maybeUndefined, 5)).toBe('5px')
   })
 })
 
 describe('When the passed value is not a string or a number', () => {
+  // prettier-ignore
+  const maybeNull = (null as unknown) as keyof CSSProperties
+  const maybeTrue = true as unknown as keyof CSSProperties
+  const maybeFalse = false as unknown as keyof CSSProperties
+
   it('should return an empty string when passed a `units-based` property and a value of null', () => {
-    expect(typeof addUnitIfNeeded(unitsBasedProp, null)).toBe('string')
-    expect(addUnitIfNeeded(unitsBasedProp, null)).toBe('')
+    expect(typeof addUnitIfNeeded(unitsBasedProp, maybeNull)).toBe('string')
+    expect(addUnitIfNeeded(unitsBasedProp, maybeNull)).toBe('')
   })
 
   it('should return an empty string when passed a `unitless` property and a value of null', () => {
-    expect(typeof addUnitIfNeeded(unitlessProp, null)).toBe('string')
-    expect(addUnitIfNeeded(unitlessProp, null)).toBe('')
+    expect(typeof addUnitIfNeeded(unitlessProp, maybeNull)).toBe('string')
+    expect(addUnitIfNeeded(unitlessProp, maybeNull)).toBe('')
   })
 
   it('should return an empty string when passed a `units-based` property and a boolean value', () => {
-    expect(typeof addUnitIfNeeded(unitsBasedProp, true)).toBe('string')
-    expect(typeof addUnitIfNeeded(unitsBasedProp, false)).toBe('string')
-    expect(addUnitIfNeeded(unitsBasedProp, true)).toBe('')
-    expect(addUnitIfNeeded(unitsBasedProp, false)).toBe('')
+    expect(typeof addUnitIfNeeded(unitsBasedProp, maybeTrue)).toBe('string')
+    expect(typeof addUnitIfNeeded(unitsBasedProp, maybeFalse)).toBe('string')
+    expect(addUnitIfNeeded(unitsBasedProp, maybeTrue)).toBe('')
+    expect(addUnitIfNeeded(unitsBasedProp, maybeFalse)).toBe('')
   })
 
   it('should return an empty string when passed a `unitless` property and a boolean value', () => {
-    expect(typeof addUnitIfNeeded(unitlessProp, true)).toBe('string')
-    expect(typeof addUnitIfNeeded(unitlessProp, false)).toBe('string')
-    expect(addUnitIfNeeded(unitlessProp, true)).toBe('')
-    expect(addUnitIfNeeded(unitlessProp, false)).toBe('')
+    expect(typeof addUnitIfNeeded(unitlessProp, maybeTrue)).toBe('string')
+    expect(typeof addUnitIfNeeded(unitlessProp, maybeFalse)).toBe('string')
+    expect(addUnitIfNeeded(unitlessProp, maybeTrue)).toBe('')
+    expect(addUnitIfNeeded(unitlessProp, maybeFalse)).toBe('')
   })
 
   it('should return an empty string when passed a `units-based` property and a value of undefined', () => {

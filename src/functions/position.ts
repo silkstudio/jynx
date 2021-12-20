@@ -1,10 +1,10 @@
 // Types
 import type { CSSProperties } from '../types/css'
 import type { ResponsiveStyle } from '../types/responsive'
-import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
+import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyles } from '../constructors'
+import { createStyleFunction } from '../constructors'
 
 /*
 
@@ -17,7 +17,7 @@ import { createStyles } from '../constructors'
 
 */
 
-const config: StyledFunctionConfig = {
+const config: StyleFunctionConfig = {
   position: {
     property: 'position'
   },
@@ -43,22 +43,25 @@ const config: StyledFunctionConfig = {
   }
 }
 
-interface PositionProps {
+interface PositionBaseProps {
   position?: CSSProperties['position'] | ResponsiveStyle<CSSProperties['position']>
-  pos?: CSSProperties['position'] | ResponsiveStyle<CSSProperties['position']>
   top?: CSSProperties['top'] | ResponsiveStyle<CSSProperties['top']>
   right?: CSSProperties['right'] | ResponsiveStyle<CSSProperties['right']>
   bottom?: CSSProperties['bottom'] | ResponsiveStyle<CSSProperties['bottom']>
   left?: CSSProperties['left'] | ResponsiveStyle<CSSProperties['left']>
   zIndex?: CSSProperties['zIndex'] | ResponsiveStyle<CSSProperties['zIndex']>
-  z?: CSSProperties['zIndex'] | ResponsiveStyle<CSSProperties['zIndex']>
 }
 
-const position: StyledFunction<PositionProps> = ({ theme, ...styles }) => {
-  return createStyles<PositionProps>(styles, theme, config)
+interface PositionShorthandProps {
+  pos?: PositionBaseProps['position']
+  z?: PositionBaseProps['zIndex']
 }
+
+interface PositionProps extends PositionBaseProps, PositionShorthandProps {}
 
 config.pos = config.position
 config.z = config.zIndex
 
-export { position, PositionProps }
+const position = createStyleFunction<PositionProps>(config)
+
+export { position, config as positionConfig, PositionProps, PositionBaseProps, PositionShorthandProps }

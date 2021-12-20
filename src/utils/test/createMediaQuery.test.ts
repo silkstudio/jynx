@@ -1,4 +1,4 @@
-import { createMediaQuery } from '../index'
+import { createMediaQuery } from '../createMediaQuery'
 
 /*
 

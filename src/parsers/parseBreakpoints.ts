@@ -26,7 +26,7 @@ import { defaultBreakpoints } from '../utils'
 export const parseBreakpoints = (
   breakpoints?: ObjectOrArray<string | number>
 ): DefaultBreakpoints | Record<string, string | number> => {
-  if (!breakpoints) {
+  if (!breakpoints || (typeof breakpoints !== 'object' && !Array.isArray(breakpoints))) {
     return defaultBreakpoints
   }
 

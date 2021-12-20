@@ -4,6 +4,8 @@ import {
   background,
   border,
   color,
+  extendedFlexbox,
+  extendedGrid,
   flexbox,
   grid,
   layout,
@@ -16,12 +18,26 @@ import {
 
 import type {
   AnimationProps,
+  BackgroundBaseProps,
+  BackgroundShorthandProps,
   BackgroundProps,
   BorderProps,
+  ColorBaseProps,
+  ColorShorthandProps,
   ColorProps,
+  ExtendedFlexboxProps,
+  ExtendedGridProps,
   FlexboxProps,
   GridProps,
   LayoutProps,
+  MarginProps,
+  MarginShorthandProps,
+  MarginBaseProps,
+  PaddingBaseProps,
+  PaddingShorthandProps,
+  PaddingProps,
+  PositionBaseProps,
+  PositionShorthandProps,
   PositionProps,
   ShadowProps,
   SpaceProps,
@@ -29,10 +45,16 @@ import type {
   TypographyProps
 } from './functions'
 
+// Types
+import type { CSSObject, CSSProperties } from './types/css'
+import type { StyleFunction, StyleFunctionConfig, TransformFunction } from './types/functions'
+import type { BaseTheme, CustomTheme, DefaultTheme, ThemeProps, ThemeValue } from './types/theme'
+
 // Themes
 import { systemTheme } from './theme'
 
-import type { BaseTheme, CustomTheme, DefaultTheme } from './types/theme'
+// Utils
+import { createStyleFunction, compose } from './constructors'
 
 /*
 
@@ -46,16 +68,45 @@ import type { BaseTheme, CustomTheme, DefaultTheme } from './types/theme'
 */
 
 // StyleFunctions
-export { animation, background, border, color, flexbox, grid, layout, position, shadow, space, transition, typography }
+export {
+  animation,
+  background,
+  border,
+  color,
+  extendedFlexbox,
+  extendedGrid,
+  flexbox,
+  grid,
+  layout,
+  position,
+  shadow,
+  space,
+  transition,
+  typography
+}
 
 export type {
   AnimationProps,
+  BackgroundBaseProps,
+  BackgroundShorthandProps,
   BackgroundProps,
   BorderProps,
+  ColorBaseProps,
+  ColorShorthandProps,
   ColorProps,
+  ExtendedFlexboxProps,
+  ExtendedGridProps,
   FlexboxProps,
   GridProps,
   LayoutProps,
+  MarginProps,
+  MarginShorthandProps,
+  MarginBaseProps,
+  PaddingBaseProps,
+  PaddingShorthandProps,
+  PaddingProps,
+  PositionBaseProps,
+  PositionShorthandProps,
   PositionProps,
   ShadowProps,
   SpaceProps,
@@ -63,7 +114,22 @@ export type {
   TypographyProps
 }
 
+// Types
+export type {
+  CSSObject,
+  CSSProperties,
+  StyleFunction,
+  StyleFunctionConfig,
+  TransformFunction,
+  BaseTheme,
+  CustomTheme,
+  DefaultTheme,
+  ThemeProps,
+  ThemeValue
+}
+
 // Themes
 export { systemTheme }
 
-export type { BaseTheme, CustomTheme, DefaultTheme }
+// Utils
+export { createStyleFunction, compose }

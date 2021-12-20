@@ -1,16 +1,15 @@
 // Types
-import type { CSSProperties } from '../types/css'
+import type { CSSObject, CSSProperties } from '../types/css'
 import type { DefaultTheme } from '../types/theme'
-import type { BaseExtensibleObject } from '../types/common'
 import type { ResponsiveArray } from '../types/responsive'
+import type { TransformFunction } from '../types/functions'
 
 // Utils
 import { createMediaQuery, sort, getValue, addUnitIfNeeded } from '../utils'
 import { parseBreakpoints } from './parseBreakpoints'
 
 /**
- * Parser function that takes in either a single style or ResponsiveStyle and
- * returns a styled-copmonents-compatible {@link FlattenSimpleInterpolation}
+ * Parser function that takes in a {@link ResponsiveArray} and returns a {@link CSSObject}
  *
  * @template P extends keyof CSSProperties
  * @template C extends CSSProperties[P]
@@ -19,7 +18,6 @@ import { parseBreakpoints } from './parseBreakpoints'
  * @param {P} property
  * @param {ResponsiveArray<C>} styles
  * @param {DefaultTheme} theme
- * @param {(p: Path) => string | number | undefined} scaleGet
  *
  *
  * @since 1.0.0
@@ -37,12 +35,13 @@ import { parseBreakpoints } from './parseBreakpoints'
 
 */
 
-const parseResponsiveArray = <P extends keyof CSSProperties, T extends DefaultTheme = DefaultTheme>(
+const parseResponsiveArray = <P extends keyof CSSProperties>(
   property: P,
   styles: ResponsiveArray<CSSProperties[P]>,
-  theme: T,
-  scale?: keyof T
-): BaseExtensibleObject => {
+  theme: DefaultTheme,
+  scale?: keyof DefaultTheme,
+  transformer: TransformFunction<CSSProperties[P]> = getValue
+): CSSObject => {
   if (!property || !styles || !theme) {
     return {}
   }
@@ -50,16 +49,15 @@ const parseResponsiveArray = <P extends keyof CSSProperties, T extends DefaultTh
   const breakpoints = Object.values(parseBreakpoints(theme.breakpoints))
   const themeScale = scale && theme[scale]
   const [base, ...responsive] = styles
-  const parsed: Record<string, any> = {}
+  const parsed: CSSObject = {}
 
   responsive.forEach((value, index) => {
     if (value === null || value === undefined) return
-
     const media = createMediaQuery(`${breakpoints[index]}`)
-    parsed[media] = { [property]: addUnitIfNeeded(property, getValue(value, themeScale)) }
+    parsed[media] = { [property]: addUnitIfNeeded(property, transformer(value, themeScale)) }
   })
 
-  return { [property]: addUnitIfNeeded(property, getValue(base, themeScale)), ...sort(parsed) }
+  return { [property]: addUnitIfNeeded(property, transformer(base, themeScale)), ...sort(parsed) }
 }
 
 export { parseResponsiveArray }

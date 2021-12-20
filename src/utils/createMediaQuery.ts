@@ -1,4 +1,4 @@
-import { isNumber } from './isNumber'
+import { isNumeric } from './isNumeric'
 
 /**
  * Utility function that returns a 'min-width' media query as a string
@@ -26,6 +26,6 @@ import { isNumber } from './isNumber'
 
 */
 
-const createMediaQuery = (n: number | string): string => `@media screen and (min-width: ${isNumber(n) ? `${n}px` : n})`
+const createMediaQuery = (n: number | string): string => `@media screen and (min-width: ${isNumeric(n) ? `${n}px` : n})`
 
 export { createMediaQuery }

@@ -1,0 +1,56 @@
+// Types
+import type { StyleFunctionConfig } from '../types/functions'
+
+// Utils
+import { createStyleFunction } from '../constructors'
+import { gridConfig, GridProps } from './grid'
+
+/*
+
+
+
+
+
+
+
+
+*/
+
+const config: StyleFunctionConfig = gridConfig
+
+interface GridShorthandProps {
+  templateColumns?: GridProps['gridTemplateColumns']
+  templateRows?: GridProps['gridTemplateRows']
+  templateAreas?: GridProps['gridTemplateAreas']
+  justifyItems?: GridProps['gridJustifyItems']
+  alignItems?: GridProps['gridAlignItems']
+  justifyContent?: GridProps['gridJustifyContent']
+  alignContent?: GridProps['gridAlignContent']
+  autoColumns?: GridProps['gridAutoColumns']
+  autoRows?: GridProps['gridAutoRows']
+  autoFlow?: GridProps['gridAutoFlow']
+  // Child Props
+  column?: GridProps['gridColumn']
+  row?: GridProps['gridRow']
+  area?: GridProps['gridArea']
+}
+
+interface ExtendedGridProps extends GridProps, GridShorthandProps {}
+
+config.templateColumns = config.gridTemplateColumns
+config.templateRows = config.gridTemplateRows
+config.templateAreas = config.gridTemplateAreas
+config.justifyItems = config.gridJustifyItems
+config.alignItems = config.gridAlignItems
+config.justifyContent = config.gridJustifyContent
+config.alignContent = config.gridAlignContent
+config.autoColumns = config.gridAutoColumns
+config.autoRows = config.gridAutoRows
+config.autoFlow = config.gridAutoFlow
+config.column = config.gridColumn
+config.row = config.gridRow
+config.area = config.gridAarea
+
+const extendedGrid = createStyleFunction<ExtendedGridProps>(config)
+
+export { extendedGrid, config as extendedGridConfig, ExtendedGridProps }

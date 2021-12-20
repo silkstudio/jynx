@@ -1,4 +1,4 @@
-import { merge } from '../index'
+import { merge } from '../merge'
 
 const foo = {
   a: 'a',

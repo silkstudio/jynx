@@ -19,6 +19,12 @@ import * as CSS from 'csstype'
 export interface CSSProperties extends CSS.StandardProperties<number | string>, CSS.SvgProperties<number | string> {}
 
 /**
+ *
+ */
+// eslint-disable-next-line
+export type BaseCSSValue = string | number | (string & {}) | (number & {}) | undefined
+
+/**
  * CSSPseudos
  *
  * @since 1.0.0

@@ -1,4 +1,4 @@
-import { getValue } from '../index'
+import { getValue } from '../getValue'
 import { systemTheme as theme } from '../../theme'
 
 /*
@@ -33,6 +33,10 @@ describe('When a numeric key is passed', () => {
 
   it('should be able to retieve a numeric value from an array-based scale', () => {
     expect(getValue(2, theme.spaces)).toBe(8)
+  })
+
+  it('should be able to retieve a zero-indexed value from an array-based scale', () => {
+    expect(getValue(0, theme.spaces)).toBe(0)
   })
 })
 

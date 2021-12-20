@@ -1,10 +1,10 @@
 // Types
 import type { CSSProperties } from '../types/css'
 import type { ResponsiveStyle } from '../types/responsive'
-import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
+import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyles } from '../constructors'
+import { createStyleFunction } from '../constructors'
 
 /*
 
@@ -17,7 +17,7 @@ import { createStyles } from '../constructors'
 
 */
 
-const config: StyledFunctionConfig = {
+const config: StyleFunctionConfig = {
   transition: {
     property: 'transition'
   },
@@ -43,8 +43,6 @@ interface TransitionProps {
   transitionDelay?: CSSProperties['transitionDelay'] | ResponsiveStyle<CSSProperties['transitionDelay']>
 }
 
-const transition: StyledFunction<TransitionProps> = ({ theme, ...styles }) => {
-  return createStyles<TransitionProps>(styles, theme, config)
-}
+const transition = createStyleFunction<TransitionProps>(config)
 
-export { transition, TransitionProps }
+export { transition, config as transitionConfig, TransitionProps }

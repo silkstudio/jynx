@@ -1,10 +1,10 @@
 // Types
 import type { CSSProperties } from '../types/css'
 import type { ResponsiveStyle } from '../types/responsive'
-import type { StyledFunction, StyledFunctionConfig } from '../types/functions'
+import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyles } from '../constructors'
+import { createStyleFunction } from '../constructors'
 
 /*
 
@@ -17,7 +17,7 @@ import { createStyles } from '../constructors'
 
 */
 
-const config: StyledFunctionConfig = {
+const config: StyleFunctionConfig = {
   color: {
     property: 'color',
     scale: 'colors'
@@ -31,17 +31,20 @@ const config: StyledFunctionConfig = {
   }
 }
 
-interface ColorProps {
+interface ColorBaseProps {
   color?: CSSProperties['color'] | ResponsiveStyle<CSSProperties['color']>
   backgroundColor?: CSSProperties['backgroundColor'] | ResponsiveStyle<CSSProperties['backgroundColor']>
-  bgColor?: CSSProperties['backgroundColor'] | ResponsiveStyle<CSSProperties['backgroundColor']>
   opacity?: CSSProperties['opacity'] | ResponsiveStyle<CSSProperties['opacity']>
 }
 
-const color: StyledFunction<ColorProps> = ({ theme, ...styles }) => {
-  return createStyles<ColorProps>(styles, theme, config)
+interface ColorShorthandProps {
+  bgColor?: ColorBaseProps['backgroundColor']
 }
+
+interface ColorProps extends ColorBaseProps, ColorShorthandProps {}
 
 config.bgColor = config.backgroundColor
 
-export { color, ColorProps, config }
+const color = createStyleFunction<ColorProps>(config)
+
+export { color, config as colorConfig, ColorProps, ColorBaseProps, ColorShorthandProps }
