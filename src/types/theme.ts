@@ -102,16 +102,6 @@ export type ThemeValue<T extends keyof DefaultTheme> = DefaultTheme[T] extends s
   ? DefaultTheme[T]
   : DeepLeaves<DefaultTheme[T]>
 
-/**
- * StrictThemeScale
- *
- * @template K extends keyof T
- * @template T extends {@link BaseTheme} [=DefaultTheme]
- *
- * @since 1.0.0
- */
-export type StrictThemeScale<K extends keyof T, T extends BaseTheme = BaseTheme> = T[K]
-
 /* ------------------ */
 /*  THEME PROPERTIES  */
 /* ------------------ */

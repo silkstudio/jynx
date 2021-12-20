@@ -9,24 +9,6 @@
 
 */
 
-/*
- * Basic theme object shape
- *
- * @since 1.0.0
- */
-export type BaseExtensibleObject = {
-  [key: string]: any
-}
-
-/**
- * AnyIfEmpty
- *
- * @template T extends object
- *
- * @since 1.0.0
- */
-export type AnyIfEmpty<T extends object> = keyof T extends never ? any : T
-
 /**
  * ObjectOrArray
  *
