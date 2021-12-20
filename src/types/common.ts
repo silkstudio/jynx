@@ -55,6 +55,15 @@ export type SingleLayerObjectOrArray<T> = T[] | Record<string, T>
 export type StringOrNumber<T> = T extends string ? string : T extends number ? number : T
 
 /**
+ * OneOrMany
+ *
+ * @template T extends any
+ *
+ * @since 1.0.0
+ */
+export type OneOrMany<T> = T | T[]
+
+/**
  * Many
  *
  * @template T
