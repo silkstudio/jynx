@@ -80,17 +80,17 @@ const marginConfig: StyleFunctionConfig = {
 }
 
 interface MarginBaseProps {
-  margin?: StyleProp<OneOrMany<Property.Margin<ThemeValue<'space'> | number>>>
-  marginTop?: StyleProp<Property.MarginTop<ThemeValue<'space'> | number>>
-  marginRight?: StyleProp<Property.MarginRight<ThemeValue<'space'> | number>>
-  marginBottom?: StyleProp<Property.MarginBottom<ThemeValue<'space'> | number>>
-  marginLeft?: StyleProp<Property.MarginLeft<ThemeValue<'space'> | number>>
-  marginBlock?: StyleProp<OneOrMany<Property.MarginBlock<ThemeValue<'space'> | number>>>
-  marginBlockStart?: StyleProp<Property.MarginBlockStart<ThemeValue<'space'> | number>>
-  marginBlockEnd?: StyleProp<Property.MarginBlockEnd<ThemeValue<'space'> | number>>
-  marginInline?: StyleProp<OneOrMany<Property.MarginInline<ThemeValue<'space'> | number>>>
-  marginInlineStart?: StyleProp<Property.MarginInlineStart<ThemeValue<'space'> | number>>
-  marginInlineEnd?: StyleProp<Property.MarginInlineEnd<ThemeValue<'space'> | number>>
+  margin?: StyleProp<OneOrMany<Property.Margin<number> | ThemeValue<'space'>>>
+  marginTop?: StyleProp<Property.MarginTop<number> | ThemeValue<'space'>>
+  marginRight?: StyleProp<Property.MarginRight<number> | ThemeValue<'space'>>
+  marginBottom?: StyleProp<Property.MarginBottom<number> | ThemeValue<'space'>>
+  marginLeft?: StyleProp<Property.MarginLeft<number> | ThemeValue<'space'>>
+  marginBlock?: StyleProp<OneOrMany<Property.MarginBlock<number> | ThemeValue<'space'>>>
+  marginBlockStart?: StyleProp<Property.MarginBlockStart<number> | ThemeValue<'space'>>
+  marginBlockEnd?: StyleProp<Property.MarginBlockEnd<number> | ThemeValue<'space'>>
+  marginInline?: StyleProp<OneOrMany<Property.MarginInline<number> | ThemeValue<'space'>>>
+  marginInlineStart?: StyleProp<Property.MarginInlineStart<number> | ThemeValue<'space'>>
+  marginInlineEnd?: StyleProp<Property.MarginInlineEnd<number> | ThemeValue<'space'>>
 }
 
 interface MarginShorthandProps {
