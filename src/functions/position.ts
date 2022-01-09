@@ -46,10 +46,10 @@ const config: StyleFunctionConfig = {
 
 interface PositionBaseProps {
   position?: StyleProp<Property.Position>
-  top?: StyleProp<Property.Top<number> | ThemeValue<'space'>>
-  right?: StyleProp<Property.Right<number> | ThemeValue<'space'>>
-  bottom?: StyleProp<Property.Bottom<number> | ThemeValue<'space'>>
-  left?: StyleProp<Property.Left<number> | ThemeValue<'space'>>
+  top?: StyleProp<Property.Top<string | 0 | number> | ThemeValue<'space'>>
+  right?: StyleProp<Property.Right<string | 0 | number> | ThemeValue<'space'>>
+  bottom?: StyleProp<Property.Bottom<string | 0 | number> | ThemeValue<'space'>>
+  left?: StyleProp<Property.Left<string | 0 | number> | ThemeValue<'space'>>
   zIndex?: StyleProp<Property.ZIndex | ThemeValue<'zIndices'>>
 }
 

@@ -70,12 +70,12 @@ const config: StyleFunctionConfig = {
 }
 
 interface LayoutBaseProps {
-  width?: StyleProp<Property.Width<number> | ThemeValue<'space'>>
-  height?: StyleProp<Property.Height<number> | ThemeValue<'space'>>
-  minWidth?: StyleProp<Property.MinWidth<number> | ThemeValue<'space'>>
-  minHeight?: StyleProp<Property.MinHeight<number> | ThemeValue<'space'>>
-  maxWidth?: StyleProp<Property.MaxWidth<number> | ThemeValue<'space'>>
-  maxHeight?: StyleProp<Property.MaxHeight<number> | ThemeValue<'space'>>
+  width?: StyleProp<Property.Width<string | 0 | number> | ThemeValue<'space'>>
+  height?: StyleProp<Property.Height<string | 0 | number> | ThemeValue<'space'>>
+  minWidth?: StyleProp<Property.MinWidth<string | 0 | number> | ThemeValue<'space'>>
+  minHeight?: StyleProp<Property.MinHeight<string | 0 | number> | ThemeValue<'space'>>
+  maxWidth?: StyleProp<Property.MaxWidth<string | 0 | number> | ThemeValue<'space'>>
+  maxHeight?: StyleProp<Property.MaxHeight<string | 0 | number> | ThemeValue<'space'>>
   display?: StyleProp<Property.Display>
   transform?: StyleProp<Property.Transform>
   transformOrigin?: StyleProp<Property.TransformOrigin>

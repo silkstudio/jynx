@@ -123,28 +123,28 @@ const config: StyleFunctionConfig = {
 
 interface BorderProps {
   border?: StyleProp<Property.Border | ThemeValue<'borders'>>
-  borderWidth?: StyleProp<Property.BorderWidth<number> | ThemeValue<'borderWidths'>>
+  borderWidth?: StyleProp<Property.BorderWidth<string | 0 | number> | ThemeValue<'borderWidths'>>
   borderStyle?: StyleProp<Property.BorderStyle | ThemeValue<'borderStyles'>>
   borderColor?: StyleProp<Property.BorderColor | ThemeValue<'colors'>>
-  borderRadius?: StyleProp<Property.BorderRadius<number> | ThemeValue<'radii'>>
+  borderRadius?: StyleProp<Property.BorderRadius<string | 0 | number> | ThemeValue<'radii'>>
   borderTop?: StyleProp<Property.BorderTop | ThemeValue<'borders'>>
-  borderTopWidth?: StyleProp<Property.BorderTopWidth<number> | ThemeValue<'borderWidths'>>
+  borderTopWidth?: StyleProp<Property.BorderTopWidth<string | 0 | number> | ThemeValue<'borderWidths'>>
   borderTopStyle?: StyleProp<Property.BorderTopStyle | ThemeValue<'borderStyles'>>
   borderTopColor?: StyleProp<Property.BorderTopColor | ThemeValue<'colors'>>
-  borderTopLeftRadius?: StyleProp<Property.BorderTopLeftRadius<number> | ThemeValue<'radii'>>
-  borderTopRightRadius?: StyleProp<Property.BorderTopRightRadius<number> | ThemeValue<'radii'>>
+  borderTopLeftRadius?: StyleProp<Property.BorderTopLeftRadius<string | 0 | number> | ThemeValue<'radii'>>
+  borderTopRightRadius?: StyleProp<Property.BorderTopRightRadius<string | 0 | number> | ThemeValue<'radii'>>
   borderRight?: StyleProp<Property.BorderRight | ThemeValue<'borders'>>
-  borderRightWidth?: StyleProp<Property.BorderTopWidth<number> | ThemeValue<'borderWidths'>>
+  borderRightWidth?: StyleProp<Property.BorderTopWidth<string | 0 | number> | ThemeValue<'borderWidths'>>
   borderRightStyle?: StyleProp<Property.BorderRightStyle | ThemeValue<'borderStyles'>>
   borderRightColor?: StyleProp<Property.BorderRightColor | ThemeValue<'colors'>>
   borderBottom?: StyleProp<Property.BorderBottom | ThemeValue<'borders'>>
-  borderBottomWidth?: StyleProp<Property.BorderBottomWidth<number> | ThemeValue<'borderWidths'>>
+  borderBottomWidth?: StyleProp<Property.BorderBottomWidth<string | 0 | number> | ThemeValue<'borderWidths'>>
   borderBottomStyle?: StyleProp<Property.BorderBottomStyle | ThemeValue<'borderStyles'>>
   borderBottomColor?: StyleProp<Property.BorderBottomColor | ThemeValue<'colors'>>
-  borderBottomLeftRadius?: StyleProp<Property.BorderBottomLeftRadius<number> | ThemeValue<'radii'>>
-  borderBottomRightRadius?: StyleProp<Property.BorderBottomRightRadius<number> | ThemeValue<'radii'>>
+  borderBottomLeftRadius?: StyleProp<Property.BorderBottomLeftRadius<string | 0 | number> | ThemeValue<'radii'>>
+  borderBottomRightRadius?: StyleProp<Property.BorderBottomRightRadius<string | 0 | number> | ThemeValue<'radii'>>
   borderLeft?: StyleProp<Property.BorderLeft | ThemeValue<'borders'>>
-  borderLeftWidth?: StyleProp<Property.BorderLeftWidth<number> | ThemeValue<'borderWidths'>>
+  borderLeftWidth?: StyleProp<Property.BorderLeftWidth<string | 0 | number> | ThemeValue<'borderWidths'>>
   borderLeftStyle?: StyleProp<Property.BorderLeftStyle | ThemeValue<'borderStyles'>>
   borderLeftColor?: StyleProp<Property.BorderLeftColor | ThemeValue<'colors'>>
 }

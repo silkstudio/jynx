@@ -80,17 +80,17 @@ const marginConfig: StyleFunctionConfig = {
 }
 
 interface MarginBaseProps {
-  margin?: StyleProp<OneOrMany<Property.Margin<number> | ThemeValue<'space'>>>
-  marginTop?: StyleProp<Property.MarginTop<number> | ThemeValue<'space'>>
-  marginRight?: StyleProp<Property.MarginRight<number> | ThemeValue<'space'>>
-  marginBottom?: StyleProp<Property.MarginBottom<number> | ThemeValue<'space'>>
-  marginLeft?: StyleProp<Property.MarginLeft<number> | ThemeValue<'space'>>
-  marginBlock?: StyleProp<OneOrMany<Property.MarginBlock<number> | ThemeValue<'space'>>>
-  marginBlockStart?: StyleProp<Property.MarginBlockStart<number> | ThemeValue<'space'>>
-  marginBlockEnd?: StyleProp<Property.MarginBlockEnd<number> | ThemeValue<'space'>>
-  marginInline?: StyleProp<OneOrMany<Property.MarginInline<number> | ThemeValue<'space'>>>
-  marginInlineStart?: StyleProp<Property.MarginInlineStart<number> | ThemeValue<'space'>>
-  marginInlineEnd?: StyleProp<Property.MarginInlineEnd<number> | ThemeValue<'space'>>
+  margin?: StyleProp<OneOrMany<Property.Margin<string | 0 | number> | ThemeValue<'space'>>>
+  marginTop?: StyleProp<Property.MarginTop<string | 0 | number> | ThemeValue<'space'>>
+  marginRight?: StyleProp<Property.MarginRight<string | 0 | number> | ThemeValue<'space'>>
+  marginBottom?: StyleProp<Property.MarginBottom<string | 0 | number> | ThemeValue<'space'>>
+  marginLeft?: StyleProp<Property.MarginLeft<string | 0 | number> | ThemeValue<'space'>>
+  marginBlock?: StyleProp<OneOrMany<Property.MarginBlock<string | 0 | number> | ThemeValue<'space'>>>
+  marginBlockStart?: StyleProp<Property.MarginBlockStart<string | 0 | number> | ThemeValue<'space'>>
+  marginBlockEnd?: StyleProp<Property.MarginBlockEnd<string | 0 | number> | ThemeValue<'space'>>
+  marginInline?: StyleProp<OneOrMany<Property.MarginInline<string | 0 | number> | ThemeValue<'space'>>>
+  marginInlineStart?: StyleProp<Property.MarginInlineStart<string | 0 | number> | ThemeValue<'space'>>
+  marginInlineEnd?: StyleProp<Property.MarginInlineEnd<string | 0 | number> | ThemeValue<'space'>>
 }
 
 interface MarginShorthandProps {
