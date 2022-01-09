@@ -5,6 +5,7 @@ import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
 import { createStyleFunction } from '../constructors'
+import { timeTransformer } from '../transformers/time'
 
 /*
 
@@ -25,13 +26,15 @@ const config: StyleFunctionConfig = {
     property: 'animationName'
   },
   animationDuration: {
-    property: 'animationDuration'
+    property: 'animationDuration',
+    transformer: timeTransformer
   },
   animationTimingFunction: {
     property: 'animationTimingFunction'
   },
   animationDelay: {
-    property: 'animationDelay'
+    property: 'animationDelay',
+    transformer: timeTransformer
   },
   animationIterationCount: {
     property: 'animationIterationCount'

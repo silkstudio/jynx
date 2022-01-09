@@ -6,6 +6,7 @@ import type { ThemeValue } from '../types/theme'
 
 // Utils
 import { createStyleFunction } from '../constructors'
+import { timeTransformer } from '../transformers/time'
 
 /*
 
@@ -27,22 +28,24 @@ const config: StyleFunctionConfig = {
     property: 'transitionProperty'
   },
   transitionDuration: {
-    property: 'transitionDuration'
+    property: 'transitionDuration',
+    transformer: timeTransformer
   },
   transitionTimingFunction: {
     property: 'transitionTimingFunction'
   },
   transitionDelay: {
-    property: 'transitionDelay'
+    property: 'transitionDelay',
+    transformer: timeTransformer
   }
 }
 
 interface TransitionProps {
   transition?: StyleProp<Property.Transition | ThemeValue<'transitions'>>
   transitionProperty?: StyleProp<Property.TransitionProperty>
-  transitionDuration?: StyleProp<Property.TransitionDuration>
+  transitionDuration?: StyleProp<Property.TransitionDuration<number>>
   transitionTimingFunction?: StyleProp<Property.TransitionTimingFunction>
-  transitionDelay?: StyleProp<Property.TransitionDelay>
+  transitionDelay?: StyleProp<Property.TransitionDelay<number>>
 }
 
 const transition = createStyleFunction<TransitionProps>(config)
