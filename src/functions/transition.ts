@@ -2,6 +2,7 @@
 import type { Property } from 'csstype'
 import type { StyleProp } from '../types/css'
 import type { StyleFunctionConfig } from '../types/functions'
+import type { ThemeValue } from '../types/theme'
 
 // Utils
 import { createStyleFunction } from '../constructors'
@@ -19,7 +20,8 @@ import { createStyleFunction } from '../constructors'
 
 const config: StyleFunctionConfig = {
   transition: {
-    property: 'transition'
+    property: 'transition',
+    scale: 'transitions'
   },
   transitionProperty: {
     property: 'transitionProperty'
@@ -36,7 +38,7 @@ const config: StyleFunctionConfig = {
 }
 
 interface TransitionProps {
-  transition?: StyleProp<Property.Transition>
+  transition?: StyleProp<Property.Transition | ThemeValue<'transitions'>>
   transitionProperty?: StyleProp<Property.TransitionProperty>
   transitionDuration?: StyleProp<Property.TransitionDuration>
   transitionTimingFunction?: StyleProp<Property.TransitionTimingFunction>

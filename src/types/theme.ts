@@ -40,6 +40,7 @@ export interface BaseTheme {
   borderWidths?: ObjectOrArray<CSS.Property.BorderWidth<number>>
   radii?: ObjectOrArray<CSS.Property.BorderRadius<number>>
   shadows?: ObjectOrArray<CSS.Property.BoxShadow>
+  transitions?: ObjectOrArray<CSS.Property.Transition>
   zIndices?: ObjectOrArray<CSS.Property.ZIndex>
 }
 
