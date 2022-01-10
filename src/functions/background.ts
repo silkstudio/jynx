@@ -1,7 +1,6 @@
 // Types
 import type { Property } from 'csstype'
 import type { StyleProp } from '../types/css'
-import type { ThemeValue } from '../types/theme'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -31,10 +30,6 @@ const config: StyleFunctionConfig = {
   backgroundClip: {
     property: 'backgroundClip'
   },
-  backgroundColor: {
-    property: 'backgroundColor',
-    scale: 'colors'
-  },
   backgroundImage: {
     property: 'backgroundImage'
   },
@@ -63,7 +58,6 @@ interface BackgroundBaseProps {
   backgroundAttachment?: StyleProp<Property.BackgroundAttachment>
   backgroundBlendMode?: StyleProp<Property.BackgroundBlendMode>
   backgroundClip?: StyleProp<Property.BackgroundClip>
-  backgroundColor?: StyleProp<Property.BackgroundColor | ThemeValue<'colors'>>
   backgroundImage?: StyleProp<Property.BackgroundImage>
   backgroundOrigin?: StyleProp<Property.BackgroundOrigin>
   backgroundPosition?: StyleProp<Property.BackgroundPosition>
@@ -78,7 +72,6 @@ interface BackgroundShorthandProps {
   bgAttachment?: BackgroundBaseProps['backgroundAttachment']
   bgBlendMode?: BackgroundBaseProps['backgroundBlendMode']
   bgClip?: BackgroundBaseProps['backgroundClip']
-  bgColor?: BackgroundBaseProps['backgroundColor']
   bgImage?: BackgroundBaseProps['backgroundImage']
   bgOrigin?: BackgroundBaseProps['backgroundOrigin']
   bgPos?: BackgroundBaseProps['backgroundPosition']
@@ -94,7 +87,6 @@ config.bg = config.background
 config.bgAttachment = config.backgroundAttachment
 config.bgBlendMode = config.backgroundBlendMode
 config.bgClip = config.backgroundClip
-config.bgColor = config.backgroundColor
 config.bgImage = config.backgroundImage
 config.bgOrigin = config.backgroundOrigin
 config.bgPos = config.backgroundPosition
