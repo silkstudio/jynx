@@ -6,6 +6,7 @@ import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
 import { createStyleFunction } from '../constructors'
+import { spaceScaleTransformer } from '../transformers/space'
 
 /*
 
@@ -24,19 +25,23 @@ const config: StyleFunctionConfig = {
   },
   top: {
     property: 'top',
-    scale: 'space'
+    scale: 'space',
+    transformer: spaceScaleTransformer
   },
   right: {
     property: 'right',
-    scale: 'space'
+    scale: 'space',
+    transformer: spaceScaleTransformer
   },
   bottom: {
     property: 'bottom',
-    scale: 'space'
+    scale: 'space',
+    transformer: spaceScaleTransformer
   },
   left: {
     property: 'left',
-    scale: 'space'
+    scale: 'space',
+    transformer: spaceScaleTransformer
   },
   zIndex: {
     property: 'zIndex',
