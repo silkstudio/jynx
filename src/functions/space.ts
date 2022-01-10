@@ -7,7 +7,7 @@ import type { OneOrMany } from '../types/common'
 
 // Utils
 import { createStyleFunction } from '../constructors'
-import { spaceMultiTransformer, spaceTransformer } from '../transformers/space'
+import { spaceScaleTransformer } from '../transformers/space'
 
 /*
 
@@ -25,57 +25,57 @@ const marginConfig: StyleFunctionConfig = {
   margin: {
     property: 'margin',
     scale: 'space',
-    transformer: spaceMultiTransformer
+    transformer: spaceScaleTransformer
   },
   marginTop: {
     property: 'marginTop',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   marginRight: {
     property: 'marginRight',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   marginBottom: {
     property: 'marginBottom',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   marginLeft: {
     property: 'marginLeft',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   marginBlock: {
     property: 'marginBlock',
     scale: 'space',
-    transformer: spaceMultiTransformer
+    transformer: spaceScaleTransformer
   },
   marginBlockStart: {
     property: 'marginBlockStart',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   marginBlockEnd: {
     property: 'marginBlockEnd',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   marginInline: {
     property: 'marginInline',
     scale: 'space',
-    transformer: spaceMultiTransformer
+    transformer: spaceScaleTransformer
   },
   marginInlineStart: {
     property: 'marginInlineStart',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   marginInlineEnd: {
     property: 'marginInlineEnd',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   }
 }
 
@@ -114,57 +114,57 @@ const paddingConfig: StyleFunctionConfig = {
   padding: {
     property: 'padding',
     scale: 'space',
-    transformer: spaceMultiTransformer
+    transformer: spaceScaleTransformer
   },
   paddingTop: {
     property: 'paddingTop',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   paddingRight: {
     property: 'paddingRight',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   paddingBottom: {
     property: 'paddingBottom',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   paddingLeft: {
     property: 'paddingLeft',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   paddingBlock: {
     property: 'paddingBlock',
     scale: 'space',
-    transformer: spaceMultiTransformer
+    transformer: spaceScaleTransformer
   },
   paddingBlockStart: {
     property: 'paddingBlockStart',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   paddingBlockEnd: {
     property: 'paddingBlockEnd',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   paddingInline: {
     property: 'paddingInline',
     scale: 'space',
-    transformer: spaceMultiTransformer
+    transformer: spaceScaleTransformer
   },
   paddingInlineStart: {
     property: 'paddingInlineStart',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   paddingInlineEnd: {
     property: 'paddingInlineEnd',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   }
 }
 
