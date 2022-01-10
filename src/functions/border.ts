@@ -6,6 +6,7 @@ import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
 import { createStyleFunction } from '../constructors'
+import { spaceScaleTransformer } from '../transformers/space'
 
 /*
 
@@ -37,7 +38,8 @@ const config: StyleFunctionConfig = {
   },
   borderRadius: {
     property: 'borderRadius',
-    scale: 'radii'
+    scale: 'radii',
+    transformer: spaceScaleTransformer
   },
   borderTop: {
     property: 'borderTop',
@@ -57,11 +59,13 @@ const config: StyleFunctionConfig = {
   },
   borderTopLeftRadius: {
     property: 'borderTopLeftRadius',
-    scale: 'radii'
+    scale: 'radii',
+    transformer: spaceScaleTransformer
   },
   borderTopRightRadius: {
     property: 'borderTopRightRadius',
-    scale: 'radii'
+    scale: 'radii',
+    transformer: spaceScaleTransformer
   },
   borderRight: {
     property: 'borderRight',
@@ -97,11 +101,13 @@ const config: StyleFunctionConfig = {
   },
   borderBottomLeftRadius: {
     property: 'borderBottomLeftRadius',
-    scale: 'radii'
+    scale: 'radii',
+    transformer: spaceScaleTransformer
   },
   borderBottomRightRadius: {
     property: 'borderBottomRightRadius',
-    scale: 'radii'
+    scale: 'radii',
+    transformer: spaceScaleTransformer
   },
   borderLeft: {
     property: 'borderLeft',
