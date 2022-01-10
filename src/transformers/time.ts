@@ -30,7 +30,7 @@ const timeTransformer: TransformFunction<Property.TransitionDelay<number> | Prop
   if (typeof value === 'number' || (typeof value === 'string' && !isNaN(Number(value)))) {
     const num = typeof value === 'number' ? value : parseFloat(value)
     const absolute = Math.abs(num)
-    return `${absolute}${absolute > 0 && absolute < 1 ? 's' : 'ms'}`
+    return `${absolute}${(absolute >= 0 && absolute < 1) || !Number.isInteger(absolute) ? 's' : 'ms'}`
   }
 
   return typeof value === 'string' ? value : ''
