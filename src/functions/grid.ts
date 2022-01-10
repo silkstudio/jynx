@@ -6,7 +6,6 @@ import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
 import { createStyleFunction } from '../constructors'
-import { gridSpanTransformer } from '../transformers/grid'
 
 /*
 
@@ -63,20 +62,15 @@ const config: StyleFunctionConfig = {
     property: 'gridAutoFlow'
   },
   gridColumn: {
-    property: 'gridColumn',
-    transformer: gridSpanTransformer
+    property: 'gridColumn'
   },
   gridRow: {
-    property: 'gridRow',
-    transformer: gridSpanTransformer
+    property: 'gridRow'
   },
   gridArea: {
-    property: 'gridArea',
-    transformer: gridSpanTransformer
+    property: 'gridArea'
   }
 }
-
-type GridChild<T> = T | [T, T]
 
 interface GridProps {
   grid?: StyleProp<Property.Grid>
@@ -94,10 +88,10 @@ interface GridProps {
   gridAutoRows?: StyleProp<Property.GridAutoRows>
   gridAutoFlow?: StyleProp<Property.GridAutoFlow>
 
-  // Child Props | Using the type `GridChild<T> = T | [T, T]`
-  gridColumn?: StyleProp<GridChild<Property.GridColumn>>
-  gridRow?: StyleProp<GridChild<Property.GridRow>>
-  gridArea?: StyleProp<GridChild<Property.GridArea>>
+  // Child Props
+  gridColumn?: StyleProp<Property.GridColumn>
+  gridRow?: StyleProp<Property.GridRow>
+  gridArea?: StyleProp<Property.GridArea>
 }
 
 const grid = createStyleFunction<GridProps>(config)
