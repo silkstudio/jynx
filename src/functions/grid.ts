@@ -79,6 +79,7 @@ const config: StyleFunctionConfig = {
 type GridChild<T> = T | [T, T]
 
 interface GridProps {
+  grid?: StyleProp<Property.Grid>
   gridTemplateColumns?: StyleProp<Property.GridTemplateColumns>
   gridTemplateRows?: StyleProp<Property.GridTemplateRows>
   gridTemplateAreas?: StyleProp<Property.GridTemplateAreas>
