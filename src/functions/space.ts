@@ -169,17 +169,17 @@ const paddingConfig: StyleFunctionConfig = {
 }
 
 interface PaddingBaseProps {
-  padding?: StyleProp<OneOrMany<Property.Padding<ThemeValue<'space'> | number>>>
-  paddingTop?: StyleProp<Property.PaddingTop<ThemeValue<'space'> | number>>
-  paddingRight?: StyleProp<Property.PaddingRight<ThemeValue<'space'> | number>>
-  paddingBottom?: StyleProp<Property.PaddingBottom<ThemeValue<'space'> | number>>
-  paddingLeft?: StyleProp<Property.PaddingLeft<ThemeValue<'space'> | number>>
-  paddingBlock?: StyleProp<OneOrMany<Property.PaddingBlock<ThemeValue<'space'> | number>>>
-  paddingBlockStart?: StyleProp<Property.PaddingBlockStart<ThemeValue<'space'> | number>>
-  paddingBlockEnd?: StyleProp<Property.PaddingBlockEnd<ThemeValue<'space'> | number>>
-  paddingInline?: StyleProp<OneOrMany<Property.PaddingInline<ThemeValue<'space'> | number>>>
-  paddingInlineStart?: StyleProp<Property.PaddingInlineStart<ThemeValue<'space'> | number>>
-  paddingInlineEnd?: StyleProp<Property.PaddingInlineEnd<ThemeValue<'space'> | number>>
+  padding?: StyleProp<OneOrMany<Property.Padding<string | 0 | number> | ThemeValue<'space'>>>
+  paddingTop?: StyleProp<Property.PaddingTop<string | 0 | number> | ThemeValue<'space'>>
+  paddingRight?: StyleProp<Property.PaddingRight<string | 0 | number> | ThemeValue<'space'>>
+  paddingBottom?: StyleProp<Property.PaddingBottom<string | 0 | number> | ThemeValue<'space'>>
+  paddingLeft?: StyleProp<Property.PaddingLeft<string | 0 | number> | ThemeValue<'space'>>
+  paddingBlock?: StyleProp<OneOrMany<Property.PaddingBlock<string | 0 | number> | ThemeValue<'space'>>>
+  paddingBlockStart?: StyleProp<Property.PaddingBlockStart<string | 0 | number> | ThemeValue<'space'>>
+  paddingBlockEnd?: StyleProp<Property.PaddingBlockEnd<string | 0 | number> | ThemeValue<'space'>>
+  paddingInline?: StyleProp<OneOrMany<Property.PaddingInline<string | 0 | number> | ThemeValue<'space'>>>
+  paddingInlineStart?: StyleProp<Property.PaddingInlineStart<string | 0 | number> | ThemeValue<'space'>>
+  paddingInlineEnd?: StyleProp<Property.PaddingInlineEnd<string | 0 | number> | ThemeValue<'space'>>
 }
 
 interface PaddingShorthandProps {
