@@ -5,9 +5,27 @@
   "main": "./dist/jynx.cjs.js",
   "module": "./dist/jynx.js",
   "typings": "./dist/index.d.ts",
+  "keywords": [
+    "css-in-js",
+    "cssinjs",
+    "react",
+    "css",
+    "styled-components",
+    "emotion",
+    "style-props"
+  ],
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silkstudio/jynx.git"
+  },
+  "author": "Silk Studio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/silkstudio/jynx/issues"
+  },
   "scripts": {
     "build": "rollup -c",
     "build:dev": "if [ -e \"dist\" ];then rm -rf \"dist\"; fi && rollup -c",
@@ -21,16 +39,7 @@
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/silkstudio/jynx.git"
-  },
-  "author": "Silk Studio",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/silkstudio/jynx/issues"
-  },
-  "homepage": "https://github.com/silkstudio/jynx#readme",
+  "homepage": "https://jynx.vercel.app",
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.0.3",
