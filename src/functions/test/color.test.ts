@@ -165,6 +165,32 @@ describe('When passing styles containing theme values', () => {
   })
 })
 
+describe('When passing styles accessing nested theme values', () => {
+  const theme = {
+    breakpoints: defaultBreakpoints,
+    colors: {
+      brand: ['#F2335D', '#FFCC00']
+    }
+  }
+
+  const styles: ColorProps & ThemeProps<typeof theme> = {
+    theme,
+    color: { _: 'brand[1]' }
+  }
+
+  const test = color(styles)
+
+  it('should return an object', () => {
+    expect(typeof test).toBe('object')
+  })
+
+  it('should be able to parse the styles and return a CSSObject', () => {
+    expect(color(styles)).toEqual({
+      color: '#FFCC00'
+    })
+  })
+})
+
 describe('When passing styles containing 0 index theme values', () => {
   const theme = {
     breakpoints: defaultBreakpoints,
