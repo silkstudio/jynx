@@ -1,10 +1,6 @@
 // Types
 import type { TransformFunction } from '../types/functions'
-import type { CSSProperties } from '../types/css'
 import type { Property } from 'csstype'
-
-// Utils
-import { get, isNumeric } from '../utils'
 
 /*
 
