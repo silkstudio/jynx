@@ -1,6 +1,6 @@
 // Types
 import type { DefaultTheme } from '../types/theme'
-import type { CSSProperties } from '../types/css'
+import type { CSSInterpolation } from '../types/css'
 
 // Utils
 import { addUnitIfNeeded, getValue, isNumeric } from '../utils'
@@ -17,9 +17,9 @@ import { addUnitIfNeeded, getValue, isNumeric } from '../utils'
 */
 
 /**
- * spaceTransformer
+ * spaceScaleTransformer
  *
- * @param {CSSProperties['margin' | 'padding']} value
+ * @param {CSSInterpolation} value
  * @param {DefaultTheme[keyof DefaultTheme] | Record<string, any> | any[]} scale
  * @returns {string | number | undefined}
  *
@@ -27,8 +27,8 @@ import { addUnitIfNeeded, getValue, isNumeric } from '../utils'
  *
  */
 
-const spaceTransformer = (
-  value: CSSProperties['margin' | 'padding'],
+const spaceScaleTransformer = (
+  value: CSSInterpolation,
   scale?: DefaultTheme[keyof DefaultTheme] | Record<string, any> | any[]
 ): string | number | undefined => {
   if ((value !== 0 && !value) || typeof value === 'object' || typeof value === 'boolean') {
@@ -53,7 +53,7 @@ const spaceTransformer = (
 /**
  * spaceMultiTransformer
  *
- * @param {CSSProperties['margin' | 'padding']} value
+ * @param {CSSInterpolation | CSSInterpolation[]} value
  * @param {DefaultTheme[keyof DefaultTheme] | Record<string, any> | any[]} scale
  * @returns {string | number | undefined}
  *
@@ -62,17 +62,17 @@ const spaceTransformer = (
  */
 
 const spaceMultiTransformer = (
-  value: CSSProperties['margin' | 'padding'] | CSSProperties['margin' | 'padding'][],
+  value: CSSInterpolation | CSSInterpolation[],
   scale?: DefaultTheme[keyof DefaultTheme] | Record<string, any> | any[]
 ): string | number | undefined => {
   if (Array.isArray(value)) {
     return value
-      .map(i => spaceTransformer(i, scale))
-      .map(i => addUnitIfNeeded('margin' || 'padding', i))
+      .map(i => spaceScaleTransformer(i, scale))
+      .map(i => addUnitIfNeeded('marginTop', i))
       .join(' ')
   }
 
-  return spaceTransformer(value, scale)
+  return spaceScaleTransformer(value, scale)
 }
 
-export { spaceTransformer, spaceMultiTransformer }
+export { spaceScaleTransformer, spaceMultiTransformer }

@@ -1,7 +1,6 @@
 // Types
 import type { Property } from 'csstype'
 import type { StyleProp } from '../types/css'
-import type { ThemeValue } from '../types/theme'
 import type { StyleFunctionConfig } from '../types/functions'
 
 // Utils
@@ -19,6 +18,9 @@ import { createStyleFunction } from '../constructors'
 */
 
 const config: StyleFunctionConfig = {
+  background: {
+    property: 'background'
+  },
   backgroundAttachment: {
     property: 'backgroundAttachment'
   },
@@ -27,10 +29,6 @@ const config: StyleFunctionConfig = {
   },
   backgroundClip: {
     property: 'backgroundClip'
-  },
-  backgroundColor: {
-    property: 'backgroundColor',
-    scale: 'colors'
   },
   backgroundImage: {
     property: 'backgroundImage'
@@ -56,10 +54,10 @@ const config: StyleFunctionConfig = {
 }
 
 interface BackgroundBaseProps {
+  background?: StyleProp<Property.Background>
   backgroundAttachment?: StyleProp<Property.BackgroundAttachment>
   backgroundBlendMode?: StyleProp<Property.BackgroundBlendMode>
   backgroundClip?: StyleProp<Property.BackgroundClip>
-  backgroundColor?: StyleProp<Property.BackgroundColor | ThemeValue<'colors'>>
   backgroundImage?: StyleProp<Property.BackgroundImage>
   backgroundOrigin?: StyleProp<Property.BackgroundOrigin>
   backgroundPosition?: StyleProp<Property.BackgroundPosition>
@@ -70,30 +68,30 @@ interface BackgroundBaseProps {
 }
 
 interface BackgroundShorthandProps {
+  bg?: BackgroundBaseProps['background']
   bgAttachment?: BackgroundBaseProps['backgroundAttachment']
   bgBlendMode?: BackgroundBaseProps['backgroundBlendMode']
   bgClip?: BackgroundBaseProps['backgroundClip']
-  bgColor?: BackgroundBaseProps['backgroundColor']
   bgImage?: BackgroundBaseProps['backgroundImage']
   bgOrigin?: BackgroundBaseProps['backgroundOrigin']
-  bgPosition?: BackgroundBaseProps['backgroundPosition']
-  bgPositionX?: BackgroundBaseProps['backgroundPositionX']
-  bgPositionY?: BackgroundBaseProps['backgroundPositionY']
+  bgPos?: BackgroundBaseProps['backgroundPosition']
+  bgPosX?: BackgroundBaseProps['backgroundPositionX']
+  bgPosY?: BackgroundBaseProps['backgroundPositionY']
   bgRepeat?: BackgroundBaseProps['backgroundRepeat']
   bgSize?: BackgroundBaseProps['backgroundSize']
 }
 
 interface BackgroundProps extends BackgroundBaseProps, BackgroundShorthandProps {}
 
+config.bg = config.background
 config.bgAttachment = config.backgroundAttachment
 config.bgBlendMode = config.backgroundBlendMode
 config.bgClip = config.backgroundClip
-config.bgColor = config.backgroundColor
 config.bgImage = config.backgroundImage
 config.bgOrigin = config.backgroundOrigin
-config.bgPosition = config.backgroundPosition
-config.bgPositionX = config.backgroundPositionX
-config.bgPositionY = config.backgroundPositionY
+config.bgPos = config.backgroundPosition
+config.bgPosX = config.backgroundPositionX
+config.bgPosY = config.backgroundPositionY
 config.bgRepeat = config.backgroundRepeat
 config.bgSize = config.backgroundSize
 

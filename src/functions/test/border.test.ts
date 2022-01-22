@@ -188,6 +188,63 @@ describe('When passing styles containing 0 index theme values', () => {
   })
 })
 
+describe('When using border radius props without a theme', () => {
+  const theme = {
+    breakpoints: defaultBreakpoints
+  }
+
+  it('should be able to parse positive numbers and return px values', () => {
+    const styles: BorderProps & ThemeProps<typeof theme> = {
+      theme,
+      borderTopLeftRadius: 4
+    }
+
+    expect(border(styles)).toEqual({
+      borderTopLeftRadius: '4px'
+    })
+  })
+
+  it('should be able to parse negative numbers and return px values', () => {
+    const styles: BorderProps & ThemeProps<typeof theme> = {
+      theme,
+      borderTopLeftRadius: -6
+    }
+
+    expect(border(styles)).toEqual({
+      borderTopLeftRadius: '-6px'
+    })
+  })
+})
+
+describe('When using border radius props with a theme', () => {
+  const theme = {
+    breakpoints: defaultBreakpoints,
+    radii: [2, 4, 6, 8]
+  }
+
+  it('should be able to parse positive numbers and return px values', () => {
+    const styles: BorderProps & ThemeProps<typeof theme> = {
+      theme,
+      borderTopLeftRadius: 1
+    }
+
+    expect(border(styles)).toEqual({
+      borderTopLeftRadius: '4px'
+    })
+  })
+
+  it('should be able to parse negative numbers and return px values', () => {
+    const styles: BorderProps & ThemeProps<typeof theme> = {
+      theme,
+      borderTopLeftRadius: -2
+    }
+
+    expect(border(styles)).toEqual({
+      borderTopLeftRadius: '-6px'
+    })
+  })
+})
+
 describe('When tring to access the functions config property', () => {
   it('should return an object', () => {
     expect(typeof border.config).toBe('object')

@@ -46,6 +46,7 @@ export const systemTheme = {
   borderStyles: ['solid', 'dashed'],
   radii: [1, 2, 4, 8],
   shadows: {},
+  transitions: {},
   zIndices: {
     main: 1,
     layout: 2,

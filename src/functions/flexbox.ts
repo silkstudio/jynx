@@ -19,6 +19,9 @@ import { createStylesObject } from '../constructors'
 */
 
 const config: StyleFunctionConfig = {
+  flex: {
+    property: 'flex'
+  },
   flexDirection: {
     property: 'flexDirection'
   },
@@ -59,6 +62,7 @@ const config: StyleFunctionConfig = {
 }
 
 interface FlexboxProps {
+  flex?: StyleProp<Property.Flex>
   flexDirection?: StyleProp<Property.FlexDirection>
   flexFlow?: StyleProp<Property.FlexFlow>
   flexWrap?: StyleProp<Property.FlexWrap>
@@ -66,7 +70,7 @@ interface FlexboxProps {
   alignContent?: StyleProp<Property.AlignContent>
   alignSelf?: StyleProp<Property.AlignSelf>
   justifyContent?: StyleProp<Property.JustifyContent>
-  gap?: StyleProp<Property.Gap<ThemeValue<'space'> | number>>
+  gap?: StyleProp<Property.Gap<string | 0 | number> | ThemeValue<'space'>>
   flexGrow?: StyleProp<Property.FlexGrow>
   flexShrink?: StyleProp<Property.FlexShrink>
   flexBasis?: StyleProp<Property.FlexBasis>

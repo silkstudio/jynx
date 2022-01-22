@@ -7,7 +7,7 @@ import type { OneOrMany } from '../types/common'
 
 // Utils
 import { createStyleFunction } from '../constructors'
-import { spaceMultiTransformer, spaceTransformer } from '../transformers/space'
+import { spaceScaleTransformer } from '../transformers/space'
 
 /*
 
@@ -25,72 +25,72 @@ const marginConfig: StyleFunctionConfig = {
   margin: {
     property: 'margin',
     scale: 'space',
-    transformer: spaceMultiTransformer
+    transformer: spaceScaleTransformer
   },
   marginTop: {
     property: 'marginTop',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   marginRight: {
     property: 'marginRight',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   marginBottom: {
     property: 'marginBottom',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   marginLeft: {
     property: 'marginLeft',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   marginBlock: {
     property: 'marginBlock',
     scale: 'space',
-    transformer: spaceMultiTransformer
+    transformer: spaceScaleTransformer
   },
   marginBlockStart: {
     property: 'marginBlockStart',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   marginBlockEnd: {
     property: 'marginBlockEnd',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   marginInline: {
     property: 'marginInline',
     scale: 'space',
-    transformer: spaceMultiTransformer
+    transformer: spaceScaleTransformer
   },
   marginInlineStart: {
     property: 'marginInlineStart',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   marginInlineEnd: {
     property: 'marginInlineEnd',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   }
 }
 
 interface MarginBaseProps {
-  margin?: StyleProp<OneOrMany<Property.Margin<ThemeValue<'space'> | number>>>
-  marginTop?: StyleProp<Property.MarginTop<ThemeValue<'space'> | number>>
-  marginRight?: StyleProp<Property.MarginRight<ThemeValue<'space'> | number>>
-  marginBottom?: StyleProp<Property.MarginBottom<ThemeValue<'space'> | number>>
-  marginLeft?: StyleProp<Property.MarginLeft<ThemeValue<'space'> | number>>
-  marginBlock?: StyleProp<OneOrMany<Property.MarginBlock<ThemeValue<'space'> | number>>>
-  marginBlockStart?: StyleProp<Property.MarginBlockStart<ThemeValue<'space'> | number>>
-  marginBlockEnd?: StyleProp<Property.MarginBlockEnd<ThemeValue<'space'> | number>>
-  marginInline?: StyleProp<OneOrMany<Property.MarginInline<ThemeValue<'space'> | number>>>
-  marginInlineStart?: StyleProp<Property.MarginInlineStart<ThemeValue<'space'> | number>>
-  marginInlineEnd?: StyleProp<Property.MarginInlineEnd<ThemeValue<'space'> | number>>
+  margin?: StyleProp<OneOrMany<Property.Margin<string | 0 | number> | ThemeValue<'space'>>>
+  marginTop?: StyleProp<Property.MarginTop<string | 0 | number> | ThemeValue<'space'>>
+  marginRight?: StyleProp<Property.MarginRight<string | 0 | number> | ThemeValue<'space'>>
+  marginBottom?: StyleProp<Property.MarginBottom<string | 0 | number> | ThemeValue<'space'>>
+  marginLeft?: StyleProp<Property.MarginLeft<string | 0 | number> | ThemeValue<'space'>>
+  marginBlock?: StyleProp<OneOrMany<Property.MarginBlock<string | 0 | number> | ThemeValue<'space'>>>
+  marginBlockStart?: StyleProp<Property.MarginBlockStart<string | 0 | number> | ThemeValue<'space'>>
+  marginBlockEnd?: StyleProp<Property.MarginBlockEnd<string | 0 | number> | ThemeValue<'space'>>
+  marginInline?: StyleProp<OneOrMany<Property.MarginInline<string | 0 | number> | ThemeValue<'space'>>>
+  marginInlineStart?: StyleProp<Property.MarginInlineStart<string | 0 | number> | ThemeValue<'space'>>
+  marginInlineEnd?: StyleProp<Property.MarginInlineEnd<string | 0 | number> | ThemeValue<'space'>>
 }
 
 interface MarginShorthandProps {
@@ -114,72 +114,72 @@ const paddingConfig: StyleFunctionConfig = {
   padding: {
     property: 'padding',
     scale: 'space',
-    transformer: spaceMultiTransformer
+    transformer: spaceScaleTransformer
   },
   paddingTop: {
     property: 'paddingTop',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   paddingRight: {
     property: 'paddingRight',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   paddingBottom: {
     property: 'paddingBottom',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   paddingLeft: {
     property: 'paddingLeft',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   paddingBlock: {
     property: 'paddingBlock',
     scale: 'space',
-    transformer: spaceMultiTransformer
+    transformer: spaceScaleTransformer
   },
   paddingBlockStart: {
     property: 'paddingBlockStart',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   paddingBlockEnd: {
     property: 'paddingBlockEnd',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   paddingInline: {
     property: 'paddingInline',
     scale: 'space',
-    transformer: spaceMultiTransformer
+    transformer: spaceScaleTransformer
   },
   paddingInlineStart: {
     property: 'paddingInlineStart',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   },
   paddingInlineEnd: {
     property: 'paddingInlineEnd',
     scale: 'space',
-    transformer: spaceTransformer
+    transformer: spaceScaleTransformer
   }
 }
 
 interface PaddingBaseProps {
-  padding?: StyleProp<OneOrMany<Property.Padding<ThemeValue<'space'> | number>>>
-  paddingTop?: StyleProp<Property.PaddingTop<ThemeValue<'space'> | number>>
-  paddingRight?: StyleProp<Property.PaddingRight<ThemeValue<'space'> | number>>
-  paddingBottom?: StyleProp<Property.PaddingBottom<ThemeValue<'space'> | number>>
-  paddingLeft?: StyleProp<Property.PaddingLeft<ThemeValue<'space'> | number>>
-  paddingBlock?: StyleProp<OneOrMany<Property.PaddingBlock<ThemeValue<'space'> | number>>>
-  paddingBlockStart?: StyleProp<Property.PaddingBlockStart<ThemeValue<'space'> | number>>
-  paddingBlockEnd?: StyleProp<Property.PaddingBlockEnd<ThemeValue<'space'> | number>>
-  paddingInline?: StyleProp<OneOrMany<Property.PaddingInline<ThemeValue<'space'> | number>>>
-  paddingInlineStart?: StyleProp<Property.PaddingInlineStart<ThemeValue<'space'> | number>>
-  paddingInlineEnd?: StyleProp<Property.PaddingInlineEnd<ThemeValue<'space'> | number>>
+  padding?: StyleProp<OneOrMany<Property.Padding<string | 0 | number> | ThemeValue<'space'>>>
+  paddingTop?: StyleProp<Property.PaddingTop<string | 0 | number> | ThemeValue<'space'>>
+  paddingRight?: StyleProp<Property.PaddingRight<string | 0 | number> | ThemeValue<'space'>>
+  paddingBottom?: StyleProp<Property.PaddingBottom<string | 0 | number> | ThemeValue<'space'>>
+  paddingLeft?: StyleProp<Property.PaddingLeft<string | 0 | number> | ThemeValue<'space'>>
+  paddingBlock?: StyleProp<OneOrMany<Property.PaddingBlock<string | 0 | number> | ThemeValue<'space'>>>
+  paddingBlockStart?: StyleProp<Property.PaddingBlockStart<string | 0 | number> | ThemeValue<'space'>>
+  paddingBlockEnd?: StyleProp<Property.PaddingBlockEnd<string | 0 | number> | ThemeValue<'space'>>
+  paddingInline?: StyleProp<OneOrMany<Property.PaddingInline<string | 0 | number> | ThemeValue<'space'>>>
+  paddingInlineStart?: StyleProp<Property.PaddingInlineStart<string | 0 | number> | ThemeValue<'space'>>
+  paddingInlineEnd?: StyleProp<Property.PaddingInlineEnd<string | 0 | number> | ThemeValue<'space'>>
 }
 
 interface PaddingShorthandProps {

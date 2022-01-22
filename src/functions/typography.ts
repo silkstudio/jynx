@@ -63,11 +63,11 @@ const config: StyleFunctionConfig = {
 
 interface TypographyProps {
   fontFamily?: StyleProp<Property.FontFamily | ThemeValue<'fonts'>>
-  fontSize?: StyleProp<Property.FontSize | ThemeValue<'fontSizes'> | number>
+  fontSize?: StyleProp<Property.FontSize<string | 0 | number> | ThemeValue<'fontSizes'>>
   fontStyle?: StyleProp<Property.FontStyle>
   fontWeight?: StyleProp<Property.FontWeight | ThemeValue<'fontWeights'> | number>
-  letterSpacing?: StyleProp<Property.LetterSpacing | ThemeValue<'letterSpacings'> | number>
-  lineHeight?: StyleProp<Property.LineHeight | ThemeValue<'lineHeights'> | number>
+  letterSpacing?: StyleProp<Property.LetterSpacing<string | 0 | number> | ThemeValue<'letterSpacings'>>
+  lineHeight?: StyleProp<Property.LineHeight<string | 0 | number> | ThemeValue<'lineHeights'>>
   textAlign?: StyleProp<Property.TextAlign>
   textDecoration?: StyleProp<Property.TextDecoration>
   textOverflow?: StyleProp<Property.TextOverflow>
