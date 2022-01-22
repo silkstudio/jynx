@@ -26,7 +26,7 @@ import type { DeepLeaves } from './utils'
  * @public
  */
 export interface BaseTheme {
-  breakpoints?: ObjectOrArray<number | string>
+  breakpoints: DefaultBreakpoints
   space?: ObjectOrArray<CSS.Property.Margin<string | number>>
   fontSizes?: ObjectOrArray<CSS.Property.FontSize<number>>
   colors?: ObjectOrArray<CSS.Property.Color>
@@ -45,15 +45,6 @@ export interface BaseTheme {
 }
 
 /**
- * BaseThemeWithBreakpoints
- *
- * @since 1.0.0
- */
-export interface BaseThemeWithBreakpoints extends Omit<BaseTheme, 'breakpoints'> {
-  breakpoints: DefaultBreakpoints
-}
-
-/**
  * CustomTheme
  *
  * @since 1.0.0
@@ -68,7 +59,7 @@ export interface CustomTheme {}
  *
  * @since 1.0.0
  */
-export type BaseIfEmpty<T extends object> = keyof T extends never ? BaseThemeWithBreakpoints : T
+export type BaseIfEmpty<T extends object> = keyof T extends never ? BaseTheme : T
 
 /**
  * CustomTheme

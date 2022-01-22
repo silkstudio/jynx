@@ -30,9 +30,12 @@ export type ResponsiveArray<T> = [T, ...Array<T | null>]
  * @since 1.0.0
  * @public
  */
-export type ResponsiveObject<K> = { _: K } & {
-  [key in keyof DefaultTheme['breakpoints']]?: K
-}
+export type ResponsiveObject<T> = { _: T } & Omit<
+  {
+    [key in keyof DefaultTheme['breakpoints']]?: T
+  },
+  keyof [] | keyof ''
+>
 
 /**
  * ResponsiveStyle
