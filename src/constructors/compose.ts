@@ -37,7 +37,7 @@ import { createStyleFunction } from './createStyleFunction'
 
 */
 
-const compose = <T extends object>(...styleFunctions: StyleFunction<any>[]): StyleFunction<T> => {
+const compose = <T extends Record<string, any>>(...styleFunctions: StyleFunction<{ [K in keyof T]: T[K] }>[]): StyleFunction<T> => {
   let config = {}
 
   styleFunctions.forEach(styleFunction => {
