@@ -26,6 +26,7 @@
   "bugs": {
     "url": "https://github.com/silkstudio/jynx/issues"
   },
+  "homepage": "https://jynx.vercel.app",
   "scripts": {
     "build": "rollup -c",
     "build:dev": "if [ -e \"dist\" ];then rm -rf \"dist\"; fi && rollup -c",
@@ -39,7 +40,6 @@
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable"
   },
-  "homepage": "https://jynx.vercel.app",
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.0.3",
@@ -76,8 +76,7 @@
     "csstype": "^3.0.10",
     "lodash.get": "^4.4.2",
     "lodash.kebabcase": "^4.1.1",
-    "lodash.merge": "^4.6.2",
-    "styled-components": "^5.3.3"
+    "lodash.merge": "^4.6.2"
   },
   "peerDependencies": {
     "react": ">=17.0.2",
