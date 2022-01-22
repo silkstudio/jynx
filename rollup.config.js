@@ -21,12 +21,12 @@ const configDev = {
   ...configBase,
   output: [
     {
-      file: `dist/styled-framework.cjs.js`,
+      file: `dist/jynx.cjs.js`,
       format: 'cjs',
       sourcemap: true
     },
     {
-      file: `dist/styled-framework.js`,
+      file: `dist/jynx.js`,
       format: 'es',
       sourcemap: true
     }
@@ -38,12 +38,12 @@ const configProd = {
   ...configDev,
   output: [
     {
-      file: 'dist/styled-framework.cjs.min.js',
+      file: 'dist/jynx.cjs.min.js',
       format: 'cjs',
       sourcemap: true
     },
     {
-      file: 'dist/styled-framework.min.js',
+      file: 'dist/jynx.min.js',
       format: 'esm',
       sourcemap: true
     }

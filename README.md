@@ -1,23 +1,27 @@
-# Styled Framework
+# Jynx
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/silkstudio/styled-framework/CI?label=CI&logo=git&logoColor=white)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/silkstudio/jynx/CI?label=CI&logo=git&logoColor=white)
 ![npm](https://img.shields.io/npm/v/@silkstudio/styled-utils)
-![GitHub Repo stars](https://img.shields.io/github/stars/silkstudio/styled-framework)
+![GitHub Repo stars](https://img.shields.io/github/stars/silkstudio/jynx)
 ![npm](https://img.shields.io/npm/dw/@silkstudio/styled-utils)
-![GitHub](https://img.shields.io/github/license/silkstudio/styled-framework)
+![GitHub](https://img.shields.io/github/license/silkstudio/jynx)
 
-Styled Framework is a library for building reusable, adaptable and extendable styled-components.
+Jynx is a performant and intuitive utility library for the _'CSS-in-JS era'_, allowing for
+responsive, theme-focused, type-safe styled-components to be rapidly created and
+controlled directly from your jsx.
 
-Utility functions passed to your styled-components allow for optional styles to be defined within jsx through commonly used props.
-
-Theme functionality also maintains continuity between your components and across your site.
+Utility functions included in a components style argument expose props that accept
 
 <br/>
 
 ## Usage
 
-To install the package, run:
+To install `Jynx` run:
 
 ```bash
-yarn add @silkstudio/styled-framework
+yarn add jynx
+
+# or
+
+npm i jynx
 ```
