@@ -1,5 +1,5 @@
 // Types
-import type { CSSProperties, BaseCSSValue } from '../types/css'
+import type { CSSProperties, CSSInterpolation } from '../types/css'
 
 // Utils
 import { unitless } from './unitless'
@@ -12,7 +12,7 @@ import { isNumeric } from './isNumeric'
  * @template T extends keyof CSSProperties
  *
  * @param {T} property
- * @param {BaseCSSValue} value
+ * @param {CSSInterpolation} value
  * @returns {string}
  */
 
@@ -27,7 +27,7 @@ import { isNumeric } from './isNumeric'
 
 */
 
-const addUnitIfNeeded = <T extends keyof CSSProperties>(property: T, value?: BaseCSSValue): string => {
+const addUnitIfNeeded = <T extends keyof CSSProperties>(property: T, value?: CSSInterpolation): string => {
   if (value == null || typeof value === 'boolean' || value === '') {
     return ''
   }

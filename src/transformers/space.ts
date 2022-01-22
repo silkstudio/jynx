@@ -1,6 +1,6 @@
 // Types
 import type { DefaultTheme } from '../types/theme'
-import type { BaseCSSValue } from '../types/css'
+import type { CSSInterpolation } from '../types/css'
 
 // Utils
 import { addUnitIfNeeded, getValue, isNumeric } from '../utils'
@@ -19,7 +19,7 @@ import { addUnitIfNeeded, getValue, isNumeric } from '../utils'
 /**
  * spaceScaleTransformer
  *
- * @param {BaseCSSValue} value
+ * @param {CSSInterpolation} value
  * @param {DefaultTheme[keyof DefaultTheme] | Record<string, any> | any[]} scale
  * @returns {string | number | undefined}
  *
@@ -28,7 +28,7 @@ import { addUnitIfNeeded, getValue, isNumeric } from '../utils'
  */
 
 const spaceScaleTransformer = (
-  value: BaseCSSValue,
+  value: CSSInterpolation,
   scale?: DefaultTheme[keyof DefaultTheme] | Record<string, any> | any[]
 ): string | number | undefined => {
   if ((value !== 0 && !value) || typeof value === 'object' || typeof value === 'boolean') {
@@ -53,7 +53,7 @@ const spaceScaleTransformer = (
 /**
  * spaceMultiTransformer
  *
- * @param {BaseCSSValue | BaseCSSValue[]} value
+ * @param {CSSInterpolation | CSSInterpolation[]} value
  * @param {DefaultTheme[keyof DefaultTheme] | Record<string, any> | any[]} scale
  * @returns {string | number | undefined}
  *
@@ -62,7 +62,7 @@ const spaceScaleTransformer = (
  */
 
 const spaceMultiTransformer = (
-  value: BaseCSSValue | BaseCSSValue[],
+  value: CSSInterpolation | CSSInterpolation[],
   scale?: DefaultTheme[keyof DefaultTheme] | Record<string, any> | any[]
 ): string | number | undefined => {
   if (Array.isArray(value)) {
