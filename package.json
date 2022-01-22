@@ -8,7 +8,6 @@
   "files": [
     "dist"
   ],
-  "private": "false",
   "scripts": {
     "build": "rollup -c",
     "build:dev": "if [ -e \"dist\" ];then rm -rf \"dist\"; fi && rollup -c",
