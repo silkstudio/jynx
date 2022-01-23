@@ -1,27 +1,55 @@
-# Jynx
+<h1 align="center">Jynx</h1>
+
+<p align="center">
+<strong>
+Rapidly create and control responsive, theme-focused and type-safe styled-components, directly from your jsx.
+</strong>
+</p>
+
+<div align="center">
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/silkstudio/jynx/CI?label=CI&logo=git&logoColor=white)
-![npm](https://img.shields.io/npm/v/@silkstudio/styled-utils)
+![npm](https://img.shields.io/npm/v/@silkstudio/jynx)
 ![GitHub Repo stars](https://img.shields.io/github/stars/silkstudio/jynx)
-![npm](https://img.shields.io/npm/dw/@silkstudio/styled-utils)
+![npm](https://img.shields.io/npm/dw/@silkstudio/jynx)
 ![GitHub](https://img.shields.io/github/license/silkstudio/jynx)
 
-Jynx is a performant and intuitive utility library for the _'CSS-in-JS era'_, allowing for
+</div>
+
+<hr style="height: 1px; margin-bottom: 2.375em;"/>
+
+`Jynx` is a performant and intuitive utility library for the _'CSS-in-JS era'_, allowing for
 responsive, theme-focused, type-safe styled-components to be rapidly created and
 controlled directly from your jsx.
 
-Utility functions included in a components style argument expose props that accept
+Originally built in-house by [Silk Studio](/) to streamline our own development pipeline, `Jynx` is now availbe to use in your own projects and comes with support for: 
 
-<br/>
+- rapid component styling through the use of style-props
+- using objects and arrays to create mobile-first, responsive designs
+- intergation with a global theme that's accessed directly from your props
+- written in Typescript and fully type-safe
 
-## Usage
+<hr style="opacity: 0;"/>
 
-To install `Jynx` run:
+### ✏️ &nbsp;Getting Started
 
-```bash
-yarn add jynx
+Check out the [introduction](/) to get up and running or head to [jynx.vercel.app](https://jynx.vercel.app) to view the full documentation.
 
-# or
+### 🔗 &nbsp;Quick Links
 
-npm i jynx
-```
+- [Introduction](https://jynx.vercel.app/getting-started/introduction)
+- [Responsive Styles](https://jynx.vercel.app/getting-started/responsive-styles)
+- [Themes](https://jynx.vercel.app/getting-started/themes)
+- [API Reference](https://jynx.vercel.app/reference/api)
+- [Types](https://jynx.vercel.app/reference/types)
+- [Advanced Theming](https://jynx.vercel.app/theming/setup)
+- [Creating Style Functions](https://jynx.vercel.app/utilities/create-style-function)
+
+### 📄 &nbsp;License
+
+`Jynx` is MIT licensed, Copyright © 2022-present 
+
+<footer>
+<hr style="height: 1px; margin: 2.375em auto 0.75em"/>
+<div style="font-size: 0.75em; opacity: 0.625">2022 © Silk Studio</div>
+</footer>
