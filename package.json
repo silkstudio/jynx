@@ -6,13 +6,14 @@
   "module": "./dist/jynx.js",
   "typings": "./dist/index.d.ts",
   "keywords": [
+    "react",
+    "typescript",
     "css-in-js",
     "cssinjs",
-    "react",
     "css",
+    "style-props",
     "styled-components",
-    "emotion",
-    "style-props"
+    "emotion"
   ],
   "files": [
     "dist"
