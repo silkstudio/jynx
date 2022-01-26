@@ -1,3 +1,7 @@
+<div align='center'>
+  <img src="https://jynx.vercel.app/images/logo.png" width="80px" />
+</div>
+
 <h1 align="center">Jynx</h1>
 
 <p align="center">
