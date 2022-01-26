@@ -6,7 +6,7 @@
 
 <p align="center">
 <strong>
-Rapidly create and control responsive, theme-focused and type-safe styled-components, directly from your jsx.
+Rapidly create and control responsive, theme-focused and type-safe components, directly from your jsx.
 </strong>
 </p>
 
