@@ -9,9 +9,9 @@ Rapidly create and control responsive, theme-focused and type-safe styled-compon
 <div align="center">
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/silkstudio/jynx/CI?label=CI&logo=git&logoColor=white)
-![npm](https://img.shields.io/npm/v/@silkstudio/jynx)
+![npm](https://img.shields.io/npm/v/jynx)
+![npm](https://img.shields.io/npm/dw/jynx)
 ![GitHub Repo stars](https://img.shields.io/github/stars/silkstudio/jynx)
-![npm](https://img.shields.io/npm/dw/@silkstudio/jynx)
 ![GitHub](https://img.shields.io/github/license/silkstudio/jynx)
 
 </div>
