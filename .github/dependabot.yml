@@ -5,4 +5,3 @@ updates:
     target-branch: "dev"
     schedule:
       interval: "daily"
-      
