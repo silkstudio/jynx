@@ -1,8 +1,12 @@
+<div align='center'>
+  <img src="https://jynx.vercel.app/images/logo.png" width="80px" />
+</div>
+
 <h1 align="center">Jynx</h1>
 
 <p align="center">
 <strong>
-Rapidly create and control responsive, theme-focused and type-safe styled-components, directly from your jsx.
+Rapidly create and control responsive, theme-focused and type-safe components, directly from your jsx.
 </strong>
 </p>
 
