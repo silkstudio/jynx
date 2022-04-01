@@ -42,7 +42,7 @@
     "postpublish": "pinst --enable"
   },
   "devDependencies": {
-    "@testing-library/react": "^12.1.2",
+    "@testing-library/react": "^13.0.0",
     "@types/jest": "^27.0.3",
     "@types/lodash.get": "^4.4.6",
     "@types/lodash.kebabcase": "^4.1.6",
