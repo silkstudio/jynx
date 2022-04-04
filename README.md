@@ -26,18 +26,18 @@ Rapidly create and control responsive, theme-focused and type-safe components, d
 responsive, theme-focused, type-safe styled-components to be rapidly created and
 controlled directly from your jsx.
 
-Originally built in-house by [Silk Studio](/) to streamline our own development pipeline, `Jynx` is now availbe to use in your own projects and comes with support for: 
+Originally built in-house by [Silk Studio](/) to streamline our own development pipeline, `Jynx` is now availabe to use in your own projects and comes with support for: 
 
 - rapid component styling through the use of style-props
 - using objects and arrays to create mobile-first, responsive designs
-- intergation with a global theme that's accessed directly from your props
+- integration with a global theme that's accessed directly from your props
 - written in Typescript and fully type-safe
 
 <hr style="opacity: 0;"/>
 
 ### ✏️ &nbsp;Getting Started
 
-Check out the [introduction](/) to get up and running or head to [jynx.vercel.app](https://jynx.vercel.app) to view the full documentation.
+Check out the [introduction](https://jynx.vercel.app/introduction) to get up and running or head to [jynx.vercel.app](https://jynx.vercel.app) to view the full documentation.
 
 ### 🔗 &nbsp;Quick Links
 
