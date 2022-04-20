@@ -44,26 +44,3 @@ export type StringOrNumber<T> = T extends string ? string : T extends number ? n
  * @since 1.0.0
  */
 export type OneOrMany<T> = T | T[]
-
-/**
- * Many
- *
- * @template T
- *
- * @since 1.0.0
- */
-export type Many<T> = T | ReadonlyArray<T>
-
-/**
- * PropertyName
- *
- * @since 1.0.0
- */
-export type PropertyName = string | number | symbol
-
-/**
- * PropertyPath
- *
- * @since 1.0.0
- */
-export type PropertyPath = Many<PropertyName>

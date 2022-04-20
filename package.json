@@ -75,9 +75,7 @@
   },
   "dependencies": {
     "csstype": "^3.0.10",
-    "lodash.get": "^4.4.2",
-    "lodash.kebabcase": "^4.1.1",
-    "lodash.merge": "^4.6.2"
+    "deepmerge": "^4.2.2"
   },
   "peerDependencies": {
     "react": ">=17.0.2",

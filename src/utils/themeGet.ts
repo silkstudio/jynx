@@ -1,15 +1,14 @@
 // Types
 import type { DefaultTheme, ThemeProps } from '../types/theme'
-import type { PropertyPath } from '../types/common'
 
 // Utils
-import get from 'lodash.get'
+import { get } from '.'
 
 type ThemeGetFunction = (props: ThemeProps<DefaultTheme>) => any
 
 /**
  *
- * @param {PropertyPath} path
+ * @param {string | number} path
  * @param {unknown} [fallback=unknown]
  * @returns {ThemeGetFunction}
  */
@@ -26,7 +25,7 @@ type ThemeGetFunction = (props: ThemeProps<DefaultTheme>) => any
 */
 
 const themeGet =
-  (path: PropertyPath, fallback: unknown = null): ThemeGetFunction =>
+  (path: string | number, fallback: unknown = null): ThemeGetFunction =>
   props =>
     get(props.theme, path, fallback)
 
