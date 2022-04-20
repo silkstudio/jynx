@@ -55,6 +55,7 @@ import { systemTheme } from './theme'
 
 // Utils
 import { createStyleFunction, compose } from './constructors'
+import { shouldForwardProp } from './helpers/shouldForwardProp'
 
 /*
 
@@ -134,4 +135,4 @@ export type {
 export { systemTheme }
 
 // Utils
-export { createStyleFunction, compose }
+export { createStyleFunction, compose, shouldForwardProp }

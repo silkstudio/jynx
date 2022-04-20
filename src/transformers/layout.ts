@@ -3,7 +3,7 @@ import type { TransformFunction } from '../types/functions'
 import type { CSSProperties } from '../types/css'
 
 // Utils
-import { get, isNumeric } from '../utils'
+import { isNumeric, get } from '../utils'
 
 /*
 

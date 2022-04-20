@@ -19,6 +19,12 @@ import { createStyleFunction } from '../constructors'
 */
 
 const config: StyleFunctionConfig = {
+  grid: {
+    property: 'grid'
+  },
+  gridTemplate: {
+    property: 'gridTemplate'
+  },
   gridTemplateColumns: {
     property: 'gridTemplateColumns'
   },
@@ -46,11 +52,17 @@ const config: StyleFunctionConfig = {
   gridAlignItems: {
     property: 'alignItems'
   },
+  gridPlaceItems: {
+    property: 'placeItems'
+  },
   gridJustifyContent: {
     property: 'justifyContent'
   },
   gridAlignContent: {
     property: 'alignContent'
+  },
+  gridPlaceContent: {
+    property: 'placeContent'
   },
   gridAutoColumns: {
     property: 'gridAutoColumns'
@@ -61,6 +73,8 @@ const config: StyleFunctionConfig = {
   gridAutoFlow: {
     property: 'gridAutoFlow'
   },
+
+  // Child Props
   gridColumn: {
     property: 'gridColumn'
   },
@@ -69,11 +83,33 @@ const config: StyleFunctionConfig = {
   },
   gridArea: {
     property: 'gridArea'
+  },
+  gridRowStart: {
+    property: 'gridRowStart'
+  },
+  gridRowEnd: {
+    property: 'gridRowEnd'
+  },
+  gridColumnStart: {
+    property: 'gridColumnStart'
+  },
+  gridColumnEnd: {
+    property: 'gridColumnEnd'
+  },
+  alignSelf: {
+    property: 'alignSelf'
+  },
+  justifySelf: {
+    property: 'justifySelf'
+  },
+  placeSelf: {
+    property: 'placeSelf'
   }
 }
 
 interface GridProps {
   grid?: StyleProp<Property.Grid>
+  gridTemplate?: StyleProp<Property.GridTemplate>
   gridTemplateColumns?: StyleProp<Property.GridTemplateColumns>
   gridTemplateRows?: StyleProp<Property.GridTemplateRows>
   gridTemplateAreas?: StyleProp<Property.GridTemplateAreas>
@@ -82,8 +118,10 @@ interface GridProps {
   gap?: StyleProp<Property.Gap<string | 0 | number> | ThemeValue<'space'>>
   gridJustifyItems?: StyleProp<Property.JustifyItems>
   gridAlignItems?: StyleProp<Property.AlignItems>
+  gridPlaceItems?: StyleProp<Property.PlaceItems>
   gridJustifyContent?: StyleProp<Property.JustifyContent>
   gridAlignContent?: StyleProp<Property.AlignContent>
+  gridPlaceContent?: StyleProp<Property.PlaceContent>
   gridAutoColumns?: StyleProp<Property.GridAutoColumns>
   gridAutoRows?: StyleProp<Property.GridAutoRows>
   gridAutoFlow?: StyleProp<Property.GridAutoFlow>
@@ -92,6 +130,13 @@ interface GridProps {
   gridColumn?: StyleProp<Property.GridColumn>
   gridRow?: StyleProp<Property.GridRow>
   gridArea?: StyleProp<Property.GridArea>
+  gridRowStart?: StyleProp<Property.GridRowStart>
+  gridRowEnd?: StyleProp<Property.GridRowEnd>
+  gridColumnStart?: StyleProp<Property.GridColumnStart>
+  gridColumnEnd?: StyleProp<Property.GridColumnEnd>
+  alignSelf?: StyleProp<Property.AlignSelf>
+  justifySelf?: StyleProp<Property.JustifySelf>
+  placeSelf?: StyleProp<Property.PlaceSelf>
 }
 
 const grid = createStyleFunction<GridProps>(config)
