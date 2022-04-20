@@ -26,7 +26,7 @@ Rapidly create and control responsive, theme-focused and type-safe components, d
 responsive, theme-focused, type-safe styled-components to be rapidly created and
 controlled directly from your jsx.
 
-Originally built in-house by [Silk Studio](/) to streamline our own development pipeline, `Jynx` is now availabe to use in your own projects and comes with support for: 
+Originally built in-house by [Silk Studio](/) to streamline our own development pipeline, `Jynx` is now available to use in your own projects and comes with support for: 
 
 - rapid component styling through the use of style-props
 - using objects and arrays to create mobile-first, responsive designs
