@@ -1,9 +1,5 @@
-// Types
-import type { ThemeProps } from '../../types/theme'
-
 // Utils
 import { shouldForwardProp } from '../shouldForwardProp'
-import { defaultBreakpoints } from '../../utils'
 
 /*
 
