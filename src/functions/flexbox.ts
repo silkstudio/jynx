@@ -80,7 +80,7 @@ interface FlexboxProps {
 const flexbox: StyleFunction<FlexboxProps> = ({ theme, ...styles }) => {
   const result = createStylesObject<FlexboxProps>(styles, theme, config)
 
-  if (Object.keys(styles).length) {
+  if (Object.values(styles).some(i => !!i)) {
     result.display = 'flex'
   }
 

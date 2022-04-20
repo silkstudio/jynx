@@ -134,6 +134,22 @@ describe('When passing multiple responsive styles', () => {
   })
 })
 
+describe('When no styles are passed', () => {
+  const theme = {
+    breakpoints: defaultBreakpoints
+  }
+
+  const styles: FlexboxProps & ThemeProps<typeof theme> = {
+    theme: theme
+  }
+
+  const test = flexbox(styles)
+
+  it('should not have display: flex as a default', () => {
+    expect(test).toEqual({})
+  })
+})
+
 describe('When tring to access the functions config property', () => {
   it('should return an object', () => {
     expect(typeof flexbox.config).toBe('object')
