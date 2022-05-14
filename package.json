@@ -5,19 +5,8 @@
   "main": "./dist/jynx.cjs.js",
   "module": "./dist/jynx.js",
   "typings": "./dist/index.d.ts",
-  "keywords": [
-    "react",
-    "typescript",
-    "css-in-js",
-    "cssinjs",
-    "css",
-    "style-props",
-    "styled-components",
-    "emotion"
-  ],
-  "files": [
-    "dist"
-  ],
+  "keywords": ["react", "typescript", "css-in-js", "cssinjs", "css", "style-props", "styled-components", "emotion"],
+  "files": ["dist"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/silkstudio/jynx.git"
@@ -39,7 +28,8 @@
     "precommit": "lint-staged && tsc",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
-    "postpublish": "pinst --enable"
+    "postpublish": "pinst --enable",
+    "release": "shipjs prepare"
   },
   "devDependencies": {
     "@testing-library/react": "^13.1.1",
@@ -67,6 +57,7 @@
     "rollup": "^2.60.0",
     "rollup-plugin-dts": "^4.0.1",
     "rollup-plugin-esbuild": "^4.6.0",
+    "shipjs": "0.24.4",
     "ts-essentials": "^9.0.0",
     "ts-jest": "^27.0.7",
     "typescript": "^4.4.4"
