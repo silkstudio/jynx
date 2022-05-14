@@ -46,6 +46,6 @@ const allProps = Object.keys({
   ...typographyConfig
 })
 
-const shouldForwardProp = memoize((prop: any): boolean => !allProps.includes(prop))
+const shouldForwardProp = memoize((prop: any): boolean => typeof prop !== 'string' || !allProps.includes(prop))
 
 export { shouldForwardProp }
