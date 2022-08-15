@@ -4872,9 +4872,9 @@ rollup-plugin-dts@^4.0.1:
     "@babel/code-frame" "^7.16.7"
 
 rollup-plugin-esbuild@^4.6.0:
-  version "4.9.1"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-esbuild/-/rollup-plugin-esbuild-4.9.1.tgz#369d137e2b1542c8ee459495fd4f10de812666aa"
-  integrity sha512-qn/x7Wz9p3Xnva99qcb+nopH0d2VJwVnsxJTGEg+Sh2Z3tqQl33MhOwzekVo1YTKgv+yAmosjcBRJygMfGrtLw==
+  version "4.9.2"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-esbuild/-/rollup-plugin-esbuild-4.9.2.tgz#85c2db509e9965ca93e0e8c0e145b82c4886c8be"
+  integrity sha512-nGVRGEaGr9jbCmmE5CEkjHYFVGHqeUaRsRhzGUGcd+UEfR0pQaiyIlir7WJys4LA7gQd/lv204Lhi8or1DnaGQ==
   dependencies:
     "@rollup/pluginutils" "^4.1.1"
     debug "^4.3.3"
