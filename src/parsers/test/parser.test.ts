@@ -3,7 +3,7 @@ import type { CSSProperties } from '../../types/css'
 
 // Utils
 import { parser } from '../parser'
-import { systemTheme } from '../../theme'
+import { mockTheme } from '../../theme'
 
 /*
 
@@ -19,7 +19,7 @@ import { systemTheme } from '../../theme'
 describe('When a required argument is missing', () => {
   it('should return an empty object if a css property is not defined', () => {
     const maybeCssProperty = undefined as unknown as keyof CSSProperties
-    const foo = parser({ property: maybeCssProperty, values: ['red'], theme: systemTheme })
+    const foo = parser({ property: maybeCssProperty, values: ['red'], theme: mockTheme })
 
     expect(typeof foo).toBe('object')
     expect(foo).toEqual({})
@@ -27,14 +27,14 @@ describe('When a required argument is missing', () => {
 
   it('should return an empty object if a style object is not defined', () => {
     const maybeArray = undefined as unknown as ['red']
-    const foo = parser({ property: 'color', values: maybeArray, theme: systemTheme })
+    const foo = parser({ property: 'color', values: maybeArray, theme: mockTheme })
 
     expect(typeof foo).toBe('object')
     expect(foo).toEqual({})
   })
 
   it('should return an empty object if a theme is not defined', () => {
-    const maybeTheme = undefined as unknown as typeof systemTheme
+    const maybeTheme = undefined as unknown as typeof mockTheme
     const foo = parser({ property: 'color', values: ['red'], theme: maybeTheme })
 
     expect(typeof foo).toBe('object')
@@ -43,7 +43,7 @@ describe('When a required argument is missing', () => {
 })
 
 describe('When passed a single item array', () => {
-  const foo = parser({ property: 'color', values: ['red'], theme: systemTheme })
+  const foo = parser({ property: 'color', values: ['red'], theme: mockTheme })
 
   it('should return an object ', () => {
     expect(typeof foo).toBe('object')
@@ -57,7 +57,7 @@ describe('When passed a single item array', () => {
 })
 
 describe('When passed a single item object', () => {
-  const foo = parser({ property: 'color', values: { _: 'red' }, theme: systemTheme })
+  const foo = parser({ property: 'color', values: { _: 'red' }, theme: mockTheme })
 
   it('should return an object ', () => {
     expect(typeof foo).toBe('object')
@@ -70,20 +70,20 @@ describe('When passed a single item object', () => {
   })
 
   it('should reference the theme if a scale is provided and the value given corresponds to one in the theme', () => {
-    expect(parser({ property: 'color', values: { _: 'red' }, theme: systemTheme, scale: 'colors' })).toEqual({
+    expect(parser({ property: 'color', values: { _: 'red' }, theme: mockTheme, scale: 'colors' })).toEqual({
       color: '#F2335D'
     })
   })
 
   it('should use the original key as a fallback if value given does not correspond to one in the theme', () => {
-    expect(parser({ property: 'color', values: { _: 'aquamarine' }, theme: systemTheme, scale: 'colors' })).toEqual({
+    expect(parser({ property: 'color', values: { _: 'aquamarine' }, theme: mockTheme, scale: 'colors' })).toEqual({
       color: 'aquamarine'
     })
   })
 })
 
 describe('When passed an mutli-item array', () => {
-  const foo = parser({ property: 'color', values: ['red', 'blue', 'green'], theme: systemTheme })
+  const foo = parser({ property: 'color', values: ['red', 'blue', 'green'], theme: mockTheme })
 
   it('should return an object ', () => {
     expect(typeof foo).toBe('object')
@@ -103,7 +103,7 @@ describe('When passed an mutli-item array', () => {
 })
 
 describe('When passed an mutli-item object', () => {
-  const foo = parser({ property: 'color', values: { _: 'red', sm: 'blue', md: 'green' }, theme: systemTheme })
+  const foo = parser({ property: 'color', values: { _: 'red', sm: 'blue', md: 'green' }, theme: mockTheme })
 
   it('should return an object ', () => {
     expect(typeof foo).toBe('object')
@@ -123,7 +123,7 @@ describe('When passed an mutli-item object', () => {
 })
 
 describe('When passed an mutli-item array containing null', () => {
-  const foo = parser({ property: 'color', values: ['red', 'blue', null, 'yellow'], theme: systemTheme })
+  const foo = parser({ property: 'color', values: ['red', 'blue', null, 'yellow'], theme: mockTheme })
 
   it('should return an object ', () => {
     expect(typeof foo).toBe('object')
@@ -143,7 +143,7 @@ describe('When passed an mutli-item array containing null', () => {
 })
 
 describe('When passed an mutli-item object where only select breakpoints are referenced', () => {
-  const foo = parser({ property: 'color', values: { _: 'red', sm: 'blue', lg: 'green' }, theme: systemTheme })
+  const foo = parser({ property: 'color', values: { _: 'red', sm: 'blue', lg: 'green' }, theme: mockTheme })
 
   it('should return an object ', () => {
     expect(typeof foo).toBe('object')
@@ -164,7 +164,7 @@ describe('When passed an mutli-item object where only select breakpoints are ref
 
 describe('When a responsive array and an object-based theme scale are passed', () => {
   it('should return a sorted style object, referencing correlating theme values if they exist', () => {
-    expect(parser({ property: 'color', values: ['red', 'blue', 'yellow'], theme: systemTheme, scale: 'colors' })).toEqual({
+    expect(parser({ property: 'color', values: ['red', 'blue', 'yellow'], theme: mockTheme, scale: 'colors' })).toEqual({
       color: '#F2335D',
       '@media screen and (min-width: 640px)': {
         color: '#12A5EC'
@@ -176,7 +176,7 @@ describe('When a responsive array and an object-based theme scale are passed', (
   })
 
   it('should return a sorted style object, referencing correlating theme values if they exist and skipping values (and breakpoints) where null is passed as the style', () => {
-    expect(parser({ property: 'color', values: ['red', 'blue', null, 'yellow'], theme: systemTheme, scale: 'colors' })).toEqual({
+    expect(parser({ property: 'color', values: ['red', 'blue', null, 'yellow'], theme: mockTheme, scale: 'colors' })).toEqual({
       color: '#F2335D',
       '@media screen and (min-width: 640px)': {
         color: '#12A5EC'
@@ -188,23 +188,21 @@ describe('When a responsive array and an object-based theme scale are passed', (
   })
 
   it('should return a sorted style object, using the originally passed style if the value does not exist in the theme', () => {
-    expect(parser({ property: 'color', values: ['aquamarine', 'blue', null, 'yellow'], theme: systemTheme, scale: 'colors' })).toEqual(
-      {
-        color: 'aquamarine',
-        '@media screen and (min-width: 640px)': {
-          color: '#12A5EC'
-        },
-        '@media screen and (min-width: 1280px)': {
-          color: '#FFCC00'
-        }
+    expect(parser({ property: 'color', values: ['aquamarine', 'blue', null, 'yellow'], theme: mockTheme, scale: 'colors' })).toEqual({
+      color: 'aquamarine',
+      '@media screen and (min-width: 640px)': {
+        color: '#12A5EC'
+      },
+      '@media screen and (min-width: 1280px)': {
+        color: '#FFCC00'
       }
-    )
+    })
   })
 })
 
 describe('When a responsive object and an object-based theme scale are passed', () => {
   it('should return a sorted style object, referencing correlating theme values if they exist', () => {
-    expect(parser({ property: 'color', values: { _: 'red', sm: 'blue', md: 'green' }, theme: systemTheme, scale: 'colors' })).toEqual({
+    expect(parser({ property: 'color', values: { _: 'red', sm: 'blue', md: 'green' }, theme: mockTheme, scale: 'colors' })).toEqual({
       color: '#F2335D',
       '@media screen and (min-width: 640px)': {
         color: '#12A5EC'
@@ -216,7 +214,7 @@ describe('When a responsive object and an object-based theme scale are passed', 
   })
 
   it('should return a sorted style object, referencing correlating theme values if they exist, with styles defined for the appropriate breakpoints', () => {
-    expect(parser({ property: 'color', values: { _: 'red', sm: 'blue', lg: 'green' }, theme: systemTheme, scale: 'colors' })).toEqual({
+    expect(parser({ property: 'color', values: { _: 'red', sm: 'blue', lg: 'green' }, theme: mockTheme, scale: 'colors' })).toEqual({
       color: '#F2335D',
       '@media screen and (min-width: 640px)': {
         color: '#12A5EC'
@@ -229,7 +227,7 @@ describe('When a responsive object and an object-based theme scale are passed', 
 
   it('should return a sorted style object, using the originally passed style if the value does not exist in the theme, with styles defined for the appropriate breakpoints', () => {
     expect(
-      parser({ property: 'color', values: { _: 'aquamarine', sm: 'blue', lg: 'green' }, theme: systemTheme, scale: 'colors' })
+      parser({ property: 'color', values: { _: 'aquamarine', sm: 'blue', lg: 'green' }, theme: mockTheme, scale: 'colors' })
     ).toEqual({
       color: 'aquamarine',
       '@media screen and (min-width: 640px)': {
@@ -245,7 +243,7 @@ describe('When a responsive object and an object-based theme scale are passed', 
 describe('When a responsive array and an array-based theme scale are passed', () => {
   it('should return a sorted style object, referencing correlating theme values if they exist', () => {
     // CAVEAT: Array values can be selected by passing numbers here but they must be strings, e.g. '1' not 1
-    expect(parser({ property: 'padding', values: ['1', '2', '3'], theme: systemTheme, scale: 'space' })).toEqual({
+    expect(parser({ property: 'padding', values: ['1', '2', '3'], theme: mockTheme, scale: 'space' })).toEqual({
       padding: '4px',
       '@media screen and (min-width: 640px)': {
         padding: '8px'
@@ -257,7 +255,7 @@ describe('When a responsive array and an array-based theme scale are passed', ()
   })
 
   it('should return a sorted style object, referencing correlating theme values if they exist, with styles defined for the appropriate breakpoints', () => {
-    expect(parser({ property: 'padding', values: ['1', '2', null, '3'], theme: systemTheme, scale: 'space' })).toEqual({
+    expect(parser({ property: 'padding', values: ['1', '2', null, '3'], theme: mockTheme, scale: 'space' })).toEqual({
       padding: '4px',
       '@media screen and (min-width: 640px)': {
         padding: '8px'
@@ -269,7 +267,7 @@ describe('When a responsive array and an array-based theme scale are passed', ()
   })
 
   it('should return a sorted style object, using the originally passed style if the value does not exist in the theme, with styles defined for the appropriate breakpoints', () => {
-    expect(parser({ property: 'padding', values: ['48', '5', null, '6'], theme: systemTheme, scale: 'space' })).toEqual({
+    expect(parser({ property: 'padding', values: ['48', '5', null, '6'], theme: mockTheme, scale: 'space' })).toEqual({
       padding: '48px',
       '@media screen and (min-width: 640px)': {
         padding: '64px'
@@ -284,7 +282,7 @@ describe('When a responsive array and an array-based theme scale are passed', ()
 describe('When a responsive object and an array-based theme scale are passed', () => {
   it('should return a sorted style object, referencing correlating theme values if they exist', () => {
     // CAVEAT: Array values can be selected by passing numbers here but they must be strings, e.g. '1' not 1
-    expect(parser({ property: 'padding', values: { _: '1', sm: '2', md: '3' }, theme: systemTheme, scale: 'space' })).toEqual({
+    expect(parser({ property: 'padding', values: { _: '1', sm: '2', md: '3' }, theme: mockTheme, scale: 'space' })).toEqual({
       padding: '4px',
       '@media screen and (min-width: 640px)': {
         padding: '8px'
@@ -296,7 +294,7 @@ describe('When a responsive object and an array-based theme scale are passed', (
   })
 
   it('should return a sorted style object, referencing correlating theme values if they exist, with styles defined for the appropriate breakpoints', () => {
-    expect(parser({ property: 'padding', values: { _: '1', sm: '2', lg: '3' }, theme: systemTheme, scale: 'space' })).toEqual({
+    expect(parser({ property: 'padding', values: { _: '1', sm: '2', lg: '3' }, theme: mockTheme, scale: 'space' })).toEqual({
       padding: '4px',
       '@media screen and (min-width: 640px)': {
         padding: '8px'
@@ -308,7 +306,7 @@ describe('When a responsive object and an array-based theme scale are passed', (
   })
 
   it('should return a sorted style object, using the originally passed style if the value does not exist in the theme, with styles defined for the appropriate breakpoints', () => {
-    expect(parser({ property: 'padding', values: { _: '48', sm: '5', lg: '6' }, theme: systemTheme, scale: 'space' })).toEqual({
+    expect(parser({ property: 'padding', values: { _: '48', sm: '5', lg: '6' }, theme: mockTheme, scale: 'space' })).toEqual({
       padding: '48px',
       '@media screen and (min-width: 640px)': {
         padding: '64px'
@@ -322,7 +320,7 @@ describe('When a responsive object and an array-based theme scale are passed', (
 
 describe('When passing a responsive array and using an alternative breakpoints from a user-defined theme', () => {
   const customTheme = {
-    ...systemTheme,
+    ...mockTheme,
     breakpoints: {
       mobile: 540,
       tablet: 720,
@@ -424,7 +422,7 @@ describe('When passing a responsive array and using an alternative breakpoints f
 
 describe('When passing a responsive object and using an alternative breakpoints from a user-defined theme', () => {
   const customTheme = {
-    ...systemTheme,
+    ...mockTheme,
     breakpoints: {
       mobile: 540,
       tablet: 720,

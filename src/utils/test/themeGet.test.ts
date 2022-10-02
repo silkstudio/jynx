@@ -3,9 +3,9 @@ import type { DefaultTheme } from '../../types/theme'
 
 // Utils
 import { themeGet } from '../themeGet'
-import { systemTheme } from '../../theme'
+import { mockTheme } from '../../theme'
 
-const theme: DefaultTheme = systemTheme
+const theme: DefaultTheme = mockTheme
 
 const testTheme = {
   colors: {

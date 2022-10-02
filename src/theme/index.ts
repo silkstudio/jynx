@@ -1,1 +1,1 @@
-export { systemTheme } from './theme'
+export { mockTheme } from './theme'

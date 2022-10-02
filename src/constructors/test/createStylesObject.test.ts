@@ -1,6 +1,6 @@
 // Utils
 import { createStylesObject } from '../createStylesObject'
-import { systemTheme as theme } from '../../theme'
+import { mockTheme } from '../../theme'
 import { ColorProps, colorConfig } from '../../functions/color'
 
 /*
@@ -16,19 +16,19 @@ import { ColorProps, colorConfig } from '../../functions/color'
 
 describe('When passed a single-item style object', () => {
   it('should return a style object, defining the correct css rule', () => {
-    expect(createStylesObject<ColorProps>({ color: { _: 'red' } }, theme, colorConfig)).toEqual({ color: '#F2335D' })
+    expect(createStylesObject<ColorProps>({ color: { _: 'red' } }, mockTheme, colorConfig)).toEqual({ color: '#F2335D' })
   })
 })
 
 describe('When passed a single-item style array', () => {
   it('should return a style object, defining the correct css rule', () => {
-    expect(createStylesObject<ColorProps>({ color: ['red'] }, theme, colorConfig)).toEqual({ color: '#F2335D' })
+    expect(createStylesObject<ColorProps>({ color: ['red'] }, mockTheme, colorConfig)).toEqual({ color: '#F2335D' })
   })
 })
 
 describe('When passed a multi-item style object', () => {
   it('should return a style object, defining the correct css rules at the correct breakpoints', () => {
-    expect(createStylesObject<ColorProps>({ color: { _: 'red', sm: 'blue', md: 'green' } }, theme, colorConfig)).toEqual({
+    expect(createStylesObject<ColorProps>({ color: { _: 'red', sm: 'blue', md: 'green' } }, mockTheme, colorConfig)).toEqual({
       color: '#F2335D',
       '@media screen and (min-width: 640px)': {
         color: '#12A5EC'
@@ -42,7 +42,7 @@ describe('When passed a multi-item style object', () => {
 
 describe('When passed a multi-item style array', () => {
   it('should return a style object, defining the correct css rules at the correct breakpoints', () => {
-    expect(createStylesObject<ColorProps>({ color: ['red', 'blue', 'green'] }, theme, colorConfig)).toEqual({
+    expect(createStylesObject<ColorProps>({ color: ['red', 'blue', 'green'] }, mockTheme, colorConfig)).toEqual({
       color: '#F2335D',
       '@media screen and (min-width: 640px)': {
         color: '#12A5EC'
@@ -56,7 +56,7 @@ describe('When passed a multi-item style array', () => {
 
 describe('When passed a multi-item style object, skipping select breakpoints', () => {
   it('should return a style object, defining the correct css rules at the correct breakpoints', () => {
-    expect(createStylesObject<ColorProps>({ color: { _: 'red', sm: 'blue', lg: 'green' } }, theme, colorConfig)).toEqual({
+    expect(createStylesObject<ColorProps>({ color: { _: 'red', sm: 'blue', lg: 'green' } }, mockTheme, colorConfig)).toEqual({
       color: '#F2335D',
       '@media screen and (min-width: 640px)': {
         color: '#12A5EC'
@@ -70,7 +70,7 @@ describe('When passed a multi-item style object, skipping select breakpoints', (
 
 describe('When passed a multi-item style array, skipping select breakpoints', () => {
   it('should return a style object, defining the correct css rules at the correct breakpoints', () => {
-    expect(createStylesObject<ColorProps>({ color: ['red', 'blue', null, 'green'] }, theme, colorConfig)).toEqual({
+    expect(createStylesObject<ColorProps>({ color: ['red', 'blue', null, 'green'] }, mockTheme, colorConfig)).toEqual({
       color: '#F2335D',
       '@media screen and (min-width: 640px)': {
         color: '#12A5EC'
@@ -84,7 +84,7 @@ describe('When passed a multi-item style array, skipping select breakpoints', ()
 
 describe('When passed an unsorted multi-item style object, skipping select breakpoints', () => {
   it('should return a SORTED style object, defining the correct css rules at the correct breakpoints', () => {
-    expect(createStylesObject<ColorProps>({ color: { sm: 'blue', _: 'red', lg: 'green' } }, theme, colorConfig)).toEqual({
+    expect(createStylesObject<ColorProps>({ color: { sm: 'blue', _: 'red', lg: 'green' } }, mockTheme, colorConfig)).toEqual({
       color: '#F2335D',
       '@media screen and (min-width: 640px)': {
         color: '#12A5EC'
@@ -98,7 +98,7 @@ describe('When passed an unsorted multi-item style object, skipping select break
 
 describe('When passed a multi-item style object, using non-theme values', () => {
   it('should return a sorted style object, using the originally passed values if they do not exist within the theme', () => {
-    expect(createStylesObject<ColorProps>({ color: { _: 'aquamarine', sm: 'blue', lg: 'green' } }, theme, colorConfig)).toEqual({
+    expect(createStylesObject<ColorProps>({ color: { _: 'aquamarine', sm: 'blue', lg: 'green' } }, mockTheme, colorConfig)).toEqual({
       color: 'aquamarine',
       '@media screen and (min-width: 640px)': {
         color: '#12A5EC'
@@ -112,7 +112,7 @@ describe('When passed a multi-item style object, using non-theme values', () => 
 
 describe('When passed a multi-item style array, using non-theme values', () => {
   it('should return a sorted style object, using the originally passed values if they do not exist within the theme', () => {
-    expect(createStylesObject<ColorProps>({ color: ['aquamarine', 'blue', null, 'green'] }, theme, colorConfig)).toEqual({
+    expect(createStylesObject<ColorProps>({ color: ['aquamarine', 'blue', null, 'green'] }, mockTheme, colorConfig)).toEqual({
       color: 'aquamarine',
       '@media screen and (min-width: 640px)': {
         color: '#12A5EC'
@@ -126,7 +126,7 @@ describe('When passed a multi-item style array, using non-theme values', () => {
 
 describe('When using user-defined breakpoints in a custom theme', () => {
   const customTheme = {
-    ...theme,
+    ...mockTheme,
     breakpoints: {
       small: 540,
       medium: 720,
