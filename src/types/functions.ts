@@ -22,7 +22,7 @@ import type { DefaultTheme } from './theme'
  * @public
  */
 export type StyleFunction<T> = {
-  (props: T & { theme: DefaultTheme }): CSSObject
+  (props: T & { theme?: DefaultTheme }): CSSObject
   config: StyleFunctionConfig
 }
 

@@ -6,6 +6,8 @@ import type { StyleFunction, StyleFunctionConfig } from '../types/functions'
 
 // Utils
 import { createStylesObject } from '../constructors'
+import { fallbackTheme } from '../theme'
+import deepmerge from 'deepmerge'
 
 /*
 
@@ -77,8 +79,10 @@ interface FlexboxProps {
   order?: StyleProp<Property.Order>
 }
 
-const flexbox: StyleFunction<FlexboxProps> = ({ theme, ...styles }) => {
-  const result = createStylesObject<FlexboxProps>(styles, theme, config)
+const flexbox: StyleFunction<FlexboxProps> = ({ theme = {}, ...styles }) => {
+  const _theme = deepmerge(fallbackTheme, theme)
+
+  const result = createStylesObject<FlexboxProps>(styles, _theme, config)
 
   if (Object.values(styles).some(i => !!i)) {
     result.display = 'flex'

@@ -1,1 +1,1 @@
-export { mockTheme, defaultBreakpoints, type DefaultBreakpoints } from './theme'
+export { mockTheme, fallbackTheme, defaultBreakpoints, type DefaultBreakpoints } from './theme'

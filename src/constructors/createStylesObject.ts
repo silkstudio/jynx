@@ -38,7 +38,7 @@ import deepMerge from 'deepmerge'
 
 */
 
-const createStylesObject = <T>(raw: T, theme: DefaultTheme, config: StyleFunctionConfig): CSSObject => {
+const createStylesObject = <T extends Record<string, any>>(raw: T, theme: DefaultTheme, config: StyleFunctionConfig): CSSObject => {
   let styles: CSSObject = {}
 
   Object.entries(raw).forEach(([key, values]) => {

@@ -15,6 +15,10 @@ export const defaultBreakpoints = {
 
 export type DefaultBreakpoints = typeof defaultBreakpoints
 
+export const fallbackTheme = {
+  breakpoints: defaultBreakpoints
+}
+
 export const mockTheme = {
   breakpoints: defaultBreakpoints,
   space: [0, 4, 8, 16, 32, 64, 128, 256],
