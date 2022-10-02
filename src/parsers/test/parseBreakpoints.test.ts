@@ -1,7 +1,7 @@
 // Types
 
 // Utils
-import { defaultBreakpoints } from '../../utils'
+import { defaultBreakpoints } from '../../theme'
 import { parseBreakpoints } from '../parseBreakpoints'
 
 const breakpointsObj = {

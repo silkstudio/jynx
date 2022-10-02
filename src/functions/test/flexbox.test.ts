@@ -3,7 +3,7 @@ import type { ThemeProps } from '../../types/theme'
 
 // Utils
 import { flexbox, FlexboxProps, flexboxConfig } from '../flexbox'
-import { defaultBreakpoints } from '../../utils'
+import { defaultBreakpoints } from '../../theme'
 
 /*
 

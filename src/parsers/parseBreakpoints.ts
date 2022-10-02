@@ -1,9 +1,9 @@
 // Types
 import type { SingleLayerObjectOrArray } from '../types/common'
-import type { DefaultBreakpoints } from '../utils/defaultBreakpoints'
+import type { DefaultBreakpoints } from '../theme'
 
 // Utils
-import { defaultBreakpoints } from '../utils'
+import { defaultBreakpoints } from '../theme'
 
 /**
  * parseBreakpoints

@@ -1,7 +1,7 @@
 // Types
 import * as CSS from 'csstype'
 import type { ObjectOrArray } from './common'
-import type { DefaultBreakpoints } from '../utils/defaultBreakpoints'
+import type { DefaultBreakpoints } from '../theme'
 import type { DeepLeaves } from './utils'
 
 /*

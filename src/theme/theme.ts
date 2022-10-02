@@ -1,10 +1,19 @@
-const defaultBreakpoints = {
+/*
+
+
+
+
+*/
+
+export const defaultBreakpoints = {
   sm: 640,
   md: 960,
   lg: 1280,
   xl: 1366,
   xxl: 1600
 }
+
+export type DefaultBreakpoints = typeof defaultBreakpoints
 
 export const mockTheme = {
   breakpoints: defaultBreakpoints,

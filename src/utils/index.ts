@@ -1,7 +1,6 @@
 // Internal Utils
 export { addUnitIfNeeded } from './addUnitIfNeeded'
 export { createMediaQuery } from './createMediaQuery'
-export { defaultBreakpoints } from './defaultBreakpoints'
 export { escapeRegExp } from './escapeRegExp'
 export { get } from './get'
 export { getValue } from './getValue'
