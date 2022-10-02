@@ -50,9 +50,6 @@ import type { CSSObject, CSSProperties, CSSInterpolation, StyleProp } from './ty
 import type { StyleFunction, StyleFunctionConfig, TransformFunction } from './types/functions'
 import type { BaseTheme, CustomTheme, DefaultTheme, ThemeProps, ThemeValue } from './types/theme'
 
-// Themes
-import { systemTheme } from './theme'
-
 // Utils
 import { createStyleFunction, compose } from './constructors'
 import { shouldForwardProp } from './helpers/shouldForwardProp'
@@ -130,9 +127,6 @@ export type {
   ThemeProps,
   ThemeValue
 }
-
-// Themes
-export { systemTheme }
 
 // Utils
 export { createStyleFunction, compose, shouldForwardProp }

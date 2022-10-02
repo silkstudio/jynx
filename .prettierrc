@@ -5,5 +5,12 @@
   "semi": false,
   "bracketSpacing": true,
   "arrowParens": "avoid",
-  "parser": "typescript"
+  "overrides": [
+    {
+      "files": [".ts", ".tsx"],
+      "options": {
+        "parser": "typescript"
+      }
+    }
+  ]
 }

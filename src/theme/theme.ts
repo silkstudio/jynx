@@ -1,11 +1,26 @@
-export const systemTheme = {
-  breakpoints: {
-    sm: 640,
-    md: 960,
-    lg: 1280,
-    xl: 1366,
-    xxl: 1600
-  },
+/*
+
+
+
+
+*/
+
+export const defaultBreakpoints = {
+  sm: 640,
+  md: 960,
+  lg: 1280,
+  xl: 1366,
+  xxl: 1600
+}
+
+export type DefaultBreakpoints = typeof defaultBreakpoints
+
+export const fallbackTheme = {
+  breakpoints: defaultBreakpoints
+}
+
+export const mockTheme = {
+  breakpoints: defaultBreakpoints,
   space: [0, 4, 8, 16, 32, 64, 128, 256],
   fontSizes: [12, 14, 16, 24, 32, 48, 64, 96, 128],
   colors: {

@@ -5,7 +5,7 @@ import type { ThemeProps } from '../../types/theme'
 
 // Utils
 import { createStyleFunction } from '../createStyleFunction'
-import { defaultBreakpoints } from '../../utils'
+import { defaultBreakpoints } from '../../theme'
 import { colorConfig } from '../../functions/color'
 import { spaceConfig } from '../../functions/space'
 
