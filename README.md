@@ -51,7 +51,7 @@ Check out the [introduction](https://jynx.vercel.app/introduction) to get up and
 
 ### 💻 &nbsp;Development
 
-Jynx uses [shipjs](https://github.com/algolia/shipjs) for managing it's releases. For devs issuing a new release, simply run `yarn release` in your local terminal on follow the CLI wizard.
+Jynx uses [shipjs](https://github.com/algolia/shipjs) for managing it's releases. For devs issuing a new release, simply run `yarn release` in your local terminal and follow the CLI wizard.
 
 ### 📄 &nbsp;License
 
