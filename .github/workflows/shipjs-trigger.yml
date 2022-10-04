@@ -1,13 +1,11 @@
 name: Ship js trigger
 on:
-  pull_request:
-    types:
-      - closed
+  release:
+    types: [published]
 jobs:
   build:
     name: Release
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'releases/v')
     steps:
       - uses: actions/checkout@v3
         with:
