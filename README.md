@@ -12,7 +12,7 @@ Rapidly create and control responsive, theme-focused and type-safe components, d
 
 <div align="center">
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/silkstudio/jynx/CI?label=CI&logo=git&logoColor=white)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/silkstudio/jynx/main.yml?branch=main&label=CI&logo=git&logoColor=white)
 ![npm](https://img.shields.io/npm/v/jynx)
 ![npm](https://img.shields.io/npm/dw/jynx)
 ![GitHub Repo stars](https://img.shields.io/github/stars/silkstudio/jynx)
