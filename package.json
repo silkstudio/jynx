@@ -43,7 +43,7 @@
     "release": "shipjs prepare"
   },
   "devDependencies": {
-    "@testing-library/react": "^13.1.1",
+    "@testing-library/react": "^14.0.0",
     "@types/jest": "^27.0.3",
     "@types/lodash.get": "^4.4.7",
     "@types/react": "^18.0.5",
