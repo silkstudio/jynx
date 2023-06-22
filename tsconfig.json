@@ -1,18 +1,18 @@
 {
-    "compilerOptions": {
-      "target": "esnext",
-      "module": "esnext",
-      "baseUrl": "/",
-      "declaration": true,
-      "strict": true,
-      "noEmit": true,
-      "skipLibCheck": true,
-      "jsx": "react",
-      "allowSyntheticDefaultImports": true,
-      "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
-      "moduleResolution": "node"
-    },
-    "include": ["src", "rollup.config.js"],
-    "exclude": ["node_modules", "docs"]
-  }
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "baseUrl": "/",
+    "declaration": true,
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node"
+  },
+  "include": ["src", "rollup.config.js", "@types"],
+  "exclude": ["node_modules", "docs"]
+}

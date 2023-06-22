@@ -43,9 +43,12 @@
     "release": "shipjs prepare"
   },
   "devDependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@testing-library/react": "^13.1.1",
     "@types/jest": "^27.0.3",
     "@types/react": "^18.0.5",
+    "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
     "esbuild": "^0.15.1",
@@ -67,6 +70,7 @@
     "rollup-plugin-dts": "^4.0.1",
     "rollup-plugin-esbuild": "^4.6.0",
     "shipjs": "0.24.4",
+    "styled-components": "5.3.10",
     "ts-essentials": "^9.0.0",
     "ts-jest": "^27.0.7",
     "typescript": "^4.4.4"
