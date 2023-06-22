@@ -1,3 +1,19 @@
+# [1.3.0](https://github.com/silkstudio/jynx/compare/v1.2.1...v1.3.0) (2023-06-22)
+
+
+### Bug Fixes
+
+* circular deps with new get ([65c3c60](https://github.com/silkstudio/jynx/commit/65c3c6070d8f651c3b61eacba6240ac7fbe92914))
+* grammar in readme ([f844eef](https://github.com/silkstudio/jynx/commit/f844eef92bba5ba038fcbec4e392ee02fa5b37bb))
+* shields.io badge in readme ([dc665db](https://github.com/silkstudio/jynx/commit/dc665db2d106a129eb8fdfad59fece6461afa3b8))
+
+
+### Features
+
+* update css types ([3eab065](https://github.com/silkstudio/jynx/commit/3eab065e329a3cb33f00c24a069be292c98e18f0))
+
+
+
 ## [1.2.1](https://github.com/silkstudio/jynx/compare/v1.2.0...v1.2.1) (2022-10-04)
 
 
