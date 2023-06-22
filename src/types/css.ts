@@ -15,11 +15,31 @@ import type { ResponsiveStyle } from './responsive'
 */
 
 /**
+ * CSSPropertiesWithMultiValues
+ *
+ * @deprecated in 1.2.2
+ * @since 1.0.0
+ */
+export type CSSPropertiesWithMultiValues = {
+  [K in keyof CSSProperties]: CSSProperties[K] | Array<Extract<CSSProperties[K], string>>
+}
+
+/**
+ * CSSOthersObjectForCSSObject
+ *
+ * @deprecated in 1.2.2
+ * @since 1.0.0
+ */
+export interface CSSOthersObjectForCSSObject {
+  [propertiesName: string]: CSSInterpolation
+}
+
+/**
  * CSSProperties
  *
  * @since 1.0.0
  */
-export interface CSSProperties extends CSS.StandardProperties<number | string>, CSS.SvgProperties<number | string> {}
+export type CSSProperties = CSS.Properties<string | number>
 
 /**
  * CSSPseudos
@@ -29,15 +49,6 @@ export interface CSSProperties extends CSS.StandardProperties<number | string>, 
 export type CSSPseudos = { [K in CSS.Pseudos]?: CSSObject }
 
 /**
- * CSSPropertiesWithMultiValues
- *
- * @since 1.0.0
- */
-export type CSSPropertiesWithMultiValues = {
-  [K in keyof CSSProperties]: CSSProperties[K]
-}
-
-/**
  * CSSInterpolation
  *
  * @since 1.0.0
@@ -45,24 +56,15 @@ export type CSSPropertiesWithMultiValues = {
 export type CSSInterpolation = undefined | number | string | CSSObject
 
 /**
- * CSSOthersObjectForCSSObject
- *
- * @since 1.0.0
- */
-export interface CSSOthersObjectForCSSObject {
-  [propertiesName: string]: CSSInterpolation
-}
-
-/**
  * CSSObject
  *
  * CSS as POJO that is compatible with CSS-in-JS libaries.
- * Copied directly from [emotion](https://github.com/emotion-js/emotion/blob/ca3ad1c1dcabf78a95b55cc2dc94cad1998a3196/packages/serialize/types/index.d.ts#L45) types
  *
  * @since 1.0.0
  */
-
-export interface CSSObject extends CSSPropertiesWithMultiValues, CSSPseudos, CSSOthersObjectForCSSObject {}
+export interface CSSObject extends CSSProperties, CSSPseudos {
+  [key: string]: CSSObject | string | number | undefined
+}
 
 /**
  * StyleProp
