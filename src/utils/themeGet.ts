@@ -2,7 +2,7 @@
 import type { DefaultTheme, ThemeProps } from '../types/theme'
 
 // Utils
-import { get } from '.'
+import { get } from './get'
 
 type ThemeGetFunction = (props: ThemeProps<DefaultTheme>) => any
 

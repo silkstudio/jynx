@@ -57,13 +57,13 @@ describe('When a value is passed but no scale is defined', () => {
 })
 
 describe('When a scale is defined but no value is passed', () => {
-  it('should return an empty string', () => {
-    expect(getValue(undefined, mockTheme.colors)).toBe('')
+  it('should return undefined', () => {
+    expect(getValue(undefined, mockTheme.colors)).toBe(undefined)
   })
 })
 
 describe('When no value is passed and no scale is defined', () => {
-  it('should return an empty string', () => {
-    expect(getValue(undefined, undefined)).toBe('')
+  it('should return undefined', () => {
+    expect(getValue(undefined, undefined)).toBe(undefined)
   })
 })

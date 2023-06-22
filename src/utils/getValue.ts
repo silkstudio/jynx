@@ -2,7 +2,7 @@
 import type { DefaultTheme } from '../types/theme'
 
 // Utils
-import { get } from '.'
+import { get } from './get'
 
 /**
  *
@@ -22,9 +22,12 @@ import { get } from '.'
 
 */
 
-const getValue = (value: string | number = '', scale?: DefaultTheme[keyof DefaultTheme] | Record<string, any> | any[]): any => {
+const getValue = (value?: string | number, scale?: DefaultTheme[keyof DefaultTheme] | Record<string, any> | any[]): any => {
+  if (typeof value === 'undefined' || value === null) {
+    return undefined
+  }
   if (scale) {
-    return value === 0 ? get(scale, 0, value) : get(scale, value, value)
+    return typeof value === 'number' && value === 0 ? get(scale, 0, value) : get(scale, value, value)
   }
   return value
 }
