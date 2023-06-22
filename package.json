@@ -45,7 +45,6 @@
   "devDependencies": {
     "@testing-library/react": "^13.1.1",
     "@types/jest": "^27.0.3",
-    "@types/lodash.get": "^4.4.7",
     "@types/react": "^18.0.5",
     "@types/styled-components": "^5.1.15",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
@@ -75,8 +74,7 @@
   },
   "dependencies": {
     "csstype": "^3.0.10",
-    "deepmerge": "^4.2.2",
-    "lodash.get": "^4.4.2"
+    "deepmerge": "^4.2.2"
   },
   "peerDependencies": {
     "react": ">=17.0.2",
