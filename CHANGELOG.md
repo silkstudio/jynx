@@ -1,3 +1,12 @@
+## [1.3.3](https://github.com/silkstudio/jynx/compare/v1.3.2...v1.3.3) (2023-06-28)
+
+
+### Bug Fixes
+
+* add clean command to prevent stale dist getting published! ([3932dff](https://github.com/silkstudio/jynx/commit/3932dffa16771f3976945bcdabb495daa0d6dd96))
+
+
+
 ## [1.3.2](https://github.com/silkstudio/jynx/compare/v1.3.1...v1.3.2) (2023-06-28)
 
 

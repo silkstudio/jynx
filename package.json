@@ -1,6 +1,6 @@
 {
   "name": "jynx",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Rapidly create and control responsive, theme-focused and type-safe styled-components, directly from your jsx.",
   "main": "./dist/jynx.cjs.js",
   "module": "./dist/jynx.js",
