@@ -53,7 +53,9 @@ Check out the [introduction](https://jynx.vercel.app/introduction) to get up and
 
 Jynx uses [shipjs](https://github.com/algolia/shipjs) for managing it's releases. For devs issuing a new release, simply run `yarn release` in your local terminal and follow the CLI wizard.
 
-> __*N.B.*__ If you are experiencing auth issues with git/github you may need to authorise a new `GITHUB_TOKEN`.
+#### __Notes on Releasing__
+- When merging a shipjs-created PR always make sure to `Squash & Merge` *(failure to do so will cause issues due to the commit name)*.
+- If you are experiencing auth issues with git/github you may need to authorise a new `GITHUB_TOKEN`.
 
 ### 📄 &nbsp;License
 
