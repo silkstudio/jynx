@@ -1,9 +1,11 @@
 // Types
-import type { StyleFunctionConfig } from '../types/functions'
+import type { StyleFunction, StyleFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyleFunction } from '../constructors'
 import { gridConfig, GridProps } from './grid'
+import { createStylesObject } from '../constructors'
+import { fallbackTheme } from '../theme'
+import deepmerge from 'deepmerge'
 
 /*
 
@@ -66,6 +68,18 @@ config.rowEnd = config.gridRowEnd
 config.columnStart = config.gridColumnStart
 config.columnEnd = config.gridColumnEnd
 
-const extendedGrid = createStyleFunction<ExtendedGridProps>(config)
+const extendedGrid: StyleFunction<ExtendedGridProps> = ({ theme = {}, ...styles }) => {
+  const _theme = deepmerge(fallbackTheme, theme)
+
+  const result = createStylesObject<ExtendedGridProps>(styles, _theme, config)
+
+  if (Object.values(styles).some(i => !!i)) {
+    result.display = 'grid'
+  }
+
+  return result
+}
+
+extendedGrid.config = config
 
 export { extendedGrid, config as extendedGridConfig, ExtendedGridProps }

@@ -34,6 +34,7 @@ describe('When passing single style declarations', () => {
 
   it('should be able to parse the styles and return a CSSObject', () => {
     expect(test).toEqual({
+      display: 'grid',
       alignItems: 'flex-start'
     })
   })
@@ -57,6 +58,7 @@ describe('When passing responsive style objects', () => {
 
   it('should be able to parse the styles and return a CSSObject', () => {
     expect(test).toEqual({
+      display: 'grid',
       justifyContent: 'flex-start',
       '@media screen and (min-width: 640px)': {
         justifyContent: 'space-around'
@@ -86,6 +88,7 @@ describe('When passing responsive style arrays', () => {
 
   it('should be able to parse the styles and return a CSSObject', () => {
     expect(test).toEqual({
+      display: 'grid',
       alignItems: 'flex-start',
       '@media screen and (min-width: 640px)': {
         alignItems: 'stretch'
@@ -116,6 +119,7 @@ describe('When passing multiple responsive styles', () => {
 
   it('should be able to parse the styles and return a CSSObject', () => {
     expect(test).toEqual({
+      display: 'grid',
       alignItems: 'center',
       justifyContent: 'space-around',
       '@media screen and (min-width: 640px)': {
