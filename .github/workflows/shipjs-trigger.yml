@@ -16,14 +16,17 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 14
-          registry-url: "https://registry.npmjs.org"
+          registry-url: 'https://registry.npmjs.org'
       - run: |
           if [ -f "yarn.lock" ]; then
             yarn install
           else
             npm install
           fi
-      - run: npx shipjs trigger
+      - run: |
+          git config --global user.email "nathanhughes57@gmail.com"
+          git config --global user.name "Nathan Hughes"
+          npx shipjs trigger
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
