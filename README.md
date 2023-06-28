@@ -53,6 +53,8 @@ Check out the [introduction](https://jynx.vercel.app/introduction) to get up and
 
 Jynx uses [shipjs](https://github.com/algolia/shipjs) for managing it's releases. For devs issuing a new release, simply run `yarn release` in your local terminal and follow the CLI wizard.
 
+> __*N.B.*__ If you are experiencing auth issues with git/github you may need to authorise a new `GITHUB_TOKEN`.
+
 ### 📄 &nbsp;License
 
 `Jynx` is MIT licensed, Copyright © 2022-present 
