@@ -29,7 +29,8 @@
   },
   "homepage": "https://jynx.vercel.app",
   "scripts": {
-    "build": "rollup -c",
+    "clean": "rimraf dist",
+    "build": "yarn clean && rollup -c",
     "build:dev": "if [ -e \"dist\" ];then rm -rf \"dist\"; fi && rollup -c",
     "watch": "rollup -c -w",
     "format": "prettier --write \"src/**/*.+(ts|tsx|js|jsx|md)\"",
@@ -70,6 +71,7 @@
     "prettier": "^2.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rimraf": "^5.0.1",
     "rollup": "^2.60.0",
     "rollup-plugin-dts": "^4.0.1",
     "rollup-plugin-esbuild": "^4.6.0",
