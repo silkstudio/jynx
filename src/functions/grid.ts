@@ -2,10 +2,12 @@
 import type { Property } from 'csstype'
 import type { StyleProp } from '../types/css'
 import type { ThemeValue } from '../types/theme'
-import type { StyleFunctionConfig } from '../types/functions'
+import type { StyleFunction, StyleFunctionConfig } from '../types/functions'
 
 // Utils
-import { createStyleFunction } from '../constructors'
+import { createStylesObject } from '../constructors'
+import { fallbackTheme } from '../theme'
+import deepmerge from 'deepmerge'
 
 /*
 
@@ -139,6 +141,18 @@ interface GridProps {
   placeSelf?: StyleProp<Property.PlaceSelf>
 }
 
-const grid = createStyleFunction<GridProps>(config)
+const grid: StyleFunction<GridProps> = ({ theme = {}, ...styles }) => {
+  const _theme = deepmerge(fallbackTheme, theme)
+
+  const result = createStylesObject<GridProps>(styles, _theme, config)
+
+  if (Object.values(styles).some(i => !!i)) {
+    result.display = 'grid'
+  }
+
+  return result
+}
+
+grid.config = config
 
 export { grid, config as gridConfig, GridProps }
