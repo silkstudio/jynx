@@ -1,3 +1,12 @@
+# [1.4.0](https://github.com/silkstudio/jynx/compare/v1.3.2...v1.4.0) (2023-06-28)
+
+
+### Features
+
+* gridChild and extendedGridChild apis ([#442](https://github.com/silkstudio/jynx/issues/442)) ([2134620](https://github.com/silkstudio/jynx/commit/2134620700057a7b2849be062734690ce534d37d))
+
+
+
 ## [1.3.3](https://github.com/silkstudio/jynx/compare/v1.3.2...v1.3.3) (2023-06-28)
 
 
